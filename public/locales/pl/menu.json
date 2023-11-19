@@ -1,0 +1,13 @@
+{
+    "menuLinks": {
+        "dashboard": "Panel",
+        "quiz": "Kartkówka",
+        "instruction": "Instrukcja",
+        "profile": "Profil"
+    },
+    "quiz": "Quiz",
+    "menuSettings": {
+        "login": "Zaloguj się",
+        "logout": "Wyloguj się"
+    }
+}

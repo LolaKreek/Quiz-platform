@@ -1,4 +1,5 @@
 import { Box } from "@mui/material"
+import Menu from "../../components/Menu"
 import './styles.scss'
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 export const MainLayout = ({ children }: Props) => {
   return(
     <Box className='root'>
-      {/* <Sidebar /> */}
+      <Menu />
       <Box className='router-view'>
         {children}
       </Box>

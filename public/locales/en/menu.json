@@ -1,0 +1,13 @@
+{
+    "menuLinks": {
+        "dashboard": "Dashboard",
+        "quiz": "Quiz",
+        "instruction": "Instruction",
+        "profile": "Profile"
+    },
+    "quiz": "Quiz",
+    "menuSettings": {
+        "login": "Login",
+        "logout": "Logout"
+    }
+}

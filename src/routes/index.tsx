@@ -2,7 +2,7 @@ import loadable from "@loadable/component"
 import { LOGIN_PAGE, MAIN_PAGE } from "./pathnames"
 
 const Dashboard = loadable(() => import("../features/auth/components/LoginForm"))
-const Login = loadable(() => import("../features/auth/components/LoginForm"))
+const Login = loadable(() => import("../pages/Auth/index"))
 
 export const publicRoutes = [
     {
