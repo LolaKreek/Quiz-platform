@@ -1,38 +1,26 @@
+import { Suspense } from 'react'
+import { MainLayout } from './layouts/MainLayout'
+import { AppLoader } from './components/AppLoader'
+import { Route, Routes } from "react-router-dom";
+import { appRoutes } from './routes'
+import { MAIN_PAGE } from './routes/pathnames'
 import './App.css'
-import './App.css'
-import { CssBaseline } from '@mui/material'
-import { Provider } from 'react-redux'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { store } from './store'
-import Login from './pages/auth'
+import DashboardPage from './pages/Dashboard';
 
 function App() {
+  // const userId = useAppSelector(state => state.auth.user.id)
+
   return (
-    // <ThemeProvider theme={colorTheme}>
-    <>
-      <CssBaseline />
-      <Provider store={store}>
-        <BrowserRouter>
+    <MainLayout>
+      <Suspense fallback={<AppLoader show />}>
           <Routes>
-            {/* <Route path="/" element={<PrivateRoute><Menu /></PrivateRoute>} /> */}
-            {/* <Route path="/" element={<MainWrapper />} > */}
-              {/* <Route path='/' element={<Homepage />} /> */}
-
-              <Route path='/' element={<Login />} />
-              {/* <Route path='/register' element={<RegisterPage />} />
-              <Route path='/forgot-password' element={<ForgotPassword />} />
-              
-              <Route path='/quiz' element={<Quiz />} />
-              <Route path='/instruction' element={<Instruction />} />
-              <Route path='/profile' element={<Profile />} />
-
-              <Route path='/*' element={<NotFound />} /> */}
-            {/* </Route> */}
+            {appRoutes.map(({ path, Component }) => (
+              <Route key={path} path={path} element={<Component />} />
+            ))}
+            <Route key={MAIN_PAGE} path={MAIN_PAGE} element={<DashboardPage />} />
           </Routes>
-        </BrowserRouter>
-      </Provider>
-    </>
-    // </ThemeProvider>
+      </Suspense>
+    </MainLayout>
   )
 }
 
