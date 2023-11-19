@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import LoginForm from "../../features/auth/components/LoginForm";
 
-const Login = () => {
+const LoginPage = () => {
 
     return(
         <Box>
@@ -10,4 +10,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default LoginPage;
