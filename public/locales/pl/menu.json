@@ -5,7 +5,7 @@
         "instruction": "Instrukcja",
         "profile": "Profil"
     },
-    "quiz": "Quiz",
+    "quiz": "<span>Q</span>uiz",
     "menuSettings": {
         "login": "Zaloguj się",
         "logout": "Wyloguj się"

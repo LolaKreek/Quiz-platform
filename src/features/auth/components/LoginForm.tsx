@@ -1,18 +1,25 @@
-import { Button } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useFormik } from 'formik';
+import { Formik, useFormik } from 'formik';
 import { useTranslation } from 'react-i18next'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../../services/Firebase/firebase';
+import { QuizIcon } from '../../../assets/icons';
+import { loginSchema } from '../../../utils/validationSchemas';
+import { AppInput } from '../../../components/AppInput';
+import './styles.scss'
+import { AppButton } from '../../../components/AppButton';
 
 const LoginForm: React.FC = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const location = useLocation();
-    const {t} = useTranslation();
+    const {t} = useTranslation('login');
+
     const [error, serError] = useState(false);
+    const [submitted, setSubmitted] = useState(false)
 
     // const formik = useFormik({
     //     initialValues: {
@@ -44,7 +51,7 @@ const LoginForm: React.FC = () => {
     //     },
     // });
 
-    const handleClick = () => {
+    const loginUser = () => {
         signInWithEmailAndPassword(auth, 'bonstik5@mail.ru', 'Qwertyuiop1!')
             .then((userCredential) => {
                 // Signed in 
@@ -74,11 +81,67 @@ const LoginForm: React.FC = () => {
     }
 
     return (
-        <div>
-            <h1 className="login-page__main-header">Login page</h1>
-            <Button onClick={handleClick}>Sing In</Button>
-            <Button onClick={handleSignUp}>Sing Up</Button>
-        </div>
+        <Formik
+            initialValues={{ email: '', pwd: '' }}
+            validationSchema={loginSchema}
+            onSubmit={loginUser}
+            validateOnChange={submitted}
+            validateOnBlur={false}
+        >
+            {({ errors, values, handleChange, handleSubmit }) => (
+                <Box className='login__main-wrapper'>
+                    <Box className='login__container'>
+                        <QuizIcon className='logo' />
+
+                        <Box>
+                            <Typography className='text'>{t('signIn')}</Typography>
+                        </Box>
+
+                        <Typography className='input-label small-text'>{t('email')}</Typography>
+                        <AppInput 
+                            id="email"
+                            className='input'
+                            variant="outlined"
+                            value={values.email}
+                            // onChange={e => changeHandler(e, handleChange)}
+                            // error={!!errors.email || !!loginErrors}
+                            // onKeyUp={e => keyListener(e, handleSubmit)}
+                        />
+
+                        <Typography className='input-label small-text'>{t('password')}</Typography>
+                        <AppInput
+                            id="pwd"
+                            // type={showPassword ? 'text' : 'password'}
+                            className='input'
+                            variant="outlined"
+                            value={values.pwd}
+                            // onChange={e => changeHandler(e, handleChange)}
+                            // error={!!errors.pwd || !!loginErrors}
+                            // onKeyUp={e => keyListener(e, handleSubmit)}
+                            // InputProps={{
+                            // endAdornment:
+                            //     <InputAdornment position="end">
+                            //     <IconButton onClick={toggleShowPassword}>
+                            //         {showPassword ? <PasswordShownIcon  /> : <PasswordHiddenIcon />}
+                            //     </IconButton>
+                            //     </InputAdornment>,
+                            // }}
+                        />
+
+                        <AppButton
+                            // disabled={loginIsLoading}
+                            // onClick={() => {
+                            // if (!submitted) setSubmitted(true)
+                            // handleSubmit()}
+                            // }
+                            className='button'
+                        >
+                            {t('signInBtn')}
+                        </AppButton>
+                    </Box>
+                </Box>
+            )}
+        </Formik>
     );
 };
 

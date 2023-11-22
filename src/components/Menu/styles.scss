@@ -1,7 +1,6 @@
 .menu{
   &__drawer {
     background-color: '#111111';
-    width: 100%;
     max-width: 264px;
     color: white;
     border: none;
@@ -48,9 +47,11 @@
 
   &__page-name{
     margin-top: 10px!important;
-    text-transform: uppercase;
-    color: #6062FF;
     font-weight: 600!important;
+
+    span{
+      color: #6062FF;
+    }
   }
 }
 

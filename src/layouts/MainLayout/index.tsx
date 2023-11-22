@@ -9,7 +9,10 @@ type Props = {
 export const MainLayout = ({ children }: Props) => {
   return(
     <Box className='root'>
-      <Menu />
+      <Box className="side-menu">
+        <Menu />
+      </Box>
+
       <Box className='router-view'>
         {children}
       </Box>

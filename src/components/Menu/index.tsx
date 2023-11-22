@@ -21,13 +21,15 @@ const Menu = () => {
         >
             <Link to={MAIN_PAGE} className='menu__logo-container logo'>
                 <QuizIcon className="logo__icon" />
-                <Typography className="logo__page-name">{t('quiz')}</Typography>
+                <Typography 
+                    className="logo__page-name"
+                    dangerouslySetInnerHTML = {{__html: t('quiz')} }
+                />
             </Link>
             
             <List className='menu__links-container'>
                 {links.map(({ Icon, title, path }) => (
                     <NavLink
-                        // onClick={() => setOpenMenu(false)}
                         to={path}
                         // activeClassName='activeLink'
                         className='link'
@@ -44,7 +46,6 @@ const Menu = () => {
             <List className='menu__logout-container'>
                 {settings.map(({ Icon, title, path }) => (
                     <NavLink
-                        // onClick={() => setOpenMenu(false)}
                         to={path}
                         // activeClassName='activeLink'
                         className='link'

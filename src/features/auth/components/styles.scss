@@ -1,0 +1,54 @@
+.login__main-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    overflow: auto;
+    height: 100vh;
+
+    &.MuiBox-root{
+        border: 1px solid red;
+    }
+}
+
+.login__container{
+    margin: auto;
+    height: 600;
+    max-width: 300px;
+    padding: 3%;
+    width: 440px;
+    border-radius: 8px;
+    border: 1px solid #6062FF;
+}
+
+.text {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 4%;
+    color: black;
+    text-transform: 'unset';
+}
+
+.input{
+    width: 300px;
+    margin-bottom: 6%;
+
+    .MuiInputBase-input{
+        padding: 8px 5px;
+    }
+}
+
+.input-label{
+    color: #6B6B6B;
+    margin-bottom: 4%;
+}
+
+.small-text {
+    font-size: 15px;
+}
+
+.button{
+    margin-bottom: 5%;
+    padding: 3%;
+}

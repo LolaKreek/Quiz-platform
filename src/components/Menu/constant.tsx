@@ -8,13 +8,14 @@ import {
     QUIZ_PAGE 
 } from "../../routes/pathnames";
 import { useMemo } from "react";
-import { DashboardIcon, InstructionIcon, LoginIcon, LogoutIcon, ProfileIcon, QuizIcon } from "../../assets/icons";
+import { InstructionIcon, LoginIcon, LogoutIcon, ProfileIcon, QuizIcon } from "../../assets/icons";
+import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 
 const menuLinks = [
     {
         path: MAIN_PAGE,
         translationKey: 'dashboard',
-        Icon: DashboardIcon,
+        Icon: SpaceDashboardIcon,
         exact: true
     },
     {

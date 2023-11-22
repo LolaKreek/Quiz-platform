@@ -1,7 +1,19 @@
 .root{
-    display: 'flex';
+    width: 100%;
+    display: grid;
+    height: 100%;
+    gap: 0;
+    grid-template-columns: 155px calc(100% - 155px);
+    grid-template-areas: "side-menu  router-view";
+}
 
-    .router-view{
-        flex-grow: 1;
-    }
+.side-menu{
+    grid-area: 'side-menu';
+}
+
+.router-view{
+    grid-area: 'router-view';
+    min-height: 100vh;
+    background-color: #F0F0FF;
+    color: #6062FF
 }
