@@ -17,6 +17,7 @@ import './styles.scss'
 import { INVALID_DATA } from './constant';
 import { authLogin } from '../../../store/Slices/auth';
 import { userType } from './types';
+import { addNotification } from '../../../store/Slices/notification';
 
 const LoginForm: React.FC = () => {
     const navigate = useNavigate();
@@ -43,7 +44,8 @@ const LoginForm: React.FC = () => {
                     roles: []
                 }
                 dispatch(authLogin({user: userData, token: user.accessToken}))
-                navigate('/');
+                dispatch(addNotification({header: t('notificationLoginHeader'), message: t('notificationLoginMessage'), status: true}))
+                navigate('/')
             })
             .catch((error) => {
                 setRequestError(error.code)

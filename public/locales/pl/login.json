@@ -9,5 +9,7 @@
     "loginIncorrect": "Przepraszamy, Twój adres e-mail lub hasło jest nieprawidłowe",
     "help": "Możemy Ci pomóc",
     "recoverPassword": "odzyskaj swoje hasło?",
-    "invalidLoginCredentials": "Nieprawidłowe dane logowania. Proszę sprawdzić swoje dane"
+    "invalidLoginCredentials": "Nieprawidłowe dane logowania. Proszę sprawdzić swoje dane",
+    "notificationLoginHeader": "Akcja logowania",
+    "notificationLoginMessage": "Pomyślnie zarejestrowałeś się na platformie"
 }

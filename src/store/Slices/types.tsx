@@ -18,3 +18,9 @@ export interface AuthState {
 export type AppState = {
     isLocked: boolean
 }
+
+export type NotificationState = {
+    header: string,
+    message: string,
+    status: boolean,
+}

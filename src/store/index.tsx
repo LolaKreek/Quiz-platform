@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import auth from '../store/Slices/auth';
+import notification from "./Slices/notification";
 
 export const store = configureStore({
     reducer: {
-        auth
+        auth,
+        notification
     },
     devTools: import.meta.env.NODE_ENV != 'production'
 })

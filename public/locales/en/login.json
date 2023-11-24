@@ -9,5 +9,7 @@
     "loginIncorrect": "Sorry, your email or password is incorrect",
     "help": "We can help you",
     "recoverPassword": "recover your password?",
-    "invalidLoginCredentials": "Invalid login credentials. Please check you data"
+    "invalidLoginCredentials": "Invalid login credentials. Please check you data",
+    "notificationLoginHeader": "Login action",
+    "notificationLoginMessage": "You have successfully login on the platform"
 }
