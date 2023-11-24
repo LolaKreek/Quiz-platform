@@ -8,5 +8,6 @@
     "signUp": "Sign Up",
     "loginIncorrect": "Sorry, your email or password is incorrect",
     "help": "We can help you",
-    "recoverPassword": "recover your password?"
+    "recoverPassword": "recover your password?",
+    "invalidLoginCredentials": "Invalid login credentials. Please check you data"
 }

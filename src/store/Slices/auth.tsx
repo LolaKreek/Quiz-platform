@@ -8,11 +8,14 @@ const initialState: AuthState = {
     user: {
       id: '',
       name: '',
-      surname: '',
+      email: '',
+      emailVerified: false,
+      isAnonymous: false,
+      phoneNumber: '',
+      photoURL: '',
       roles: []
     },
     token: '',
-    expirationDate: ''
 }
 
 export const authSlice = createSlice({
@@ -20,15 +23,22 @@ export const authSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    authLogin: (state, action: PayloadAction<{ user: UserType; token: string, expirationDate: string}>) => {
+    authLogin: (state, action: PayloadAction<{ user: UserType; token: string }>) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
-        state.expirationDate = action.payload.expirationDate;
     },
     authLogout: (state) => {
-        state.user = {id: '', name: '', surname: '', roles: []};
+        state.user = {
+          id: '',
+          name: '',
+          email: '',
+          emailVerified: false,
+          isAnonymous: false,
+          phoneNumber: '',
+          photoURL: '',
+          roles: []
+        };
         state.token = '';
-        state.expirationDate = ''
     },
   },
 })

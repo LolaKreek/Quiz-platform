@@ -34,3 +34,7 @@ body {
   transform: translateY(0);
   transition-duration: 300ms;
 }
+
+button:focus, button:focus-visible {
+  outline: unset!important;
+}

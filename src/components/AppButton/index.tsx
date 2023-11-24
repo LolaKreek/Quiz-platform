@@ -4,16 +4,18 @@ import './styles.scss'
 
 type Props = {
     children: string | JSX.Element | JSX.Element[],
-    className: string
+    className: string,
+    onClick: React.MouseEventHandler<HTMLButtonElement>
 } 
 
-export const AppButton = forwardRef(({ children, className, ...props }:Props, ref) => {
+export const AppButton = forwardRef(({ children, className, onClick, ...props }:Props, ref:any) => {
 
   return <Button
-            // ref={ref}
+            ref={ref}
             className={`root ${className}`}
             variant="contained"
             color="primary"
+            onClick={onClick}
             {...props}
         >
             {children}

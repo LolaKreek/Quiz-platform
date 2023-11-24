@@ -1,87 +1,77 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, IconButton, InputAdornment, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Formik, useFormik } from 'formik';
+import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next'
-import { useLocation, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+
 import { auth } from '../../../services/Firebase/firebase';
 import { loginSchema } from '../../../utils/validationSchemas';
 import { AppInput } from '../../../components/AppInput';
 import { AppButton } from '../../../components/AppButton';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { ErrorOverLay } from '../../../components/ErrorOverLay';
 import './styles.scss'
+import { INVALID_DATA } from './constant';
+import { authLogin } from '../../../store/Slices/auth';
+import { userType } from './types';
 
 const LoginForm: React.FC = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const location = useLocation();
     const {t} = useTranslation('login');
 
-    const [error, serError] = useState(false);
     const [submitted, setSubmitted] = useState(false)
+    const [showPassword, setShowPassword] = useState(false)
+    const [requestError, setRequestError] = useState('')
 
-    // const formik = useFormik({
-    //     initialValues: {
-    //       login: '',
-    //       password: '',
-    //     },
-    //     isInitialValid: false,
-    //     // validationSchema: validationSchema,
-    //     onSubmit: (values) => {
-    //         try {
-    //             userLogin(values.login, values.password)
-    //                 .then((e:any) => {
-    //                     // const token:tokenType = jwt_decode(e.Token)
-    //                     const token:tokenType = e.Token
-    //                     const user = {id: '1', name: token.firstName, surname: token.lastName, roles: token.roles}
-
-    //                     dispatch(authLogin({user, token: e.Token, expirationDate: e.Expiration}));
-    //                     if(location.search){
-    //                         const redirectUrl = location.search.substring(1);
-    //                         navigate(redirectUrl)
-    //                     }else{
-    //                         navigate('/');
-    //                     }
-    //                 })
-    //                 .catch(() => {serError(true)});
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     },
-    // });
-
-    const loginUser = () => {
-        signInWithEmailAndPassword(auth, 'bonstik5@mail.ru', 'Qwertyuiop1!')
+    const loginUser = ({ email, password }: {email: string, password: string}) => {
+        signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
-                const user = userCredential.user;
-                console.log("user sign in: ", user);
-                // ...
+                const user:userType = userCredential.user;
+                const userData = {
+                    id: user.uid,
+                    name: user.displayName,
+                    email: user.email,
+                    emailVerified: user.emailVerified,
+                    isAnonymous: user.isAnonymous,
+                    phoneNumber: user.phoneNumber,
+                    photoURL: user.photoURL,
+                    roles: []
+                }
+                dispatch(authLogin({user: userData, token: user.accessToken}))
+                navigate('/');
             })
             .catch((error) => {
-                console.log("Error", error.code);
-                console.log("Error",error.message);
+                setRequestError(error.code)
             });
     }
 
-    const handleSignUp = () => {
-        createUserWithEmailAndPassword(auth, 'ex@gmail.com', 'Qwertyuiop1!')
-            .then((userCredential) => {
-                // Signed up 
-                const user = userCredential.user;
-                console.log("user register: ", user);
-                // ...
-            })
-            .catch((error) => {;
-                console.log("Error", error.code);
-                console.log("Error",error.message);
-                // ..
-            });
+    // const handleSignUp = () => {
+    //     createUserWithEmailAndPassword(auth, 'ex@gmail.com', 'Qwertyuiop1!')
+    //         .then((userCredential) => {
+    //             // Signed up 
+    //             const user = userCredential.user;
+    //             console.log("user register: ", user);
+    //             // ...
+    //         })
+    //         .catch((error) => {;
+    //             console.log("Error", error.code);
+    //             console.log("Error",error.message);
+    //             // ..
+    //         });
+    // }
+
+    const toggleShowPassword = () => {
+        setShowPassword(!showPassword)
     }
 
     return (
         <Formik
-            initialValues={{ email: '', pwd: '' }}
+            initialValues={{ email: '', password: '' }}
             validationSchema={loginSchema}
             onSubmit={loginUser}
             validateOnChange={submitted}
@@ -99,42 +89,58 @@ const LoginForm: React.FC = () => {
                             id="email"
                             className='input'
                             variant="outlined"
+                            type={'email'}
                             value={values.email}
-                            // onChange={e => changeHandler(e, handleChange)}
-                            // error={!!errors.email || !!loginErrors}
-                            // onKeyUp={e => keyListener(e, handleSubmit)}
+                            onChange={(e) => {
+                                if(requestError) setRequestError('')
+                                handleChange(e)
+                            }}
+                            error={!!errors.email}
                         />
 
                         <Typography className='input-label small-text'>{t('password')}</Typography>
                         <AppInput
-                            id="pwd"
-                            // type={showPassword ? 'text' : 'password'}
+                            id="password"
+                            type={showPassword ? 'text' : 'password'}
                             className='input'
                             variant="outlined"
-                            value={values.pwd}
-                            // onChange={e => changeHandler(e, handleChange)}
-                            // error={!!errors.pwd || !!loginErrors}
-                            // onKeyUp={e => keyListener(e, handleSubmit)}
-                            // InputProps={{
-                            // endAdornment:
-                            //     <InputAdornment position="end">
-                            //     <IconButton onClick={toggleShowPassword}>
-                            //         {showPassword ? <PasswordShownIcon  /> : <PasswordHiddenIcon />}
-                            //     </IconButton>
-                            //     </InputAdornment>,
-                            // }}
+                            value={values.password}
+                            onChange={(e) => {
+                                if(requestError) setRequestError('')
+                                handleChange(e)
+                            }}
+                            error={!!errors.password}
+                            InputProps={{
+                                endAdornment:
+                                    <InputAdornment position="end">
+                                        <IconButton onClick={toggleShowPassword}>
+                                            {showPassword ? <VisibilityIcon  /> : <VisibilityOffIcon />}
+                                        </IconButton>
+                                    </InputAdornment>,
+                            }}
                         />
 
                         <AppButton
-                            // disabled={loginIsLoading}
-                            // onClick={() => {
-                            // if (!submitted) setSubmitted(true)
-                            // handleSubmit()}
-                            // }
+                            onClick={() => {
+                                if (!submitted) setSubmitted(true)
+                                handleSubmit()}
+                            }
                             className='button'
                         >
                             {t('signInBtn')}
                         </AppButton>
+
+                        {(errors.email || errors.password) &&
+                            <ErrorOverLay>
+                                {errors.email || errors.password}
+                            </ErrorOverLay>
+                        }
+
+                        {requestError === INVALID_DATA &&
+                            <ErrorOverLay>
+                                {t('invalidLoginCredentials')}
+                            </ErrorOverLay>
+                        }
                     </Box>
                 </Box>
             )}
