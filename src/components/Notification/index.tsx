@@ -6,7 +6,6 @@ import { propsType } from "./types";
 import './styles.scss'
 
 const Notification = ({message, element, header, type}: propsType) => {
-    console.log("element: ", element);
     return(
         <Box className={`notification__root ${type === 'error' ? 'error' : (type === 'success' ? 'success' : 'info')}`}>
             <Box className='notification__content'>

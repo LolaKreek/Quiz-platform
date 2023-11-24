@@ -58,3 +58,20 @@
 .menu-link__icon{
   margin-right: 20px;
 }
+
+a.link-unactive {
+  &:hover {
+    transition: all .4s;
+    background-color: rgba(136, 137, 255, .3);
+  }
+}
+
+a.active{
+  color: white;
+  background-color: #8889FF;
+  transition: all .7s;
+
+    &:hover {
+      color: white;
+    }
+}

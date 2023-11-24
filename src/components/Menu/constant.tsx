@@ -30,28 +30,28 @@ const menuLinks = [
         Icon: InstructionIcon,
         exact: true
     },
-    {
-        path: PROFILE_PAGE,
-        translationKey: 'profile',
-        Icon: ProfileIcon,
-        exact: true
-    }
 ]
 
-const settingLinks = [
-    {
-        path: LOGIN_PAGE,
-        translationKey: 'login',
-        Icon: LoginIcon,
-        exact: true
-    },
-    {
-        path: LOGOUT_PAGE,
-        translationKey: 'logout',
-        Icon: LogoutIcon,
-        exact: true
-    },
-]
+const profileLink = {
+    path: PROFILE_PAGE,
+    translationKey: 'profile',
+    Icon: ProfileIcon,
+    exact: true
+}
+
+const loginLink = {
+    path: LOGIN_PAGE,
+    translationKey: 'login',
+    Icon: LoginIcon,
+    exact: true
+}
+
+const logoutLink = {
+    path: LOGOUT_PAGE,
+    translationKey: 'logout',
+    Icon: LogoutIcon,
+    exact: true
+}
 
 export const useSidebarData = () => {
     const { t } = useTranslation('menu')
@@ -60,9 +60,17 @@ export const useSidebarData = () => {
       return menuLinks.map(i => ({ ...i, title: t(`menuLinks.${i.translationKey}`) }))
     }, [t])
 
-    const settings = useMemo(() => {
-        return settingLinks.map(i => ({ ...i, title: t(`menuSettings.${i.translationKey}`) }))
-      }, [t])
+    const profile = useMemo(() => {
+        return { ...profileLink, title: t(`${profileLink.translationKey}`) }
+    }, [t])
+
+    const login = useMemo(() => {
+        return { ...loginLink, title: t(`menuSettings.${loginLink.translationKey}`) }
+    }, [t])
+
+    const loginout = useMemo(() => {
+        return { ...logoutLink, title: t(`menuSettings.${logoutLink.translationKey}`) }
+    }, [t])
   
-    return { links, settings }
+    return { links, login, loginout, profile }
   }

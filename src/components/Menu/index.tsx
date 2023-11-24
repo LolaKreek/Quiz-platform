@@ -4,12 +4,16 @@ import { MAIN_PAGE } from "../../routes/pathnames"
 import { useSidebarData } from "./constant"
 import { QuizIcon } from "../../assets/icons"
 import { useTranslation } from "react-i18next"
+import { useSelector } from "react-redux"
+import { RootState } from "../../store"
+import { selectUserId } from "../../store/Slices/auth"
 
 import './styles.scss'
 
 const Menu = () => {
-    const { links, settings } = useSidebarData()
+    const { links, login, loginout, profile } = useSidebarData()
     const { t } = useTranslation('menu')
+    const userId = useSelector((state: RootState) => selectUserId(state))
 
     return(
         <Drawer
@@ -31,8 +35,7 @@ const Menu = () => {
                 {links.map(({ Icon, title, path }) => (
                     <NavLink
                         to={path}
-                        // activeClassName='activeLink'
-                        className='link'
+                        className={({ isActive }) => isActive ? "active" : "link-unactive" }
                         key={path}
                     >
                         <ListItem className='menu-link'>
@@ -41,23 +44,45 @@ const Menu = () => {
                         </ListItem>
                     </NavLink>
                 ))}
+                {userId && <NavLink
+                        to={profile.path}
+                        className={({ isActive }) => isActive ? "active" : "link-unactive" }
+                        key={profile.path}
+                    >
+                        <ListItem className='menu-link'>
+                            {profile.Icon && <profile.Icon className="menu-link__icon" />}
+                            <ListItemText primary={profile.title} />
+                        </ListItem>
+                    </NavLink>
+                }
             </List>
 
-            <List className='menu__logout-container'>
-                {settings.map(({ Icon, title, path }) => (
+            {userId ? 
+                <List className='menu__logout-container'>
                     <NavLink
-                        to={path}
-                        // activeClassName='activeLink'
-                        className='link'
-                        key={path}
+                        to={loginout.path}
+                        className={({ isActive }) => isActive ? "active" : "link-unactive" }
+                        key={loginout.path}
                     >
                         <ListItem className='menu-link'>
-                            {Icon && <Icon className="menu-link__icon" />}
-                            <ListItemText primary={title} />
+                            {loginout.Icon && <loginout.Icon className="menu-link__icon" />}
+                            <ListItemText primary={loginout.title} />
                         </ListItem>
                     </NavLink>
-                ))}
-            </List>
+                </List> : 
+                <List className='menu__logout-container'>
+                    <NavLink
+                        to={login.path}
+                        className={({ isActive }) => isActive ? "active" : "link-unactive" }
+                        key={login.path}
+                    >
+                        <ListItem className='menu-link'>
+                            {login.Icon && <login.Icon className="menu-link__icon" />}
+                            <ListItemText primary={login.title} />
+                        </ListItem>
+                    </NavLink>
+                </List>
+            }
         </Drawer>
     )
 }

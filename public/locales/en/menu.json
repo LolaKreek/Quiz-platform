@@ -9,5 +9,6 @@
     "menuSettings": {
         "login": "Login",
         "logout": "Logout"
-    }
+    },
+    "profile": "Profile"
 }
