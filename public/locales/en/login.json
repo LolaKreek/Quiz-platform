@@ -11,5 +11,13 @@
     "recoverPassword": "recover your password?",
     "invalidLoginCredentials": "Invalid login credentials. Please check you data",
     "notificationLoginHeader": "Login action",
-    "notificationLoginMessage": "You have successfully login on the platform"
+    "notificationLoginMessage": "You have successfully login on the platform",
+    "notificationSignUpHeader": "Sign Up action",
+    "notificationSignUpMessage": "You have successfully create an account on the platform. Please Login",
+    "registerInfo": "Don't have an account yet?",
+    "registerSignIn": "Sign Up",
+    "register": "Create an account using email",
+    "loginInfo": "Already have an account?",
+    "registerLoginIn": "Log In",
+    "signUpBtn": "Sign Up"
 }

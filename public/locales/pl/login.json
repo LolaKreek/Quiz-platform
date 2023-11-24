@@ -11,5 +11,12 @@
     "recoverPassword": "odzyskaj swoje hasło?",
     "invalidLoginCredentials": "Nieprawidłowe dane logowania. Proszę sprawdzić swoje dane",
     "notificationLoginHeader": "Akcja logowania",
-    "notificationLoginMessage": "Pomyślnie zarejestrowałeś się na platformie"
+    "notificationLoginMessage": "Pomyślnie zarejestrowałeś się na platformie",
+    "notificationSignUpHeader": "Akcja rejestracji",
+    "notificationSignUpMessage": "Pomyślnie zarejestrowałeś konto na platformie. Zloguj sie",
+    "registerInfo": "Nie masz jeszcze konta?",
+    "registerSignIn": "Zarejestrować się",
+    "register": "Utwórz konto za pomocą email",
+    "loginInfo": "Posiadasz już konto?",
+    "registerLoginIn": "Zalogować się"
 }

@@ -52,3 +52,21 @@
     margin-bottom: 5%;
     padding: 3%;
 }
+
+.login__register-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 4%;
+}
+
+.login__register-info{
+    color: black;
+    font-size: 13px;
+}
+
+.login__register-sign-in{
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 600;
+}

@@ -1,25 +1,23 @@
-import { Box, IconButton, InputAdornment, Typography } from '@mui/material';
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Formik } from 'formik';
-import { useTranslation } from 'react-i18next'
-import { Link, useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { Box, IconButton, InputAdornment, Typography } from "@mui/material"
+import { Formik } from "formik"
+import { Link, useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { useTranslation } from "react-i18next"
+import { useState } from "react"
+import { registerSchema } from "../../../utils/validationSchemas"
+import { AppInput } from "../../../components/AppInput"
+import { AppButton } from "../../../components/AppButton"
+import { ErrorOverLay } from "../../../components/ErrorOverLay"
+import { INVALID_DATA } from "./constant"
+import { createUserWithEmailAndPassword } from "firebase/auth"
+import { auth } from "../../../services/Firebase/firebase"
+import { addNotification } from "../../../store/Slices/notification"
 
-import { auth } from '../../../services/Firebase/firebase';
-import { loginSchema } from '../../../utils/validationSchemas';
-import { AppInput } from '../../../components/AppInput';
-import { AppButton } from '../../../components/AppButton';
-import { ErrorOverLay } from '../../../components/ErrorOverLay';
-import { INVALID_DATA } from './constant';
-import { authLogin } from '../../../store/Slices/auth';
-import { userType } from './types';
-import { addNotification } from '../../../store/Slices/notification';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import './styles.scss'
 
-const LoginForm: React.FC = () => {
+const SignInForm = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {t} = useTranslation('login');
@@ -28,25 +26,13 @@ const LoginForm: React.FC = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [requestError, setRequestError] = useState('')
 
-    const loginUser = ({ email, password }: {email: string, password: string}) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user:userType = userCredential.user;
-                const userData = {
-                    id: user.uid,
-                    name: user.displayName,
-                    email: user.email,
-                    emailVerified: user.emailVerified,
-                    isAnonymous: user.isAnonymous,
-                    phoneNumber: user.phoneNumber,
-                    photoURL: user.photoURL,
-                    roles: []
-                }
-                dispatch(authLogin({user: userData, token: user.accessToken}))
-                dispatch(addNotification({header: t('notificationLoginHeader'), message: t('notificationLoginMessage'), type: 'info', status: true}))
-                navigate('/')
+    const handleSignUp = ({ email, password }: {email: string, password: string}) => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(() => {
+                dispatch(addNotification({header: t('notificationSignUpHeader'), message: t('notificationSignUpMessage'), type: 'info', status: true}))
+                navigate('/login')
             })
-            .catch((error) => {
+            .catch((error) => {;
                 setRequestError(error.code)
             });
     }
@@ -55,11 +41,11 @@ const LoginForm: React.FC = () => {
         setShowPassword(!showPassword)
     }
 
-    return (
+    return(
         <Formik
             initialValues={{ email: '', password: '' }}
-            validationSchema={loginSchema}
-            onSubmit={loginUser}
+            validationSchema={registerSchema}
+            onSubmit={handleSignUp}
             validateOnChange={submitted}
             validateOnBlur={false}
         >
@@ -67,7 +53,7 @@ const LoginForm: React.FC = () => {
                 <Box className='login__main-wrapper'>
                     <Box className='login__container'>
                         <Box>
-                            <Typography className='text'>{t('signIn')}</Typography>
+                            <Typography className='text'>{t('register')}</Typography>
                         </Box>
 
                         <Typography className='input-label small-text'>{t('email')}</Typography>
@@ -113,12 +99,12 @@ const LoginForm: React.FC = () => {
                             }
                             className='button'
                         >
-                            {t('signInBtn')}
+                            {t('signUpBtn')}
                         </AppButton>
 
                         <Box className="login__register-wrapper">
-                            <Typography className='login__register-info'>{t('registerInfo')}</Typography>
-                            <Link to='/register' className='login__register-sign-in'>{t('registerSignIn')}</Link>
+                            <Typography className='login__register-info'>{t('loginInfo')}</Typography>
+                            <Link to='/login' className='login__register-sign-in'>{t('registerLoginIn')}</Link>
                         </Box>
 
                         {(errors.email || errors.password) &&
@@ -136,7 +122,7 @@ const LoginForm: React.FC = () => {
                 </Box>
             )}
         </Formik>
-    );
-};
+    )
+}
 
-export default LoginForm;
+export default SignInForm;
