@@ -1,11 +1,13 @@
-// import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import App from './App'
+import { tokenLogin } from './store/Slices/auth'
+import { getUserLocalData } from './store/userLocalStorage'
 
 export const MainEntry = () => {
-//   const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-//   const token = getUserLocalData()
-//   if (token) dispatch(tokenLoginRoutine())
+  const user = getUserLocalData()
+  if (user) dispatch(tokenLogin(user))
   
   return <App />
 }

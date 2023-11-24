@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../store'
 import { AuthState, UserType } from './types'
+import { deleteUserLocalData, setUserLocalData } from '../userLocalStorage'
 
 // Define the initial state using that type
 const initialState: AuthState = {
@@ -24,26 +25,32 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     authLogin: (state, action: PayloadAction<{ user: UserType; token: string }>) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
+      setUserLocalData({user: action.payload.user, token: action.payload.token});
+      state.user = action.payload.user;
+      state.token = action.payload.token;
     },
     authLogout: (state) => {
-        state.user = {
-          id: '',
-          name: '',
-          email: '',
-          emailVerified: false,
-          isAnonymous: false,
-          phoneNumber: '',
-          photoURL: '',
-          roles: []
-        };
-        state.token = '';
+      deleteUserLocalData();
+      state.user = {
+        id: '',
+        name: '',
+        email: '',
+        emailVerified: false,
+        isAnonymous: false,
+        phoneNumber: '',
+        photoURL: '',
+        roles: []
+      };
+      state.token = '';
     },
+    tokenLogin: (state, action: PayloadAction<{ user: UserType; token: string }>) => {
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+    }
   },
 })
 
-export const { authLogin, authLogout } = authSlice.actions
+export const { authLogin, authLogout, tokenLogin } = authSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectUserId = (state: RootState) => state.auth.user.id
