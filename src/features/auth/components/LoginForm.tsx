@@ -6,11 +6,10 @@ import { useTranslation } from 'react-i18next'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../../services/Firebase/firebase';
-import { QuizIcon } from '../../../assets/icons';
 import { loginSchema } from '../../../utils/validationSchemas';
 import { AppInput } from '../../../components/AppInput';
-import './styles.scss'
 import { AppButton } from '../../../components/AppButton';
+import './styles.scss'
 
 const LoginForm: React.FC = () => {
     const navigate = useNavigate();
@@ -91,8 +90,6 @@ const LoginForm: React.FC = () => {
             {({ errors, values, handleChange, handleSubmit }) => (
                 <Box className='login__main-wrapper'>
                     <Box className='login__container'>
-                        <QuizIcon className='logo' />
-
                         <Box>
                             <Typography className='text'>{t('signIn')}</Typography>
                         </Box>
