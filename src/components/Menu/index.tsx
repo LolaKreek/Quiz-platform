@@ -1,19 +1,28 @@
-import { Drawer, List, ListItem, ListItemText, Typography } from "@mui/material"
-import { Link, NavLink } from "react-router-dom"
+import { Box, Drawer, List, ListItem, ListItemText, Typography } from "@mui/material"
+import { Link, NavLink, useNavigate } from "react-router-dom"
 import { MAIN_PAGE } from "../../routes/pathnames"
 import { useSidebarData } from "./constant"
 import { QuizIcon } from "../../assets/icons"
 import { useTranslation } from "react-i18next"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../store"
-import { selectUserId } from "../../store/Slices/auth"
+import { authLogout, selectUserId } from "../../store/Slices/auth"
 
 import './styles.scss'
+import { addNotification } from "../../store/Slices/notification"
 
 const Menu = () => {
     const { links, login, loginout, profile } = useSidebarData()
     const { t } = useTranslation('menu')
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const userId = useSelector((state: RootState) => selectUserId(state))
+
+    const handleLogout = () => {
+        dispatch(authLogout())
+        dispatch(addNotification({header: t('notificationLogoutHeader'), message: t('notificationLogoutMessage'), type: 'info', status: true}))
+        navigate('/login')
+    }
 
     return(
         <Drawer
@@ -58,18 +67,12 @@ const Menu = () => {
             </List>
 
             {userId ? 
-                <List className='menu__logout-container'>
-                    <NavLink
-                        to={loginout.path}
-                        className={({ isActive }) => isActive ? "active" : "link-unactive" }
-                        key={loginout.path}
-                    >
-                        <ListItem className='menu-link'>
-                            {loginout.Icon && <loginout.Icon className="menu-link__icon" />}
-                            <ListItemText primary={loginout.title} />
-                        </ListItem>
-                    </NavLink>
-                </List> : 
+                <Box className='menu__logout-container' onClick={handleLogout}>
+                    <ListItem className='menu-link logout'>
+                        {loginout.Icon && <loginout.Icon className="menu-link__icon" />}
+                        <ListItemText primary={loginout.title} />
+                    </ListItem>
+                </Box> : 
                 <List className='menu__logout-container'>
                     <NavLink
                         to={login.path}

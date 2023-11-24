@@ -22,5 +22,6 @@ export type AppState = {
 export type NotificationState = {
     header: string,
     message: string,
+    type: string,
     status: boolean,
 }

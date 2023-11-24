@@ -10,5 +10,7 @@
         "login": "Login",
         "logout": "Logout"
     },
-    "profile": "Profile"
+    "profile": "Profile",
+    "notificationLogoutHeader": "Logout action",
+    "notificationLogoutMessage": "You have successfully logged out of the platform"
 }

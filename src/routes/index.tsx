@@ -1,8 +1,7 @@
 import loadable from "@loadable/component"
 import { 
     INSTRUCTION_PAGE, 
-    LOGIN_PAGE, 
-    LOGOUT_PAGE, 
+    LOGIN_PAGE,
     MAIN_PAGE, 
     PROFILE_PAGE, 
     QUIZ_PAGE 
@@ -13,7 +12,6 @@ const Quiz = loadable(() => import("../pages/Quiz/index"))
 const Instruction = loadable(() => import("../pages/Instruction/index"))
 const Profile = loadable(() => import("../pages/Profile/index"))
 const Login = loadable(() => import("../pages/Auth/Login"))
-const Logout = loadable(() => import("../pages/Auth/Logout"))
 
 export const publicRoutes = [
     {path: MAIN_PAGE, Component: Dashboard},
@@ -21,7 +19,6 @@ export const publicRoutes = [
 
 export const appRoutes = [
     {path: LOGIN_PAGE, Component: Login},
-    {path: LOGOUT_PAGE, Component: Logout},
     {path: QUIZ_PAGE, Component: Quiz},
     {path: INSTRUCTION_PAGE, Component: Instruction},
     {path: PROFILE_PAGE, Component: Profile},

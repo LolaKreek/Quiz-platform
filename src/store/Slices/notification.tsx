@@ -6,6 +6,7 @@ import { NotificationState } from "./types";
 const initialState: NotificationState = {
     header: '',
     message: '',
+    type: '',
     status: false,
 }
 
@@ -16,11 +17,13 @@ export const notificationSlice = createSlice({
     addNotification: (state, action: PayloadAction<NotificationState>) => {
         state.header = action.payload.header;
         state.message = action.payload.message;
+        state.type = action.payload.type;
         state.status = true;
     },
     deleteNotification: (state) => {
         state.header = '';
         state.message = '';
+        state.type = '';
         state.status = false;
     },
   },

@@ -26,6 +26,7 @@
     display: flex;
     flex-direction: column;
     justify-content: end;
+    padding-bottom: 0!important;
   }
 }
 
@@ -59,7 +60,13 @@
   margin-right: 20px;
 }
 
-a.link-unactive {
+.logout{
+  color: #6062FF;
+  cursor: pointer;
+}
+
+a.link-unactive,
+.logout{
   &:hover {
     transition: all .4s;
     background-color: rgba(136, 137, 255, .3);

@@ -31,7 +31,6 @@ const LoginForm: React.FC = () => {
     const loginUser = ({ email, password }: {email: string, password: string}) => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in 
                 const user:userType = userCredential.user;
                 const userData = {
                     id: user.uid,
@@ -44,7 +43,7 @@ const LoginForm: React.FC = () => {
                     roles: []
                 }
                 dispatch(authLogin({user: userData, token: user.accessToken}))
-                dispatch(addNotification({header: t('notificationLoginHeader'), message: t('notificationLoginMessage'), status: true}))
+                dispatch(addNotification({header: t('notificationLoginHeader'), message: t('notificationLoginMessage'), type: 'info', status: true}))
                 navigate('/')
             })
             .catch((error) => {

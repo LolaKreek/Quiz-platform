@@ -1,8 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { 
     INSTRUCTION_PAGE, 
-    LOGIN_PAGE, 
-    LOGOUT_PAGE, 
+    LOGIN_PAGE,
     MAIN_PAGE, 
     PROFILE_PAGE, 
     QUIZ_PAGE 
@@ -47,7 +46,6 @@ const loginLink = {
 }
 
 const logoutLink = {
-    path: LOGOUT_PAGE,
     translationKey: 'logout',
     Icon: LogoutIcon,
     exact: true

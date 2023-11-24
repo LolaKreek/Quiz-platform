@@ -9,5 +9,8 @@
     "menuSettings": {
         "login": "Zaloguj się",
         "logout": "Wyloguj się"
-    }
+    },
+    "profile": "Profil",
+    "notificationLogoutHeader": "Akcja wylogowania",
+    "notificationLogoutMessage": "Pomyślnie wylogowałeś się z platformy"
 }
