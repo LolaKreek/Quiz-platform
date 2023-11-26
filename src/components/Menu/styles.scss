@@ -28,6 +28,20 @@
     justify-content: end;
     padding-bottom: 0!important;
   }
+
+  &__user-image-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 7%;
+  }
+
+  &__user-image{
+    width: 80px!important;
+    height: 80px!important;
+    background-color: #E7E7FF!important;
+    color: #6062FF!important;
+    cursor: pointer;
+  }
 }
 
 .logo{

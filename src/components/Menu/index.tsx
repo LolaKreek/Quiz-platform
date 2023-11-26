@@ -1,4 +1,4 @@
-import { Box, Drawer, List, ListItem, ListItemText, Typography } from "@mui/material"
+import { Avatar, Box, Drawer, List, ListItem, ListItemText, Typography } from "@mui/material"
 import { Link, NavLink, useNavigate } from "react-router-dom"
 import { MAIN_PAGE } from "../../routes/pathnames"
 import { useSidebarData } from "./constant"
@@ -17,6 +17,7 @@ const Menu = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const userId = useSelector((state: RootState) => selectUserId(state))
+    const userPhoto = useSelector((state: RootState) => state.auth.user.photoURL)
 
     const handleLogout = () => {
         dispatch(authLogout())
@@ -67,8 +68,12 @@ const Menu = () => {
             </List>
 
             {userId ? 
-                <Box className='menu__logout-container' onClick={handleLogout}>
-                    <ListItem className='menu-link logout'>
+                <Box className='menu__logout-container'>
+                    <Box className="menu__user-image-container">
+                        <Avatar className='menu__user-image' alt="User U" src={userPhoto || undefined} />
+                    </Box>
+
+                    <ListItem className='menu-link logout' onClick={handleLogout}>
                         {loginout.Icon && <loginout.Icon className="menu-link__icon" />}
                         <ListItemText primary={loginout.title} />
                     </ListItem>
