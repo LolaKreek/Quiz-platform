@@ -1,0 +1,16 @@
+{
+    "title": "Quiz",
+    "addNewQuizBtn": "Dodaj Quiz",
+    "addModalTitle": "Dodaj nowy quiz",
+    "addQuizTitle": "Nazwa Quizu",
+    "addQuizFaculty": "Wybierz wydział",
+    "addQuizFacultyPlaceholder": "Wydziały",
+    "addQuizCourse": "Wybierz przedmiot",
+    "addQuizCoursePlaceholder": "Przedmioty",
+    "questionsPart": "Dodaj pytania do quizu",
+    "addQuiestionBtn": "Dodaj pytanie",
+    "quiestionTitle": "Tytuł pytania",
+    "quiestionAnswer": "Odpowiedź na pytanie",
+    "addQuizBtn": "Dodaj",
+    "quizConfig": "Konfiguracje Quizu"
+}
