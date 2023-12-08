@@ -1,22 +1,22 @@
 .top-menu{
     &__title{
-        font-size: 23px;
-        font-weight: 500;
-        line-height: 29px;
-        letter-spacing: 0em;
+        font-size: pxToRem(23)!important;
+        font-weight: $fw-500;
+        line-height: pxToRem(29)!important;
+        letter-spacing: 0;
         text-align: left;
-        color: black;
+        color: $c-black;
     }
 
     &__wrapper{
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
+        @include flex();
+        @include justifyContent(space-between);
+        @include flexDirection(row);
         align-items: baseline;
-        padding: 10px 3%;
+        padding: $p-10px $p-3per;
     }
 
     &__button{
-        max-width: 200px;
+        max-width: $w-200px;
     }
 }

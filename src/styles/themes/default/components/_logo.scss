@@ -1,29 +1,29 @@
 .logo{
     &__root{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        @include flex();
+        @include flexDirection(column);
+        @include justifyContent(center);
         align-items: center;
         align-content: center;
-        width: 100%;
+        width: $w-100per;
 
         .logo-root__wrapper{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            @include flex();
+            @include flexDirection(column);
+            @include justifyContent(center);
             align-items: center;
         }
     }
 
     &__icon{
-        height: 42;
+        height: $h-42px;
     }
 }
 
 .logo__header{
-    margin-top: 30%;
+    margin-top: $m-30per;
 }
 
 .logo-header__first-letter{
-    color: #6062FF;
+    color: $c-main;
 }

@@ -1,20 +1,16 @@
 // COLORS
-// $c-white:           #ffffff;
-// $c-silver-chalice:  #aaaaaa;
-// $c-gray-nickel:     #c8c8c7;
-// $c-corvette:        #f8cda7;
-// $c-brandy:          #dbb594;
-// $c-hemp:            #8a7474;
-// $c-peach-cream:     #fff1df;
-// $c-gallery:         #ededed;
-// $c-martini:         #b3a4a4;
-// $c-dusty-gray:      #949494;
-// $c-dove-gray:       #616161;
+$c-white:           #ffffff;
+$c-black:           #111111;
+$c-main:            #6062FF;
+$c-success:         #D8FFE5;
+$c-error:           #FFD8E4;
+$c-error-background:rgba(228, 79, 79, .4);
 
-// $c-brandy-opacity-75:   rgba(219, 181, 148, 0.75);
-// $c-tacao-opacity-30:    rgba(236, 188, 133, 0.3);
-// $c-white-opacity-90:    rgba(255, 255, 255, 0.9);
-// $c-white-opacity-80:    rgba(255, 255, 255, 0.8);
+$c-light-background:        #F0F0FF;
+$c-light-placeholder:       #6B6B6B;
+$c-light-menu-background:   #E7E7FF;
+$c-menu-active:             #8889FF;
+$c-light-menu-hover:        rgba(136, 137, 255, .3);
 
 // FONTS
 $f-montserrat-alternates:   "Montserrat Alternates", sans-serif;
@@ -44,6 +40,7 @@ $ss-phone:          10cm;
 $fbs-06:  6%;
 $fbs-10: 10%;
 $fbs-20: 20%;
+$fbs-25: 25%;
 $fbs-30: 30%;
 $fbs-40: 40%;
 $fbs-50: 50%;
@@ -76,15 +73,20 @@ $m-2_5per: 2.5%;
 $m-3per:     3%;
 $m-4per:     4%;
 $m-5per:     5%;
+$m-6per:     6%;
+$m-7per:     7%;
 $m-10per:   10%;
 $m-15per:   15%;
 $m-20per:   20%;
 $m-27per:   27%;
+$m-30per:   30%;
 //In vw
 $m-100vw: 100vw;
 
 // PADDING SIZES
 //In px
+$p-5px: 5px;
+$p-8px: 8px;
 $p-10px: 10px;
 $p-15px: 15px;
 $p-20px: 20px;
@@ -99,11 +101,15 @@ $p-7per: 7%;
 //In px
 $w-8px:     8px;
 $w-50px:   50px;
+$w-70px:   70px;
+$w-80px:   80px;
 $w-200px: 200px;
 $w-300px: 300px;
 $w-400px: 400px;
+$w-440px: 440px;
 $w-450px: 450px;
 $w-500px: 500px;
+$w-700px: 700px;
 //In %
 $w-10per:   10%;
 $w-20per:   20%;
@@ -158,11 +164,14 @@ $maxw-100vw: 100vw;
 //In px
 $h-8px:     8px;
 $h-40px:   40px;
+$h-42px:   42px;
 $h-50px:   50px;
 $h-70px:   70px;
 $h-250px: 250px;
 //In %
 $h-100per: 100%;
+//in vh
+$h-100vh: 100vh;
 
 // MIN-HEIGHT SIZES
 $minh-35px: 35px;
@@ -242,6 +251,16 @@ $right-88per: 88%;
 $zi-1: 1;
 $zi-2: 2;
 $zi-3: 3;
+
+// FONT WEIGHT
+$fw-500: 500;
+$fw-600: 600;
+$fw-700: 700;
+
+//FONT SIZE
+$fs-13px: 13px;
+$fs-15px: 15px;
+$fs-20px: 20px;
 
 //Lists
 $columns: $w-10per, $w-20per, $w-30per, $w-40per, $w-50per, $w-60per, $w-70per, $w-80per, $w-90per, $w-100per;

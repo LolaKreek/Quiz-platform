@@ -1,28 +1,28 @@
 .notification{
     &__root {
-        display: flex;
-        justify-content: space-between;
+        @include flex();
+        @include justifyContent(space-between);
         align-content: center;
-        padding: 1%;
+        padding: $p-1per;
         align-items: center;
-        width: 700px;
-        min-height: 40px;
-        background: white;
-        color: black;
-        border: 1px solid #F0F0FF;
-        border-radius: 8px;
-        box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.10);
+        width: $w-700px;
+        min-height: $h-40px;
+        background: $c-white;
+        color: $c-black;
+        border: 1px solid $c-light-background;
+        border-radius: $br-8px;
+        @include boxShadow(0px 0px 50px 0px rgba(0, 0, 0, 0.10));
     }
 
     &__content {
-        flex-basis: 80%;
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
+        flex-basis: $fbs-80;
+        @include flex();
+        @include flexDirection(column);
+        @include justifyContent(start);
     }
 
     &__header {
-        font-weight: 600!important;
+        font-weight: $fw-600!important;
         font-size: 0.8125rem!important;
         font-style: normal!important;
         line-height: 150%!important;
@@ -37,22 +37,22 @@
     }
 
     &__close-icon {
-        flex-basis: 20%;
-        display: flex;
-        justify-content: end;
-        color: #6062FF;
+        flex-basis: $fbs-20;
+        @include flex();
+        @include justifyContent(end);
+        color: $c-main;
         cursor: pointer;
     }
 }
 
 .info {
-    border: 1px solid #6062FF;
+    border: 1px solid $c-main;
 }
 
 .success {
-    background-color: #D8FFE5;
+    background-color: $c-success;
 }
 
 .error {
-    background-color: #FFD8E4;
+    background-color: $c-error;
 }

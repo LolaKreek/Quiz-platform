@@ -4,7 +4,7 @@
     bottom: 0;
     right: 0;
     left: 0;
-    display: 'flex';
+    @include flex();
+    @include justifyContent(center);
     align-items: 'center';
-    justify-content: 'center';
 }

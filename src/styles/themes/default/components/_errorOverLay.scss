@@ -1,7 +1,7 @@
 .error__root{
-    background-color: rgba(228, 79, 79, .4);
-    color: black;
-    border-radius: 8px;
-    padding: 2%;
+    background-color: $c-error-background;
+    color: $c-black;
+    border-radius: $br-8px;
+    padding: $p-2per;
     text-align: center;
 }

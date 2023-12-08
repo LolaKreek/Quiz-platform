@@ -1,98 +1,95 @@
 .menu{
     &__drawer {
-      background-color: '#111111';
+      background-color: $c-black;
       max-width: 264px;
-      color: white;
+      color: $c-white;
       border: none;
-      padding-left: 5px;
-      padding-right: 5px;
-      padding-top: 5px;
-      padding-bottom: 5px;
+      padding: $p-5px;
       box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      @include flex();
+      @include flexDirection(column);
+      @include justifyContent(space-between);
     }
   
     &__links-container{
-      flex-basis: 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      flex-basis: $fbs-50;
+      @include flex();
+      @include flexDirection(column);
+      @include justifyContent(center);
     }
   
     &__logout-container{
-      flex-basis: 25%;
-      display: flex;
-      flex-direction: column;
-      justify-content: end;
+      flex-basis: $fbs-25;
+      @include flex;
+      @include flexDirection(column);
+      @include justifyContent(end);
       padding-bottom: 0!important;
     }
   
     &__user-image-container{
-      display: flex;
-      justify-content: center;
-      margin-bottom: 7%;
+      @include flex();
+      @include justifyContent(center);
+      margin-bottom: $m-7per;
     }
   
     &__user-image{
-      width: 80px!important;
-      height: 80px!important;
-      background-color: #E7E7FF!important;
-      color: #6062FF!important;
+      width: $w-80px!important;
+      height: $w-80px!important;
+      background-color: $c-light-menu-background!important;
+      color: $c-main!important;
       cursor: pointer;
     }
   }
   
   .logo{
-    flex-basis: 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-basis: $fbs-25;
+    @include flex();
+    @include flexDirection(column);
+    @include justifyContent(center);
     align-items: center;
     align-content: center;
     text-decoration: none;
     color: unset;
   
     &__icon{
-      width: 70px!important;
-      height: 70px!important;
-      color: #6062FF;
+      width: $w-70px!important;
+      height: $w-70px!important;
+      color: $c-main;
     }
   
     &__page-name{
-      margin-top: 10px!important;
-      font-weight: 600!important;
+      margin-top: $m-10px!important;
+      font-weight: $fw-600!important;
   
       span{
-        color: #6062FF;
+        color: $c-main;
       }
     }
   }
   
   .menu-link__icon{
-    margin-right: 20px;
+    margin-right: $m-20px;
   }
   
   .logout{
-    color: #6062FF;
+    color: $c-main;
     cursor: pointer;
   }
   
   a.link-unactive,
   .logout{
     &:hover {
-      transition: all .4s;
-      background-color: rgba(136, 137, 255, .3);
+      @include transition(all .4s);
+      background-color: $c-light-menu-hover;
     }
   }
   
   a.active{
-    color: white;
-    background-color: #8889FF;
-    transition: all .7s;
+    color: $c-white;
+    background-color: $c-menu-active;
+    @include transition(all .7s);
   
       &:hover {
-        color: white;
+        color: $c-white;
       }
   }

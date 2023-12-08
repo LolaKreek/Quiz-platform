@@ -1,7 +1,7 @@
 .main-layout__root{
-    width: 100%;
+    width: $w-100per;
     display: grid;
-    height: 100%;
+    height: $h-100per;
     gap: 0;
     grid-template-columns: 155px calc(100% - 155px);
     grid-template-areas: "side-menu  router-view";
@@ -13,7 +13,7 @@
 
 .router-view{
     grid-area: 'router-view';
-    min-height: 100vh;
-    background-color: #F0F0FF;
-    color: #6062FF
+    min-height: $h-100vh;
+    background-color: $c-light-background;
+    color: $c-main;
 }

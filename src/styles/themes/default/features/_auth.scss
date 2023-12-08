@@ -1,37 +1,36 @@
 .login__main-wrapper{
-    display: flex;
-    justify-content: center;
+    @include flex();
+    @include justifyContent(center);
     align-items: center;
     align-content: center;
     overflow: auto;
-    margin-top: 10%;
+    margin-top: $m-10per;
 }
 
 .login__container{
     margin: auto;
-    height: 600;
-    max-width: 300px;
-    padding: 3%;
-    width: 440px;
-    border-radius: 8px;
-    border: 1px solid #6062FF;
+    max-width: $w-300px;
+    padding: $p-3per;
+    width: $w-440px;
+    border-radius: $br-8px;
+    border: 1px solid $c-main;
 }
 
 .text {
-    font-size: 20px;
+    font-size: $fs-20px!important;
     text-align: center;
-    font-weight: 700;
-    margin-bottom: 4%;
-    color: black;
-    text-transform: 'unset';
+    font-weight: $fw-700!important;
+    margin-bottom: $m-4per!important;
+    color: $c-black;
+    text-transform: unset;
 }
 
 .input{
-    width: 300px;
-    margin-bottom: 6%;
+    width: $w-300px;
+    margin-bottom: $m-6per;
 
     .MuiInputBase-input{
-        padding: 8px 5px;
+        padding: $p-8px $p-5px;
     }
 
     .MuiButtonBase{
@@ -40,33 +39,34 @@
 }
 
 .input-label{
-    color: #6B6B6B;
-    margin-bottom: 4%;
+    color: $c-light-placeholder;
+    margin-bottom: $m-4per;
 }
 
 .small-text {
-    font-size: 15px;
+    font-size: $fs-15px;
 }
 
 .button{
-    margin-bottom: 5%;
-    padding: 3%;
+    margin: $m-7per 0!important;
+    padding: $p-3per!important;
 }
 
 .login__register-wrapper{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 4%;
+    @include flex();
+    @include flexDirection(row);
+    @include justifyContent(space-between);
+    align-items: center;
 }
 
 .login__register-info{
-    color: black;
-    font-size: 13px;
+    color: $c-black;
+    font-size: $fs-13px!important;
+    margin: 0;
 }
 
 .login__register-sign-in{
-    font-size: 13px;
+    font-size: $fs-13px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: $fw-600;
 }

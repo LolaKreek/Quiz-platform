@@ -1,7 +1,7 @@
 .app-button__root {
-    min-width: 200px;
-    width: 100%;
-    background-color: #6062FF;
-    color: white;
-    border-radius: 8px;
+    min-width: $w-200px!important;
+    width: $w-100per;
+    background-color: $c-main!important;
+    color: $c-white!important;
+    border-radius: $br-8px!important;
 }
