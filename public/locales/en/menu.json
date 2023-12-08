@@ -1,0 +1,16 @@
+{
+    "menuLinks": {
+        "dashboard": "Dashboard",
+        "quiz": "Quiz",
+        "instruction": "Instruction",
+        "profile": "Profile"
+    },
+    "quiz": "<span>Q</span>uiz",
+    "menuSettings": {
+        "login": "Login",
+        "logout": "Logout"
+    },
+    "profile": "Profile",
+    "notificationLogoutHeader": "Logout action",
+    "notificationLogoutMessage": "You have successfully logged out of the platform"
+}

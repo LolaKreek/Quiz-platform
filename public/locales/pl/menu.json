@@ -1,0 +1,16 @@
+{
+    "menuLinks": {
+        "dashboard": "Panel",
+        "quiz": "Kartkówka",
+        "instruction": "Instrukcja",
+        "profile": "Profil"
+    },
+    "quiz": "<span>Q</span>uiz",
+    "menuSettings": {
+        "login": "Zaloguj się",
+        "logout": "Wyloguj się"
+    },
+    "profile": "Profil",
+    "notificationLogoutHeader": "Akcja wylogowania",
+    "notificationLogoutMessage": "Pomyślnie wylogowałeś się z platformy"
+}

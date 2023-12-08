@@ -1,0 +1,19 @@
+.main-layout__root{
+    width: $w-100per;
+    display: grid;
+    height: $h-100per;
+    gap: 0;
+    grid-template-columns: 155px calc(100% - 155px);
+    grid-template-areas: "side-menu  router-view";
+}
+
+.side-menu{
+    grid-area: 'side-menu';
+}
+
+.router-view{
+    grid-area: 'router-view';
+    min-height: $h-100vh;
+    background-color: $c-light-background;
+    color: $c-main;
+}

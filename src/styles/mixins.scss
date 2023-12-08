@@ -1,0 +1,178 @@
+//Converting px to rem, with default 1rem = 16px;
+@function pxToRem($pxsize, $rembase: 16) {
+    @return calc($pxsize / $rembase) + rem;
+  }
+  
+  //Box-shadow for all browsers
+  @mixin boxShadow($param) {
+    -moz-box-shadow: $param;
+    -webkit-box-shadow: $param;
+    box-shadow: $param;
+  }
+  
+  //Animation for all browsers
+  @mixin animation($param) {
+    -webkit-animation: $param;
+    animation: $param;
+  }
+  
+  //Background-image (gradient) for all browsers
+  @mixin background($firstColor, $secondColor) {
+    background-image: -o-linear-gradient(left, $firstColor, $secondColor);
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from($firstColor),
+      to($secondColor)
+    );
+    background-image: linear-gradient(to right, $firstColor, $secondColor);
+  }
+  
+  //Display: inline-flex for all browsers
+  @mixin inlineFlex() {
+    $prefixes: (
+      -webkit-inline-box,
+      -moz-inline-box,
+      -webkit-inline-flex,
+      -ms-inline-flexbox,
+      inline-flex
+    );
+    @each $prefix in $prefixes {
+      display: $prefix;
+    }
+  }
+  
+  //Display: flex for all browsers
+  @mixin flex() {
+    $prefixes: (-webkit-box, -webkit-flex, -ms-flexbox, -moz-box, flex);
+    @each $prefix in $prefixes {
+      display: $prefix;
+    }
+  }
+  
+  //Flex-basis for all browsers
+  @mixin flexBasis($param) {
+    -ms-flex-preferred-size: $param;
+    flex-basis: $param;
+  }
+  
+  //Flex-wrap for all browsers
+  @mixin flexWrap($param) {
+    -ms-flex-wrap: $param;
+    flex-wrap: $param;
+  }
+  
+  //Justify-content for all browsers
+  @mixin justifyContent($param: flex-start) {
+    @if $param == flex-start {
+      -webkit-box-pack: start;
+      -moz-box-pack: start;
+      -ms-flex-pack: start;
+    } @else if $param == flex-end {
+      -webkit-box-pack: end;
+      -moz-box-pack: end;
+      -ms-flex-pack: end;
+    } @else if $param == space-between {
+      -webkit-box-pack: justify;
+      -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+    } @else if $param == space-around {
+      -ms-flex-pack: distribute;
+    } @else {
+      -webkit-box-pack: $param;
+      -moz-box-pack: $param;
+      -ms-flex-pack: $param;
+    }
+    -webkit-justify-content: $param;
+    justify-content: $param;
+  }
+  
+  //Flex-direction for all browsers
+  @mixin flexDirection($param: row) {
+    @if $param == row-reverse {
+      -webkit-box-direction: reverse;
+      -webkit-box-orient: horizontal;
+      -moz-box-direction: reverse;
+      -moz-box-orient: horizontal;
+    } @else if $param == column {
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+      -moz-box-direction: normal;
+      -moz-box-orient: vertical;
+    } @else if $param == column-reverse {
+      -webkit-box-direction: reverse;
+      -webkit-box-orient: vertical;
+      -moz-box-direction: reverse;
+      -moz-box-orient: vertical;
+    } @else {
+      -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
+      -moz-box-direction: normal;
+      -moz-box-orient: horizontal;
+    }
+    -webkit-flex-direction: $param;
+    -ms-flex-direction: $param;
+    flex-direction: $param;
+  }
+  
+  //Transform for all browsers
+  @mixin transform($param) {
+      -webkit-transform: $param;
+      -ms-transform: $param;
+      transform: $param;
+  }
+  
+  //Transition for all browsers
+  @mixin transition($param) {
+      -webkit-transition: $param;
+      -o-transition: $param;
+      transition: $param;
+  }
+  
+  //Placeholder for inputs for all browsers
+  @mixin inputPlaceholder {
+    .contact-me__input {@content};
+    ::-webkit-input-placeholder {@content};
+    ::-moz-placeholder {@content};
+    :-ms-input-placeholder {@content;}
+    ::-ms-input-placeholder {@content};
+    ::placeholder {@content};
+  }
+  
+  //Placeholder for buttons for all browsers
+  @mixin submitPlaceholder {
+    .contact-me__submit {@content};
+  }
+  
+  //Columns classes .column-1 (10%), ... , .column-10 (100%)
+  @mixin createColumns() {
+    @each $column in $columns {
+      $index: index($columns, $column);
+      .column-#{$index} {
+        width: $column;
+      }
+    }
+  }
+  
+  //Media for all devises
+  @mixin media-size ($size){
+    @if $size == $ds-desktop {
+      @media only screen and (max-width: $ds-desktop) {@content;}
+    }
+    @else if $size == $ds-large-laptop{
+      @media only screen and (max-width: $ds-large-laptop) {@content;}
+    }
+    @else if $size == $ds-laptop{
+      @media only screen and (max-width: $ds-laptop) {@content;}
+    }
+    @else if $size == $ds-tablet{
+      @media only screen and (max-width: $ds-tablet) {@content;}
+    }
+    @else if $size == $ds-large-phone{
+      @media only screen and (max-width: $ds-large-phone) {@content;}
+    }
+    @else if $size == $ds-phone{
+      @media only screen and (max-width: $ds-phone) {@content;}
+    }
+  }

@@ -1,0 +1,153 @@
+.quiz-add-module{
+    &__modal{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.papper {
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    position: relative;
+    overflow: scroll;
+    
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #EEEEFB;
+        border-radius: 8px
+    }
+
+    &__title{
+        font-size: 23px;
+        font-weight: 500;
+        line-height: 29px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: black;
+    }
+
+    &__sub-title{
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 29px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: black;
+    }
+
+    &__close-icon{
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 1.5% 1.5% 0 0;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        color: #6062FF;
+    }
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 3%;
+
+    &__left-row{
+        flex-basis: 48%;
+    }
+
+    &__rigth-row{
+        flex-basis: 48%;
+    }
+
+    &__button-container{
+        margin-top: 6%;
+    }
+
+    &__container{
+        margin-top: 3%;
+    }
+
+    .left-row{
+        &__quiz-title{
+            color: #6B6B6B;
+            font-size: 0.9375rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            padding: 0 0 2% 0;
+        }
+
+        &__title-input{
+            width: 100%;
+
+            .MuiOutlinedInput-root{
+                fieldset{
+                    border-color: #6062FF;
+                }
+            }
+        }
+    }
+}
+
+.margin-bottom{
+    margin-bottom: 5%;
+}
+
+.margin-top{
+    margin-top: 3%;
+}
+
+.left-row__select{
+    width: 100%;
+
+    fieldset{
+        border-color: #6062FF;
+    }
+
+    svg{
+        color: #6062FF;
+    }
+}
+
+.quiestion{
+    &__main-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__answers-wrapper{
+        margin-top: 5%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__answer-input{
+        flex-basis: 48%;
+
+        fieldset{
+            border-color: #6062FF;
+        }
+    
+        svg{
+            color: #6062FF;
+        }
+    }
+}
+
+.divider{
+    margin: 10% 0;
+}

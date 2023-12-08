@@ -2,17 +2,21 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../store'
 import { AuthState, UserType } from './types'
+import { deleteUserLocalData, setUserLocalData } from '../userLocalStorage'
 
 // Define the initial state using that type
 const initialState: AuthState = {
     user: {
       id: '',
       name: '',
-      surname: '',
+      email: '',
+      emailVerified: false,
+      isAnonymous: false,
+      phoneNumber: '',
+      photoURL: '',
       roles: []
     },
     token: '',
-    expirationDate: ''
 }
 
 export const authSlice = createSlice({
@@ -20,22 +24,35 @@ export const authSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    authLogin: (state, action: PayloadAction<{ user: UserType; token: string, expirationDate: string}>) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.expirationDate = action.payload.expirationDate;
+    authLogin: (state, action: PayloadAction<{ user: UserType; token: string }>) => {
+      setUserLocalData({user: action.payload.user, token: action.payload.token});
+      state.user = action.payload.user;
+      state.token = action.payload.token;
     },
     authLogout: (state) => {
-        state.user = {id: '', name: '', surname: '', roles: []};
-        state.token = '';
-        state.expirationDate = ''
+      deleteUserLocalData();
+      state.user = {
+        id: '',
+        name: '',
+        email: '',
+        emailVerified: false,
+        isAnonymous: false,
+        phoneNumber: '',
+        photoURL: '',
+        roles: []
+      };
+      state.token = '';
     },
+    tokenLogin: (state, action: PayloadAction<{ user: UserType; token: string }>) => {
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+    }
   },
 })
 
-export const { authLogin, authLogout } = authSlice.actions
+export const { authLogin, authLogout, tokenLogin } = authSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectUser = (state: RootState) => state.auth.user
+export const selectUserId = (state: RootState) => state.auth.user.id
 
 export default authSlice.reducer

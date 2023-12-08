@@ -1,6 +1,5 @@
 import { Box, CircularProgress } from '@mui/material'
 import clsx from 'clsx'
-import './styles.scss'
 
 type Props = {
     show: boolean,
@@ -12,7 +11,7 @@ export const AppLoader = ({ show, className, size }: Props) => {
   if (!show) return null
 
   return (
-    <Box className={clsx('root', className)}>
+    <Box className={clsx('app-loader__root', className)}>
       <CircularProgress size={size ? size : 24} />
     </Box>
   )
