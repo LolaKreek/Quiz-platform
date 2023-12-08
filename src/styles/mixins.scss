@@ -1,6 +1,6 @@
 //Converting px to rem, with default 1rem = 16px;
 @function pxToRem($pxsize, $rembase: 16) {
-    @return ($pxsize / $rembase) + rem;
+    @return calc($pxsize / $rembase) + rem;
   }
   
   //Box-shadow for all browsers
