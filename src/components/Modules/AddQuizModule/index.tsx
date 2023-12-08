@@ -11,7 +11,7 @@ import { onValue, ref } from "firebase/database";
 import { database } from "../../../services/Firebase/firebase";
 import { withSuspense } from "../../../HOCs/withSusspense";
 
-const Form = ({open = true, onClose, setSubmitted}: any) => {
+const Form = ({open = true, onClose}: any) => {
     const { t } = useTranslation('quiz')
 
     const [faculties, setFaculties] = useState([])
@@ -23,8 +23,8 @@ const Form = ({open = true, onClose, setSubmitted}: any) => {
         handleChange,
         errors,
         setFieldValue,
-        validateForm,
-        initialValues,
+        // validateForm,
+        // initialValues,
     } = useFormikContext();
 
     const getFaculties = () => {
