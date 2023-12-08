@@ -1,7 +1,6 @@
 import { Box } from "@mui/material"
 import Logo from "../../components/Logo"
 import SignInForm from "../../features/auth/components/SignInForm"
-import './styles.scss'
 
 const SignIn = () => {
     return(

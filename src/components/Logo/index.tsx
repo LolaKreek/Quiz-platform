@@ -1,6 +1,5 @@
 import { Box, Typography } from "@mui/material"
 import { QuizIcon } from "../../assets/icons"
-import './styles.scss'
 
 const Logo = () => {
     return(

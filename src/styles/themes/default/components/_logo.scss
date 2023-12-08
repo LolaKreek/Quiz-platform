@@ -1,0 +1,29 @@
+.logo{
+    &__root{
+        @include flex();
+        @include flexDirection(column);
+        @include justifyContent(center);
+        align-items: center;
+        align-content: center;
+        width: $w-100per;
+
+        .logo-root__wrapper{
+            @include flex();
+            @include flexDirection(column);
+            @include justifyContent(center);
+            align-items: center;
+        }
+    }
+
+    &__icon{
+        height: $h-42px;
+    }
+}
+
+.logo__header{
+    margin-top: $m-30per;
+}
+
+.logo-header__first-letter{
+    color: $c-main;
+}

@@ -1,0 +1,95 @@
+.menu{
+    &__drawer {
+      background-color: $c-black;
+      max-width: 264px;
+      color: $c-white;
+      border: none;
+      padding: $p-5px;
+      box-sizing: border-box;
+      @include flex();
+      @include flexDirection(column);
+      @include justifyContent(space-between);
+    }
+  
+    &__links-container{
+      flex-basis: $fbs-50;
+      @include flex();
+      @include flexDirection(column);
+      @include justifyContent(center);
+    }
+  
+    &__logout-container{
+      flex-basis: $fbs-25;
+      @include flex;
+      @include flexDirection(column);
+      @include justifyContent(end);
+      padding-bottom: 0!important;
+    }
+  
+    &__user-image-container{
+      @include flex();
+      @include justifyContent(center);
+      margin-bottom: $m-7per;
+    }
+  
+    &__user-image{
+      width: $w-80px!important;
+      height: $w-80px!important;
+      background-color: $c-light-menu-background!important;
+      color: $c-main!important;
+      cursor: pointer;
+    }
+  }
+  
+  .logo{
+    flex-basis: $fbs-25;
+    @include flex();
+    @include flexDirection(column);
+    @include justifyContent(center);
+    align-items: center;
+    align-content: center;
+    text-decoration: none;
+    color: unset;
+  
+    &__icon{
+      width: $w-70px!important;
+      height: $w-70px!important;
+      color: $c-main;
+    }
+  
+    &__page-name{
+      margin-top: $m-10px!important;
+      font-weight: $fw-600!important;
+  
+      span{
+        color: $c-main;
+      }
+    }
+  }
+  
+  .menu-link__icon{
+    margin-right: $m-20px;
+  }
+  
+  .logout{
+    color: $c-main;
+    cursor: pointer;
+  }
+  
+  a.link-unactive,
+  .logout{
+    &:hover {
+      @include transition(all .4s);
+      background-color: $c-light-menu-hover;
+    }
+  }
+  
+  a.active{
+    color: $c-white;
+    background-color: $c-menu-active;
+    @include transition(all .7s);
+  
+      &:hover {
+        color: $c-white;
+      }
+  }

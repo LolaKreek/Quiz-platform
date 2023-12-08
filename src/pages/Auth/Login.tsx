@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
 import LoginForm from "../../features/auth/components/LoginForm";
 import Logo from "../../components/Logo";
-import "./styles.scss"
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteNotification, selectNotificationStatus } from "../../store/Slices/notification";

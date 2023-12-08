@@ -1,0 +1,266 @@
+// COLORS
+$c-white:           #ffffff;
+$c-black:           #111111;
+$c-main:            #6062FF;
+$c-success:         #D8FFE5;
+$c-error:           #FFD8E4;
+$c-error-background:rgba(228, 79, 79, .4);
+
+$c-light-background:        #F0F0FF;
+$c-light-placeholder:       #6B6B6B;
+$c-light-menu-background:   #E7E7FF;
+$c-menu-active:             #8889FF;
+$c-light-menu-hover:        rgba(136, 137, 255, .3);
+
+// FONTS
+$f-montserrat-alternates:   "Montserrat Alternates", sans-serif;
+$f-quicksand:               "Quicksand", sans-serif;
+$f-work-sans:               "Work Sans", sans-serif;
+$f-noto-sans-kr:            "Noto Sans KR", sans-serif;
+$f-poppins:                 "Poppins", sans-serif;
+
+// DEVICE SIZES IN MEDIA
+$ds-desktop:        2000px;
+$ds-large-laptop:   1600px;
+$ds-laptop:         1439px;
+$ds-tablet:         980px;
+$ds-large-phone:    759px;
+$ds-phone:          500px;
+
+// SCREEN SIZES IN MEDIA
+$ss-desktop:        45cm;
+$ss-large-laptop:   37cm;
+$ss-laptop:         32cm;
+$ss-tablet:         25cm;
+$ss-large-phone:    12cm;
+$ss-phone:          10cm;
+
+// FLEX-BASIS SIZES
+// In px
+$fbs-06:  6%;
+$fbs-10: 10%;
+$fbs-20: 20%;
+$fbs-25: 25%;
+$fbs-30: 30%;
+$fbs-40: 40%;
+$fbs-50: 50%;
+$fbs-60: 60%;
+$fbs-65: 65%;
+$fbs-70: 70%;
+$fbs-80: 80%;
+$fbs-90: 90%;
+//In vw
+$fbs-70vw: 70vw;
+$fbs-90vw: 90vw;
+
+// MARGIN SIZES
+//In px
+$m-4px:     4px;
+$m-10px:   10px;
+$m-12px:   12px;
+$m-15px:   15px;
+$m-20px:   20px;
+$m-30px:   30px;
+$m-50px:   50px;
+$m-60px:   60px;
+$m-70px:   70px;
+$m-200px: 200px;
+//In %
+$m-1per:     1%;
+$m-1_5per: 1.5%;
+$m-2per:     2%;
+$m-2_5per: 2.5%;
+$m-3per:     3%;
+$m-4per:     4%;
+$m-5per:     5%;
+$m-6per:     6%;
+$m-7per:     7%;
+$m-10per:   10%;
+$m-15per:   15%;
+$m-20per:   20%;
+$m-27per:   27%;
+$m-30per:   30%;
+//In vw
+$m-100vw: 100vw;
+
+// PADDING SIZES
+//In px
+$p-5px: 5px;
+$p-8px: 8px;
+$p-10px: 10px;
+$p-15px: 15px;
+$p-20px: 20px;
+$p-50px: 50px;
+//In %
+$p-1per: 1%;
+$p-2per: 2%;
+$p-3per: 3%;
+$p-7per: 7%;
+
+// WIDTH SIZES
+//In px
+$w-8px:     8px;
+$w-50px:   50px;
+$w-70px:   70px;
+$w-80px:   80px;
+$w-200px: 200px;
+$w-300px: 300px;
+$w-400px: 400px;
+$w-440px: 440px;
+$w-450px: 450px;
+$w-500px: 500px;
+$w-700px: 700px;
+//In %
+$w-10per:   10%;
+$w-20per:   20%;
+$w-30per:   30%;
+$w-40per:   40%;
+$w-50per:   50%;
+$w-60per:   60%;
+$w-65per:   65%;
+$w-70per:   70%;
+$w-80per:   80%;
+$w-90per:   90%;
+$w-100per: 100%;
+
+// MIN-WIDTH SIZES
+//In px
+$minw-200px: 200px;
+$minw-400px: 400px;
+$minw-680px: 680px;
+//In vw
+$minw-23vw: 23vw;
+$minw-40vw: 40vw;
+$minw-90vw: 90vw;
+
+// MAX-WIDTH SIZES
+//In px
+$maxw-45px:   45px;
+$maxw-50px:   50px;
+$maxw-65px:   65px;
+$maxw-150px: 150px;
+$maxw-200px: 200px;
+$maxw-220px: 220px;
+$maxw-300px: 300px;
+$maxw-400px: 400px;
+$maxw-450px: 450px;
+$maxw-490px: 490px;
+$maxw-700px: 700px;
+$maxw-900px: 900px;
+//In %
+$maxw-50per: 50%;
+$maxw-80per: 80%;
+$maxw-82per: 82%;
+$maxw-85per: 85%;
+//In vw
+$maxw-30vw:   30vw;
+$maxw-40vw:   40vw;
+$maxw-50vw:   50vw;
+$maxw-80vw:   80vw;
+$maxw-90vw:   90vw;
+$maxw-100vw: 100vw;
+
+// HEIGHT SIZES
+//In px
+$h-8px:     8px;
+$h-40px:   40px;
+$h-42px:   42px;
+$h-50px:   50px;
+$h-70px:   70px;
+$h-250px: 250px;
+//In %
+$h-100per: 100%;
+//in vh
+$h-100vh: 100vh;
+
+// MIN-HEIGHT SIZES
+$minh-35px: 35px;
+$minh-90px: 90px;
+
+// MAX-HEIGHT SIZES
+$maxh-45px:   45px;
+$maxh-200px: 200px;
+$maxh-400px: 400px;
+
+// FONT-SIZE SIZES
+$font-8px: 8;
+$font-10px: 10;
+$font-14px: 14;
+$font-15px: 15;
+$font-25px: 25;
+$font-40px: 40;
+$font-50px: 50;
+$font-80px: 80;
+
+//BOX-SHADOW SIZES
+$boxsh-3px-5px:   3px 3px 5px;
+$boxsh-5px:       5px 5px 5px;
+$boxsh-5px-10px:  5px 5px 10px;
+
+// BORDER-RADIUS SIZES
+$br-3px:   3px;
+$br-5px:   5px;
+$br-7px:   7px;
+$br-8px:   8px;
+$br-10px: 10px;
+
+// TOP SIZES
+$top-1per:   1%;
+$top-3per:   3%;
+$top-8per:   8%;
+$top-10per: 10%;
+$top-15per: 15%;
+$top-22per: 22%;
+$top-30per: 30%;
+$top-50per: 50%;
+$top-55per: 55%;
+$top-65per: 65%;
+$top-70per: 70%;
+$top-75per: 75%;
+$top-80per: 80%;
+
+// LEFT SIZES
+//In px
+$left-8per:   8%;
+$left-13per: 13%;
+$left-17per: 17%;
+$left-18per: 18%;
+$left-17per: 17%;
+$left-20per: 20%;
+$left-23per: 23%;
+$left-26per: 26%;
+$left-30per: 30%;
+$left-32per: 32%;
+$left-38per: 38%;
+$left-48per: 48%;
+$left-50per: 50%;
+$left-52per: 52%;
+$left-55per: 55%;
+$left-60per: 60%;
+$left-65per: 65%;
+$left-75per: 75%;
+$left-80per: 80%;
+$left-85per: 85%;
+//In vw
+$left-5vw:   5vw;
+
+// RIGHT SIZES
+$right-88per: 88%;
+
+// Z-INDEX
+$zi-1: 1;
+$zi-2: 2;
+$zi-3: 3;
+
+// FONT WEIGHT
+$fw-500: 500;
+$fw-600: 600;
+$fw-700: 700;
+
+//FONT SIZE
+$fs-13px: 13px;
+$fs-15px: 15px;
+$fs-20px: 20px;
+
+//Lists
+$columns: $w-10per, $w-20per, $w-30per, $w-40per, $w-50per, $w-60per, $w-70per, $w-80per, $w-90per, $w-100per;

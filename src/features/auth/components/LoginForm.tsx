@@ -17,7 +17,6 @@ import { userType } from './types';
 import { addNotification } from '../../../store/Slices/notification';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import './styles.scss'
 
 const LoginForm: React.FC = () => {
     const navigate = useNavigate();

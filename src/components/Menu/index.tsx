@@ -7,8 +7,6 @@ import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../store"
 import { authLogout, selectUserId } from "../../store/Slices/auth"
-
-import './styles.scss'
 import { addNotification } from "../../store/Slices/notification"
 
 const Menu = () => {

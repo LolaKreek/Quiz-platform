@@ -1,0 +1,72 @@
+.login__main-wrapper{
+    @include flex();
+    @include justifyContent(center);
+    align-items: center;
+    align-content: center;
+    overflow: auto;
+    margin-top: $m-10per;
+}
+
+.login__container{
+    margin: auto;
+    max-width: $w-300px;
+    padding: $p-3per;
+    width: $w-440px;
+    border-radius: $br-8px;
+    border: 1px solid $c-main;
+}
+
+.text {
+    font-size: $fs-20px!important;
+    text-align: center;
+    font-weight: $fw-700!important;
+    margin-bottom: $m-4per!important;
+    color: $c-black;
+    text-transform: unset;
+}
+
+.input{
+    width: $w-300px;
+    margin-bottom: $m-6per;
+
+    .MuiInputBase-input{
+        padding: $p-8px $p-5px;
+    }
+
+    .MuiButtonBase{
+        border: 'unset'
+    }
+}
+
+.input-label{
+    color: $c-light-placeholder;
+    margin-bottom: $m-4per;
+}
+
+.small-text {
+    font-size: $fs-15px;
+}
+
+.button{
+    margin: $m-7per 0!important;
+    padding: $p-3per!important;
+}
+
+.login__register-wrapper{
+    @include flex();
+    @include flexDirection(row);
+    @include justifyContent(space-between);
+    align-items: center;
+}
+
+.login__register-info{
+    color: $c-black;
+    font-size: $fs-13px!important;
+    margin: 0;
+}
+
+.login__register-sign-in{
+    font-size: $fs-13px;
+    cursor: pointer;
+    font-weight: $fw-600;
+}
