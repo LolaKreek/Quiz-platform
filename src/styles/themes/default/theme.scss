@@ -1,0 +1,27 @@
+// Main scss file with all the necessary imports
+//Import global scss files
+@import "../../variables";
+@import "../../mixins";
+@import "../../fonts";
+@import "../../global";
+
+//Import components styles
+@import "./components/appButton";
+@import "./components/appLoader";
+@import "./components/errorOverLay";
+@import "./components/logo";
+@import "./components/menu";
+@import "./components/notification";
+
+//Import modals styles
+@import "./components/modals/addQuizModal";
+
+//Import layouts styles
+@import "./features/auth";
+
+//Import layouts
+@import "./layouts/mainLayout";
+
+//Import pages styles
+@import "./pages/auth";
+@import "./pages/quiz";

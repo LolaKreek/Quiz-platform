@@ -2,7 +2,6 @@ import { Box, Modal, Paper, Typography } from "@mui/material"
 import { useTranslation } from "react-i18next"
 import CloseIcon from '@mui/icons-material/Close';
 
-import "./styles.scss"
 import { AppInput } from "../../AppInput";
 import { Formik, useFormikContext } from "formik";
 import { useEffect, useState } from "react";

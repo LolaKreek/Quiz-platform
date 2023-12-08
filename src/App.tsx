@@ -3,9 +3,12 @@ import { MainLayout } from './layouts/MainLayout'
 import { AppLoader } from './components/AppLoader'
 import { Route, Routes } from "react-router-dom";
 import { appRoutes } from './routes'
-import { MAIN_PAGE } from './routes/pathnames'
-import './App.css'
+import { MAIN_PAGE } from './routes/pathnames';
+
+
 import DashboardPage from './pages/Dashboard';
+import './styles/themes/default/theme.scss';
+import './App.css'
 
 function App() {
   // const userId = useAppSelector(state => state.auth.user.id)
