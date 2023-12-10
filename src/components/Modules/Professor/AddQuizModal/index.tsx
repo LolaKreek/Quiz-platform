@@ -8,7 +8,7 @@ import { AppSelect } from "../../../AppSelect";
 import { onValue, ref } from "firebase/database";
 import { database } from "../../../../services/Firebase/firebase";
 import { AppButton } from "../../../AppButton";
-import { writeQuizData } from "../../../../services/quiz";
+import { getQuizQuestionTypes, writeQuizData } from "../../../../services/quiz";
 import toast from "react-hot-toast";
 import Notification from "../../../Notification";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +16,7 @@ import { PROFESSOR_QUIZ_PAGE } from "../../../../routes/pathnames";
 import { addQuizSchema } from "../../../../utils/validationSchemas";
 import { ErrorOverLay } from "../../../ErrorOverLay";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import AddQuestionModal from "./AddQuestionsModal";
 
 const Form = ({setSubmitted}: any) => {
     const { t } = useTranslation('quiz')
@@ -24,6 +25,9 @@ const Form = ({setSubmitted}: any) => {
     const [faculties, setFaculties] = useState([])
     const [data, setData] = useState([])
     const [subjects, setSubjects] = useState([])
+    const [quiestionOpen, setQuiestionOpen] = useState(false)
+    const [types, setTypes] = useState([])
+    const [questions, setQuestions] = useState([])
 
     const {
         values,
@@ -42,6 +46,13 @@ const Form = ({setSubmitted}: any) => {
                 const faculties = data.map(({name}: {name: string}) => name)
                 setFaculties(faculties)
         });
+    }
+
+    const getAnswerTypes = async () => {
+        const response = await getQuizQuestionTypes();
+        if(response) {
+            setTypes(response.map((item:any) => item.title))
+        }
     }
 
     const facultyHandleChange = (e: any) => {
@@ -76,8 +87,13 @@ const Form = ({setSubmitted}: any) => {
     }
 
     useEffect(() => {
-        getFaculties()
+        getFaculties();
+        getAnswerTypes();
     }, [])
+
+    useEffect(() => {
+        console.log("questions: ", questions)
+    }, [questions])
 
     return(
         <Box className="quiz-add-modal">
@@ -186,7 +202,15 @@ const Form = ({setSubmitted}: any) => {
 
                 <Box className="quiz-add-modal__right-part right-part">
                     <Typography className="sub-title">{t('addQuizQuestionTitle')}</Typography>
-
+                    
+                    <Box className="right-part__button-wrapper">
+                        <AppButton
+                            onClick={() => setQuiestionOpen(true)}
+                            className='top-menu__button'
+                        >
+                            {t('addQuiestionBtn')}
+                        </AppButton>
+                    </Box>
                 </Box>
 
             </Box>
@@ -200,6 +224,16 @@ const Form = ({setSubmitted}: any) => {
                     </ErrorOverLay>
                 }
             </Box>
+
+            {quiestionOpen && 
+                <AddQuestionModal
+                    open={quiestionOpen}
+                    setQuiestionOpen={setQuiestionOpen}
+                    types={types}
+                    questions={questions}
+                    setQuestions={setQuestions}
+                />
+            }
         </Box>
     )
 }

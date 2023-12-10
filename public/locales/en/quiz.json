@@ -7,15 +7,18 @@
     "addQuizFacultyPlaceholder": "Faculties",
     "addQuizCourse": "Select a subject",
     "addQuizCoursePlaceholder": "Subjects",
-    "questionsPart": "Add questions to quiz",
+    "questionsPart": "Add question to quiz",
     "addQuiestionBtn": "Add question",
     "quiestionTitle": "Question title",
+    "quiestionType": "Question type",
     "quiestionAnswer": "Question answer",
     "addQuizBtn": "Add",
     "quizConfig": "Quiz configuration",
-    "addQuizQuestionTitle": "Quizestions",
+    "addQuizQuestionTitle": "Quiz questions",
     "addQuizTimer": "Timer",
     "addQuizShowAnswers": "Show answers",
     "addQuizActionHeader": "Add quiz action",
-    "addQuizActionMessage": "The Quiz adding action was successful"
+    "addQuizActionMessage": "The Quiz adding action was successful",
+    "addQuestionActionHeader": "Question action",
+    "addQuestionActionMessage": "The question was added successfully"
 }

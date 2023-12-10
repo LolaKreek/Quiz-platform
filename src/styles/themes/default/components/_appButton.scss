@@ -1,7 +1,16 @@
 .app-button__root {
     min-width: $w-200px!important;
     width: $w-100per;
-    background-color: $c-main!important;
-    color: $c-white!important;
     border-radius: $br-8px!important;
+
+    &.MuiButton-outlined{
+        background-color: unset!important;
+        color: $c-main!important;
+        border-color: $c-main;
+    }
+
+    &.MuiButton-contained{
+        background-color: $c-main!important;
+        color: $c-white!important;
+    }
 }

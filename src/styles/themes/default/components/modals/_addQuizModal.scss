@@ -32,8 +32,7 @@
         @include justifyContent(space-between);
         margin-top: $m-3per;
 
-        .left-part,
-        .right-part{
+        .left-part{
             flex-basis: $fbs-48;
             @include flex();
             @include flexDirection(column);
@@ -56,7 +55,7 @@
             }
 
             &__select{
-                width: 100%;
+                width: $w-100per;
             
                 fieldset{
                     border-color: $c-main;
@@ -66,9 +65,18 @@
                     color: $c-main;
                 }
             }
+        }
 
-            .label{
-                color: $c-label;
+        .right-part{
+            flex-basis: $fbs-48;
+            @include flex();
+            @include flexDirection(column);
+            @include justifyContent(start);
+
+            &__button-wrapper{
+                @include flex();
+                @include justifyContent(center);
+                margin-top: $m-20px;
             }
         }
     }
@@ -86,6 +94,10 @@
     margin-top: $m-3per;
 }
 
+.label{
+    color: $c-label;
+}
+
 .symbol{
     color: $c-main;
 }
@@ -94,34 +106,80 @@
     color: $c-black;
 }
 
-// .quiestion{
-//     &__main-wrapper{
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: space-between;
-//     }
+.add-questions-modal__modal-wrapper{
+    @include flex();
+    @include justifyContent(center);
+    align-items: center;
+    align-content: center;
+}
 
-//     &__answers-wrapper{
-//         margin-top: 5%;
-//         display: flex;
-//         flex-direction: row;
-//         flex-wrap: wrap;
-//         justify-content: space-between;
-//     }
+.add-questions-modal{
+    width: $w-500px;
+    padding: $p-20px;
 
-//     &__answer-input{
-//         flex-basis: 48%;
+    &__header-wrapper{
+        @include flex();
+        @include flexDirection(row);
+        @include justifyContent(space-between);
+        align-items: center;
+    }
 
-//         fieldset{
-//             border-color: #6062FF;
-//         }
+    &__close-icon{
+        width: $w-30px!important;
+        height: $h-30px!important;
+        color: $c-main;
+        cursor: pointer;
+    }
+
+    &__main-title{
+        font-size: $fs-23px!important;
+        line-height: $h-29px!important;
+        letter-spacing: 0em;
+        color: $c-black;
+    }
+
+    &__content-wrapper{
+        margin-top: $p-20px;
+        @include flex();
+        @include flexDirection(column);
+        @include justifyContent(space-between);
+    }
+
+    &__title-input{
+        width: $w-100per;
+
+        fieldset{
+            border-color: $c-main;
+        }
+    }
+
+    &__type-wrapper{
+        margin-top: $m-20px;
+    }
+
+    &__select{
+        width: $w-100per;
     
-//         svg{
-//             color: #6062FF;
-//         }
-//     }
-// }
+        fieldset{
+            border-color: $c-main;
+        }
+    
+        svg{
+            color: $c-main;
+        }
+    }
 
-// .divider{
-//     margin: 10% 0;
-// }
+    &__button-wrapper{
+        margin-top: $m-20px;
+        @include flex();
+        @include justifyContent(center);
+    }
+
+    &__quiz-title{
+        font-size: 0.9375rem;
+        font-style: normal;
+        font-weight: $fw-400;
+        line-height: normal;
+        padding: 0 0 $p-2per 0;
+    }
+}

@@ -18,7 +18,7 @@ const Login = loadable(() => import("../pages/Auth/Login"))
 const SignIn = loadable(() => import("../pages/Auth/SignIn"))
 
 const ProQuiz = loadable(() => import("../pages/Quiz/ProQuiz"))
-const ProQuizAdd = loadable(() => import("../components/Modules/Professor/AddQuizModule/index"))
+const ProQuizAdd = loadable(() => import("../components/Modules/Professor/AddQuizModal/index"))
 
 const StudentQuiz = loadable(() => import("../pages/Quiz/StudentQuiz"))
 

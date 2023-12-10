@@ -9,9 +9,10 @@ export const lightTheme = {
   text: {
     primary: '#6062FF',
     paper: '#11111',
-    box: '#11111'
+    box: '#11111',
   },
   background: {
+    primary: '#6062FF',
     default: '#F0F0FF',
   },
   components : {

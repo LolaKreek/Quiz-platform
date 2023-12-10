@@ -27,3 +27,10 @@ export const addQuizSchema = Yup.object().shape({
     .min(1, "Please select a subject")
     .required("Please select a subject")
 })
+
+export const addQuizQuestionSchema = Yup.object().shape({
+  title: Yup.string()
+    .required("Please enter question title"),
+  type: Yup.string()
+    .required("Please select a type"),
+})
