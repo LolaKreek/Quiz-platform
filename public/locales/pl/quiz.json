@@ -7,10 +7,19 @@
     "addQuizFacultyPlaceholder": "Wydziały",
     "addQuizCourse": "Wybierz przedmiot",
     "addQuizCoursePlaceholder": "Przedmioty",
-    "questionsPart": "Dodaj pytania do quizu",
+    "questionsPart": "Dodaj pytanie do quizu",
     "addQuiestionBtn": "Dodaj pytanie",
+    "quiestionType": "Typ pytania",
     "quiestionTitle": "Tytuł pytania",
     "quiestionAnswer": "Odpowiedź na pytanie",
     "addQuizBtn": "Dodaj",
-    "quizConfig": "Konfiguracje Quizu"
+    "quizConfig": "Konfiguracje Quizu",
+    "addQuizQuestionTitle": "Pytania",
+    "addQuizTimer": "Licznik czasu",
+    "addQuizShowAnswers": "Pokaż odpowiedzi",
+    "addQuizActionHeader": "Akcja dodawania quizu",
+    "addQuizActionMessage": "Akcja dodawania quizu powiodła się",
+    "addQuestionActionHeader": "Akcja pytania",
+    "addQuestionActionMessage": "Pytanie zostało pomyślnie dodane",
+    "deleteQuestionActionMessage": "Pytanie zostało pomyślnie usunięte"
 }

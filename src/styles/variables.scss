@@ -6,6 +6,7 @@ $c-success:         #D8FFE5;
 $c-error:           #FFD8E4;
 $c-error-background:rgba(228, 79, 79, .4);
 $c-shadow:          rgba(12, 22, 112, 0.55);
+$c-label:           #A0A0A0;
 
 $c-light-background:        #F0F0FF;
 $c-light-placeholder:       #6B6B6B;
@@ -44,6 +45,7 @@ $fbs-20: 20%;
 $fbs-25: 25%;
 $fbs-30: 30%;
 $fbs-40: 40%;
+$fbs-48: 48%;
 $fbs-50: 50%;
 $fbs-60: 60%;
 $fbs-65: 65%;
@@ -101,6 +103,8 @@ $p-7per: 7%;
 // WIDTH SIZES
 //In px
 $w-8px:     8px;
+$w-25px:   25px;
+$w-30px:   30px;
 $w-50px:   50px;
 $w-70px:   70px;
 $w-80px:   80px;
@@ -164,6 +168,9 @@ $maxw-100vw: 100vw;
 // HEIGHT SIZES
 //In px
 $h-8px:     8px;
+$h-25px:   25px;
+$h-29px:   29px;
+$h-30px:   30px;
 $h-40px:   40px;
 $h-42px:   42px;
 $h-50px:   50px;
@@ -264,6 +271,7 @@ $fw-700: 700;
 $fs-13px: 13px;
 $fs-15px: 15px;
 $fs-20px: 20px;
+$fs-23px: 23px;
 
 //Lists
 $columns: $w-10per, $w-20per, $w-30per, $w-40per, $w-50per, $w-60per, $w-70per, $w-80per, $w-90per, $w-100per;
