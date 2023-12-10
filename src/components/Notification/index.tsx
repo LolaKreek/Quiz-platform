@@ -1,9 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import toast from "react-hot-toast";
 import CloseIcon from '@mui/icons-material/Close';
-
 import { propsType } from "./types";
-import './styles.scss'
 
 const Notification = ({message, element, header, type}: propsType) => {
     return(

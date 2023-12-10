@@ -2,7 +2,6 @@ import { Box, Modal, Paper, Typography } from "@mui/material"
 import { useTranslation } from "react-i18next"
 import CloseIcon from '@mui/icons-material/Close';
 
-import "./styles.scss"
 import { AppInput } from "../../AppInput";
 import { Formik, useFormikContext } from "formik";
 import { useEffect, useState } from "react";
@@ -12,7 +11,7 @@ import { onValue, ref } from "firebase/database";
 import { database } from "../../../services/Firebase/firebase";
 import { withSuspense } from "../../../HOCs/withSusspense";
 
-const Form = ({open = true, onClose, setSubmitted}: any) => {
+const Form = ({open = true, onClose}: any) => {
     const { t } = useTranslation('quiz')
 
     const [faculties, setFaculties] = useState([])
@@ -24,8 +23,8 @@ const Form = ({open = true, onClose, setSubmitted}: any) => {
         handleChange,
         errors,
         setFieldValue,
-        validateForm,
-        initialValues,
+        // validateForm,
+        // initialValues,
     } = useFormikContext();
 
     const getFaculties = () => {

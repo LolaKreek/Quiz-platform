@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 
 import { AppButton } from "../../components/AppButton";
 import { AddQuizModule } from "../../components/Modules/AddQuizModule";
-import './styles.scss'
 
 const QuizPage = () => {
     const { t } = useTranslation('quiz')

@@ -1,6 +1,5 @@
 import { forwardRef } from "react";
 import { Button } from "@mui/material";
-import './styles.scss'
 
 type Props = {
     children: string | JSX.Element | JSX.Element[],
@@ -12,7 +11,7 @@ export const AppButton = forwardRef(({ children, className, onClick, ...props }:
 
   return <Button
             ref={ref}
-            className={`root ${className}`}
+            className={`app-button__root ${className}`}
             variant="contained"
             color="primary"
             onClick={onClick}

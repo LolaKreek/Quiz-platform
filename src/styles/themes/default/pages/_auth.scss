@@ -1,0 +1,6 @@
+.login-page__wrapper{
+    @include flex();
+    @include flexDirection(column);
+    @include justifyContent(center);
+    height: $h-100per;
+}
