@@ -1,0 +1,10 @@
+{
+  "profile": "Profil",
+  "name": "Nazwa",
+  "email": "Email",
+  "verifiedTitle": "Email zweryfikowany",
+  "verified": "Zweryfikowany",
+  "notVerified": "Nie zweryfikowano",
+  "phone": "Numer telefonu",
+  "unknown": "Nieznany"
+}

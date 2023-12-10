@@ -1,0 +1,19 @@
+{
+  "profile": "Profile",
+  "name": "Name",
+  "email": "Email",
+  "verifiedTitle": "Email verified",
+  "verified": "Verified",
+  "notVerified": "Not verified",
+  "phone": "Phone number",
+  "unknown": "Unknown",
+  "email_notificationHeader": "Check your new email",
+  "email_notificationMessage": "Follow the link sent to your new email",
+  "email_notificationHeaderERR": "Wrong password",
+  "email_notificationMessageERR": "Please provide the correct password",
+  "email_currentPassword": "Current password",
+  "name_name": "New name",
+  "name_notificationHeader": "Name changed",
+  "name_notificationMessage": "Your name has been successfully changed",
+  "submit": "submit"
+}

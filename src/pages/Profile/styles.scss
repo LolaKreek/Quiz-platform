@@ -1,0 +1,36 @@
+.profile__pfpwrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+.profile__pfpwrapper > .MuiAvatar-root {
+  z-index: 1;
+}
+.profile__pfpwrapper > .MuiDivider-fullWidth {
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+}
+.profile__titletext {
+  font-size: 32px;
+  text-align: center;
+}
+.profile__infocontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.profile__infosection {
+  margin: 32px;
+}
+
+.profile__emailverif {
+  display: flex;
+  align-items: center;
+}
+.profile__flexcentered {
+  display: flex;
+  align-items: center;
+}
