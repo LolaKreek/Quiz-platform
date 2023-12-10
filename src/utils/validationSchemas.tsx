@@ -17,3 +17,13 @@ export const registerSchema = Yup.object().shape({
     .min(8, 'Password must be at least 8 characters long')
     .required("Enter password")
 })
+
+export const addQuizSchema = Yup.object().shape({
+  quizName: Yup.string()
+    .required("Please enter quiz name"),
+  faculty: Yup.string()
+    .required("Please select a faculty"),
+  subjects: Yup.string()
+    .min(1, "Please select a subject")
+    .required("Please select a subject")
+})

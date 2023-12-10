@@ -12,5 +12,10 @@
     "quiestionTitle": "Question title",
     "quiestionAnswer": "Question answer",
     "addQuizBtn": "Add",
-    "quizConfig": "Quiz configuration"
+    "quizConfig": "Quiz configuration",
+    "addQuizQuestionTitle": "Quizestions",
+    "addQuizTimer": "Timer",
+    "addQuizShowAnswers": "Show answers",
+    "addQuizActionHeader": "Add quiz action",
+    "addQuizActionMessage": "The Quiz adding action was successful"
 }

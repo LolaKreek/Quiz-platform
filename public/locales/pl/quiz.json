@@ -12,5 +12,10 @@
     "quiestionTitle": "Tytuł pytania",
     "quiestionAnswer": "Odpowiedź na pytanie",
     "addQuizBtn": "Dodaj",
-    "quizConfig": "Konfiguracje Quizu"
+    "quizConfig": "Konfiguracje Quizu",
+    "addQuizQuestionTitle": "Pytania",
+    "addQuizTimer": "Licznik czasu",
+    "addQuizShowAnswers": "Pokaż odpowiedzi",
+    "addQuizActionHeader": "Akcja dodawania quizu",
+    "addQuizActionMessage": "Akcja dodawania quizu powiodła się"
 }
