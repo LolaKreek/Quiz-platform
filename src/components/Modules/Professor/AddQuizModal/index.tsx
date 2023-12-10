@@ -68,6 +68,15 @@ const Form = ({setSubmitted}: any) => {
         }
     }
 
+    const handleDeleteQuestion = (id:Date) => {
+        // @ts-ignore
+        setQuestions(questions.filter(item => item.id !== id))
+
+        toast.custom((element) => (
+            <Notification header={t('addQuizActionHeader')} message={t('deleteQuestionActionMessage')} element={element} type='success' />
+        ), {position: "bottom-center"});
+    }
+
     const handleAddQuiz = async () => {
         const validationResult = await validateForm();
 
@@ -207,7 +216,7 @@ const Form = ({setSubmitted}: any) => {
                     {questions.length > 0 && <Box>
                         { questions.map((question) => (
                             //@ts-ignore
-                            <QuestionBox title={question.title} type={question.type} />
+                            <QuestionBox title={question.title} id={question.id} type={question.type} handleDeleteQuestion={handleDeleteQuestion} />
                         ))
                         }
                     </Box>}

@@ -5,10 +5,12 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 type questionBoxPropsType = {
     title: string,
-    type: string
+    type: string,
+    id: Date,
+    handleDeleteQuestion: any
 }
 
-const QuestionBox = ({title, type}:questionBoxPropsType) => {
+const QuestionBox = ({title, type, id, handleDeleteQuestion}:questionBoxPropsType) => {
     const { t } = useTranslation('quiz');
 
     return(
@@ -27,7 +29,7 @@ const QuestionBox = ({title, type}:questionBoxPropsType) => {
 
             <Box className="question-box__button-wrapper">
                 <EditIcon className="question-box__icon" />
-                <DeleteIcon className="question-box__icon" />
+                <DeleteIcon className="question-box__icon" onClick={() => handleDeleteQuestion(id)} />
             </Box>
         </Box>
     )

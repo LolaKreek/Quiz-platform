@@ -20,5 +20,6 @@
     "addQuizActionHeader": "Add quiz action",
     "addQuizActionMessage": "The Quiz adding action was successful",
     "addQuestionActionHeader": "Question action",
-    "addQuestionActionMessage": "The question was added successfully"
+    "addQuestionActionMessage": "The question was added successfully",
+    "deleteQuestionActionMessage": "The question was deleted successfully"
 }

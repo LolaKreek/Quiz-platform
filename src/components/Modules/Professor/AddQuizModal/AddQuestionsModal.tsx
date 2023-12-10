@@ -13,7 +13,7 @@ import Notification from "../../../Notification";
 
 const AddQuestionModal = ({open, setQuiestionOpen, types, questions, setQuestions}: any) => {
     const { t } = useTranslation('quiz')
-    const initialState = {title: '', type: ''}
+    const initialState = {title: '', type: '', id: Date.now()}
 
     const [submitted, setSubmitted] = useState(false);
 

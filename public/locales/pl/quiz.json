@@ -20,5 +20,6 @@
     "addQuizActionHeader": "Akcja dodawania quizu",
     "addQuizActionMessage": "Akcja dodawania quizu powiodła się",
     "addQuestionActionHeader": "Akcja pytania",
-    "addQuestionActionMessage": "Pytanie zostało pomyślnie dodane"
+    "addQuestionActionMessage": "Pytanie zostało pomyślnie dodane",
+    "deleteQuestionActionMessage": "Pytanie zostało pomyślnie usunięte"
 }
