@@ -17,6 +17,7 @@ import { addQuizSchema } from "../../../../utils/validationSchemas";
 import { ErrorOverLay } from "../../../ErrorOverLay";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AddQuestionModal from "./AddQuestionsModal";
+import QuestionBox from "../../../QuestionBox";
 
 const Form = ({setSubmitted}: any) => {
     const { t } = useTranslation('quiz')
@@ -202,6 +203,14 @@ const Form = ({setSubmitted}: any) => {
 
                 <Box className="quiz-add-modal__right-part right-part">
                     <Typography className="sub-title">{t('addQuizQuestionTitle')}</Typography>
+
+                    {questions.length > 0 && <Box>
+                        { questions.map((question) => (
+                            //@ts-ignore
+                            <QuestionBox title={question.title} type={question.type} />
+                        ))
+                        }
+                    </Box>}
                     
                     <Box className="right-part__button-wrapper">
                         <AppButton
@@ -212,7 +221,6 @@ const Form = ({setSubmitted}: any) => {
                         </AppButton>
                     </Box>
                 </Box>
-
             </Box>
 
             <Box className="quiz-add-modal__error-wrapper">

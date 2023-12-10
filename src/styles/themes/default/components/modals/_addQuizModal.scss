@@ -36,12 +36,11 @@
             flex-basis: $fbs-48;
             @include flex();
             @include flexDirection(column);
-            @include justifyContent(space-between);
+            @include justifyContent(start);
 
             &__quiz-title{
                 font-size: 0.9375rem;
                 font-style: normal;
-                font-weight: $fw-400;
                 line-height: normal;
                 padding: 0 0 $p-2per 0;
             }
@@ -98,7 +97,8 @@
     color: $c-label;
 }
 
-.symbol{
+.symbol,
+.box-label{
     color: $c-main;
 }
 
@@ -181,5 +181,42 @@
         font-weight: $fw-400;
         line-height: normal;
         padding: 0 0 $p-2per 0;
+    }
+}
+
+.question-box{
+    margin-top: $m-20px;
+    padding: $p-20px;
+    border-radius: $br-8px;
+    background-color: $c-light-menu-hover;
+    @include flex();
+    @include flexDirection(row);
+    @include justifyContent(space-between);
+    align-items: center;
+    align-content: center;
+
+    &__main-wrapper{
+        flex-basis: $fbs-70;
+        @include flex();
+        @include flexDirection(column);
+        @include justifyContent(space-between);
+    }
+
+    &__button-wrapper{
+        flex-basis: $fbs-25;
+        @include flex();
+        @include flexDirection(row);
+        @include justifyContent(space-between);
+    }
+
+    &__content{
+        margin-left: $m-20px!important;
+        color: $c-black;
+    }
+
+    &__icon{
+        width: $w-25px!important;
+        height: $h-25px!important;
+        cursor: pointer;
     }
 }
