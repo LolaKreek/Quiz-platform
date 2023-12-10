@@ -1,6 +1,7 @@
-import { AuthState } from "./Slices/types";
+import { AuthState, ThemeState } from "./Slices/types";
 
-const appName = 'quiz'
+const appName = 'quiz';
+const themeName = 'theme'
 
 export const getUserLocalData = () => {
   // @ts-ignore
@@ -13,4 +14,13 @@ export const setUserLocalData = (player:AuthState) => {
 
 export const deleteUserLocalData = () => {
   localStorage.removeItem(appName);
+}
+
+export const setTheme = (player:ThemeState) => {
+  localStorage.setItem(themeName, JSON.stringify(player));
+}
+
+export const getTheme = () => {
+  // @ts-ignore
+  return JSON.parse(localStorage?.getItem(themeName));
 }

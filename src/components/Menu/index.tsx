@@ -8,6 +8,14 @@ import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../store"
 import { authLogout, selectUserId } from "../../store/Slices/auth"
 import { addNotification } from "../../store/Slices/notification"
+import { useRef, useState } from "react"
+import { PROFILE_SETTINGS } from "../../utils/actions"
+import ProfileSettings from "../AppProfileSettings"
+
+type openToolType = {
+    action: string,
+    value: boolean
+}
 
 const Menu = () => {
     const { links, login, loginout, profile } = useSidebarData()
@@ -16,6 +24,9 @@ const Menu = () => {
     const navigate = useNavigate();
     const userId = useSelector((state: RootState) => selectUserId(state))
     const userPhoto = useSelector((state: RootState) => state.auth.user.photoURL)
+    const avatarRef = useRef(null);
+
+    const [openTool, setOpenTool] = useState<openToolType>({action: '', value: false});
 
     const handleLogout = () => {
         dispatch(authLogout())
@@ -65,9 +76,10 @@ const Menu = () => {
                 }
             </List>
 
+            {/* Login / Logout */}
             {userId ? 
                 <Box className='menu__logout-container'>
-                    <Box className="menu__user-image-container">
+                    <Box className="menu__user-image-container" ref={avatarRef} onClick={() => setOpenTool({action: PROFILE_SETTINGS, value: !openTool?.value})}>
                         <Avatar className='menu__user-image' alt="User U" src={userPhoto || undefined} />
                     </Box>
 
@@ -88,6 +100,10 @@ const Menu = () => {
                         </ListItem>
                     </NavLink>
                 </List>
+            }
+
+            {openTool?.action === PROFILE_SETTINGS && 
+                <ProfileSettings open={openTool.value} setOpen={setOpenTool} anchorRef={avatarRef} />
             }
         </Drawer>
     )

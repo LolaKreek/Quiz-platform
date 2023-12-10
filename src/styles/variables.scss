@@ -5,6 +5,7 @@ $c-main:            #6062FF;
 $c-success:         #D8FFE5;
 $c-error:           #FFD8E4;
 $c-error-background:rgba(228, 79, 79, .4);
+$c-shadow:          rgba(12, 22, 112, 0.55);
 
 $c-light-background:        #F0F0FF;
 $c-light-placeholder:       #6B6B6B;
@@ -251,8 +252,10 @@ $right-88per: 88%;
 $zi-1: 1;
 $zi-2: 2;
 $zi-3: 3;
+$zi-10000: 10000;
 
 // FONT WEIGHT
+$fw-400: 400;
 $fw-500: 500;
 $fw-600: 600;
 $fw-700: 700;

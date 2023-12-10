@@ -25,3 +25,7 @@ export type NotificationState = {
     type: string,
     status: boolean,
 }
+
+export type ThemeState = {
+    theme: string
+}
