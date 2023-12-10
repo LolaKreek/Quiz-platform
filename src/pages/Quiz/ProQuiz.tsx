@@ -1,15 +1,15 @@
 import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 import { AppButton } from "../../components/AppButton";
-import { AddQuizModule } from "../../components/Modules/AddQuizModule";
+import { useNavigate } from "react-router-dom";
+import { PROFESSOR_ADD_QUIZ_PAGE } from "../../routes/pathnames";
 
-const QuizPage = () => {
+const ProQuizPage = () => {
     const { t } = useTranslation('quiz')
     const anchorRef = useRef(null);
-
-    const [openAddQuizModule, setOpenAddQuizModule] = useState(false);
+    const navigate = useNavigate();
 
     return(
         <Box className="top-menu__wrapper">
@@ -17,20 +17,13 @@ const QuizPage = () => {
 
             <AppButton
                 ref={anchorRef}
-                onClick={() => setOpenAddQuizModule(true)}
+                onClick={() => navigate(PROFESSOR_ADD_QUIZ_PAGE)}
                 className='top-menu__button'
             >
                 {t('addNewQuizBtn')}
             </AppButton>
-
-            {openAddQuizModule && 
-                <AddQuizModule 
-                    onClose={() => setOpenAddQuizModule(false)} 
-                    anchorRef={anchorRef} 
-                />
-            }
         </Box>
     )
 }
 
-export default QuizPage;
+export default ProQuizPage;
