@@ -1,153 +1,222 @@
-.quiz-add-module{
-    &__modal{
-        display: flex;
-        justify-content: center;
+.quiz-add-modal{
+    padding: $p-20px;
+
+    &__header-wrapper{
+        @include flex();
+        @include flexDirection(row);
+        @include justifyContent(space-between);
+    }
+
+    &__title-wrapper{
+        @include flex();
+        @include flexDirection(row);
+        @include justifyContent(start);
         align-items: center;
     }
-}
 
-.papper {
-    border-radius: 8px;
-    padding: 20px;
-    width: 80%;
-    height: 80%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    position: relative;
-    overflow: scroll;
-    
-    &::-webkit-scrollbar {
-        display: none;
-    }
-    &::-webkit-scrollbar-thumb {
-        background: #EEEEFB;
-        border-radius: 8px
-    }
-
-    &__title{
-        font-size: 23px;
-        font-weight: 500;
-        line-height: 29px;
+    &__main-title{
+        font-size: $fs-23px!important;
+        line-height: $h-29px!important;
         letter-spacing: 0em;
-        text-align: center;
-        color: black;
+        color: $c-black;
     }
 
-    &__sub-title{
-        font-size: 20px;
-        font-weight: 300;
-        line-height: 29px;
-        letter-spacing: 0em;
-        text-align: center;
-        color: black;
-    }
-
-    &__close-icon{
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 1.5% 1.5% 0 0;
-        width: 30px;
-        height: 30px;
+    &__back-icon{ 
+        margin-right: $m-20px;
         cursor: pointer;
-        color: #6062FF;
-    }
-}
-
-.content{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 3%;
-
-    &__left-row{
-        flex-basis: 48%;
     }
 
-    &__rigth-row{
-        flex-basis: 48%;
-    }
+    &__content-wrapper{
+        @include flex();
+        @include flexDirection(row);
+        @include justifyContent(space-between);
+        margin-top: $m-3per;
 
-    &__button-container{
-        margin-top: 6%;
-    }
+        .left-part{
+            flex-basis: $fbs-48;
+            @include flex();
+            @include flexDirection(column);
+            @include justifyContent(start);
 
-    &__container{
-        margin-top: 3%;
-    }
+            &__quiz-title{
+                font-size: 0.9375rem;
+                font-style: normal;
+                line-height: normal;
+                padding: 0 0 $p-2per 0;
+            }
+    
+            &__title-input{
+                width: $w-100per;
 
-    .left-row{
-        &__quiz-title{
-            color: #6B6B6B;
-            font-size: 0.9375rem;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            padding: 0 0 2% 0;
+                fieldset{
+                    border-color: $c-main;
+                }
+            }
+
+            &__select{
+                width: $w-100per;
+            
+                fieldset{
+                    border-color: $c-main;
+                }
+            
+                svg{
+                    color: $c-main;
+                }
+            }
         }
 
-        &__title-input{
-            width: 100%;
+        .right-part{
+            flex-basis: $fbs-48;
+            @include flex();
+            @include flexDirection(column);
+            @include justifyContent(start);
 
-            .MuiOutlinedInput-root{
-                fieldset{
-                    border-color: #6062FF;
-                }
+            &__button-wrapper{
+                @include flex();
+                @include justifyContent(center);
+                margin-top: $m-20px;
             }
         }
     }
 }
 
+.sub-title{
+    text-align: center;
+}
+
 .margin-bottom{
-    margin-bottom: 5%;
+    margin-bottom: $m-5per;
 }
 
 .margin-top{
-    margin-top: 3%;
+    margin-top: $m-3per;
 }
 
-.left-row__select{
-    width: 100%;
-
-    fieldset{
-        border-color: #6062FF;
-    }
-
-    svg{
-        color: #6062FF;
-    }
+.label{
+    color: $c-label;
 }
 
-.quiestion{
-    &__main-wrapper{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+.symbol,
+.box-label{
+    color: $c-main;
+}
+
+.show-answers__label{
+    color: $c-black;
+}
+
+.add-questions-modal__modal-wrapper{
+    @include flex();
+    @include justifyContent(center);
+    align-items: center;
+    align-content: center;
+}
+
+.add-questions-modal{
+    width: $w-500px;
+    padding: $p-20px;
+
+    &__header-wrapper{
+        @include flex();
+        @include flexDirection(row);
+        @include justifyContent(space-between);
+        align-items: center;
     }
 
-    &__answers-wrapper{
-        margin-top: 5%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
+    &__close-icon{
+        width: $w-30px!important;
+        height: $h-30px!important;
+        color: $c-main;
+        cursor: pointer;
     }
 
-    &__answer-input{
-        flex-basis: 48%;
+    &__main-title{
+        font-size: $fs-23px!important;
+        line-height: $h-29px!important;
+        letter-spacing: 0em;
+        color: $c-black;
+    }
+
+    &__content-wrapper{
+        margin-top: $p-20px;
+        @include flex();
+        @include flexDirection(column);
+        @include justifyContent(space-between);
+    }
+
+    &__title-input{
+        width: $w-100per;
 
         fieldset{
-            border-color: #6062FF;
+            border-color: $c-main;
+        }
+    }
+
+    &__type-wrapper{
+        margin-top: $m-20px;
+    }
+
+    &__select{
+        width: $w-100per;
+    
+        fieldset{
+            border-color: $c-main;
         }
     
         svg{
-            color: #6062FF;
+            color: $c-main;
         }
+    }
+
+    &__button-wrapper{
+        margin-top: $m-20px;
+        @include flex();
+        @include justifyContent(center);
+    }
+
+    &__quiz-title{
+        font-size: 0.9375rem;
+        font-style: normal;
+        font-weight: $fw-400;
+        line-height: normal;
+        padding: 0 0 $p-2per 0;
     }
 }
 
-.divider{
-    margin: 10% 0;
+.question-box{
+    margin-top: $m-20px;
+    padding: $p-20px;
+    border-radius: $br-8px;
+    background-color: $c-light-menu-hover;
+    @include flex();
+    @include flexDirection(row);
+    @include justifyContent(space-between);
+    align-items: center;
+    align-content: center;
+
+    &__main-wrapper{
+        flex-basis: $fbs-70;
+        @include flex();
+        @include flexDirection(column);
+        @include justifyContent(space-between);
+    }
+
+    &__button-wrapper{
+        flex-basis: $fbs-25;
+        @include flex();
+        @include flexDirection(row);
+        @include justifyContent(space-between);
+    }
+
+    &__content{
+        margin-left: $m-20px!important;
+        color: $c-black;
+    }
+
+    &__icon{
+        width: $w-25px!important;
+        height: $h-25px!important;
+        cursor: pointer;
+    }
 }

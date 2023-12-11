@@ -13,7 +13,7 @@
         @include justifyContent(space-between);
         @include flexDirection(row);
         align-items: baseline;
-        padding: $p-10px $p-3per;
+        padding: $p-20px;
     }
 
     &__button{

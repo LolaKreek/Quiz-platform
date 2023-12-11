@@ -1,0 +1,1 @@
+export const PROFILE_SETTINGS = 'profile_settings';

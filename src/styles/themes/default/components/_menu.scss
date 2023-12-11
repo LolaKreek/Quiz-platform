@@ -30,6 +30,7 @@
       @include flex();
       @include justifyContent(center);
       margin-bottom: $m-7per;
+      position: relative;
     }
   
     &__user-image{

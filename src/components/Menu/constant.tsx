@@ -4,13 +4,14 @@ import {
     LOGIN_PAGE,
     MAIN_PAGE, 
     PROFILE_PAGE, 
-    QUIZ_PAGE 
+    PROFESSOR_QUIZ_PAGE, 
+    STUDENT_QUIZ_PAGE
 } from "../../routes/pathnames";
 import { useMemo } from "react";
 import { InstructionIcon, LoginIcon, LogoutIcon, ProfileIcon, QuizIcon } from "../../assets/icons";
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 
-const menuLinks = [
+const professorLinks =[
     {
         path: MAIN_PAGE,
         translationKey: 'dashboard',
@@ -18,7 +19,28 @@ const menuLinks = [
         exact: true
     },
     {
-        path: QUIZ_PAGE,
+        path: PROFESSOR_QUIZ_PAGE,
+        translationKey: 'quiz',
+        Icon: QuizIcon,
+        exact: true
+    },
+    {
+        path: INSTRUCTION_PAGE,
+        translationKey: 'instruction',
+        Icon: InstructionIcon,
+        exact: true
+    },
+]
+
+const studentLinks =[
+    {
+        path: MAIN_PAGE,
+        translationKey: 'dashboard',
+        Icon: SpaceDashboardIcon,
+        exact: true
+    },
+    {
+        path: STUDENT_QUIZ_PAGE,
         translationKey: 'quiz',
         Icon: QuizIcon,
         exact: true
@@ -54,8 +76,10 @@ const logoutLink = {
 export const useSidebarData = () => {
     const { t } = useTranslation('menu')
   
+    // Here implement role validation => 
+    // if professor links === professorLinks else links === studentLinks
     const links = useMemo(() => {
-      return menuLinks.map(i => ({ ...i, title: t(`menuLinks.${i.translationKey}`) }))
+      return professorLinks.map(i => ({ ...i, title: t(`menuLinks.${i.translationKey}`) }))
     }, [t])
 
     const profile = useMemo(() => {
