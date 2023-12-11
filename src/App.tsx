@@ -9,11 +9,14 @@ import DashboardPage from "./pages/Dashboard";
 import "./styles/themes/default/theme.scss";
 import "./App.css";
 import { ThemeProvider } from "@emotion/react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./store";
 import { selectThemeStatus } from "./store/Slices/theme";
 import { getDesignTokens } from "./layouts/theme";
 import { createTheme } from "@mui/material";
+import { auth, database } from "./services/Firebase/firebase";
+import { onValue, ref } from "firebase/database";
+import { authLogout, updateUser } from "./store/Slices/auth";
 
 function App() {
   // const userId = useAppSelector(state => state.auth.user.id)

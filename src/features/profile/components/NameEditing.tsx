@@ -1,5 +1,12 @@
-import { Button, Modal, Paper, TextField } from "@mui/material";
-import "./styles.scss";
+import {
+  Box,
+  Button,
+  Modal,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
+import "../../../styles/themes/default/components/modals/_profileModal.scss";
 import { useState } from "react";
 import { auth } from "../../../services/Firebase/firebase";
 import toast from "react-hot-toast";
@@ -9,7 +16,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import { updateUser } from "../../../store/Slices/auth";
 import { useTranslation } from "react-i18next";
-
+import { AppInput } from "../../../components/AppInput";
+import CloseIcon from "@mui/icons-material/Close";
+import { AppButton } from "../../../components/AppButton";
 const NameModal = ({ open = true, onClose }: any) => {
   const [name, setName] = useState("");
   const { t } = useTranslation("profile");
@@ -43,20 +52,28 @@ const NameModal = ({ open = true, onClose }: any) => {
       closeAfterTransition
     >
       <Paper className="profilemodal__paper papper">
-        <TextField
+        <Box className="papper__header">
+          <Typography className="papper__title">{t("name_header")}</Typography>
+          <CloseIcon className="papper__close-icon" onClick={onClose} />
+        </Box>
+        <AppInput
+          variant="outlined"
+          error={false}
           value={name}
           onChange={(e) => {
             setName(e.currentTarget.value);
           }}
-          placeholder={t("name_name")}
+          placeholder={t("name_placeholder")}
         />
-        <Button
+        <AppButton
+          className=""
+          variant="contained"
           onClick={() => {
             submit();
           }}
         >
           {t("submit")}
-        </Button>
+        </AppButton>
       </Paper>
     </Modal>
   );

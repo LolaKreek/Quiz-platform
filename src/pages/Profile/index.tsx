@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { Avatar, Box, Button, Divider, Typography } from "@mui/material";
-import "./styles.scss";
+import "../../styles/themes/default/pages/_profile.scss";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useTranslation } from "react-i18next";
@@ -11,6 +11,10 @@ import EditIcon from "@mui/icons-material/Edit";
 import EmailModal from "../../features/profile/components/EmailEditing";
 import NameModal from "../../features/profile/components/NameEditing";
 import PhoneModal from "../../features/profile/components/PhoneEditing";
+import { auth } from "../../services/Firebase/firebase";
+import { sendEmailVerification } from "firebase/auth";
+import toast from "react-hot-toast";
+import Notification from "../../components/Notification";
 
 const ProfilePage = () => {
   const { t } = useTranslation("profile");
@@ -74,7 +78,25 @@ const ProfilePage = () => {
           </Box>
           <Box className="profile__infosection">
             <Typography variant="h4">{t("verifiedTitle")}</Typography>
-            <Box className="profile__emailverif">
+            <Box
+              className="profile__emailverif"
+              onClick={() => {
+                if (!authState.emailVerified) {
+                  auth.currentUser && sendEmailVerification(auth.currentUser);
+                  toast.custom(
+                    (element) => (
+                      <Notification
+                        header={t("email_verificationHeader")}
+                        message={t("email_verificationMessage")}
+                        element={element}
+                        type={"info"}
+                      />
+                    ),
+                    { position: "bottom-center" }
+                  );
+                }
+              }}
+            >
               {authState.emailVerified ? (
                 <>
                   <Typography>{t("verified")}</Typography>
