@@ -1,0 +1,51 @@
+.profile-settings{
+    &__popper{
+        z-index: $zi-10000;
+        border-radius: $br-8px!important;
+        @include boxShadow(0px 4px 23px 0px $c-shadow);
+    }
+
+    &__paper{
+        padding: pxToRem(15);
+        border-radius: $br-8px!important;
+        min-width: 250px;
+    }
+
+    &__header-wrapper{
+        @include flex();
+        @include flexDirection(row);
+        @include justifyContent(space-between);
+        align-items: center;
+        margin-bottom: $m-10px;
+    }
+
+    &__title{
+        font-size: $fs-20px!important;
+        font-weight: $fw-400!important;
+    }
+
+    &__close-icon{
+        color: $c-main;
+        cursor: pointer;
+    }
+
+    &__theme-wrapper{
+        @include flex();
+        @include flexDirection(row);
+        @include justifyContent(space-between);
+        align-items: center;
+    }
+
+    &__modes-wrapper{
+        @include flex();
+        @include flexDirection(row);
+        @include justifyContent(space-between);
+        align-items: center;
+        min-width: 100px;
+    }
+
+    &__theme-icon{
+        width: 40px;
+        cursor: pointer;
+    }
+}

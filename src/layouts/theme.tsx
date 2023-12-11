@@ -1,10 +1,56 @@
-import { createTheme, useMediaQuery } from "@mui/material";
+import { PaletteMode } from "@mui/material";
 
-export const theme = createTheme({
-  palette: {
-    primary: {
-     main: '#6062FF',
+export const lightTheme = {
+  // palette values for light mode
+  primary: {
+    main: '#6062FF'
+  },
+  // divider: amber[200],
+  text: {
+    primary: '#6062FF',
+    paper: '#11111',
+    box: '#11111',
+  },
+  background: {
+    primary: '#6062FF',
+    default: '#F0F0FF',
+  },
+  components : {
+    MuiCssBaseLine : {
+      styleOverrides : {
+        body : {
+          "& .profile-settings__popper" : {
+            border: '1px solid red!important'
+          }
+        }
+      }
+    }
+  }
+}
+
+export const darkTheme = {
+  // palette values for dark mode
+    // divider: deepOrange[700],
+    background: {
+      default: '#242424',
     },
+    text: {
+      primary: '#fff',
+      secondary: '#6062FF',
+    },
+  primary: {
+    main: '#6062FF',
+  },
+}
+
+export const getDesignTokens = (mode: PaletteMode) => ({
+  palette: {
+    mode,
+    ...(mode === 'light') ? {
+      lightTheme
+    } : {
+      darkTheme
+    }
   },
   typography: {
     fontFamily: [
@@ -14,7 +60,3 @@ export const theme = createTheme({
     fontWeightRegular: 300,
   }
 });
-
-export const useIsMobile = () => {
-  return useMediaQuery(theme.breakpoints.down('xs'), { noSsr: true })
-}
