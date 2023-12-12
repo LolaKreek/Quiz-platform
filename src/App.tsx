@@ -37,7 +37,7 @@ function App() {
             isAnonymous: currentUser.isAnonymous,
             phoneNumber: data.phone ? data.phone : null,
             photoURL: currentUser.photoURL,
-            roles: data.roles ? data.roles : [],
+            role: data.role ? data.role : "none",
           };
           dispatch(updateUser({ user: userData }));
         });

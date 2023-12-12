@@ -14,7 +14,7 @@ const initialState: AuthState = {
     isAnonymous: false,
     phoneNumber: "",
     photoURL: "",
-    roles: [],
+    role: "",
   },
   token: "",
 };
@@ -45,7 +45,7 @@ export const authSlice = createSlice({
         isAnonymous: false,
         phoneNumber: "",
         photoURL: "",
-        roles: [],
+        role: "",
       };
       state.token = "";
     },

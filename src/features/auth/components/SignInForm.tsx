@@ -48,6 +48,7 @@ const SignInForm = () => {
         const userRef = ref(database, `users/${userCredential.user.uid}`);
         set(userRef, {
           phone: "",
+          role: "student",
         });
       })
       .catch((error) => {
