@@ -19,10 +19,10 @@ const DragNDropAnswer = ({
 }) => {
   useEffect(() => {
     set("answers", {
-      first: "1",
-      second: "2",
-      third: "3",
-      fourth: "4",
+      first: "",
+      second: "",
+      third: "",
+      fourth: "",
     });
   }, []);
   const onDrop = ({ removedIndex, addedIndex }: { [key: string]: number }) => {
