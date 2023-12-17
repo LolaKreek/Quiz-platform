@@ -18,7 +18,6 @@ const ProInstructionPage = () => {
 
     const [open, setOpen] = useState(false);
     const [data, setData] = useState([]);
-    const [rows, setRows] = useState(0);
     const { menuItems } = useTableData();
 
     const handleUploadFile = () => {
@@ -33,7 +32,6 @@ const ProInstructionPage = () => {
         const response = await getMaterialsData({id: user})
         //@ts-ignore
         setData(response)
-        setRows(response.length)
     }
 
     const handleDelete = async(item:any) => {
