@@ -5,7 +5,8 @@ import {
     MAIN_PAGE, 
     PROFILE_PAGE, 
     PROFESSOR_QUIZ_PAGE, 
-    STUDENT_QUIZ_PAGE
+    STUDENT_QUIZ_PAGE,
+    PROFESSOR_INSTRUCTION_PAGE
 } from "../../routes/pathnames";
 import { useMemo } from "react";
 import { InstructionIcon, LoginIcon, LogoutIcon, ProfileIcon, QuizIcon } from "../../assets/icons";
@@ -25,7 +26,7 @@ const professorLinks =[
         exact: true
     },
     {
-        path: INSTRUCTION_PAGE,
+        path: PROFESSOR_INSTRUCTION_PAGE,
         translationKey: 'instruction',
         Icon: InstructionIcon,
         exact: true

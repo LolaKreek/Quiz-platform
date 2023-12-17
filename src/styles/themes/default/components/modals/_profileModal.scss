@@ -1,0 +1,56 @@
+.profilemodal {
+  &__modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.papper {
+  border-radius: 8px;
+  padding: 20px;
+  width: 30%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 10px;
+  position: relative;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #eeeefb;
+    border-radius: 8px;
+  }
+
+  &__title {
+    font-size: 23px;
+    font-weight: 200;
+    line-height: 29px;
+    letter-spacing: 0em;
+    color: black;
+  }
+
+  &__sub-title {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: black;
+  }
+  &__close-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    color: #6062ff;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

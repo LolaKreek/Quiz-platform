@@ -13,6 +13,8 @@
 @import "./components/menu";
 @import "./components/notification";
 @import "./components/appProfileSettings";
+@import "./components/appTopMenu";
+@import "./components/appTable";
 
 //Import modals styles
 @import "./components/modals/addQuizModal";
@@ -23,6 +25,7 @@
 //Import pages styles
 @import "./pages/auth";
 @import "./pages/quiz";
+@import "./pages/profile";
 
 //Import layouts styles
 @import "./features/auth";

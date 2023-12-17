@@ -101,10 +101,6 @@ const Form = ({setSubmitted}: any) => {
         getAnswerTypes();
     }, [])
 
-    useEffect(() => {
-        console.log("questions: ", questions)
-    }, [questions])
-
     return(
         <Box className="quiz-add-modal">
             <Box className="quiz-add-modal__header-wrapper">
