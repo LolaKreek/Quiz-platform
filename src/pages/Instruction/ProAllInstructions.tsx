@@ -3,7 +3,7 @@ import { menuLinks } from "./constants";
 
 const ProAllInstruction = () => {
     return(
-        <AppTopMenu menuLinks={menuLinks} current="all" />
+        <AppTopMenu menuLinks={menuLinks} current="all" type="instruction" />
     )
 }
 

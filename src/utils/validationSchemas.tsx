@@ -34,3 +34,12 @@ export const addQuizQuestionSchema = Yup.object().shape({
   type: Yup.string()
     .required("Please select a type"),
 })
+
+export const uploafFilenSchema = Yup.object().shape({
+  title: Yup.string()
+    .required("Please enter file title"),
+  faculty: Yup.string()
+    .required("Please select a faculy"),
+  subject: Yup.string()
+    .required("Please select a subject")
+})
