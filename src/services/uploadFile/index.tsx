@@ -2,7 +2,7 @@ import { uploadFileDataType } from "./types";
 import { firestore } from "../Firebase/firebase";
 import { addDoc, collection, where, query, getDocs, deleteDoc, doc } from "firebase/firestore";
 
-export const uploadFileData = async ({title, faculty, subject, file, author}:uploadFileDataType) => {
+export const uploadFileData = async ({title, faculty, subject, file, author, authorName}:uploadFileDataType) => {
     const id = Date.now();
     const date = new Date(id);
     const formattedDate = date.toLocaleString('en-US');
@@ -15,7 +15,8 @@ export const uploadFileData = async ({title, faculty, subject, file, author}:upl
         subject : subject,
         file: fileData,
         authorId: author,
-        date: formattedDate
+        date: formattedDate,
+        authorName: authorName
     });
 
 
@@ -25,6 +26,22 @@ export const uploadFileData = async ({title, faculty, subject, file, author}:upl
 //@ts-ignore
 export const getMaterialsData = async ({id}) => {
   const q = query(collection(firestore, "instruction"), where("authorId", "==", id));
+  //@ts-ignore
+  let data = [];
+
+  const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      //@ts-ignore
+      data = [...data, doc.data()]
+    });
+
+  //@ts-ignore
+  return data
+}
+
+//@ts-ignore
+export const getMaterialsAllData = async ({id}) => {
+  const q = query(collection(firestore, "instruction"), where("authorId", "!=", id));
   //@ts-ignore
   let data = [];
 

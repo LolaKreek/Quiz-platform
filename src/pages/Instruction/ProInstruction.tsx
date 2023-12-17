@@ -60,6 +60,7 @@ const ProInstructionPage = () => {
                         data={data} 
                         headers={menuItems} 
                         handleDelete={handleDelete}
+                        type="custom"
                     />
                 </Box>
                 : <EmptyTable />

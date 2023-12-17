@@ -1,14 +1,16 @@
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow } from "@mui/material"
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from "react";
+import DownloadIcon from '@mui/icons-material/Download';
 
 type appTablePropsType = {
     data: any,
     headers: any,
-    handleDelete: any
+    handleDelete: any,
+    type: 'custom' | 'all'
 }
 
-const AppTable = ({data, headers, handleDelete}:appTablePropsType) => {
+const AppTable = ({data, headers, handleDelete, type}:appTablePropsType) => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(9);
   
@@ -42,8 +44,12 @@ const AppTable = ({data, headers, handleDelete}:appTablePropsType) => {
                             <TableCell>{item.faculty}</TableCell>
                             <TableCell>{item.subject}</TableCell>
                             <TableCell>{item.date}</TableCell>
+                            {type === "all" && <TableCell>{item.authorName}</TableCell>}
                             <TableCell>
-                                <DeleteIcon className="app-table__delete-icon" onClick={() => handleDelete(item)} />
+                                {type === 'custom' ? 
+                                    <DeleteIcon className="app-table__delete-icon" onClick={() => handleDelete(item)} />
+                                    : <DownloadIcon className="app-table__delete-icon" onClick={() => handleDelete(item)} />
+                                }
                             </TableCell>
                         </TableRow>
                     ))}

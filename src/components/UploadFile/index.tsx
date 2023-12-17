@@ -25,6 +25,8 @@ const UploadFile = ({onClose, open}:uploadFilePropsType) => {
     const initialState = {title: '', faculty: '', subject: '', file: null}
     //@ts-ignore
     const author = useSelector(state => state.auth.user.id);
+    //@ts-ignore
+    const authorName = useSelector(state => state.auth.user.name);
 
     const [submitted, setSubmitted] = useState(false)
     const [faculties, setFaculties] = useState([])
@@ -58,7 +60,7 @@ const UploadFile = ({onClose, open}:uploadFilePropsType) => {
         if(Object.keys(values).length){
             try{
                 // @ts-ignore
-                uploadFileData({title: values?.title, faculty: values?.faculty, subject: values?.subject, author: author, file: values?.file});
+                uploadFileData({title: values?.title, faculty: values?.faculty, subject: values?.subject, author: author, file: values?.file, authorName: authorName});
                 toast.custom((element) => (
                     <Notification header={t('notificationUploadFileHeader')} message={t('notificationUploadFileMessage')} element={element} type='success' />
                 ), {position: "bottom-center"});
