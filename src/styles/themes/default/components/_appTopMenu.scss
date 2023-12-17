@@ -1,0 +1,79 @@
+.app-top-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $c-light-menu-hover;
+
+    &__main-wrapper{
+        flex-basis: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+
+    &__link-wrapper{
+        padding: 20px;
+        margin-right: 10px;
+        flex-basis: 8%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__button-wrapper{
+        flex-basis: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+}
+
+.active{
+    background-color: $c-light-background!important;
+    color: $c-main!important;
+    border-top-left-radius: $br-8px;
+    border-top-right-radius: $br-8px;
+    font-weight: 600;
+}
+
+.upload-file{
+    padding: 8px;
+
+    &__papper{
+        width: 400px!important;
+    }
+
+    &__header-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+    }
+
+    &__main-header{
+        font-family: Readex Pro,sans-serif;
+        font-weight: 300;
+        font-size: 23px !important;
+        line-height: 29px !important;
+        letter-spacing: 0em;
+    }
+
+    &__close-icon{
+        color: $c-main;
+        width: 2rem!important;
+        height: 2rem!important;
+        cursor: pointer
+    }
+
+    &__input-wrapper{
+        margin-top: 20px!important;
+
+    }
+
+    &__upload{
+        margin-top: 20px;
+    }
+}

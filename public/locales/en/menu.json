@@ -12,5 +12,13 @@
     },
     "profile": "Profile",
     "notificationLogoutHeader": "Logout action",
-    "notificationLogoutMessage": "You have successfully logged out of the platform"
+    "notificationLogoutMessage": "You have successfully logged out of the platform",
+    "uploadFileBtn": "Upload file",
+    "uploadFileTitle": "Upload file",
+    "uploadFileTitleLabel": "File name",
+    "uploadFileFacultyLabel": "Faculty",
+    "uploadFileSubjectLabel": "Subject",
+    "uploadFileSubmit": "Upload",
+    "notificationUploadFileHeader": "Upload file action",
+    "notificationUploadFileMessage": "File added successfully"
 }

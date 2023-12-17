@@ -12,5 +12,13 @@
     },
     "profile": "Profil",
     "notificationLogoutHeader": "Akcja wylogowania",
-    "notificationLogoutMessage": "Pomyślnie wylogowałeś się z platformy"
+    "notificationLogoutMessage": "Pomyślnie wylogowałeś się z platformy",
+    "uploadFileBtn": "Przesyłanie pliku",
+    "uploadFileTitle": "Przesyłanie pliku",
+    "uploadFileTitleLabel": "Nazwa pliku",
+    "uploadFileFacultyLabel": "Wydział",
+    "uploadFileSubjectLabel": "Przedmiot",
+    "uploadFileSubmit": "Preślij",
+    "notificationUploadFileHeader": "Akcja przesyłania pliku",
+    "notificationUploadFileMessage": "Plik został dodany pomyślnie"
 }
