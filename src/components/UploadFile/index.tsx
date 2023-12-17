@@ -13,6 +13,7 @@ import { uploadFileData } from "../../services/uploadFile";
 import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import Notification from "../Notification";
+import { ErrorOverLay } from "../ErrorOverLay";
 
 type uploadFilePropsType = {
     onClose: any,
@@ -21,7 +22,7 @@ type uploadFilePropsType = {
 
 const UploadFile = ({onClose, open}:uploadFilePropsType) => {
     const { t } = useTranslation('menu')
-    const initialState = {title: '', faculty: '', subject: ''}
+    const initialState = {title: '', faculty: '', subject: '', file: null}
     //@ts-ignore
     const author = useSelector(state => state.auth.user);
 
@@ -57,7 +58,7 @@ const UploadFile = ({onClose, open}:uploadFilePropsType) => {
         if(Object.keys(values).length){
             try{
                 // @ts-ignore
-                uploadFileData({title: values?.title, faculty: values?.faculty, subject: values?.subject, author: author, file: null});
+                uploadFileData({title: values?.title, faculty: values?.faculty, subject: values?.subject, author: author, file: values?.file});
                 toast.custom((element) => (
                     <Notification header={t('notificationUploadFileHeader')} message={t('notificationUploadFileMessage')} element={element} type='success' />
                 ), {position: "bottom-center"});
@@ -157,6 +158,27 @@ const UploadFile = ({onClose, open}:uploadFilePropsType) => {
                                     options={subjects}
                                     onChange={(e) => setFieldValue('subject', e.target.value)}
                                 />
+                            </Box>
+
+                            <Box className="upload-file__upload">
+                                <input 
+                                    id='file'
+                                    type='file'
+                                    // @ts-ignore
+                                    error={!!errors.file}
+                                    // @ts-ignore
+                                    onChange={(event) => setFieldValue('file', event.currentTarget.files[0])}
+                                />
+                            </Box>
+
+                            <Box className="add-questions-modal__error-wrapper margin-top">
+                                {/* @ts-ignore */}
+                                {(errors?.title || errors.faculty || errors.subject || errors.file) &&
+                                    <ErrorOverLay>
+                                        {/* @ts-ignore */}
+                                        {errors.title || errors.faculty || errors.subject || errors.file}
+                                    </ErrorOverLay>
+                                }
                             </Box>
 
                             <Box className="add-questions-modal__button-wrapper">
