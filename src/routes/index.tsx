@@ -1,6 +1,5 @@
 import loadable from "@loadable/component"
 import { 
-    INSTRUCTION_PAGE, 
     LOGIN_PAGE,
     REGISTER_PAGE,
     MAIN_PAGE, 
@@ -9,7 +8,8 @@ import {
     STUDENT_QUIZ_PAGE,
     PROFESSOR_ADD_QUIZ_PAGE,
     PROFESSOR_INSTRUCTION_PAGE,
-    PROFESSOR_ALL_INSTRUCTION_PAGE, 
+    PROFESSOR_ALL_INSTRUCTION_PAGE,
+    PROFESSOR_ALL_QUIZ_PAGE, 
 
 } from "./pathnames"
 
@@ -19,6 +19,7 @@ const Login = loadable(() => import("../pages/Auth/Login"))
 const SignIn = loadable(() => import("../pages/Auth/SignIn"))
 
 const ProQuiz = loadable(() => import("../pages/Quiz/ProQuiz"))
+const ProAllQuiz = loadable(() => import("../pages/Quiz/ProQuizAll"))
 const ProQuizAdd = loadable(() => import("../components/Modules/Professor/AddQuizModal/index"))
 
 const ProInstruction = loadable(() => import("../pages/Instruction/ProInstruction"))
@@ -33,10 +34,10 @@ export const publicRoutes = [
 export const appRoutes = [
     {path: LOGIN_PAGE, Component: Login},
     {path: REGISTER_PAGE, Component: SignIn},
-    // {path: INSTRUCTION_PAGE, Component: Instruction},
     {path: PROFILE_PAGE, Component: Profile},
 
     {path: PROFESSOR_QUIZ_PAGE, Component: ProQuiz},
+    {path: PROFESSOR_ALL_QUIZ_PAGE, Component: ProAllQuiz},
     {path: PROFESSOR_ADD_QUIZ_PAGE, Component: ProQuizAdd},
 
     {path: PROFESSOR_INSTRUCTION_PAGE, Component: ProInstruction},

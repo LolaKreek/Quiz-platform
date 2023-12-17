@@ -20,5 +20,6 @@
     "uploadFileSubjectLabel": "Przedmiot",
     "uploadFileSubmit": "Preślij",
     "notificationUploadFileHeader": "Akcja przesyłania pliku",
-    "notificationUploadFileMessage": "Plik został dodany pomyślnie"
+    "notificationUploadFileMessage": "Plik został dodany pomyślnie",
+    "addNewQuizBtn": "Dodaj Test"
 }

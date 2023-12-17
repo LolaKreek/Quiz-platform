@@ -1,7 +1,8 @@
 import { Box } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppButton } from "../AppButton";
 import { useTranslation } from "react-i18next";
+import { PROFESSOR_ADD_QUIZ_PAGE } from "../../routes/pathnames";
 
 type menuItem = {
     value: string,
@@ -18,6 +19,7 @@ type menuPropsType = {
 
 const AppTopMenu = ({menuLinks, current, type, handleAction}: menuPropsType) => {
     const { t } = useTranslation('menu')
+    const navigate = useNavigate();
 
     return(
         <Box className="app-top-menu">
@@ -39,6 +41,15 @@ const AppTopMenu = ({menuLinks, current, type, handleAction}: menuPropsType) => 
                             {t('uploadFileBtn')}
                         </AppButton>
                     </Box>
+                }
+
+                {type === 'quiz' && current === "custom" && 
+                    <AppButton
+                        onClick={() => navigate(PROFESSOR_ADD_QUIZ_PAGE)}
+                        className='top-menu__button'
+                    >
+                        {t('addNewQuizBtn')}
+                    </AppButton>
                 }
             </Box>
         </Box>

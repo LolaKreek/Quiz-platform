@@ -1,8 +1,8 @@
-
-
 const StudentQuiz = () => {
     return(
-        <h1>OKKKKK</h1>
+        <>
+            <h1>Student Quiz</h1>
+        </>
     )
 }
 
