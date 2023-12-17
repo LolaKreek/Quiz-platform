@@ -3,5 +3,6 @@ export type uploadFileDataType = {
     faculty: string,
     subject: string,
     file: any,
-    author: any
+    author: any,
+    authorName: string | null
 }
