@@ -19,3 +19,23 @@
         margin-top: 20px;
     }
 }
+
+.app-table{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    height: calc(100% - 20%)!important;
+
+    &__table{
+        width: 95%!important;
+    }
+
+    &__header-cell{
+        text-align: center!important;
+    }
+
+    &__delete-icon{
+        color: $c-main;
+        cursor:  pointer;
+    }
+}

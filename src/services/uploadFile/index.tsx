@@ -1,10 +1,11 @@
-import { ref, set } from "firebase/database";
 import { uploadFileDataType } from "./types";
-import { database, firestore } from "../Firebase/firebase";
-import { addDoc, collection } from "firebase/firestore";
+import { firestore } from "../Firebase/firebase";
+import { addDoc, collection, where, query, getDocs, deleteDoc, doc } from "firebase/firestore";
 
 export const uploadFileData = async ({title, faculty, subject, file, author}:uploadFileDataType) => {
     const id = Date.now();
+    const date = new Date(id);
+    const formattedDate = date.toLocaleString('en-US');
     const fileData = await convertFileToBase64(file);
 
     const docRef = await addDoc(collection(firestore, "instruction/"), {
@@ -13,19 +14,41 @@ export const uploadFileData = async ({title, faculty, subject, file, author}:upl
         faculty: faculty,
         subject : subject,
         file: fileData,
-        author: author
+        authorId: author,
+        date: formattedDate
     });
 
-    const data =  set(ref(database, 'instruction/' + id), {
-      id: id,
-      title: title,
-      faculty: faculty,
-      subject : subject,
-      file: file,
-      author: author
-    })
 
-    return {docRef, data}
+    return docRef
+}
+
+//@ts-ignore
+export const getMaterialsData = async ({id}) => {
+  const q = query(collection(firestore, "instruction"), where("authorId", "==", id));
+  //@ts-ignore
+  let data = [];
+
+  const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      //@ts-ignore
+      data = [...data, doc.data()]
+    });
+
+  //@ts-ignore
+  return data
+}
+
+export const deleteMaterialsData = async (id:any) => {
+  const q = query(collection(firestore, "instruction"), where("id", "==", id));
+  let ref = '';
+
+  const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      //@ts-ignore
+      ref = doc._key.path.segments[6]
+    });
+
+  await deleteDoc(doc(firestore, "instruction", ref));
 }
 
 // Function to convert a File to a base64-encoded string
@@ -45,4 +68,4 @@ function convertFileToBase64(file) {
   
       reader.readAsDataURL(file);
     });
-  }
+}

@@ -24,7 +24,7 @@ const UploadFile = ({onClose, open}:uploadFilePropsType) => {
     const { t } = useTranslation('menu')
     const initialState = {title: '', faculty: '', subject: '', file: null}
     //@ts-ignore
-    const author = useSelector(state => state.auth.user);
+    const author = useSelector(state => state.auth.user.id);
 
     const [submitted, setSubmitted] = useState(false)
     const [faculties, setFaculties] = useState([])
