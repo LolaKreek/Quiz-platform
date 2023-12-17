@@ -8,14 +8,6 @@
         color: $c-black;
     }
 
-    &__wrapper{
-        @include flex();
-        @include justifyContent(space-between);
-        @include flexDirection(row);
-        align-items: baseline;
-        padding: $p-20px;
-    }
-
     &__button{
         max-width: $w-200px;
     }

@@ -1,4 +1,14 @@
 {
     "profileSettingsTitle": "Page configurations",
-    "themeTitle": "Theme mode"
+    "themeTitle": "Theme mode",
+    "emptyPageTitle": "You don't have any data yet",
+    "menuItems": {
+        "title": "Title",
+        "faculty": "Faculty",
+        "subject": "Subject",
+        "date": "Date",
+        "empty": ""
+    },
+    "deleteFileActionHeader": "Delete file Action",
+    "deleteFileActionMessage": "The file was successfully deleted"
 }

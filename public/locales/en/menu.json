@@ -20,5 +20,6 @@
     "uploadFileSubjectLabel": "Subject",
     "uploadFileSubmit": "Upload",
     "notificationUploadFileHeader": "Upload file action",
-    "notificationUploadFileMessage": "File added successfully"
+    "notificationUploadFileMessage": "File added successfully",
+    "addNewQuizBtn": "Add Quiz"
 }
