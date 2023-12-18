@@ -1,4 +1,6 @@
 import * as Yup from 'yup'
+export const SUPPORTED_FORMATS = ["application/pdf"]
+export const FILE_SIZE_LIMIT = 1048480
 
 export const loginSchema = Yup.object().shape({
     email: Yup.string()
@@ -48,4 +50,25 @@ export const addQuizQuestionSchema = Yup.object().shape({
       text: Yup.string().required(),
     }),
   })
+})
+
+export const uploafFilenSchema = Yup.object().shape({
+  title: Yup.string()
+    .required("Please enter file title"),
+  faculty: Yup.string()
+    .required("Please select a faculy"),
+  subject: Yup.string()
+    .required("Please select a subject"),
+  file: Yup.mixed()
+    .required("Please choose the file")
+    .test('fileType', "File type is not supported (only .pdf)", value => {
+      if (!value) return false
+      //@ts-ignore
+      return SUPPORTED_FORMATS.includes(value.type)
+    })
+    .test('fileSize', "File size should be 5mb or less", value => {
+      if (!value) return false
+      //@ts-ignore
+      return FILE_SIZE_LIMIT >= value.size
+    }),
 })

@@ -1,0 +1,41 @@
+.empty-table{
+    &__main-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        height: calc(100% - 84px);
+    }
+
+    &__header{
+        font-family: Readex Pro,sans-serif;
+        font-weight: 300;
+        font-size: 1.4375rem !important;
+    }
+
+    &__icon{
+        width: 500px;
+        margin-top: 20px;
+    }
+}
+
+.app-table{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    height: calc(100% - 20%)!important;
+
+    &__table{
+        width: 95%!important;
+    }
+
+    &__header-cell{
+        text-align: center!important;
+    }
+
+    &__delete-icon{
+        color: $c-main;
+        cursor:  pointer;
+    }
+}

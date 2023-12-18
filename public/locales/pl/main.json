@@ -1,4 +1,22 @@
 {
     "profileSettingsTitle": "Konfiguracje strony",
-    "themeTitle": "Tryb strony"
+    "themeTitle": "Tryb strony",
+    "emptyPageTitle": "Nie masz jeszcze żadnych danych", 
+    "menuItems": {
+        "title": "Tytuł",
+        "faculty": "Wydział",
+        "subject": "Przedmiot",
+        "date": "Data",
+        "empty": ""
+    },
+    "menuAllItems": {
+        "title": "Tytuł",
+        "faculty": "Wydział",
+        "subject": "Przedmiot",
+        "date": "Data",
+        "author": "Autor",
+        "empty": ""
+    },
+    "deleteFileActionHeader": "Akcja usuń plik",
+    "deleteFileActionMessage": "Plik został pomyślnie usunięty"
 }

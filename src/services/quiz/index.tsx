@@ -1,6 +1,6 @@
 import { child, get, ref, set } from "firebase/database";
 import { database } from "../Firebase/firebase";
-import { quizDataType, } from "./tyles";
+import { quizDataType } from "./tyles";
 
 export const writeQuizData = async ({title, faculty, subject, timer, showAnswers, questions}:quizDataType) => {
     const id = Date.now();
