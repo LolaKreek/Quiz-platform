@@ -77,6 +77,7 @@ const AddQuestionModal = ({
             handleSubmit,
             setFieldValue,
             validateForm,
+            setErrors
           }) => (
             <Box>
               <Box className="add-questions-modal__header-wrapper">
@@ -126,6 +127,7 @@ const AddQuestionModal = ({
                     onChange={(e) => {
                       setFieldValue("answers", null);
                       setFieldValue("type", e.target.value);
+                      setErrors({ ...errors, answers: undefined });
                     }}
                   />
                 </Box>
@@ -135,6 +137,7 @@ const AddQuestionModal = ({
                     questionElements[values.type]({
                       set: setFieldValue,
                       values: values.answers,
+                      errors: errors.answers,
                     })}
                 </Box>
 
@@ -142,6 +145,10 @@ const AddQuestionModal = ({
                   <AppButton
                     onClick={() => {
                       validateForm().then((res) => {
+                        console.log(res)
+                        
+                        values.type === "Open" && delete res["answers"]
+                        
                         if (!Object.keys(res).length) {
                           setSubmitted(true);
                           handleSubmit();
@@ -158,10 +165,10 @@ const AddQuestionModal = ({
 
               <Box className="add-questions-modal__error-wrapper margin-top">
                 {/* @ts-ignore */}
-                {(errors?.title || errors.type) && (
+                {(errors?.title || errors.type || errors.answers) && (
                   <ErrorOverLay>
                     {/* @ts-ignore */}
-                    {errors.title || errors.type}
+                    {errors.title || errors.type || (errors.answers ? "Please enter answers" : null)}
                   </ErrorOverLay>
                 )}
               </Box>

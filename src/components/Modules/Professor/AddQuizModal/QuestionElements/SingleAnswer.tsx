@@ -5,16 +5,18 @@ import { useEffect } from "react";
 const SingleAnswer = ({
   set,
   values,
+  errors
 }: {
   set: Function;
-  values: { [key: string]: string };
+  values: { [key: string]: { text: string } };
+  errors: { [key: string]: { text: string } };
 }) => {
   useEffect(() => {
     set("answers", {
-      first: "",
-      second: "",
-      third: "",
-      fourth: "",
+      first: { text: "" },
+      second: { text: "" },
+      third: { text: "" },
+      fourth: { text: "" },
     });
   }, []);
 
@@ -24,48 +26,48 @@ const SingleAnswer = ({
         <Box className="_add-quiz-question__container _add-quiz-question__single">
           <AppInput
             variant="outlined"
-            error={false}
-            value={values["first"]}
+            error={errors && !!errors.first}
+            value={values["first"].text}
             onChange={(e) => {
               set("answers", {
                 ...values,
-                first: e.target.value,
+                first: { text: e.target.value },
               });
             }}
             className="_add-quiz-question__input _add-quiz-question__correct"
           ></AppInput>
           <AppInput
             variant="outlined"
-            error={false}
-            value={values["second"]}
+            error={errors && !!errors.second}
+            value={values["second"].text}
             onChange={(e) => {
               set("answers", {
                 ...values,
-                second: e.target.value,
+                second: { text: e.target.value },
               });
             }}
             className="_add-quiz-question__input"
           ></AppInput>
           <AppInput
             variant="outlined"
-            error={false}
-            value={values["third"]}
+            error={errors && !!errors.third}
+            value={values["third"].text}
             onChange={(e) => {
               set("answers", {
                 ...values,
-                third: e.target.value,
+                third: { text: e.target.value },
               });
             }}
             className="_add-quiz-question__input"
           ></AppInput>
           <AppInput
             variant="outlined"
-            error={false}
-            value={values["fourth"]}
+            error={errors && !!errors.fourth}
+            value={values["fourth"].text}
             onChange={(e) => {
               set("answers", {
                 ...values,
-                fourth: e.target.value,
+                fourth: { text: e.target.value },
               });
             }}
             className="_add-quiz-question__input"

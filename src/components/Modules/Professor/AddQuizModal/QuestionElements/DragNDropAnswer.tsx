@@ -13,16 +13,18 @@ import { AppInput } from "../../../../AppInput";
 const DragNDropAnswer = ({
   set,
   values,
+  errors
 }: {
   set: Function;
-  values: { [key: string]: string };
+  values: { [key: string]: { text: string } };
+  errors: { [key: string]: { text: string } };
 }) => {
   useEffect(() => {
     set("answers", {
-      first: "",
-      second: "",
-      third: "",
-      fourth: "",
+      first: { text: "" },
+      second: { text: "" },
+      third: { text: "" },
+      fourth: { text: "" },
     });
   }, []);
   const onDrop = ({ removedIndex, addedIndex }: { [key: string]: number }) => {
@@ -31,7 +33,7 @@ const DragNDropAnswer = ({
       removedIndex,
       addedIndex
     );
-    const newValues: { [key: string]: string } = {};
+    const newValues: { [key: string]: { text: string } } = {};
     arr.forEach((item, index) => {
       newValues[Object.keys(values)[index]] = item;
     });
@@ -53,11 +55,14 @@ const DragNDropAnswer = ({
               <Draggable key={id}>
                 <ListItem style={{ padding: "8px 0px" }}>
                   <AppInput
-                    error={false}
+                    error={errors && !!errors[id]}
                     variant="outlined"
-                    value={values[id]}
+                    value={values[id]["text"]}
                     onChange={(e) => {
-                      set("answers", { ...values, [id]: e.target.value });
+                      set("answers", {
+                        ...values,
+                        [id]: { text: e.target.value },
+                      });
                     }}
                     className="_add-quiz-question__input"
                   />

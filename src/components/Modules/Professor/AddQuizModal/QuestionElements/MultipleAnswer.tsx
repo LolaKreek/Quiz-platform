@@ -5,9 +5,11 @@ import { useEffect } from "react";
 const MultipleAnswer = ({
   set,
   values,
+  errors
 }: {
   set: Function;
   values: { [key: string]: { text: string; isCorrect: boolean } };
+  errors: { [key: string]: { text: string } };
 }) => {
   useEffect(() => {
     set("answers", {
@@ -35,7 +37,7 @@ const MultipleAnswer = ({
       {values && (
         <Box className="_add-quiz-question__container _add-quiz-question__multiple">
           <Checkbox
-            value={values["first"]["isCorrect"]}
+            checked={values["first"]["isCorrect"]}
             onChange={(e) => {
               set("answers", {
                 ...values,
@@ -48,7 +50,7 @@ const MultipleAnswer = ({
           />
           <AppInput
             variant="outlined"
-            error={false}
+            error={errors && !!errors.first}
             value={values["first"]["text"]}
             onChange={(e) => {
               set("answers", {
@@ -62,7 +64,7 @@ const MultipleAnswer = ({
             className="_add-quiz-question__input"
           ></AppInput>
           <Checkbox
-            value={values["second"]["isCorrect"]}
+            checked={values["second"]["isCorrect"]}
             onChange={(e) => {
               set("answers", {
                 ...values,
@@ -75,7 +77,7 @@ const MultipleAnswer = ({
           />
           <AppInput
             variant="outlined"
-            error={false}
+            error={errors && !!errors.second}
             value={values["second"]["text"]}
             onChange={(e) => {
               set("answers", {
@@ -89,7 +91,7 @@ const MultipleAnswer = ({
             className="_add-quiz-question__input"
           ></AppInput>
           <Checkbox
-            value={values["third"]["isCorrect"]}
+            checked={values["third"]["isCorrect"]}
             onChange={(e) => {
               set("answers", {
                 ...values,
@@ -102,7 +104,7 @@ const MultipleAnswer = ({
           />
           <AppInput
             variant="outlined"
-            error={false}
+            error={errors && !!errors.third}
             value={values["third"]["text"]}
             onChange={(e) => {
               set("answers", {
@@ -116,7 +118,7 @@ const MultipleAnswer = ({
             className="_add-quiz-question__input"
           ></AppInput>
           <Checkbox
-            value={values["fourth"]["isCorrect"]}
+            checked={values["fourth"]["isCorrect"]}
             onChange={(e) => {
               set("answers", {
                 ...values,
@@ -129,11 +131,11 @@ const MultipleAnswer = ({
           />
           <AppInput
             variant="outlined"
-            error={false}
+            error={errors && !!errors.fourth}
             value={values["fourth"]["text"]}
             onChange={(e) => {
               set("answers", {
-                ...values["answers"],
+                ...values,
                 fourth: {
                   ...values["fourth"],
                   text: e.target.value,
