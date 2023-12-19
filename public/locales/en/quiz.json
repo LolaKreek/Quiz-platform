@@ -8,11 +8,13 @@
     "addQuizCourse": "Select a subject",
     "addQuizCoursePlaceholder": "Subjects",
     "questionsPart": "Add question to quiz",
+    "questionsPartEditing": "Edit question from quiz",
     "addQuiestionBtn": "Add question",
     "quiestionTitle": "Question title",
     "quiestionType": "Question type",
     "quiestionAnswer": "Question answer",
     "addQuizBtn": "Add",
+    "editQuizBtn": "Edit",
     "quizConfig": "Quiz configuration",
     "addQuizQuestionTitle": "Quiz questions",
     "addQuizTimer": "Timer",
@@ -21,5 +23,6 @@
     "addQuizActionMessage": "The Quiz adding action was successful",
     "addQuestionActionHeader": "Question action",
     "addQuestionActionMessage": "The question was added successfully",
+    "addQuestionActionMessageEdited": "The question was edited successfully",
     "deleteQuestionActionMessage": "The question was deleted successfully"
 }
