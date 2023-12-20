@@ -9,6 +9,13 @@
             "subject": "Przedmiot",
             "date": "Data",
             "empty": ""
+        },
+        "quiz": {
+            "title": "Tytuł",
+            "faculty": "Wydział",
+            "subject": "Przedmiot",
+            "date": "Data",
+            "questions": "Pytania"
         }
     },
     "menuAllItems": {
@@ -19,7 +26,15 @@
             "date": "Data",
             "authorName": "Author",
             "empty": ""
+        },
+        "quiz": {
+            "title": "Tytuł",
+            "faculty": "Wydział",
+            "subject": "Przedmiot",
+            "date": "Data",
+            "questions": "Pytania"
         }
+
     },
     "deleteFileActionHeader": "Akcja usuń plik",
     "deleteFileActionMessage": "Plik został pomyślnie usunięty"

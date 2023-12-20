@@ -9,6 +9,13 @@
             "subject": "Subject",
             "date": "Date",
             "empty": ""
+        },
+        "quiz": {
+            "title": "Title",
+            "faculty": "Faculty",
+            "subject": "Subject",
+            "date": "Date",
+            "questions": "Questions"
         }
     },
     "menuAllItems": {
@@ -19,6 +26,13 @@
             "date": "Date",
             "authorName": "Author",
             "empty": ""
+        },
+        "quiz": {
+            "title": "Title",
+            "faculty": "Faculty",
+            "subject": "Subject",
+            "date": "Date",
+            "questions": "Questions"
         }
     },
     "deleteFileActionHeader": "Delete file Action",

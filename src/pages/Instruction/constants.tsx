@@ -7,7 +7,7 @@ export const menuLinks = [
     {value: 'all', title: 'All', path: PROFESSOR_ALL_INSTRUCTION_PAGE}
 ]
 
-const tableHeaders = [
+const instructionHeadersPlaceholder = [
     {value: 'title', title: 'Title'},
     {value: 'faculty', title: 'All'},
     {value: 'subject', title: 'All'},
@@ -15,7 +15,7 @@ const tableHeaders = [
     {value: 'empty', title: ''},
 ]
 
-const tableAllHeaders = [
+const instructionAllHeadersPlaceholder = [
   {value: 'title', title: 'Title'},
   {value: 'faculty', title: 'All'},
   {value: 'subject', title: 'All'},
@@ -24,16 +24,32 @@ const tableAllHeaders = [
   {value: 'empty', title: ''},
 ]
 
+const quizHeadersPlaceholder = [
+  {value: "title", title: "Title"},
+  {value: "faculty", title: "Faculty"},
+  {value: "subject", title: "Subject"},
+  {value: "date", title: "Date"},
+  {value: "questions", title: "Questions"},
+]
+
 export const useTableData = () => {
     const { t } = useTranslation('main')
   
     const instructionHeaders = useMemo(() => {
-      return tableHeaders.map(i => ({ ...i, title: t(`menuItems.instructions.${i.value}`) }))
+      return instructionHeadersPlaceholder.map(i => ({ ...i, title: t(`menuItems.instructions.${i.value}`) }))
     }, [t])
 
     const instructionAllHeaders = useMemo(() => {
-      return tableAllHeaders.map(i => ({ ...i, title: t(`menuAllItems.instructions.${i.value}`) }))
+      return instructionAllHeadersPlaceholder.map(i => ({ ...i, title: t(`menuAllItems.instructions.${i.value}`) }))
+    }, [t])
+
+    const quizAllHeaders = useMemo(() => {
+      return quizHeadersPlaceholder.map(i => ({ ...i, title: t(`menuItems.quiz.${i.value}`) }))
+    }, [t])
+
+    const quizHeaders = useMemo(() => {
+      return quizHeadersPlaceholder.map(i => ({ ...i, title: t(`menuAllItems.quiz.${i.value}`) }))
     }, [t])
   
-    return { instructionHeaders, instructionAllHeaders }
+    return { instructionHeaders, instructionAllHeaders, quizHeaders, quizAllHeaders }
   }

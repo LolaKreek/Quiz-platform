@@ -7,7 +7,7 @@ import { ref, child, get, remove } from "firebase/database";
 import { auth, database } from "../../services/Firebase/firebase";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import EmptyTable from "../../components/EmptyTable";
+import { useTableData } from "../Instruction/constants";
 
 
 const ProQuizPage = () => {
@@ -22,13 +22,7 @@ const ProQuizPage = () => {
         {action: handleDelete, icon: <DeleteIcon />, title: "Delete"},
     ]
 
-    const headers = [
-        {title: "Title", value: "title"},
-        {title: "Faculty", value: "faculty"},
-        {title: "Subject", value: "subject"},
-        {title: "Date", value: "date"},
-        {title: "Questions", value: "questions"},
-    ]
+    const { quizHeaders } = useTableData()
 
     const [data, setData] = useState(null)
 
@@ -44,7 +38,6 @@ const ProQuizPage = () => {
                 dataSnapshot.map((el: any, index)=> {
                     el.questions = el.questions.length
                 })
-                console.log(dataSnapshot)
             //   @ts-ignore
               setData(dataSnapshot)
             } else {
@@ -64,7 +57,7 @@ const ProQuizPage = () => {
         <Box className="top-menu__wrapper">
             <AppTopMenu menuLinks={menuLinks} current="custom" type="quiz" />
         </Box>
-            <AppTable data={data ? data : []} headers={headers} actions={actions} type="custom"></AppTable>
+            <AppTable data={data ? data : []} headers={quizHeaders} actions={actions} type="custom"></AppTable>
         </>
     )
 }
