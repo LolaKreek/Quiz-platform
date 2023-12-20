@@ -1,16 +1,24 @@
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow } from "@mui/material"
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DownloadIcon from '@mui/icons-material/Download';
 
 type appTablePropsType = {
     data: any,
     headers: any,
-    handleDelete: any,
+    actions?: action[],
     type: 'custom' | 'all'
 }
 
-const AppTable = ({data, headers, handleDelete, type}:appTablePropsType) => {
+export type action = {
+    title: string
+    action: Function,
+    icon: JSX.Element
+}
+
+
+
+const AppTable = ({data, headers, actions, type}:appTablePropsType) => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(9);
   
@@ -33,6 +41,11 @@ const AppTable = ({data, headers, handleDelete, type}:appTablePropsType) => {
                         {headers.map((item:any) => (
                             <TableCell className="app-table__header-cell" key={item.value}>{item.title}</TableCell>
                         ))}
+                        {actions && actions.map((action:action) => 
+                            
+                            <TableCell align="center">{action.title}</TableCell>
+                            
+                        )}
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -40,17 +53,17 @@ const AppTable = ({data, headers, handleDelete, type}:appTablePropsType) => {
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((item:any) => (
                         <TableRow key={item.id}>
-                            <TableCell>{item.title}</TableCell>
-                            <TableCell>{item.faculty}</TableCell>
-                            <TableCell>{item.subject}</TableCell>
-                            <TableCell>{item.date}</TableCell>
-                            {type === "all" && <TableCell>{item.authorName}</TableCell>}
-                            <TableCell>
-                                {type === 'custom' ? 
-                                    <DeleteIcon className="app-table__delete-icon" onClick={() => handleDelete(item)} />
-                                    : <DownloadIcon className="app-table__delete-icon" onClick={() => handleDelete(item)} />
-                                }
-                            </TableCell>
+                            {headers.map((header:{title: string, value: string}) => (
+                                <TableCell align="center">{item[header.value]}</TableCell>    
+                            ))}
+                            {actions && actions.map((action:action) => 
+                                    
+                                    <TableCell align="center" className="app-table__icon" onClick={()=>{action.action(item.id)}}>
+                                        {action.icon}
+                                    </TableCell>
+                                
+                                )}
+                            
                         </TableRow>
                     ))}
                 </TableBody>

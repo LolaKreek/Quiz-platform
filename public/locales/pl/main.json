@@ -3,19 +3,23 @@
     "themeTitle": "Tryb strony",
     "emptyPageTitle": "Nie masz jeszcze żadnych danych", 
     "menuItems": {
-        "title": "Tytuł",
-        "faculty": "Wydział",
-        "subject": "Przedmiot",
-        "date": "Data",
-        "empty": ""
+        "instructions": {
+            "title": "Tytuł",
+            "faculty": "Wydział",
+            "subject": "Przedmiot",
+            "date": "Data",
+            "empty": ""
+        }
     },
     "menuAllItems": {
-        "title": "Tytuł",
-        "faculty": "Wydział",
-        "subject": "Przedmiot",
-        "date": "Data",
-        "author": "Autor",
-        "empty": ""
+        "instructions": {
+            "title": "Tytuł",
+            "faculty": "FaWydziałulty",
+            "subject": "Przedmiot",
+            "date": "Data",
+            "authorName": "Author",
+            "empty": ""
+        }
     },
     "deleteFileActionHeader": "Akcja usuń plik",
     "deleteFileActionMessage": "Plik został pomyślnie usunięty"

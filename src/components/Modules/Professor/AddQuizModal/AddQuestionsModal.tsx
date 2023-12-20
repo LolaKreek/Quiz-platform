@@ -191,7 +191,6 @@ const AddQuestionModal = ({
                   <AppButton
                     onClick={() => {
                       validateForm().then((res) => {
-                        console.log(res)
                         
                         values.type === "Open" && delete res["answers"]
                         

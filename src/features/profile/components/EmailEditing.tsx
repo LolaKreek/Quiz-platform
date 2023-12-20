@@ -55,7 +55,6 @@ const EmailModal = ({ open = true, onClose }: any) => {
               { position: "bottom-center" }
             );
           } catch (e) {
-            console.log(e);
             toast.custom(
               (element) => (
                 <Notification
