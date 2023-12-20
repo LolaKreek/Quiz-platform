@@ -5,32 +5,14 @@ import { useEffect } from "react";
 const MultipleAnswer = ({
   set,
   values,
-  errors
+  errors,
+  editing
 }: {
   set: Function;
   values: { [key: string]: { text: string; isCorrect: boolean } };
   errors: { [key: string]: { text: string } };
+  editing: boolean;
 }) => {
-  useEffect(() => {
-    set("answers", {
-      first: {
-        text: "",
-        isCorrect: false,
-      },
-      second: {
-        text: "",
-        isCorrect: false,
-      },
-      third: {
-        text: "",
-        isCorrect: false,
-      },
-      fourth: {
-        text: "",
-        isCorrect: false,
-      },
-    });
-  }, []);
 
   return (
     <>

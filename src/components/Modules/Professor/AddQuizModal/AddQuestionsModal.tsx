@@ -20,6 +20,8 @@ const AddQuestionModal = ({
   types,
   questions,
   setQuestions,
+  editing,
+  editingValues
 }: any) => {
   const { t } = useTranslation("quiz");
   const initialState = { title: "", type: "", id: Date.now(), answers: null };
@@ -32,26 +34,68 @@ const AddQuestionModal = ({
 
   const [submitted, setSubmitted] = useState(false);
 
+  const questionTypeInitialValues = {
+    Single: {
+      first: {text: ""},
+      second: {text: ""},
+      third: {text: ""},
+      fourth: {text: ""}
+    },
+    Multiple: {
+      first: {text: "", isCorrect: false},
+      second: {text: "", isCorrect: false},
+      third: {text: "", isCorrect: false},
+      fourth: {text: "", isCorrect: false}
+    },
+    "Drag & Drop": {
+      first: {text: ""},
+      second: {text: ""},
+      third: {text: ""},
+      fourth: {text: ""}
+    },
+  }
+
   const handleClose = () => {
     setQuiestionOpen(false);
   };
 
-  const addQuestion = (values: any) => {
-    setQuestions([...questions, values]);
-    handleClose();
+  const actionQuestion = (values: any) => {
+    if (editing) {
+      let questionsInstance = questions
+      questionsInstance[questions.indexOf(editingValues)] = values
+      setQuestions(questionsInstance);
+      handleClose();
 
-    toast.custom(
-      (element) => (
-        <Notification
-          header={t("addQuestionActionHeader")}
-          message={t("addQuestionActionMessage")}
-          element={element}
-          type="success"
-        />
-      ),
-      { position: "bottom-center" }
-    );
-  };
+
+      toast.custom(
+        (element) => (
+          <Notification
+            header={t("addQuestionActionHeader")}
+            message={t("addQuestionActionMessageEdited")}
+            element={element}
+            type="success"
+          />
+        ),
+        { position: "bottom-center" }
+      )
+    } else {
+      setQuestions([...questions, values]);
+      handleClose();
+
+      toast.custom(
+        (element) => (
+          <Notification
+            header={t("addQuestionActionHeader")}
+            message={t("addQuestionActionMessage")}
+            element={element}
+            type="success"
+          />
+        ),
+        { position: "bottom-center" }
+      )
+    }
+  }
+
 
   return (
     <Modal
@@ -64,11 +108,11 @@ const AddQuestionModal = ({
     >
       <Paper className="add-questions-modal">
         <Formik
-          initialValues={initialState}
+          initialValues={editing ? editingValues : initialState}
           validationSchema={addQuizQuestionSchema}
           validateOnChange={submitted}
           validateOnBlur={false}
-          onSubmit={addQuestion}
+          onSubmit={actionQuestion}
         >
           {({
             errors,
@@ -82,7 +126,7 @@ const AddQuestionModal = ({
             <Box>
               <Box className="add-questions-modal__header-wrapper">
                 <Typography className="add-questions-modal__main-title">
-                  {t("questionsPart")}
+                  {editing ? t("questionsPartEditing") : t("questionsPart")}
                 </Typography>
                 <CloseIcon
                   className="add-questions-modal__close-icon"
@@ -125,7 +169,8 @@ const AddQuestionModal = ({
                     error={!!errors.type}
                     options={types}
                     onChange={(e) => {
-                      setFieldValue("answers", null);
+                      // @ts-ignore
+                      setFieldValue("answers", questionTypeInitialValues[e.target.value]);
                       setFieldValue("type", e.target.value);
                       setErrors({ ...errors, answers: undefined });
                     }}
@@ -138,6 +183,7 @@ const AddQuestionModal = ({
                       set: setFieldValue,
                       values: values.answers,
                       errors: errors.answers,
+                      editing: editing,
                     })}
                 </Box>
 
@@ -152,13 +198,13 @@ const AddQuestionModal = ({
                         if (!Object.keys(res).length) {
                           setSubmitted(true);
                           handleSubmit();
-                          addQuestion(values);
+                          actionQuestion(values)
                         }
                       });
                     }}
                     className="top-menu__button"
                   >
-                    {t("addQuizBtn")}
+                    {editing ? t("editQuizBtn") : t("addQuizBtn")}
                   </AppButton>
                 </Box>
               </Box>

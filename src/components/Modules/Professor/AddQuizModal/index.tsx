@@ -28,6 +28,7 @@ const Form = ({ setSubmitted }: any) => {
   const [subjects, setSubjects] = useState([]);
   const [quiestionOpen, setQuiestionOpen] = useState(false);
   const [types, setTypes] = useState([]);
+  const [editing, setEditing] = useState<{editing: boolean; values: any}>({editing: false, values: null});
 
   const { values, handleChange, errors, setFieldValue, validateForm } =
     useFormikContext();
@@ -64,7 +65,7 @@ const Form = ({ setSubmitted }: any) => {
 
   const handleDeleteQuestion = (id: Date) => {
     // @ts-ignore
-    setQuestions(questions.filter((item) => item.id !== id));
+    setFieldValue("questions", (values.questions.filter((item) => item.id !== id)));
 
     toast.custom(
       (element) => (
@@ -78,6 +79,12 @@ const Form = ({ setSubmitted }: any) => {
       { position: "bottom-center" }
     );
   };
+
+  const handleEditingQuestion = (id: Date) => {
+    // @ts-ignore
+    setEditing({editing: true, values: values.questions.filter((item) => item.id === id)[0]});
+    setQuiestionOpen(true)
+  }
 
   const handleAddQuiz = async () => {
     const validationResult = await validateForm();
@@ -235,14 +242,15 @@ const Form = ({ setSubmitted }: any) => {
               {/* @ts-ignore */}
               {values.questions.map((question) => (
                 //@ts-ignore
-                <QuestionBox title={question.title} id={question.id} type={question.type} handleDeleteQuestion={handleDeleteQuestion} />
+                <QuestionBox title={question.title} id={question.id} type={question.type} handleDeleteQuestion={handleDeleteQuestion} handleEditingQuestion={handleEditingQuestion}/>
               ))}
             </Box>
           )}
 
           <Box className="right-part__button-wrapper">
             <AppButton
-              onClick={() => setQuiestionOpen(true)}
+              onClick={() => {setQuiestionOpen(true)
+              setEditing({editing: false, values: null})}}
               className="top-menu__button"
             >
               {t("addQuiestionBtn")}
@@ -263,6 +271,8 @@ const Form = ({ setSubmitted }: any) => {
 
       {quiestionOpen && (
         <AddQuestionModal
+          editing={editing.editing}
+          editingValues={editing.values}
           open={quiestionOpen}
           setQuiestionOpen={setQuiestionOpen}
           types={types}

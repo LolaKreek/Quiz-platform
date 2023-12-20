@@ -5,20 +5,14 @@ import { useEffect } from "react";
 const SingleAnswer = ({
   set,
   values,
-  errors
+  errors,
+  editing
 }: {
   set: Function;
   values: { [key: string]: { text: string } };
   errors: { [key: string]: { text: string } };
+  editing: boolean;
 }) => {
-  useEffect(() => {
-    set("answers", {
-      first: { text: "" },
-      second: { text: "" },
-      third: { text: "" },
-      fourth: { text: "" },
-    });
-  }, []);
 
   return (
     <>
