@@ -2,18 +2,26 @@ import { Box, Typography } from "@mui/material";
 import AppTopMenu from "../../components/AppTopMenu";
 import { menuLinks } from "./constants";
 import AppTable, { action } from "../../components/AppTable";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { ref, child, get, remove } from "firebase/database";
 import { auth, database } from "../../services/Firebase/firebase";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { useTableData } from "../Instruction/constants";
+import { useTranslation } from "react-i18next";
+import Notification from "../../components/Notification";
+import toast from "react-hot-toast";
 
 
 const ProQuizPage = () => {
 
+    const { t } = useTranslation("main")
+
     const handleDelete = async (id: string) => {
         await remove(ref(database, `quiz/${id}`))
+        toast.custom((element) => (
+            <Notification header={t('deleteQuizActionHeader')} message={t('deleteQuizActionMessage')} element={element} type='success'/>
+        ), { position: "bottom-center" })
         getQuizes()
     }
 
