@@ -1,7 +1,7 @@
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow } from "@mui/material"
-import DeleteIcon from '@mui/icons-material/Delete';
-import { useEffect, useState } from "react";
-import DownloadIcon from '@mui/icons-material/Download';
+import { useState } from "react";
+import AppTableSearch from "./AppTableSearch";
+
 
 type appTablePropsType = {
     data: any,
@@ -21,7 +21,14 @@ export type action = {
 const AppTable = ({data, headers, actions, type}:appTablePropsType) => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(9);
-  
+    const [search, setSearch] = useState("")
+    const [filter, setFilter] = useState("")
+
+    const searchSubmit = () => {
+        setFilter(search)
+    }
+
+
     const handleChangePage = (event: unknown, newPage: number) => {
       setPage(newPage);
     };
@@ -34,6 +41,7 @@ const AppTable = ({data, headers, actions, type}:appTablePropsType) => {
     return(
         <>
         <Box className="app-table">
+            <AppTableSearch setSearch={setSearch} search={search} submit={searchSubmit}/>
             <TableContainer component={Paper} className="app-table__table">
                 <Table aria-label="simple table">
                 <TableHead>
@@ -50,6 +58,14 @@ const AppTable = ({data, headers, actions, type}:appTablePropsType) => {
                 </TableHead>
                 <TableBody>
                     {data
+                    .filter((item: any)=>{
+                        let confirmations = false
+                        for (const header of headers) {
+                            confirmations = confirmations || String(item[header.value]).toLowerCase().includes(filter.toLowerCase());
+                        }
+                        return confirmations
+                        
+                    })
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((item:any) => (
                         <TableRow key={item.id}>
@@ -86,3 +102,4 @@ const AppTable = ({data, headers, actions, type}:appTablePropsType) => {
 }
 
 export default AppTable
+

@@ -1,9 +1,9 @@
 import { Box } from "@mui/material"
 import AppTopMenu from "../../components/AppTopMenu"
 import { menuLinks } from "./constants";
-import { child, get, ref, remove } from "firebase/database";
+import { child, get, ref } from "firebase/database";
 import { auth, database } from "../../services/Firebase/firebase";
-import AppTable, { action } from "../../components/AppTable";
+import AppTable from "../../components/AppTable";
 import { useEffect, useState } from "react";
 import { useTableData } from "../Instruction/constants";
 

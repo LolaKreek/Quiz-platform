@@ -1,4 +1,4 @@
-import { ChangeEventHandler, forwardRef } from "react";
+import { ChangeEventHandler, KeyboardEvent, KeyboardEventHandler, forwardRef } from "react";
 import { TextField, TextFieldVariants } from "@mui/material";
 
 type Props = {
@@ -7,6 +7,7 @@ type Props = {
   variant: TextFieldVariants | undefined;
   value: string;
   onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  onEnter?: Function;
   error: any;
   placeholder?: string;
   InputProps?: any;
@@ -23,6 +24,7 @@ export const AppInput = forwardRef(
       type = "text",
       id,
       inputProps,
+      onEnter,
       variant,
       error,
       onChange,
@@ -37,6 +39,13 @@ export const AppInput = forwardRef(
         variant={variant}
         className={className}
         value={value}
+        onKeyDown={onEnter ? (e) => {
+          if (e.key === 'Enter') {
+            console.log(e.key)
+            onEnter();
+            e.preventDefault();
+          }
+        } : ()=>{}}
         placeholder={placeholder}
         inputProps={inputProps}
         onChange={onChange}
