@@ -1,19 +1,34 @@
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow } from "@mui/material"
-import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from "react";
-import DownloadIcon from '@mui/icons-material/Download';
+import AppTableSearch from "./AppTableSearch";
+
 
 type appTablePropsType = {
     data: any,
     headers: any,
-    handleDelete: any,
+    actions?: action[],
     type: 'custom' | 'all'
 }
 
-const AppTable = ({data, headers, handleDelete, type}:appTablePropsType) => {
+export type action = {
+    title: string
+    action: Function,
+    icon: JSX.Element
+}
+
+
+
+const AppTable = ({data, headers, actions, type}:appTablePropsType) => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(9);
-  
+    const [search, setSearch] = useState("")
+    const [filter, setFilter] = useState("")
+
+    const searchSubmit = () => {
+        setFilter(search)
+    }
+
+
     const handleChangePage = (event: unknown, newPage: number) => {
       setPage(newPage);
     };
@@ -26,6 +41,7 @@ const AppTable = ({data, headers, handleDelete, type}:appTablePropsType) => {
     return(
         <>
         <Box className="app-table">
+            <AppTableSearch setSearch={setSearch} search={search} submit={searchSubmit}/>
             <TableContainer component={Paper} className="app-table__table">
                 <Table aria-label="simple table">
                 <TableHead>
@@ -33,24 +49,37 @@ const AppTable = ({data, headers, handleDelete, type}:appTablePropsType) => {
                         {headers.map((item:any) => (
                             <TableCell className="app-table__header-cell" key={item.value}>{item.title}</TableCell>
                         ))}
+                        {actions && actions.map((action:action) => 
+                            
+                            <TableCell align="center">{action.title}</TableCell>
+                            
+                        )}
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {data
+                    .filter((item: any)=>{
+                        let confirmations = false
+                        for (const header of headers) {
+                            confirmations = confirmations || String(item[header.value]).toLowerCase().includes(filter.toLowerCase());
+                        }
+                        return confirmations
+                        
+                    })
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((item:any) => (
                         <TableRow key={item.id}>
-                            <TableCell>{item.title}</TableCell>
-                            <TableCell>{item.faculty}</TableCell>
-                            <TableCell>{item.subject}</TableCell>
-                            <TableCell>{item.date}</TableCell>
-                            {type === "all" && <TableCell>{item.authorName}</TableCell>}
-                            <TableCell>
-                                {type === 'custom' ? 
-                                    <DeleteIcon className="app-table__delete-icon" onClick={() => handleDelete(item)} />
-                                    : <DownloadIcon className="app-table__delete-icon" onClick={() => handleDelete(item)} />
-                                }
-                            </TableCell>
+                            {headers.map((header:{title: string, value: string}) => (
+                                <TableCell align="center">{item[header.value]}</TableCell>    
+                            ))}
+                            {actions && actions.map((action:action) => 
+                                    
+                                    <TableCell align="center" className="app-table__icon" onClick={()=>{action.action(item.id)}}>
+                                        {action.icon}
+                                    </TableCell>
+                                
+                                )}
+                            
                         </TableRow>
                     ))}
                 </TableBody>
@@ -73,3 +102,4 @@ const AppTable = ({data, headers, handleDelete, type}:appTablePropsType) => {
 }
 
 export default AppTable
+

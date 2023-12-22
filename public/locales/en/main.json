@@ -3,20 +3,40 @@
     "themeTitle": "Theme mode",
     "emptyPageTitle": "You don't have any data yet",
     "menuItems": {
-        "title": "Title",
-        "faculty": "Faculty",
-        "subject": "Subject",
-        "date": "Date",
-        "empty": ""
+        "instructions": {
+            "title": "Title",
+            "faculty": "Faculty",
+            "subject": "Subject",
+            "date": "Date",
+            "empty": ""
+        },
+        "quiz": {
+            "title": "Title",
+            "faculty": "Faculty",
+            "subject": "Subject",
+            "date": "Date",
+            "questions": "Questions"
+        }
     },
     "menuAllItems": {
-        "title": "Title",
-        "faculty": "Faculty",
-        "subject": "Subject",
-        "date": "Date",
-        "author": "Author",
-        "empty": ""
+        "instructions": {
+            "title": "Title",
+            "faculty": "Faculty",
+            "subject": "Subject",
+            "date": "Date",
+            "authorName": "Author",
+            "empty": ""
+        },
+        "quiz": {
+            "title": "Title",
+            "faculty": "Faculty",
+            "subject": "Subject",
+            "date": "Date",
+            "questions": "Questions"
+        }
     },
     "deleteFileActionHeader": "Delete file Action",
-    "deleteFileActionMessage": "The file was successfully deleted"
+    "deleteFileActionMessage": "The file was successfully deleted",
+    "deleteQuizActionHeader": "Delete quiz Action",
+    "deleteQuizActionMessage": "The quiz was successfully deleted"
 }

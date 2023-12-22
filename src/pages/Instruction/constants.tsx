@@ -7,7 +7,7 @@ export const menuLinks = [
     {value: 'all', title: 'All', path: PROFESSOR_ALL_INSTRUCTION_PAGE}
 ]
 
-const tableHeaders = [
+const instructionHeadersPlaceholder = [
     {value: 'title', title: 'Title'},
     {value: 'faculty', title: 'All'},
     {value: 'subject', title: 'All'},
@@ -15,25 +15,41 @@ const tableHeaders = [
     {value: 'empty', title: ''},
 ]
 
-const tableAllHeaders = [
+const instructionAllHeadersPlaceholder = [
   {value: 'title', title: 'Title'},
   {value: 'faculty', title: 'All'},
   {value: 'subject', title: 'All'},
   {value: 'date', title: 'All'},
-  {value: 'author', title: 'Author'},
+  {value: 'authorName', title: 'Author'},
   {value: 'empty', title: ''},
+]
+
+const quizHeadersPlaceholder = [
+  {value: "title", title: "Title"},
+  {value: "faculty", title: "Faculty"},
+  {value: "subject", title: "Subject"},
+  {value: "date", title: "Date"},
+  {value: "questions", title: "Questions"},
 ]
 
 export const useTableData = () => {
     const { t } = useTranslation('main')
   
-    const menuItems = useMemo(() => {
-      return tableHeaders.map(i => ({ ...i, title: t(`menuItems.${i.value}`) }))
+    const instructionHeaders = useMemo(() => {
+      return instructionHeadersPlaceholder.map(i => ({ ...i, title: t(`menuItems.instructions.${i.value}`) }))
     }, [t])
 
-    const menuAllItems = useMemo(() => {
-      return tableAllHeaders.map(i => ({ ...i, title: t(`menuAllItems.${i.value}`) }))
+    const instructionAllHeaders = useMemo(() => {
+      return instructionAllHeadersPlaceholder.map(i => ({ ...i, title: t(`menuAllItems.instructions.${i.value}`) }))
+    }, [t])
+
+    const quizAllHeaders = useMemo(() => {
+      return quizHeadersPlaceholder.map(i => ({ ...i, title: t(`menuItems.quiz.${i.value}`) }))
+    }, [t])
+
+    const quizHeaders = useMemo(() => {
+      return quizHeadersPlaceholder.map(i => ({ ...i, title: t(`menuAllItems.quiz.${i.value}`) }))
     }, [t])
   
-    return { menuItems, menuAllItems }
+    return { instructionHeaders, instructionAllHeaders, quizHeaders, quizAllHeaders }
   }

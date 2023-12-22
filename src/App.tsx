@@ -42,8 +42,6 @@ function App() {
           dispatch(updateUser({ user: userData }));
         });
       } else {
-        console.log(userState);
-        console.log(123);
         dispatch(authLogout());
       }
     });
