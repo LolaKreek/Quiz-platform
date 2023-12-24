@@ -1,5 +1,5 @@
 import { Box, Checkbox } from "@mui/material";
-import { AppInput } from "../../../../AppInput";
+import { AppInput } from "../../../AppInput";
 import { useEffect } from "react";
 
 const MultipleAnswer = ({

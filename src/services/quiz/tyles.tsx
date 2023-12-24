@@ -4,6 +4,7 @@ export type quizDataType = {
     subject: string, 
     timer: boolean, 
     showAnswers: boolean,
+    editingId?: string, 
     questions: question[]
 }
 type question = {    

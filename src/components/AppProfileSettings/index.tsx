@@ -39,7 +39,7 @@ const ProfileSettings = ({open, setOpen, anchorRef}: profileSettingsType) => {
             {...TransitionProps}
         >
             <Paper className='profile-settings__paper'>
-            <ClickAwayListener onClickAway={() => {console.log('OKKKK');setOpen({action: PROFILE_SETTINGS, value: false})}}>
+            <ClickAwayListener onClickAway={() => {setOpen({action: PROFILE_SETTINGS, value: false})}}>
                 <Box>
                     <Box className="profile-settings__header-wrapper">
                         <Typography className="profile-settings__title">{t('profileSettingsTitle')}</Typography>

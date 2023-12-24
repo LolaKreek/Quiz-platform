@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import DragHandleIcon from "@mui/icons-material/DragHandle";
 import { Container, Draggable } from "@edorivai/react-smooth-dnd";
 import { arrayMoveImmutable } from "array-move";
-import { AppInput } from "../../../../AppInput";
+import { AppInput } from "../../../AppInput";
 
 const DragNDropAnswer = ({
   set,

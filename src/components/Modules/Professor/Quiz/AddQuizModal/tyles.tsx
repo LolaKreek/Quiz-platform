@@ -4,5 +4,7 @@ export type initialStateType = {
     timer: boolean,
     showAnswers: false,
     questions: {}[],
-    subjects: string
+    subjects: string,
+    quizEditing: boolean,
+    quizEditingId?: string,
 }

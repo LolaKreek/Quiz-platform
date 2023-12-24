@@ -22,9 +22,27 @@
 
 .app-table{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
     margin-top: 20px;
     height: calc(100% - 20%)!important;
+
+    &__search {
+        width: 100%;
+        background-color: $c-white;
+        outline: none;
+        border: 1px solid $c-main !important;
+        border-radius: 8px;
+    }
+
+    &__search-wrapper {
+        width: 95%;
+        @include flex();
+        align-items: center;
+        gap: 8px;
+    }
+
 
     &__table{
         width: 95%!important;
@@ -34,7 +52,7 @@
         text-align: center!important;
     }
 
-    &__delete-icon{
+    &__icon > svg{
         color: $c-main;
         cursor:  pointer;
     }
