@@ -19,7 +19,6 @@ const ProAllInstruction = () => {
         const response = await getMaterialsAllData({id: user})
         //@ts-ignore
         setData(response)
-        console.log(response)
     }
 
 

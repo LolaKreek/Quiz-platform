@@ -41,7 +41,6 @@ export const AppInput = forwardRef(
         value={value}
         onKeyDown={onEnter ? (e) => {
           if (e.key === 'Enter') {
-            console.log(e.key)
             onEnter();
             e.preventDefault();
           }

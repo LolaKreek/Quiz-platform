@@ -61,7 +61,7 @@ const AddQuestionModal = ({
 
   const actionQuestion = (values: any) => {
     if (editing) {
-      let questionsInstance = questions;
+      let questionsInstance = [...questions];
       questionsInstance[questions.indexOf(editingValues)] = values;
       setQuestions(questionsInstance);
       handleClose();
