@@ -20,8 +20,6 @@ const ProfilePage = () => {
   const [modal, setModal] = useState<null | ReactNode>(null);
   const authState = useSelector((state: RootState) => state.auth.user);
 
-  console.log("authState.photoURL: ", authState.photoURL)
-
   const modals = {
     email: <EmailModal onClose={() => setModal(false)} />,
     name: <NameModal onClose={() => setModal(false)} />,

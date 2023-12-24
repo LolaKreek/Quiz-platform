@@ -329,10 +329,6 @@ const QuizModule = ({editing, editingValues}: {editing: boolean, editingValues: 
     subjects: "",
     quizEditing: false,
   };
-
-  useEffect(() => {
-    console.log(editingValues)
-  }, [])
   
 
   const addQuiz = () => {};
