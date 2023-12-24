@@ -3,6 +3,8 @@ export type initialStateType = {
     faculty: string,
     timer: boolean,
     showAnswers: false,
-    questions: [{}],
-    subjects: string
+    questions: {}[],
+    subjects: string,
+    quizEditing: boolean,
+    quizEditingId?: string,
 }

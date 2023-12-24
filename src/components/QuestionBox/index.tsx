@@ -7,10 +7,11 @@ type questionBoxPropsType = {
     title: string,
     type: string,
     id: Date,
-    handleDeleteQuestion: any
+    handleDeleteQuestion: any,
+    handleEditingQuestion: any
 }
 
-const QuestionBox = ({title, type, id, handleDeleteQuestion}:questionBoxPropsType) => {
+const QuestionBox = ({title, type, id, handleDeleteQuestion, handleEditingQuestion}:questionBoxPropsType) => {
     const { t } = useTranslation('quiz');
 
     return(
@@ -28,7 +29,7 @@ const QuestionBox = ({title, type, id, handleDeleteQuestion}:questionBoxPropsTyp
             </Box>
 
             <Box className="question-box__button-wrapper">
-                <EditIcon className="question-box__icon" />
+                <EditIcon className="question-box__icon" onClick={() => handleEditingQuestion(id)}/>
                 <DeleteIcon className="question-box__icon" onClick={() => handleDeleteQuestion(id)} />
             </Box>
         </Box>

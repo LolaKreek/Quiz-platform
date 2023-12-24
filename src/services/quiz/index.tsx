@@ -1,17 +1,21 @@
 import { child, get, ref, set } from "firebase/database";
-import { database } from "../Firebase/firebase";
+import { auth, database } from "../Firebase/firebase";
 import { quizDataType } from "./tyles";
 
-export const writeQuizData = async ({title, faculty, subject, timer, showAnswers}:quizDataType) => {
-    const id = Date.now();
+export const writeQuizData = async ({title, faculty, subject, timer, showAnswers, questions, editingId}:quizDataType) => {
+    const id = editingId ? editingId : Date.now();
 
     return set(ref(database, 'quiz/' + id), {
       id: id,
+      date: new Date().toLocaleDateString(),
       title: title,
       faculty: faculty,
       subject : subject,
       timer: timer,
-      showAanswers: showAnswers
+      showAnswers: showAnswers,
+      questions: questions,
+      author: auth.currentUser?.uid,
+      authorName: auth.currentUser?.displayName ? auth.currentUser?.displayName : "Unknown",
     })
 }
 

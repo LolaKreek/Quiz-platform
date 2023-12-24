@@ -3,20 +3,41 @@
     "themeTitle": "Tryb strony",
     "emptyPageTitle": "Nie masz jeszcze żadnych danych", 
     "menuItems": {
-        "title": "Tytuł",
-        "faculty": "Wydział",
-        "subject": "Przedmiot",
-        "date": "Data",
-        "empty": ""
+        "instructions": {
+            "title": "Tytuł",
+            "faculty": "Wydział",
+            "subject": "Przedmiot",
+            "date": "Data",
+            "empty": ""
+        },
+        "quiz": {
+            "title": "Tytuł",
+            "faculty": "Wydział",
+            "subject": "Przedmiot",
+            "date": "Data",
+            "questions": "Pytania"
+        }
     },
     "menuAllItems": {
-        "title": "Tytuł",
-        "faculty": "Wydział",
-        "subject": "Przedmiot",
-        "date": "Data",
-        "author": "Autor",
-        "empty": ""
+        "instructions": {
+            "title": "Tytuł",
+            "faculty": "FaWydziałulty",
+            "subject": "Przedmiot",
+            "date": "Data",
+            "authorName": "Author",
+            "empty": ""
+        },
+        "quiz": {
+            "title": "Tytuł",
+            "faculty": "Wydział",
+            "subject": "Przedmiot",
+            "date": "Data",
+            "questions": "Pytania"
+        }
+
     },
     "deleteFileActionHeader": "Akcja usuń plik",
-    "deleteFileActionMessage": "Plik został pomyślnie usunięty"
+    "deleteFileActionMessage": "Plik został pomyślnie usunięty",
+    "deleteQuizActionHeader": "Akcja usuń quiz",
+    "deleteQuizActionMessage": "Quiz został pomyślnie usunięty"
 }

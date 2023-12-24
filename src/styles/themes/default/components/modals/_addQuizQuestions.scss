@@ -1,0 +1,40 @@
+._add-quiz-question {
+  &__container {
+    padding: 8px 0px;
+  }
+
+  &__single {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  &__multiple {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr 5fr;
+    gap: 8px;
+  }
+
+  &__secondary {
+    @include flex();
+    @include justifyContent(end);
+  }
+
+  &__input {
+    width: 100%;
+    fieldset {
+      border-color: $c-main;
+    }
+  }
+
+  &__correct {
+    fieldset {
+      border-color: lime;
+    }
+  }
+
+  &__listitem {
+    width: 100%;
+    padding: 8px 0px;
+  }
+}

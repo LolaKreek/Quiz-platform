@@ -3,5 +3,18 @@ export type quizDataType = {
     faculty: string, 
     subject: string, 
     timer: boolean, 
-    showAnswers: boolean
+    showAnswers: boolean,
+    editingId?: string, 
+    questions: question[]
+}
+type question = {    
+    id: number,
+    title: string,
+    type: string,
+    answers: {
+        [key: string]: {
+            text: string,
+            isCorrect?: boolean
+        }
+    },  
 }

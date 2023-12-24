@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AppTopMenu from "../../components/AppTopMenu";
 import { menuLinks, useTableData } from "./constants";
 import UploadFile from "../../components/UploadFile";
-import AppTable from "../../components/AppTable";
+import AppTable, { action } from "../../components/AppTable";
 import EmptyTable from "../../components/EmptyTable";
 import { Box } from "@mui/material";
 import { deleteMaterialsData, getMaterialsData } from "../../services/uploadFile";
@@ -10,6 +10,8 @@ import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import Notification from "../../components/Notification";
 import { useTranslation } from "react-i18next";
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 const ProInstructionPage = () => {
     //@ts-ignore
@@ -18,7 +20,7 @@ const ProInstructionPage = () => {
 
     const [open, setOpen] = useState(false);
     const [data, setData] = useState([]);
-    const { menuItems } = useTableData();
+    const { instructionHeaders } = useTableData();
 
     const handleUploadFile = () => {
         setOpen(true);
@@ -46,6 +48,14 @@ const ProInstructionPage = () => {
         
     }
 
+    const actions: action[] = [
+        {
+            title: "Delete",
+            action: handleDelete,
+            icon: <DeleteIcon/>
+        },
+    ]
+
     useEffect(() => {
         getMaterials()
     }, [])
@@ -58,8 +68,8 @@ const ProInstructionPage = () => {
                 <Box>
                     <AppTable 
                         data={data} 
-                        headers={menuItems} 
-                        handleDelete={handleDelete}
+                        headers={instructionHeaders} 
+                        actions={actions}
                         type="custom"
                     />
                 </Box>

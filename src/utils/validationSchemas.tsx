@@ -27,7 +27,8 @@ export const addQuizSchema = Yup.object().shape({
     .required("Please select a faculty"),
   subjects: Yup.string()
     .min(1, "Please select a subject")
-    .required("Please select a subject")
+    .required("Please select a subject"),
+  questions: Yup.array().required().min(1, "Please add at least one question")
 })
 
 export const addQuizQuestionSchema = Yup.object().shape({
@@ -35,6 +36,20 @@ export const addQuizQuestionSchema = Yup.object().shape({
     .required("Please enter question title"),
   type: Yup.string()
     .required("Please select a type"),
+  answers: Yup.object().shape({
+    first: Yup.object().shape({
+      text: Yup.string().required(),
+    }),
+    second: Yup.object().shape({
+      text: Yup.string().required(),
+    }),
+    third: Yup.object().shape({
+      text: Yup.string().required(),
+    }),
+    fourth: Yup.object().shape({
+      text: Yup.string().required(),
+    }),
+  })
 })
 
 export const uploafFilenSchema = Yup.object().shape({
