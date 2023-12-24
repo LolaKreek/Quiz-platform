@@ -11,11 +11,16 @@ import { useTableData } from "../Instruction/constants";
 import { useTranslation } from "react-i18next";
 import Notification from "../../components/Notification";
 import toast from "react-hot-toast";
-
+import { useNavigate } from "react-router-dom";
 
 const ProQuizPage = () => {
 
     const { t } = useTranslation("main")
+    const navigate = useNavigate()
+
+    const handleEdit = (id: string) => {
+        navigate(`edit/${id}`)
+    }
 
     const handleDelete = async (id: string) => {
         await remove(ref(database, `quiz/${id}`))
@@ -26,7 +31,7 @@ const ProQuizPage = () => {
     }
 
     const actions: action[] = [
-        {action: ()=>{}, icon: <EditIcon />, title: "Edit"},
+        {action: handleEdit, icon: <EditIcon />, title: "Edit"},
         {action: handleDelete, icon: <DeleteIcon />, title: "Delete"},
     ]
 

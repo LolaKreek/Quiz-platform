@@ -1,23 +1,23 @@
 import { Box, Checkbox, FormControlLabel, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { AppInput } from "../../../AppInput";
+import { AppInput } from "../../../../AppInput";
 import { Formik, useFormikContext } from "formik";
 import { useEffect, useState } from "react";
 import { initialStateType } from "./tyles";
-import { AppSelect } from "../../../AppSelect";
+import { AppSelect } from "../../../../AppSelect";
 import { onValue, ref } from "firebase/database";
-import { database } from "../../../../services/Firebase/firebase";
-import { AppButton } from "../../../AppButton";
-import { getQuizQuestionTypes, writeQuizData } from "../../../../services/quiz";
+import { database } from "../../../../../services/Firebase/firebase";
+import { AppButton } from "../../../../AppButton";
+import { getQuizQuestionTypes, writeQuizData } from "../../../../../services/quiz";
 import toast from "react-hot-toast";
-import Notification from "../../../Notification";
+import Notification from "../../../../Notification";
 import { useNavigate } from "react-router-dom";
-import { PROFESSOR_QUIZ_PAGE } from "../../../../routes/pathnames";
-import { addQuizSchema } from "../../../../utils/validationSchemas";
-import { ErrorOverLay } from "../../../ErrorOverLay";
+import { PROFESSOR_QUIZ_PAGE } from "../../../../../routes/pathnames";
+import { addQuizSchema } from "../../../../../utils/validationSchemas";
+import { ErrorOverLay } from "../../../../ErrorOverLay";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import AddQuestionModal from "./AddQuestionsModal";
-import QuestionBox from "../../../QuestionBox";
+import QuestionBox from "../../../../QuestionBox";
 
 const Form = ({ setSubmitted }: any) => {
   const { t } = useTranslation("quiz");
@@ -33,7 +33,7 @@ const Form = ({ setSubmitted }: any) => {
   const { values, handleChange, errors, setFieldValue, validateForm } =
     useFormikContext();
 
-  const getFaculties = () => {
+  const getFaculties = async () => {
     const starCountRef = ref(database, "faculties/");
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
@@ -42,6 +42,10 @@ const Form = ({ setSubmitted }: any) => {
       const faculties = data.map(({ name }: { name: string }) => name);
       setFaculties(faculties);
     });
+    
+    
+    
+    
   };
 
   const getAnswerTypes = async () => {
@@ -51,9 +55,9 @@ const Form = ({ setSubmitted }: any) => {
     }
   };
 
-  const facultyHandleChange = (e: any) => {
+  const facultyHandleChange = (value: any) => {
     // @ts-ignore
-    const element = data.find((item: { name: string; objects: [] }) => item.name === e.target.value)?.objects;
+    const element = data.find((item: { name: string; objects: [] }) => item.name === value)?.objects;
 
     if (element) {
       const subjects = element.map((subject: { name: string }) => subject.name);
@@ -70,7 +74,8 @@ const Form = ({ setSubmitted }: any) => {
     toast.custom(
       (element) => (
         <Notification
-          header={t("addQuizActionHeader")}
+        // @ts-ignore
+          header={values.quizEditing ? t("editQuizActionHeader") : t("addQuizActionHeader")}
           message={t("deleteQuestionActionMessage")}
           element={element}
           type="success"
@@ -94,12 +99,12 @@ const Form = ({ setSubmitted }: any) => {
 
       try {
         // @ts-ignore
-        writeQuizData({title: values?.quizName, faculty: values?.faculty, subject: values?.subjects, timer: values?.timer, showAnswers: values?.showAnswers, questions: values?.questions});
+        writeQuizData({title: values?.quizName, faculty: values?.faculty, subject: values?.subjects, timer: values?.timer, showAnswers: values?.showAnswers, questions: values?.questions, editingId: values.quizEditing ? values?.quizEditingId : null});
         toast.custom(
           (element) => (
             <Notification
-              header={t("addQuizActionHeader")}
-              message={t("addQuizActionMessage")}
+            // @ts-ignore
+              header={values.quizEditing ? t("editQuizActionHeader") : t("addQuizActionHeader")} message={values.quizEditing ? t("editQuizActionMessage") : t("addQuizActionMessage")}
               element={element}
               type="success"
             />
@@ -118,6 +123,19 @@ const Form = ({ setSubmitted }: any) => {
     getAnswerTypes();
   }, []);
 
+  useEffect(() => {
+    // @ts-ignore
+    if (values.quizEditing) {
+      // @ts-ignore
+      onValue(ref(database, `quiz/${values.quizEditingId}/faculty`), (snapshot) => {
+        const data = snapshot.val();
+        setFieldValue("faculty", data)
+        facultyHandleChange(data)
+      });
+    }
+  }, [faculties])
+  
+
 
   return (
     <Box className="quiz-add-modal">
@@ -128,13 +146,15 @@ const Form = ({ setSubmitted }: any) => {
             onClick={() => navigate(PROFESSOR_QUIZ_PAGE)}
           />
           <Typography className="quiz-add-modal__main-title">
-            {t("addModalTitle")}
+          {/* @ts-ignore */}
+            {values.quizEditing ? t("editModalTitle") : t("addModalTitle")}
           </Typography>
         </Box>
 
         <Box>
           <AppButton onClick={handleAddQuiz} className="top-menu__button">
-            {t("addQuizBtn")}
+          {/* @ts-ignore */}
+            {values.quizEditing ? t("editQuizBtn") : t("addQuizBtn")}
           </AppButton>
         </Box>
       </Box>
@@ -178,7 +198,7 @@ const Form = ({ setSubmitted }: any) => {
               value={values.faculty}
               onChange={(e) => {
                 setFieldValue("faculty", e.target.value);
-                facultyHandleChange(e);
+                facultyHandleChange(e.target.value);
               }}
             />
           </Box>
@@ -209,8 +229,7 @@ const Form = ({ setSubmitted }: any) => {
                 <Checkbox
                   id="timer"
                   // @ts-ignore
-                  value={values.timer}
-                  onChange={handleChange}
+                  value={values.timer} onChange={handleChange} checked={values.timer}
                 />
               }
             />
@@ -224,8 +243,7 @@ const Form = ({ setSubmitted }: any) => {
                 <Checkbox
                   id="showAnswers"
                   // @ts-ignore
-                  value={values.showAnswers}
-                  onChange={handleChange}
+                  value={values.showAnswers} checked={values.showAnswers} onChange={handleChange}
                 />
               }
             />
@@ -286,18 +304,36 @@ const Form = ({ setSubmitted }: any) => {
   );
 };
 
-const AddQuizModule = () => {
+
+// можно добавить сюда initialvalues потом прокинуть их в формик
+// и надо сделать чтобы всё было не на дефолт стейтах а на стейтах формика
+
+const QuizModule = ({editing, editingValues}: {editing: boolean, editingValues: any}) => {
   const [submitted, setSubmitted] = useState(false);
 
-  const initialState: initialStateType = {
+  const initialState: initialStateType = editing ? {
+    quizName: editingValues.title,
+    faculty: "",
+    timer: editingValues.timer,
+    showAnswers: editingValues.showAnswers,
+    questions: editingValues.questions,
+    subjects: editingValues.subject,
+    quizEditing: true,
+    quizEditingId: editingValues.id,
+  } : {
     quizName: "",
     faculty: "",
     timer: false,
     showAnswers: false,
-    // это пример questions
     questions: [],
     subjects: "",
+    quizEditing: false,
   };
+
+  useEffect(() => {
+    console.log(editingValues)
+  }, [])
+  
 
   const addQuiz = () => {};
 
@@ -314,4 +350,4 @@ const AddQuizModule = () => {
   );
 };
 
-export default AddQuizModule;
+export default QuizModule;
