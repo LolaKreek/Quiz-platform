@@ -1,18 +1,18 @@
 import { Box, Modal, Paper, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import CloseIcon from "@mui/icons-material/Close";
-import { AppInput } from "../../../AppInput";
+import { AppInput } from "../../../../AppInput";
 import { Formik } from "formik";
 import { useState } from "react";
-import { AppSelect } from "../../../AppSelect";
-import { AppButton } from "../../../AppButton";
-import { addQuizQuestionSchema } from "../../../../utils/validationSchemas";
-import { ErrorOverLay } from "../../../ErrorOverLay";
+import { AppSelect } from "../../../../AppSelect";
+import { AppButton } from "../../../../AppButton";
+import { addQuizQuestionSchema } from "../../../../../utils/validationSchemas";
+import { ErrorOverLay } from "../../../../ErrorOverLay";
 import toast from "react-hot-toast";
-import Notification from "../../../Notification";
-import SingleAnswer from "./QuestionElements/SingleAnswer";
-import MultipleAnswer from "./QuestionElements/MultipleAnswer";
-import DragNDropAnswer from "./QuestionElements/DragNDropAnswer";
+import Notification from "../../../../Notification";
+import SingleAnswer from "../../QuestionElements/SingleAnswer";
+import MultipleAnswer from "../../QuestionElements/MultipleAnswer";
+import DragNDropAnswer from "../../QuestionElements/DragNDropAnswer";
 
 const AddQuestionModal = ({
   open,
@@ -21,7 +21,7 @@ const AddQuestionModal = ({
   questions,
   setQuestions,
   editing,
-  editingValues
+  editingValues,
 }: any) => {
   const { t } = useTranslation("quiz");
   const initialState = { title: "", type: "", id: Date.now(), answers: null };
@@ -36,24 +36,24 @@ const AddQuestionModal = ({
 
   const questionTypeInitialValues = {
     Single: {
-      first: {text: ""},
-      second: {text: ""},
-      third: {text: ""},
-      fourth: {text: ""}
+      first: { text: "" },
+      second: { text: "" },
+      third: { text: "" },
+      fourth: { text: "" },
     },
     Multiple: {
-      first: {text: "", isCorrect: false},
-      second: {text: "", isCorrect: false},
-      third: {text: "", isCorrect: false},
-      fourth: {text: "", isCorrect: false}
+      first: { text: "", isCorrect: false },
+      second: { text: "", isCorrect: false },
+      third: { text: "", isCorrect: false },
+      fourth: { text: "", isCorrect: false },
     },
     "Drag & Drop": {
-      first: {text: ""},
-      second: {text: ""},
-      third: {text: ""},
-      fourth: {text: ""}
+      first: { text: "" },
+      second: { text: "" },
+      third: { text: "" },
+      fourth: { text: "" },
     },
-  }
+  };
 
   const handleClose = () => {
     setQuiestionOpen(false);
@@ -61,11 +61,10 @@ const AddQuestionModal = ({
 
   const actionQuestion = (values: any) => {
     if (editing) {
-      let questionsInstance = questions
-      questionsInstance[questions.indexOf(editingValues)] = values
+      let questionsInstance = questions;
+      questionsInstance[questions.indexOf(editingValues)] = values;
       setQuestions(questionsInstance);
       handleClose();
-
 
       toast.custom(
         (element) => (
@@ -77,7 +76,7 @@ const AddQuestionModal = ({
           />
         ),
         { position: "bottom-center" }
-      )
+      );
     } else {
       setQuestions([...questions, values]);
       handleClose();
@@ -92,10 +91,9 @@ const AddQuestionModal = ({
           />
         ),
         { position: "bottom-center" }
-      )
+      );
     }
-  }
-
+  };
 
   return (
     <Modal
@@ -121,7 +119,7 @@ const AddQuestionModal = ({
             handleSubmit,
             setFieldValue,
             validateForm,
-            setErrors
+            setErrors,
           }) => (
             <Box>
               <Box className="add-questions-modal__header-wrapper">
@@ -170,7 +168,7 @@ const AddQuestionModal = ({
                     options={types}
                     onChange={(e) => {
                       // @ts-ignore
-                      setFieldValue("answers", questionTypeInitialValues[e.target.value]);
+                      setFieldValue("answers",questionTypeInitialValues[e.target.value]);
                       setFieldValue("type", e.target.value);
                       setErrors({ ...errors, answers: undefined });
                     }}
@@ -191,13 +189,12 @@ const AddQuestionModal = ({
                   <AppButton
                     onClick={() => {
                       validateForm().then((res) => {
-                        
-                        values.type === "Open" && delete res["answers"]
-                        
+                        values.type === "Open" && delete res["answers"];
+
                         if (!Object.keys(res).length) {
                           setSubmitted(true);
                           handleSubmit();
-                          actionQuestion(values)
+                          actionQuestion(values);
                         }
                       });
                     }}
@@ -213,7 +210,9 @@ const AddQuestionModal = ({
                 {(errors?.title || errors.type || errors.answers) && (
                   <ErrorOverLay>
                     {/* @ts-ignore */}
-                    {errors.title || errors.type || (errors.answers ? "Please enter answers" : null)}
+                    {errors.title ||
+                      errors.type ||
+                      (errors.answers ? "Please enter answers" : null)}
                   </ErrorOverLay>
                 )}
               </Box>

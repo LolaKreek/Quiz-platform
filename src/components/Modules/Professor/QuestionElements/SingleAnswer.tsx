@@ -1,19 +1,18 @@
 import { Box } from "@mui/material";
-import { AppInput } from "../../../../AppInput";
+import { AppInput } from "../../../AppInput";
 import { useEffect } from "react";
 
 const SingleAnswer = ({
   set,
   values,
   errors,
-  editing
+  editing,
 }: {
   set: Function;
   values: { [key: string]: { text: string } };
   errors: { [key: string]: { text: string } };
   editing: boolean;
 }) => {
-
   return (
     <>
       {values && (
