@@ -7,6 +7,8 @@ import EmptyTable from "../../components/EmptyTable";
 import { getMaterialsAllData } from "../../services/uploadFile";
 import { useSelector } from "react-redux";
 import DownloadIcon from '@mui/icons-material/Download';
+import { getDownloadURL, ref } from "firebase/storage";
+import { storage } from "../../services/Firebase/firebase";
 
 const ProAllInstruction = () => {
     const [data, setData] = useState([]);
@@ -22,8 +24,21 @@ const ProAllInstruction = () => {
     }
 
 
+    function downloadURI(uri: string, name: string) {
+        let link = document.createElement("a");
+        link.download = name;
+        link.href = uri;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
     const handleDownload = (item:any) => {
-        console.log("DOWNLOAD: ", item)
+        getDownloadURL(ref(storage, `instruction/${item}`)).then((url)=>{
+            console.log(1)
+            downloadURI(url, item)
+            
+        })
     }
 
     useEffect(() => {

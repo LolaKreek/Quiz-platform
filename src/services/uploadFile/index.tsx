@@ -1,19 +1,22 @@
 import { uploadFileDataType } from "./types";
-import { firestore } from "../Firebase/firebase";
+import { firestore, storage } from "../Firebase/firebase";
 import { addDoc, collection, where, query, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { uploadBytes, ref as storageRef } from "firebase/storage";
+
 
 export const uploadFileData = async ({title, faculty, subject, file, author, authorName}:uploadFileDataType) => {
     const id = Date.now();
     const date = new Date(id);
     const formattedDate = date.toLocaleString('en-US');
-    const fileData = await convertFileToBase64(file);
+
+
+    uploadBytes(storageRef(storage, `instruction/${id}`), file)
 
     const docRef = await addDoc(collection(firestore, "instruction/"), {
         id: id,
         title: title,
         faculty: faculty,
         subject : subject,
-        file: fileData,
         authorId: author,
         date: formattedDate,
         authorName: authorName
