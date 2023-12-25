@@ -24,20 +24,11 @@ const ProAllInstruction = () => {
     }
 
 
-    function downloadURI(uri: string, name: string) {
-        let link = document.createElement("a");
-        link.download = name + ".pdf";
-        link.href = uri;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
 
     const handleDownload = (item:any) => {
         getDownloadURL(ref(storage, `instruction/${item}.pdf`)).then((url)=>{
-            console.log(1)
-            downloadURI(url, item)
-            
+            // @ts-ignore
+            window.open(url, '_blank').focus();
         })
     }
 
