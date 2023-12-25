@@ -10,7 +10,7 @@ export const uploadFileData = async ({title, faculty, subject, file, author, aut
     const formattedDate = date.toLocaleString('en-US');
 
 
-    uploadBytes(storageRef(storage, `instruction/${id}`), file)
+    uploadBytes(storageRef(storage, `instruction/${id}.pdf`), file)
 
     const docRef = await addDoc(collection(firestore, "instruction/"), {
         id: id,

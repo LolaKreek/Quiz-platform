@@ -26,7 +26,7 @@ const ProAllInstruction = () => {
 
     function downloadURI(uri: string, name: string) {
         let link = document.createElement("a");
-        link.download = name;
+        link.download = name + ".pdf";
         link.href = uri;
         document.body.appendChild(link);
         link.click();
@@ -34,7 +34,7 @@ const ProAllInstruction = () => {
       }
 
     const handleDownload = (item:any) => {
-        getDownloadURL(ref(storage, `instruction/${item}`)).then((url)=>{
+        getDownloadURL(ref(storage, `instruction/${item}.pdf`)).then((url)=>{
             console.log(1)
             downloadURI(url, item)
             
