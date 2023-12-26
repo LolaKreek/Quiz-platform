@@ -14,4 +14,4 @@ export const PROFESSOR_INSTRUCTION_PAGE = "/pro/instruction";
 export const PROFESSOR_UPLOAD_INSTRUCTION_PAGE = "/pro/instruction/upload";
 export const PROFESSOR_ALL_INSTRUCTION_PAGE = "/pro/instruction/all";
 
-export const STUDENT_QUIZ_PAGE = "quiz";
+export const STUDENT_QUIZ_PAGE = "/quiz";
