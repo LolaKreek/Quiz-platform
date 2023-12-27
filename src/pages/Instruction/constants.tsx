@@ -32,6 +32,15 @@ const proQuizHeadersPlaceholder = [
   {value: "questions", title: "Questions"},
 ]
 
+const proQuizAllHeadersPlaceholder = [
+  {value: "title", title: "Title"},
+  {value: "faculty", title: "Faculty"},
+  {value: "subject", title: "Subject"},
+  {value: 'authorName', title: 'Author'},
+  {value: "date", title: "Date"},
+  {value: "questions", title: "Questions"},
+]
+
 const studQuizAllHeadersPlaceholder = [
   {value: 'title', title: 'Title'},
   {value: 'faculty', title: 'All'},
@@ -53,11 +62,11 @@ export const useTableData = () => {
     }, [t])
 
     const proQuizAllHeaders = useMemo(() => {
-      return proQuizHeadersPlaceholder.map(i => ({ ...i, title: t(`menuItems.quiz.${i.value}`) }))
+      return proQuizAllHeadersPlaceholder.map(i => ({ ...i, title: t(`menuAllItems.quiz.${i.value}`) }))
     }, [t])
 
     const proQuizHeaders = useMemo(() => {
-      return proQuizHeadersPlaceholder.map(i => ({ ...i, title: t(`menuAllItems.quiz.${i.value}`) }))
+      return proQuizHeadersPlaceholder.map(i => ({ ...i, title: t(`menuItems.quiz.${i.value}`) }))
     }, [t])
 
     const studQuizAllHeaders = useMemo(() => {
