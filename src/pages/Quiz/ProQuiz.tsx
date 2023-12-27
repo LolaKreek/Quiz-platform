@@ -35,7 +35,7 @@ const ProQuizPage = () => {
         {action: handleDelete, icon: <DeleteIcon />, title: "Delete"},
     ]
 
-    const { quizHeaders } = useTableData()
+    const { proQuizHeaders } = useTableData()
 
     const [data, setData] = useState(null)
 
@@ -70,7 +70,7 @@ const ProQuizPage = () => {
         <Box className="top-menu__wrapper">
             <AppTopMenu menuLinks={menuLinks} current="custom" type="quiz" />
         </Box>
-            <AppTable data={data ? data : []} headers={quizHeaders} actions={actions} type="custom"></AppTable>
+            <AppTable data={data ? data : []} headers={proQuizHeaders} actions={actions} type="custom"></AppTable>
         </>
     )
 }

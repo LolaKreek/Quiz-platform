@@ -1,14 +1,15 @@
-import { Box } from "@mui/material"
-import AppTopMenu from "../../components/AppTopMenu"
-import { menuLinks } from "./constants";
-import { child, get, ref } from "firebase/database";
-import { auth, database } from "../../services/Firebase/firebase";
-import AppTable from "../../components/AppTable";
+import { Box } from "@mui/material";
+import AppTable, { action } from "../../components/AppTable";
+import AppTopMenu from "../../components/AppTopMenu";
+import { studentMenuLinks } from "./constants";
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { useEffect, useState } from "react";
+import { child, get, ref } from "firebase/database";
 import { useTableData } from "../Instruction/constants";
+import { database } from "../../services/Firebase/firebase";
 
-const ProQuizAll = () => {
-    const { proQuizAllHeaders } = useTableData()
+const StudentQuizAll = () => {
+    const { studQuizAllHeaders } = useTableData()
 
     const [data, setData] = useState(null)
 
@@ -18,9 +19,6 @@ const ProQuizAll = () => {
             if (snapshot.exists()) {
               let dataSnapshot = Object.values(snapshot.val())
               
-                dataSnapshot = dataSnapshot.filter((el: any) => {
-                    return el.author !== auth.currentUser?.uid
-                })
                 dataSnapshot.map((el: any, index)=> {
                     el.questions = el.questions.length
                 })
@@ -38,14 +36,22 @@ const ProQuizAll = () => {
         getQuizes()
     }, [])
     
+    const actions: action[] = [
+      {
+        action: () => {},
+        icon: <PlayArrowIcon />,
+        title: "Start",
+      }
+    ]
+
     return (
         <>
         <Box className="top-menu__wrapper">
-            <AppTopMenu menuLinks={menuLinks} current="all" type="quiz" />
+            <AppTopMenu menuLinks={studentMenuLinks} current="all" type="quiz" />
         </Box>
-            <AppTable data={data ? data : []} headers={proQuizAllHeaders} actions={[]} type="all"></AppTable>
+            <AppTable data={data ? data : []} headers={studQuizAllHeaders} actions={actions} type="all"></AppTable>
         </>
     )
 }
 
-export default ProQuizAll;
+export default StudentQuizAll

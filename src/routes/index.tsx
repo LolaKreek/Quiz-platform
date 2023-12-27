@@ -11,6 +11,7 @@ import {
   PROFESSOR_ALL_INSTRUCTION_PAGE,
   PROFESSOR_ALL_QUIZ_PAGE,
   PROFESSOR_EDIT_QUIZ_PAGE,
+  STUDENT_ALL_QUIZ_PAGE,
 } from "./pathnames";
 
 const Dashboard = loadable(
@@ -36,6 +37,7 @@ const ProAllInstruction = loadable(
   () => import("../pages/Instruction/ProAllInstructions")
 );
 
+const StudentQuizAll = loadable(() => import("../pages/Quiz/StudentQuizAll"));
 const StudentQuiz = loadable(() => import("../pages/Quiz/StudentQuiz"));
 
 export const publicRoutes = [{ path: MAIN_PAGE, Component: Dashboard }];
@@ -54,4 +56,5 @@ export const appRoutes = [
   { path: PROFESSOR_ALL_INSTRUCTION_PAGE, Component: ProAllInstruction, role: "professor" },
 
   { path: STUDENT_QUIZ_PAGE, Component: StudentQuiz, role: "student" },
+  { path: STUDENT_ALL_QUIZ_PAGE, Component: StudentQuizAll, role: "student" },
 ];

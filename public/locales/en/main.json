@@ -32,7 +32,8 @@
             "faculty": "Faculty",
             "subject": "Subject",
             "date": "Date",
-            "questions": "Questions"
+            "questions": "Questions",
+            "authorName": "Author"
         }
     },
     "deleteFileActionHeader": "Delete file Action",
