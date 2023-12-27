@@ -15,7 +15,9 @@
             "faculty": "Faculty",
             "subject": "Subject",
             "date": "Date",
-            "questions": "Questions"
+            "authorName": "Author",
+            "questions": "Questions",
+            "completed": "Completed"
         }
     },
     "menuAllItems": {

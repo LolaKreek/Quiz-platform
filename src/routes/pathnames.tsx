@@ -16,3 +16,4 @@ export const PROFESSOR_ALL_INSTRUCTION_PAGE = "/pro/instruction/all";
 
 export const STUDENT_QUIZ_PAGE = "/quiz";
 export const STUDENT_ALL_QUIZ_PAGE = "/quiz/all";
+export const STUDENT_HISTORY_QUIZ_PAGE = "/quiz/history";

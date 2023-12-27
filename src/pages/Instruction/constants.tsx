@@ -50,6 +50,16 @@ const studQuizAllHeadersPlaceholder = [
   {value: 'date', title: 'All'},
 ]
 
+const studQuizHistoryHeadersPlaceholder = [
+  {value: 'title', title: 'Title'},
+  {value: 'faculty', title: 'All'},
+  {value: 'subject', title: 'All'},
+  {value: "questions", title: "Questions"},
+  {value: 'authorName', title: 'Author'},
+  {value: 'date', title: 'All'},
+  {value: 'completed', title: 'All'},
+]
+
 export const useTableData = () => {
     const { t } = useTranslation('main')
   
@@ -72,6 +82,10 @@ export const useTableData = () => {
     const studQuizAllHeaders = useMemo(() => {
       return studQuizAllHeadersPlaceholder.map(i => ({ ...i, title: t(`menuAllItems.quiz.${i.value}`) }))
     }, [t])
+
+    const studQuizHistoryHeaders = useMemo(() => {
+      return studQuizHistoryHeadersPlaceholder.map(i => ({ ...i, title: t(`menuItems.quiz.${i.value}`) }))
+    }, [t])
   
-    return { instructionHeaders, instructionAllHeaders, proQuizHeaders, proQuizAllHeaders, studQuizAllHeaders }
+    return { instructionHeaders, instructionAllHeaders, proQuizHeaders, proQuizAllHeaders, studQuizAllHeaders, studQuizHistoryHeaders }
   }
