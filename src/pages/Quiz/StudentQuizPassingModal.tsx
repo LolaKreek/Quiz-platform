@@ -71,7 +71,7 @@ const StudentQuizPassingModal = ({
         }}
         timer={timer}
       />,
-      <StudentQuizPassingFinal onCliose={onClose} />,
+      <StudentQuizPassingFinal quiz={quiz} onCliose={onClose} />,
     ]);
   };
 
@@ -129,6 +129,14 @@ const StudentQuizPassingModal = ({
         ),
         //@ts-ignore
         { quiz: quiz.id, results: results }
+      );
+      set(
+        ref(
+          database,
+          "student/" + auth.currentUser?.uid + "/history/" + Date.now()
+        ),
+        //@ts-ignore
+        { quiz: quiz.id, date: new Date().toLocaleDateString() }
       );
     });
     setActive((active) => active + 1);
@@ -303,13 +311,7 @@ const StudentQuizPassingFinish = ({
         <Typography variant="h6">{t("studentTimer")}</Typography>
         <Typography>{timer && quiz.timer ? elapsed : "Disabled"}</Typography>
       </Box>
-      {quiz.showAnswers && (
-        <Box>
-          <Typography variant="h6">See answers</Typography>
-        </Box>
-      )}
       <AppButton
-        variant="outlined"
         onClick={() => {
           finish();
         }}
@@ -321,7 +323,13 @@ const StudentQuizPassingFinish = ({
   );
 };
 
-const StudentQuizPassingFinal = ({ onCliose }: { onCliose: Function }) => {
+const StudentQuizPassingFinal = ({
+  onCliose,
+  quiz,
+}: {
+  onCliose: Function;
+  quiz: quizDataType;
+}) => {
   const { t } = useTranslation("quiz");
 
   const [mark, setMark] = useState("Loading...");
@@ -355,8 +363,54 @@ const StudentQuizPassingFinal = ({ onCliose }: { onCliose: Function }) => {
       <Typography className="quiz-passing__title" variant="h6">
         {mark}
       </Typography>
+      <Box className="quiz-passing__welcome-info">
+        <Box>
+          <Typography className="quiz-passing__sub-title" variant="subtitle2">
+            {t("studentTitle")}
+          </Typography>
+          <Typography>{quiz.title}</Typography>
+        </Box>
+        <Box>
+          <Typography className="quiz-passing__sub-title" variant="subtitle2">
+            {t("studentFaculty")}
+          </Typography>
+          <Typography>{quiz.faculty}</Typography>
+        </Box>
+        <Box>
+          <Typography className="quiz-passing__sub-title" variant="subtitle2">
+            {t("studentAuthor")}
+          </Typography>
+          <Typography>{quiz.authorName}</Typography>
+        </Box>
+        <Box>
+          <Typography className="quiz-passing__sub-title" variant="subtitle2">
+            {t("studentSubject")}
+          </Typography>
+          <Typography>{quiz.subject}</Typography>
+        </Box>
+        <Box>
+          <Typography className="quiz-passing__sub-title" variant="subtitle2">
+            {t("studentQuestions")}
+          </Typography>
+          <Typography>{quiz.questions.length}</Typography>
+        </Box>
+      </Box>
+      {quiz.showAnswers && (
+        <>
+          <Box className="quiz-passing__welcome-divider-container">
+            <Divider className="quiz-passing__welcome-divider"></Divider>
+          </Box>
+          <AppButton
+            variant="outlined"
+            className="quiz-passing__answers_button"
+            onClick={() => {}}
+          >
+            See answers
+          </AppButton>
+        </>
+      )}
+
       <AppButton
-        variant="outlined"
         onClick={() => {
           onCliose();
         }}
