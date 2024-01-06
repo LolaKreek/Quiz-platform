@@ -1,0 +1,113 @@
+.quiz-passing {
+  &__modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__paper {
+    border-radius: 8px;
+    padding: 20px;
+    width: 40%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__title {
+    text-align: center;
+    color: black;
+    padding-bottom: 16px;
+  }
+
+  &__sub-title {
+    letter-spacing: 0em;
+    color: $c-main;
+  }
+  &__close-icon {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    color: #6062ff;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__welcome-button {
+    margin: 16px;
+    top: 8px;
+  }
+
+  &__welcome-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__open-question-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__open-question-answer {
+    border: 1px solid $c-main;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: white;
+    resize: none;
+    outline: none;
+    color: black;
+  }
+
+  &__welcome-divider-container {
+    padding: 16px 0px;
+  }
+
+  &__dnd-question-answer {
+    width: 100%;
+    border: 1px solid $c-main;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: white;
+    resize: none;
+    outline: none;
+    color: black;
+  }
+
+  &__single-question {
+    &-title {
+      padding-bottom: 10px;
+    }
+
+    &-wrapper {
+      padding-bottom: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    &-answer {
+      width: 100%;
+      border: 1px solid $c-main;
+      border-radius: 4px;
+      padding: 8px;
+    }
+
+    &-answer-wrapper {
+      display: flex;
+      width: 100%;
+    }
+  }
+}

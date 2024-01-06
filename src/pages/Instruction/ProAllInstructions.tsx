@@ -7,6 +7,8 @@ import EmptyTable from "../../components/EmptyTable";
 import { getMaterialsAllData } from "../../services/uploadFile";
 import { useSelector } from "react-redux";
 import DownloadIcon from '@mui/icons-material/Download';
+import { getDownloadURL, ref } from "firebase/storage";
+import { storage } from "../../services/Firebase/firebase";
 
 const ProAllInstruction = () => {
     const [data, setData] = useState([]);
@@ -22,8 +24,12 @@ const ProAllInstruction = () => {
     }
 
 
+
     const handleDownload = (item:any) => {
-        console.log("DOWNLOAD: ", item)
+        getDownloadURL(ref(storage, `instruction/${item}.pdf`)).then((url)=>{
+            // @ts-ignore
+            window.open(url, '_blank').focus();
+        })
     }
 
     useEffect(() => {

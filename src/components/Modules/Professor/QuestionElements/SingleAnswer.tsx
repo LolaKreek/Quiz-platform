@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
-import { AppInput } from "../../../AppInput";
 import { useEffect } from "react";
-
+import { AppInput } from "../../../AppInput";
 const SingleAnswer = ({
   set,
   values,
@@ -22,7 +21,7 @@ const SingleAnswer = ({
             error={errors && !!errors.first}
             value={values["first"].text}
             onChange={(e) => {
-              set("answers", {
+              set({
                 ...values,
                 first: { text: e.target.value },
               });
@@ -34,7 +33,7 @@ const SingleAnswer = ({
             error={errors && !!errors.second}
             value={values["second"].text}
             onChange={(e) => {
-              set("answers", {
+              set({
                 ...values,
                 second: { text: e.target.value },
               });
@@ -46,7 +45,7 @@ const SingleAnswer = ({
             error={errors && !!errors.third}
             value={values["third"].text}
             onChange={(e) => {
-              set("answers", {
+              set({
                 ...values,
                 third: { text: e.target.value },
               });
@@ -58,7 +57,7 @@ const SingleAnswer = ({
             error={errors && !!errors.fourth}
             value={values["fourth"].text}
             onChange={(e) => {
-              set("answers", {
+              set({
                 ...values,
                 fourth: { text: e.target.value },
               });

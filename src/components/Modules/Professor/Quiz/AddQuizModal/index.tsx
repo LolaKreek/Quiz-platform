@@ -308,7 +308,7 @@ const Form = ({ setSubmitted }: any) => {
 // можно добавить сюда initialvalues потом прокинуть их в формик
 // и надо сделать чтобы всё было не на дефолт стейтах а на стейтах формика
 
-const QuizModule = ({editing, editingValues}: {editing: boolean, editingValues: any}) => {
+const QuizModule = ({editing, editingValues}: {editing?: boolean, editingValues?: any}) => {
   const [submitted, setSubmitted] = useState(false);
 
   const initialState: initialStateType = editing ? {

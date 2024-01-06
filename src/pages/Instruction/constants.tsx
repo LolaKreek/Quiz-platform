@@ -24,12 +24,40 @@ const instructionAllHeadersPlaceholder = [
   {value: 'empty', title: ''},
 ]
 
-const quizHeadersPlaceholder = [
+const proQuizHeadersPlaceholder = [
   {value: "title", title: "Title"},
   {value: "faculty", title: "Faculty"},
   {value: "subject", title: "Subject"},
   {value: "date", title: "Date"},
   {value: "questions", title: "Questions"},
+]
+
+const proQuizAllHeadersPlaceholder = [
+  {value: "title", title: "Title"},
+  {value: "faculty", title: "Faculty"},
+  {value: "subject", title: "Subject"},
+  {value: 'authorName', title: 'Author'},
+  {value: "date", title: "Date"},
+  {value: "questions", title: "Questions"},
+]
+
+const studQuizAllHeadersPlaceholder = [
+  {value: 'title', title: 'Title'},
+  {value: 'faculty', title: 'All'},
+  {value: 'subject', title: 'All'},
+  {value: "questions", title: "Questions"},
+  {value: 'authorName', title: 'Author'},
+  {value: 'date', title: 'All'},
+]
+
+const studQuizHistoryHeadersPlaceholder = [
+  {value: 'title', title: 'Title'},
+  {value: 'faculty', title: 'All'},
+  {value: 'subject', title: 'All'},
+  {value: "questions", title: "Questions"},
+  {value: 'authorName', title: 'Author'},
+  {value: 'date', title: 'All'},
+  {value: 'completed', title: 'All'},
 ]
 
 export const useTableData = () => {
@@ -43,13 +71,21 @@ export const useTableData = () => {
       return instructionAllHeadersPlaceholder.map(i => ({ ...i, title: t(`menuAllItems.instructions.${i.value}`) }))
     }, [t])
 
-    const quizAllHeaders = useMemo(() => {
-      return quizHeadersPlaceholder.map(i => ({ ...i, title: t(`menuItems.quiz.${i.value}`) }))
+    const proQuizAllHeaders = useMemo(() => {
+      return proQuizAllHeadersPlaceholder.map(i => ({ ...i, title: t(`menuAllItems.quiz.${i.value}`) }))
     }, [t])
 
-    const quizHeaders = useMemo(() => {
-      return quizHeadersPlaceholder.map(i => ({ ...i, title: t(`menuAllItems.quiz.${i.value}`) }))
+    const proQuizHeaders = useMemo(() => {
+      return proQuizHeadersPlaceholder.map(i => ({ ...i, title: t(`menuItems.quiz.${i.value}`) }))
+    }, [t])
+
+    const studQuizAllHeaders = useMemo(() => {
+      return studQuizAllHeadersPlaceholder.map(i => ({ ...i, title: t(`menuAllItems.quiz.${i.value}`) }))
+    }, [t])
+
+    const studQuizHistoryHeaders = useMemo(() => {
+      return studQuizHistoryHeadersPlaceholder.map(i => ({ ...i, title: t(`menuItems.quiz.${i.value}`) }))
     }, [t])
   
-    return { instructionHeaders, instructionAllHeaders, quizHeaders, quizAllHeaders }
+    return { instructionHeaders, instructionAllHeaders, proQuizHeaders, proQuizAllHeaders, studQuizAllHeaders, studQuizHistoryHeaders }
   }

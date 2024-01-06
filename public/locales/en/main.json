@@ -15,7 +15,9 @@
             "faculty": "Faculty",
             "subject": "Subject",
             "date": "Date",
-            "questions": "Questions"
+            "authorName": "Author",
+            "questions": "Questions",
+            "completed": "Completed"
         }
     },
     "menuAllItems": {
@@ -32,7 +34,8 @@
             "faculty": "Faculty",
             "subject": "Subject",
             "date": "Date",
-            "questions": "Questions"
+            "questions": "Questions",
+            "authorName": "Author"
         }
     },
     "deleteFileActionHeader": "Delete file Action",

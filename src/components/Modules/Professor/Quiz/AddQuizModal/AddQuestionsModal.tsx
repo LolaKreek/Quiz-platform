@@ -178,7 +178,7 @@ const AddQuestionModal = ({
                 <Box>
                   {questionElements[values.type] &&
                     questionElements[values.type]({
-                      set: setFieldValue,
+                      set: (arg)=>{setFieldValue("answers", arg)},
                       values: values.answers,
                       errors: errors.answers,
                       editing: editing,

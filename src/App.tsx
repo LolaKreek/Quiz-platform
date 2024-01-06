@@ -17,6 +17,7 @@ import { createTheme } from "@mui/material";
 import { auth, database } from "./services/Firebase/firebase";
 import { onValue, ref } from "firebase/database";
 import { authLogout, updateUser } from "./store/Slices/auth";
+import Protected from "./routes/Protected";
 
 function App() {
   // const userId = useAppSelector(state => state.auth.user.id)
@@ -58,8 +59,8 @@ function App() {
       <MainLayout>
         <Suspense fallback={<AppLoader show />}>
           <Routes>
-            {appRoutes.map(({ path, Component }) => (
-              <Route key={path} path={path} element={<Component />} />
+            {appRoutes.map(({ path, Component, role }) => (
+              <Route key={path} path={path} element={<Protected role={role}><Component /></Protected>} />
             ))}
             <Route
               key={MAIN_PAGE}
