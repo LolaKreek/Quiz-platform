@@ -16,23 +16,18 @@ const Protected = ({role, children}: {role: string | null, children: JSX.Element
     useEffect(() => {
       if (role) {
         if (user.id) {
-            console.log(role === user.role)
             if (role === user.role) {
                 setAllowed(true)
-                console.log(allowed)
             } else {
                 setAllowed(false)
                 navigate("/")
-                console.log(allowed)
             }
         } else {
             setAllowed(false)    
             navigate("/")
-            console.log(allowed)
         }
       } else {
         setAllowed(true)
-        console.log(allowed)
       }
       
     }, [])

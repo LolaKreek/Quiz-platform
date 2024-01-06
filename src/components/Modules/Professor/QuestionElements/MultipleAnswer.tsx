@@ -1,19 +1,16 @@
 import { Box, Checkbox } from "@mui/material";
 import { AppInput } from "../../../AppInput";
-import { useEffect } from "react";
-
 const MultipleAnswer = ({
   set,
   values,
   errors,
-  editing
+  editing,
 }: {
   set: Function;
   values: { [key: string]: { text: string; isCorrect: boolean } };
   errors: { [key: string]: { text: string } };
   editing: boolean;
 }) => {
-
   return (
     <>
       {values && (
@@ -21,7 +18,7 @@ const MultipleAnswer = ({
           <Checkbox
             checked={values["first"]["isCorrect"]}
             onChange={(e) => {
-              set("answers", {
+              set({
                 ...values,
                 first: {
                   ...values["first"],
@@ -35,7 +32,7 @@ const MultipleAnswer = ({
             error={errors && !!errors.first}
             value={values["first"]["text"]}
             onChange={(e) => {
-              set("answers", {
+              set({
                 ...values,
                 first: {
                   ...values["first"],
@@ -48,7 +45,7 @@ const MultipleAnswer = ({
           <Checkbox
             checked={values["second"]["isCorrect"]}
             onChange={(e) => {
-              set("answers", {
+              set({
                 ...values,
                 second: {
                   ...values["second"],
@@ -62,7 +59,7 @@ const MultipleAnswer = ({
             error={errors && !!errors.second}
             value={values["second"]["text"]}
             onChange={(e) => {
-              set("answers", {
+              set({
                 ...values,
                 second: {
                   ...values["second"],
@@ -75,7 +72,7 @@ const MultipleAnswer = ({
           <Checkbox
             checked={values["third"]["isCorrect"]}
             onChange={(e) => {
-              set("answers", {
+              set({
                 ...values,
                 third: {
                   ...values["third"],
@@ -89,7 +86,7 @@ const MultipleAnswer = ({
             error={errors && !!errors.third}
             value={values["third"]["text"]}
             onChange={(e) => {
-              set("answers", {
+              set({
                 ...values,
                 third: {
                   ...values["third"],
@@ -102,7 +99,7 @@ const MultipleAnswer = ({
           <Checkbox
             checked={values["fourth"]["isCorrect"]}
             onChange={(e) => {
-              set("answers", {
+              set({
                 ...values,
                 fourth: {
                   ...values["fourth"],
@@ -116,7 +113,7 @@ const MultipleAnswer = ({
             error={errors && !!errors.fourth}
             value={values["fourth"]["text"]}
             onChange={(e) => {
-              set("answers", {
+              set({
                 ...values,
                 fourth: {
                   ...values["fourth"],
