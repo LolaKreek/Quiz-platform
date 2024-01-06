@@ -53,7 +53,7 @@ const DragNDropAnswer = ({
                     variant="outlined"
                     value={values[id]["text"]}
                     onChange={(e) => {
-                      set("answers", {
+                      set({
                         ...values,
                         [id]: { text: e.target.value },
                       });

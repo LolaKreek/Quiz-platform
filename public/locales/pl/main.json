@@ -15,7 +15,8 @@
             "faculty": "Wydział",
             "subject": "Przedmiot",
             "date": "Data",
-            "questions": "Pytania"
+            "questions": "Pytania",
+            "completed": "Zakonczone"
         }
     },
     "menuAllItems": {
@@ -32,7 +33,8 @@
             "faculty": "Wydział",
             "subject": "Przedmiot",
             "date": "Data",
-            "questions": "Pytania"
+            "questions": "Pytania",
+            "authorName": "Author"
         }
 
     },

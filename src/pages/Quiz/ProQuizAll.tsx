@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useTableData } from "../Instruction/constants";
 
 const ProQuizAll = () => {
-    const { quizAllHeaders } = useTableData()
+    const { proQuizAllHeaders } = useTableData()
 
     const [data, setData] = useState(null)
 
@@ -43,7 +43,7 @@ const ProQuizAll = () => {
         <Box className="top-menu__wrapper">
             <AppTopMenu menuLinks={menuLinks} current="all" type="quiz" />
         </Box>
-            <AppTable data={data ? data : []} headers={quizAllHeaders} actions={[]} type="all"></AppTable>
+            <AppTable data={data ? data : []} headers={proQuizAllHeaders} actions={[]} type="all"></AppTable>
         </>
     )
 }

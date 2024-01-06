@@ -11,6 +11,8 @@ import {
 import { useMemo } from "react";
 import { InstructionIcon, LoginIcon, LogoutIcon, ProfileIcon, QuizIcon } from "../../assets/icons";
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 const professorLinks =[
     {
@@ -76,12 +78,18 @@ const logoutLink = {
 
 export const useSidebarData = () => {
     const { t } = useTranslation('menu')
-  
+    const user = useSelector((state: RootState) => state.auth.user);
+    
     // Here implement role validation => 
     // if professor links === professorLinks else links === studentLinks
     const links = useMemo(() => {
-      return professorLinks.map(i => ({ ...i, title: t(`menuLinks.${i.translationKey}`) }))
-    }, [t])
+        if (user.role === 'professor') {
+          return professorLinks.map(i => ({ ...i, title: t(`menuLinks.${i.translationKey}`) }))
+        // replace with unlogged user links later
+        } else {
+            return studentLinks.map(i => ({ ...i, title: t(`menuLinks.${i.translationKey}`) }))
+        } 
+    }, [t, user.role])
 
     const profile = useMemo(() => {
         return { ...profileLink, title: t(`${profileLink.translationKey}`) }
