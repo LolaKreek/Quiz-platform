@@ -138,6 +138,14 @@ const StudentQuizPassingModal = ({
         //@ts-ignore
         { quiz: quiz.id, date: new Date().toLocaleDateString() }
       );
+      set(
+        ref(database, "student/" + auth.currentUser?.uid + "/info"),
+        //@ts-ignore
+        {
+          email: auth.currentUser?.email,
+          name: auth.currentUser?.displayName,
+        }
+      );
     });
     setActive((active) => active + 1);
   };
