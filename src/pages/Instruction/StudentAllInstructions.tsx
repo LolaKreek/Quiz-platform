@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import AppTopMenu from "../../components/AppTopMenu";
-import { menuLinks, studInstructionMenuLinks, useTableData } from "./constants";
+import { studInstructionMenuLinks, useTableData } from "./constants";
 import { Box } from "@mui/material";
 import AppTable, { action } from "../../components/AppTable";
 import EmptyTable from "../../components/EmptyTable";
