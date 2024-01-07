@@ -1,7 +1,14 @@
-import { Box, Divider, Modal, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Divider,
+  LinearProgress,
+  Modal,
+  Paper,
+  Typography,
+} from "@mui/material";
 import { quizDataType } from "../../services/quiz/tyles";
 import { AppButton } from "../../components/AppButton";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SingleQuestion from "./AnswerElements/SingleQuestion";
 import MultipleQuestion from "./AnswerElements/MultipleQuestion";
 import OpenQuestion from "./AnswerElements/OpenQuestion";
@@ -20,17 +27,35 @@ const StudentQuizPassingModal = ({
   open: boolean;
   onClose: any;
 }) => {
+  const [timer, setTimer] = useState(null);
+  const [currentDate, setCurrentDate] = useState(0);
+  const interval = useRef(null);
+
+  useEffect(() => {
+    quizBuild();
+    if (quiz.timer) {
+      // @ts-ignore
+      interval.current = setInterval(() => {
+        setCurrentDate(Date.now());
+      }, 100);
+    }
+    return () => {
+      // @ts-ignore
+      if (quiz.timer) clearInterval(interval.current);
+    };
+  }, []);
+
   const [active, setActive] = useState(0);
   const [modals, setModals] = useState([
     <StudentQuizPassingWelcome
       next={() => {
         setActive(active + 1);
       }}
+      setTimer={setTimer}
       quiz={quiz}
     />,
   ]);
   const [answers, setAnswers] = useState({});
-  const [timer, setTimer] = useState(Date.now());
 
   const questionElements: { [key: string]: (props: any) => JSX.Element } = {
     Single: (props) => <SingleQuestion {...props} />,
@@ -69,6 +94,7 @@ const StudentQuizPassingModal = ({
         quiz={quiz}
         finish={() => {
           completeQuiz();
+          setTimer(null);
         }}
         timer={timer}
       />,
@@ -151,10 +177,6 @@ const StudentQuizPassingModal = ({
     setActive((active) => active + 1);
   };
 
-  useEffect(() => {
-    quizBuild();
-  }, []);
-
   return (
     <Modal
       className="quiz-passing__modal"
@@ -163,16 +185,50 @@ const StudentQuizPassingModal = ({
       closeAfterTransition
     >
       <Paper className="quiz-passing__paper">
-        <CloseIcon className="quiz-passing__close-icon" onClick={onClose} />
+        <Box
+          className="quiz-passing__top"
+          sx={quiz.timer ? {} : { position: "absolute", right: 16 }}
+        >
+          {timer && (
+            <LinearProgress
+              variant="determinate"
+              value={(active / (modals.length - 2)) * 100}
+              className="quiz-passing__progress"
+            />
+          )}
+          {timer && (
+            <Box className="quiz-passing__timer">
+              {currentDate - timer > 30 * 60 * 1000
+                ? "Out of time"
+                : (Math.floor((30 * 60 - (currentDate - timer) / 1000) / 60) > 9
+                    ? Math.floor((30 * 60 - (currentDate - timer) / 1000) / 60)
+                    : "0" +
+                      Math.floor(
+                        (30 * 60 - (currentDate - timer) / 1000) / 60
+                      )) +
+                  ":" +
+                  (Math.floor((30 * 60 - (currentDate - timer) / 1000) % 60) > 9
+                    ? Math.floor((30 * 60 - (currentDate - timer) / 1000) % 60)
+                    : "0" +
+                      Math.floor(
+                        (30 * 60 - (currentDate - timer) / 1000) % 60
+                      ))}
+            </Box>
+          )}
+          <CloseIcon className="quiz-passing__close-icon" onClick={onClose} />
+        </Box>
+
         {modals[active]}
       </Paper>
     </Modal>
   );
 };
 const StudentQuizPassingWelcome = ({
+  setTimer,
   quiz,
   next,
 }: {
+  setTimer: Function;
   quiz: quizDataType;
   next: Function;
 }) => {
@@ -251,6 +307,7 @@ const StudentQuizPassingWelcome = ({
         className="quiz-passing__welcome-button"
         onClick={() => {
           next();
+          quiz.timer && setTimer(Date.now());
         }}
       >
         Start
@@ -266,7 +323,7 @@ const StudentQuizPassingFinish = ({
 }: {
   quiz: quizDataType;
   finish: Function;
-  timer?: number;
+  timer?: number | null;
 }) => {
   function millisecondsToHMS(milliseconds: number) {
     let seconds = Math.floor(milliseconds / 1000);
@@ -334,10 +391,6 @@ const StudentQuizPassingFinish = ({
       </Box>
       <Box className="quiz-passing__welcome-divider-container">
         <Divider className="quiz-passing__welcome-divider"></Divider>
-      </Box>
-      <Box>
-        <Typography variant="h6">{t("studentTimer")}</Typography>
-        <Typography>{timer && quiz.timer ? elapsed : "Disabled"}</Typography>
       </Box>
       <AppButton
         onClick={() => {
