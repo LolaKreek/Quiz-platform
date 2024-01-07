@@ -55,6 +55,16 @@
     grid-template-columns: 1fr 1fr;
   }
 
+  &__attention {
+    margin: 8px 0px;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: $c-light-menu-hover;
+  }
+
   &__open-question-wrapper {
     display: flex;
     flex-direction: column;

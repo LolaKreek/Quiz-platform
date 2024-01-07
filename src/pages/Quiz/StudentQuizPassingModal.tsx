@@ -10,6 +10,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useTranslation } from "react-i18next";
 import { child, get, ref, set } from "firebase/database";
 import { auth, database } from "../../services/Firebase/firebase";
+import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
 const StudentQuizPassingModal = ({
   quiz,
   open,
@@ -198,7 +199,9 @@ const StudentQuizPassingWelcome = ({
           <Typography className="quiz-passing__sub-title" variant="subtitle2">
             {t("studentAuthor")}
           </Typography>
-          <Typography>{quiz.authorName}</Typography>
+          <Typography>
+            {quiz.authorName ? quiz.authorName : "Unknown"}
+          </Typography>
         </Box>
         <Box>
           <Typography className="quiz-passing__sub-title" variant="subtitle2">
@@ -229,6 +232,21 @@ const StudentQuizPassingWelcome = ({
         </Typography>
         <Typography>{quiz.showAnswers ? "Yes" : "No"}</Typography>
       </Box>
+
+      {quiz.timer && (
+        <Box className="quiz-passing__attention">
+          <PriorityHighIcon
+            sx={{ width: "30px", height: "30px", color: "#6062FF" }}
+          />
+          <Typography>
+            This test is time limited! You have 30 minutes to answer all
+            questions! If the time runs out before you answer the questions, the
+            platform will consider the unanswered questions to be{" "}
+            <strong>incorrect</strong>. The countdown will begin after you press
+            the START button and proceed to solving the first question.
+          </Typography>
+        </Box>
+      )}
       <AppButton
         className="quiz-passing__welcome-button"
         onClick={() => {
@@ -297,7 +315,9 @@ const StudentQuizPassingFinish = ({
           <Typography className="quiz-passing__sub-title" variant="subtitle2">
             {t("studentAuthor")}
           </Typography>
-          <Typography>{quiz.authorName}</Typography>
+          <Typography>
+            {quiz.authorName ? quiz.authorName : "Unknown"}
+          </Typography>
         </Box>
         <Box>
           <Typography className="quiz-passing__sub-title" variant="subtitle2">
@@ -388,7 +408,10 @@ const StudentQuizPassingFinal = ({
           <Typography className="quiz-passing__sub-title" variant="subtitle2">
             {t("studentAuthor")}
           </Typography>
-          <Typography>{quiz.authorName}</Typography>
+          <Typography>
+            {quiz.authorName ? quiz.authorName : "Unknown"}
+          </Typography>
+          2
         </Box>
         <Box>
           <Typography className="quiz-passing__sub-title" variant="subtitle2">
