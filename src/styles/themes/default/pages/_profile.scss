@@ -22,9 +22,9 @@
   font-size: 32px;
   text-align: center;
   color: $c-black;
-  font-size: 1.4375rem!important;
+  font-size: 1.4375rem !important;
   font-weight: 300;
-  margin-top: $m-20px!important;
+  margin-top: $m-20px !important;
 }
 
 .profile__infocontainer {
@@ -57,24 +57,19 @@
   align-items: center;
 }
 
-.profile__pfpwrapper{
-  .MuiAvatar-root{
-    width: 200px!important;
-    height: 200px!important;
+.profile__pfpwrapper {
+  .MuiAvatar-root {
+    width: 200px !important;
+    height: 200px !important;
   }
 }
 
-.profile__label{
+.profile__label {
   color: $c-black;
-  font-size: 20px!important;
+  font-size: 20px !important;
 }
 
-
-
-
-
-
-.profile__content-wrapper{ 
+.profile__content-wrapper {
   @include flex();
   @include flexDirection(row);
   @include justifyContent(space-between);
@@ -83,14 +78,14 @@
 }
 
 .profile__left-part,
-.profile__right-part{
+.profile__right-part {
   flex-basis: 43%;
   padding: 20px;
   background-color: $c-light-menu-background;
   border-radius: $br-8px;
 }
 
-.profile__left-part-content{
+.profile__left-part-content {
   margin-bottom: 30px;
   border-radius: $br-8px;
   border: 1px solid $c-main;
@@ -100,43 +95,53 @@
   align-items: center;
   align-content: center;
 
-  &:last-child{
+  &:last-child {
     margin-bottom: unset;
   }
 }
 
-.profile__left-part-labels{
+.profile__left-part-labels {
   flex-basis: 75%;
   margin-left: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.profile__data{
-  margin-left: 10px!important;
+.profile__data {
+  margin-left: 10px !important;
 }
 
-.profile__edit-icon{ 
+.profile__edit-icon {
   flex-basis: 30%;
   @include flex();
   @include justifyContent(center);
 }
 
-.profile__verified{
+.profile__verified {
   @include flex();
   @include flexDirection(row);
   @include justifyContent(start);
   margin-top: 5px;
 }
 
-.profile__icon{
+.profile__icon {
   margin-left: 10px;
 }
 
-.profile__success-icon{
+.profile__success-icon {
   color: $c-success-background;
 }
 
-.profile__error-icon{
+.profile__error-icon {
   color: $c-error-background;
+}
+
+.profile__left-part-centered {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 20px;
+  padding-top: 22px;
+  padding-bottom: 22px;
 }
