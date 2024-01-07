@@ -13,8 +13,10 @@ import {
   PROFESSOR_EDIT_QUIZ_PAGE,
   STUDENT_ALL_QUIZ_PAGE,
   STUDENT_HISTORY_QUIZ_PAGE,
+  STUDENT_RESULTS_QUIZ_PAGE,
 } from "./pathnames";
 import StudentQuizHistory from "../pages/Quiz/StudentQuizHistory";
+import StudentQuizResults from "../pages/Quiz/StudentQuizResults";
 
 const Dashboard = loadable(
   () => import("../features/auth/components/LoginForm")
@@ -54,10 +56,27 @@ export const appRoutes = [
   { path: PROFESSOR_ADD_QUIZ_PAGE, Component: ProQuizAdd, role: "professor" },
   { path: PROFESSOR_EDIT_QUIZ_PAGE, Component: ProQuizEdit, role: "professor" },
 
-  { path: PROFESSOR_INSTRUCTION_PAGE, Component: ProInstruction, role: "professor" },
-  { path: PROFESSOR_ALL_INSTRUCTION_PAGE, Component: ProAllInstruction, role: "professor" },
+  {
+    path: PROFESSOR_INSTRUCTION_PAGE,
+    Component: ProInstruction,
+    role: "professor",
+  },
+  {
+    path: PROFESSOR_ALL_INSTRUCTION_PAGE,
+    Component: ProAllInstruction,
+    role: "professor",
+  },
 
   { path: STUDENT_QUIZ_PAGE, Component: StudentQuiz, role: "student" },
   { path: STUDENT_ALL_QUIZ_PAGE, Component: StudentQuizAll, role: "student" },
-  { path: STUDENT_HISTORY_QUIZ_PAGE, Component: StudentQuizHistory, role: "student" },
+  {
+    path: STUDENT_HISTORY_QUIZ_PAGE,
+    Component: StudentQuizHistory,
+    role: "student",
+  },
+  {
+    path: STUDENT_RESULTS_QUIZ_PAGE,
+    Component: StudentQuizResults,
+    role: "student",
+  },
 ];
