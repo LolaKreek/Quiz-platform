@@ -16,7 +16,6 @@ const StudentQuizHistory = () => {
 
   const getHistory = () => {
     const dbRef = ref(database);
-    console.log(`student/${user.id}}/history`);
     get(child(dbRef, `student/${user.id}/history`)).then((snapshot) => {
       if (snapshot.exists()) {
         let dataSnapshot: any = [];

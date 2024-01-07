@@ -20,7 +20,6 @@ const StudentQuizResults = () => {
 
   const getResults = () => {
     const dbRef = ref(database);
-    console.log(`student/${user.id}}/history`);
     get(child(dbRef, `student/${user.id}/results`)).then((snapshot) => {
       if (snapshot.exists()) {
         let dataSnapshot: any = [];
@@ -28,6 +27,9 @@ const StudentQuizResults = () => {
           get(child(dbRef, `quiz/${el.quiz}`)).then((snapshot) => {
             let quizSnapshot = snapshot.val();
             quizSnapshot.questions = quizSnapshot.questions.length;
+            quizSnapshot.authorName = quizSnapshot.authorName
+              ? quizSnapshot.authorName
+              : "Unknown";
             quizSnapshot.mark =
               Math.floor(
                 (Object.values(el.results).filter((result) => result).length /
