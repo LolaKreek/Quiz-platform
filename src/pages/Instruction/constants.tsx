@@ -59,8 +59,8 @@ const studQuizHistoryHeadersPlaceholder = [
   { value: "subject", title: "All" },
   { value: "questions", title: "Questions" },
   { value: "authorName", title: "Author" },
-  { value: "date", title: "All" },
-  { value: "completed", title: "All" },
+  { value: "date", title: "Date" },
+  { value: "completed", title: "Completed" },
 ];
 
 const studQuizResultsHeadersPlaceholder = [
