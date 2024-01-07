@@ -2,12 +2,17 @@ import { useMemo } from "react";
 import {
   PROFESSOR_ALL_INSTRUCTION_PAGE,
   PROFESSOR_INSTRUCTION_PAGE,
+  STUDENT_ALL_INSTRUCTION_PAGE,
 } from "../../routes/pathnames";
 import { useTranslation } from "react-i18next";
 
 export const menuLinks = [
   { value: "custom", title: "Custom", path: PROFESSOR_INSTRUCTION_PAGE },
   { value: "all", title: "All", path: PROFESSOR_ALL_INSTRUCTION_PAGE },
+];
+
+export const studInstructionMenuLinks = [
+  { value: "all", title: "All", path: STUDENT_ALL_INSTRUCTION_PAGE },
 ];
 
 const instructionHeadersPlaceholder = [

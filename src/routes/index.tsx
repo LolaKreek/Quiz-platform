@@ -14,9 +14,11 @@ import {
   STUDENT_ALL_QUIZ_PAGE,
   STUDENT_HISTORY_QUIZ_PAGE,
   STUDENT_RESULTS_QUIZ_PAGE,
+  STUDENT_ALL_INSTRUCTION_PAGE,
 } from "./pathnames";
 import StudentQuizHistory from "../pages/Quiz/StudentQuizHistory";
 import StudentQuizResults from "../pages/Quiz/StudentQuizResults";
+import StudentAllInstruction from "../pages/Instruction/StudentAllInstructions";
 
 const Dashboard = loadable(
   () => import("../features/auth/components/LoginForm")
@@ -77,6 +79,12 @@ export const appRoutes = [
   {
     path: STUDENT_RESULTS_QUIZ_PAGE,
     Component: StudentQuizResults,
+    role: "student",
+  },
+
+  {
+    path: STUDENT_ALL_INSTRUCTION_PAGE,
+    Component: StudentAllInstruction,
     role: "student",
   },
 ];
