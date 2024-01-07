@@ -27,6 +27,9 @@ const StudentQuizResults = () => {
           get(child(dbRef, `quiz/${el.quiz}`)).then((snapshot) => {
             let quizSnapshot = snapshot.val();
             quizSnapshot.questions = quizSnapshot.questions.length;
+            quizSnapshot.authorName = quizSnapshot.authorName
+              ? quizSnapshot.authorName
+              : "Unknown";
             quizSnapshot.mark =
               Math.floor(
                 (Object.values(el.results).filter((result) => result).length /
