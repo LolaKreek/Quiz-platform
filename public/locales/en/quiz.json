@@ -28,6 +28,7 @@
   "addQuestionActionMessage": "The question was added successfully",
   "addQuestionActionMessageEdited": "The question was edited successfully",
   "deleteQuestionActionMessage": "The question was deleted successfully",
+    "emailSent": "Email sent",
   "studentTitle": "Title",
   "studentAuthor": "Author",
   "studentFaculty": "Faculty",

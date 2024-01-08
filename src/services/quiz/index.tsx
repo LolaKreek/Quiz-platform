@@ -15,6 +15,7 @@ export const writeQuizData = async ({title, faculty, subject, timer, showAnswers
       showAnswers: showAnswers,
       questions: questions,
       author: auth.currentUser?.uid,
+      authorEmail: auth.currentUser?.email,
       authorName: auth.currentUser?.displayName ? auth.currentUser?.displayName : "Unknown",
     })
 }
