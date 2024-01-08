@@ -3,12 +3,14 @@ import AppTable, { action } from "../../components/AppTable";
 import AppTopMenu from "../../components/AppTopMenu";
 import { studentMenuLinks } from "./constants";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import { useEffect, useState } from "react";
 import { child, get, ref } from "firebase/database";
 import { useTableData } from "../Instruction/constants";
 import { database } from "../../services/Firebase/firebase";
 import { quizDataType } from "../../services/quiz/tyles";
 import StudentQuizPassingModal from "./StudentQuizPassingModal";
+import IssueDialog from "../../components/IssueDialog/IssueDialog";
 //import sendEmail from '../../services/email/emailServiceWorker';
 import { AppButton } from "../../components/AppButton";
 import toast from "react-hot-toast";
@@ -25,6 +27,9 @@ const StudentQuizAll = () => {
 
   const [quizPassing, setQuizPassing] = useState(false);
   const [selectedQuiz, setSelectedQuiz] = useState<quizDataType | null>(null);
+  
+  const [isIssueDialogOpen, setIssueDialogOpen] = useState(false);
+  
 
   const getQuizes = () => {
     const dbRef = ref(database);
@@ -90,9 +95,21 @@ const StudentQuizAll = () => {
         //@ts-ignore
         setSelectedQuiz(quizes?.[id]);
         setQuizPassing(true);
+        setIssueDialogOpen(false);
       },
       icon: <PlayArrowIcon />,
       title: "Start",
+    },
+    {
+      //@ts-ignore
+      action: (id) => {
+        //@ts-ignore
+        const selectedQuiz = quizes?.[id];
+        setSelectedQuiz(selectedQuiz ?? null);
+        setIssueDialogOpen(true);
+      },
+      icon: <ReportGmailerrorredIcon />,
+      title: "Report an issue",
     },
   ];
 
@@ -115,6 +132,13 @@ const StudentQuizAll = () => {
           onClose={() => setQuizPassing(false)}
         />
       )}
+      { 
+        selectedQuiz  && isIssueDialogOpen && (
+          <IssueDialog 
+          quiz={selectedQuiz}
+          onClose={() => setIssueDialogOpen(false)}/>
+        )
+      } 
     </>
   );
 };

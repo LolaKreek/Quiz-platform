@@ -18,9 +18,9 @@ import { useTranslation } from "react-i18next";
 import { child, get, ref, set } from "firebase/database";
 import { auth, database } from "../../services/Firebase/firebase";
 import EmailServiceWorker from "../../services/email/emailServiceWorker";
-
-
 import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
+
+
 const StudentQuizPassingModal = ({
   quiz,
   open,
