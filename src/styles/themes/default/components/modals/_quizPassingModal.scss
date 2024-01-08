@@ -29,11 +29,28 @@
     letter-spacing: 0em;
     color: $c-main;
   }
+  &__progress {
+    width: 100%;
+    padding: 2px 0px;
+    border-radius: 10px;
+  }
+  &__timer {
+    color: white;
+    background-color: #6062ff;
+    border-radius: 8px;
+    width: max-content;
+    white-space: nowrap;
+    text-align: center;
+    padding: 4px 8px;
+  }
+  &__top {
+    justify-content: end;
+    height: 20px;
+    gap: 8px;
+    align-items: center;
+    display: flex;
+  }
   &__close-icon {
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    padding: 20px;
     width: 30px;
     height: 30px;
     cursor: pointer;
@@ -53,6 +70,16 @@
   &__welcome-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  &__attention {
+    margin: 8px 0px;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: $c-light-menu-hover;
   }
 
   &__open-question-wrapper {

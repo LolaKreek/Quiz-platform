@@ -1,14 +1,64 @@
-.top-menu{
-    &__title{
-        font-size: pxToRem(23)!important;
-        font-weight: $fw-500;
-        line-height: pxToRem(29)!important;
-        letter-spacing: 0;
-        text-align: left;
-        color: $c-black;
-    }
+.top-menu {
+  &__title {
+    font-size: pxToRem(23) !important;
+    font-weight: $fw-500;
+    line-height: pxToRem(29) !important;
+    letter-spacing: 0;
+    text-align: left;
+    color: $c-black;
+  }
 
-    &__button{
-        max-width: $w-200px;
-    }
+  &__button {
+    max-width: $w-200px;
+  }
+}
+
+.quiz-results {
+  &__item {
+    background-color: rgba(136, 137, 255, 0.3);
+    width: 90%;
+    padding: 16px;
+    border: 1px solid $c-main;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
+
+  &__info {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__mark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 16px;
+    gap: 16px;
+  }
+
+  &__info-value {
+    color: black;
+  }
+  &__info-value-sub {
+    font-size: 20px !important;
+  }
+
+  &__search {
+    background-color: #f0f0ff;
+    padding: 8px;
+    position: sticky;
+    top: 0px;
+    margin: 8px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

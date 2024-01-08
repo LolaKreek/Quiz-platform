@@ -15,6 +15,7 @@
 @import "./components/appProfileSettings";
 @import "./components/appTopMenu";
 @import "./components/appTable";
+@import "./components/topUsers";
 
 //Import modals styles
 @import "./components/modals/addQuizModal";
@@ -28,6 +29,7 @@
 @import "./pages/auth";
 @import "./pages/quiz";
 @import "./pages/profile";
+@import "./pages/dashboard";
 
 //Import layouts styles
 @import "./features/auth";
