@@ -27,6 +27,7 @@ const StudentQuizResults = () => {
           get(child(dbRef, `quiz/${el.quiz}`)).then((snapshot) => {
             let quizSnapshot = snapshot.val();
             quizSnapshot.questions = quizSnapshot.questions.length;
+            quizSnapshot.elapsed = quizSnapshot.timer ? el.elapsed : "-";
             quizSnapshot.authorName = quizSnapshot.authorName
               ? quizSnapshot.authorName
               : "Unknown";
@@ -85,6 +86,7 @@ const StudentQuizResults = () => {
                 el.mark.toLowerCase().includes(filter.toLowerCase())
               );
             })
+            .reverse()
             .map((el: quizDataType) => (
               <Box className="quiz-results__item">
                 <Box className="quiz-results__info">
@@ -129,6 +131,16 @@ const StudentQuizResults = () => {
                       {el.subject}
                     </Typography>
                   </Box>
+                  {el.timer && (
+                    <Box className="quiz-results__info-section">
+                      <Typography className="quiz-results__info-value-sub">
+                        {t("menuAllItems.quiz.elapsed")}
+                      </Typography>
+                      <Typography className="quiz-results__info-value">
+                        {el.elapsed}
+                      </Typography>
+                    </Box>
+                  )}
                 </Box>
                 <Box className="quiz-results__mark">
                   <Typography variant="h4" className="quiz-results__info-value">

@@ -19,16 +19,18 @@ const StudentQuizHistory = () => {
     get(child(dbRef, `student/${user.id}/history`)).then((snapshot) => {
       if (snapshot.exists()) {
         let dataSnapshot: any = [];
-        Object.values(snapshot.val()).map((el: any) => {
-          get(child(dbRef, `quiz/${el.quiz}`)).then((snapshot) => {
-            let quizSnapshot = snapshot.val();
-            quizSnapshot.questions = quizSnapshot.questions.length;
-            quizSnapshot.completed = el.date;
-            quizSnapshot.elapsed = el.elapsed ? el.elapsed : "-";
-            // @ts-ignore
-            setData((dataSnapshot = [...dataSnapshot, quizSnapshot]));
+        Object.values(snapshot.val())
+          .reverse()
+          .map((el: any) => {
+            get(child(dbRef, `quiz/${el.quiz}`)).then((snapshot) => {
+              let quizSnapshot = snapshot.val();
+              quizSnapshot.questions = quizSnapshot.questions.length;
+              quizSnapshot.completed = el.date;
+              quizSnapshot.elapsed = el.elapsed ? el.elapsed : "-";
+              // @ts-ignore
+              setData((dataSnapshot = [...dataSnapshot, quizSnapshot]));
+            });
           });
-        });
       } else {
         console.log("No data (user) available");
       }

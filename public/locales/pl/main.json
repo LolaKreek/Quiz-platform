@@ -36,7 +36,8 @@
       "subject": "Przedmiot",
       "date": "Data",
       "questions": "Pytania",
-      "authorName": "Author"
+      "authorName": "Author",
+      "elapsed": "Czas trwania"
     }
   },
   "deleteFileActionHeader": "Akcja usuń plik",
