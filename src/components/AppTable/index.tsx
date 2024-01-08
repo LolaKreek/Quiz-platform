@@ -1,105 +1,126 @@
-import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow } from "@mui/material"
+import {
+  Box,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TablePagination,
+  TableRow,
+} from "@mui/material";
 import { useState } from "react";
-import AppTableSearch from "./AppTableSearch";
-
+import AppSearch from "../AppSearch";
 
 type appTablePropsType = {
-    data: any,
-    headers: any,
-    actions?: action[],
-    type: 'custom' | 'all'
-}
+  data: any;
+  headers: any;
+  actions?: action[];
+  type: "custom" | "all";
+};
 
 export type action = {
-    title: string
-    action: Function,
-    icon: JSX.Element
-}
+  title: string;
+  action: Function;
+  icon: JSX.Element;
+};
 
+const AppTable = ({ data, headers, actions, type }: appTablePropsType) => {
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(9);
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("");
 
+  const searchSubmit = () => {
+    setFilter(search);
+  };
 
-const AppTable = ({data, headers, actions, type}:appTablePropsType) => {
-    const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(9);
-    const [search, setSearch] = useState("")
-    const [filter, setFilter] = useState("")
+  const handleChangePage = (event: unknown, newPage: number) => {
+    setPage(newPage);
+  };
 
-    const searchSubmit = () => {
-        setFilter(search)
-    }
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
 
-
-    const handleChangePage = (event: unknown, newPage: number) => {
-      setPage(newPage);
-    };
-  
-    const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setRowsPerPage(+event.target.value);
-      setPage(0);
-    };
-
-    return(
-        <>
-        <Box className="app-table">
-            <AppTableSearch setSearch={setSearch} search={search} submit={searchSubmit}/>
-            <TableContainer component={Paper} className="app-table__table">
-                <Table aria-label="simple table">
-                <TableHead>
-                    <TableRow>
-                        {headers.map((item:any) => (
-                            <TableCell className="app-table__header-cell" key={item.value}>{item.title}</TableCell>
-                        ))}
-                        {actions && actions.map((action:action) => 
-                            
-                            <TableCell align="center">{action.title}</TableCell>
-                            
-                        )}
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {data
-                    .filter((item: any)=>{
-                        let confirmations = false
-                        for (const header of headers) {
-                            confirmations = confirmations || String(item[header.value]).toLowerCase().includes(filter.toLowerCase());
-                        }
-                        return confirmations
-                        
-                    })
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((item:any) => (
-                        <TableRow key={item.id}>
-                            {headers.map((header:{title: string, value: string}) => (
-                                <TableCell align="center">{item[header.value]}</TableCell>    
-                            ))}
-                            {actions && actions.map((action:action) => 
-                                    
-                                    <TableCell align="center" className="app-table__icon" onClick={()=>{action.action(item.id)}}>
-                                        {action.icon}
-                                    </TableCell>
-                                
-                                )}
-                            
-                        </TableRow>
-                    ))}
-                </TableBody>
-                </Table>
-            </TableContainer>
-        </Box>
-
-
-        <TablePagination
-            rowsPerPageOptions={[9, 25, 100]}
-            component="div"
-            count={data.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
+  return (
+    <>
+      <Box className="app-table">
+        <AppSearch
+          setSearch={setSearch}
+          search={search}
+          submit={searchSubmit}
         />
-        </>
-    )
-}
+        <TableContainer component={Paper} className="app-table__table">
+          <Table aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                {headers.map((item: any) => (
+                  <TableCell
+                    className="app-table__header-cell"
+                    key={item.value}
+                  >
+                    {item.title}
+                  </TableCell>
+                ))}
+                {actions &&
+                  actions.map((action: action) => (
+                    <TableCell align="center">{action.title}</TableCell>
+                  ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {data
+                .filter((item: any) => {
+                  let confirmations = false;
+                  for (const header of headers) {
+                    confirmations =
+                      confirmations ||
+                      String(item[header.value])
+                        .toLowerCase()
+                        .includes(filter.toLowerCase());
+                  }
+                  return confirmations;
+                })
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((item: any) => (
+                  <TableRow key={item.id}>
+                    {headers.map((header: { title: string; value: string }) => (
+                      <TableCell align="center">{item[header.value]}</TableCell>
+                    ))}
+                    {actions &&
+                      actions.map((action: action) => (
+                        <TableCell
+                          align="center"
+                          className="app-table__icon"
+                          onClick={() => {
+                            action.action(item.id);
+                          }}
+                        >
+                          {action.icon}
+                        </TableCell>
+                      ))}
+                  </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
 
-export default AppTable
+      <TablePagination
+        rowsPerPageOptions={[9, 25, 100]}
+        component="div"
+        count={data.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+    </>
+  );
+};
 
+export default AppTable;

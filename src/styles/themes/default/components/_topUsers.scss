@@ -1,0 +1,53 @@
+.top-users {
+  &__root {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    background-color: rgba(136, 137, 255, 0.3);
+    border-radius: 16px;
+  }
+  &__item {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    background-color: #f0f0ff;
+    width: 100%;
+    padding: 8px;
+    margin: 0px 16px;
+    border: 1px solid $c-main;
+    border-radius: 8px;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+  }
+
+  &__reputation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__place {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    z-index: 2;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10px;
+    z-index: 1;
+  }
+}

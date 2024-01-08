@@ -5,7 +5,7 @@ import {
     MAIN_PAGE, 
     PROFILE_PAGE, 
     PROFESSOR_QUIZ_PAGE, 
-    STUDENT_QUIZ_PAGE,
+    STUDENT_ALL_QUIZ_PAGE,
     PROFESSOR_INSTRUCTION_PAGE
 } from "../../routes/pathnames";
 import { useMemo } from "react";
@@ -43,7 +43,7 @@ const studentLinks =[
         exact: true
     },
     {
-        path: STUDENT_QUIZ_PAGE,
+        path: STUDENT_ALL_QUIZ_PAGE,
         translationKey: 'quiz',
         Icon: QuizIcon,
         exact: true
