@@ -24,6 +24,7 @@ const StudentQuizHistory = () => {
             let quizSnapshot = snapshot.val();
             quizSnapshot.questions = quizSnapshot.questions.length;
             quizSnapshot.completed = el.date;
+            quizSnapshot.elapsed = el.elapsed ? el.elapsed : "-";
             // @ts-ignore
             setData((dataSnapshot = [...dataSnapshot, quizSnapshot]));
           });

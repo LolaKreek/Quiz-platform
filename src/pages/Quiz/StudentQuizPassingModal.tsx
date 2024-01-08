@@ -28,6 +28,7 @@ const StudentQuizPassingModal = ({
   onClose: any;
 }) => {
   const [timer, setTimer] = useState(null);
+  const [elapsed, setElapsed] = useState<any>(0);
   const [currentDate, setCurrentDate] = useState(0);
   const interval = useRef(null);
 
@@ -92,9 +93,10 @@ const StudentQuizPassingModal = ({
       ...questions,
       <StudentQuizPassingFinish
         quiz={quiz}
+        setTimer={setTimer}
+        setGlobalElapsed={setElapsed}
         finish={() => {
           completeQuiz();
-          setTimer(null);
         }}
         timer={timer}
       />,
@@ -104,75 +106,87 @@ const StudentQuizPassingModal = ({
 
   const completeQuiz = () => {
     setAnswers((answers) => {
-      let results: { [id: string]: boolean } = {};
-      Object.keys(answers).map((key) => {
-        let question = quiz.questions.filter((question) => {
+      setElapsed((elapsed: any) => {
+        let results: { [id: string]: boolean } = {};
+        Object.keys(answers).map((key) => {
+          let question = quiz.questions.filter((question) => {
+            //@ts-ignore
+            return question.id == key;
+          })[0];
           //@ts-ignore
-          return question.id == key;
-        })[0];
-        //@ts-ignore
-        let answer = answers[key];
-        if (question.type == "Single") {
-          results[key] = answer === "first";
-        } else if (question.type == "Multiple") {
-          let correct = 0;
-          Object.entries(question.answers).map((value) => {
-            answer[value[0]] === value[1].isCorrect ? correct++ : correct;
-          });
-          results[key] = correct === 4;
-        } else if (question.type == "Open") {
-          results[key] = answer.length > 0 ? true : false;
-        } else if (question.type == "Drag & Drop") {
-          answer[0][0] === "first" &&
-          answer[1][0] === "second" &&
-          answer[2][0] === "third" &&
-          answer[3][0] === "fourth"
-            ? (results[key] = true)
-            : (results[key] = false);
-        }
+          let answer = answers[key];
+          if (question.type == "Single") {
+            results[key] = answer === "first";
+          } else if (question.type == "Multiple") {
+            let correct = 0;
+            Object.entries(question.answers).map((value) => {
+              answer[value[0]] === value[1].isCorrect ? correct++ : correct;
+            });
+            results[key] = correct === 4;
+          } else if (question.type == "Open") {
+            results[key] = answer.length > 0 ? true : false;
+          } else if (question.type == "Drag & Drop") {
+            answer[0][0] === "first" &&
+            answer[1][0] === "second" &&
+            answer[2][0] === "third" &&
+            answer[3][0] === "fourth"
+              ? (results[key] = true)
+              : (results[key] = false);
+          }
+        });
+        const reputation = Object.values(results).filter((value) => {
+          return value === true;
+        }).length;
+        get(
+          child(ref(database), `student/${auth.currentUser?.uid}/reputation`)
+        ).then((snapshot) => {
+          if (snapshot.exists()) {
+            set(
+              ref(database, "student/" + auth.currentUser?.uid + "/reputation"),
+              snapshot.val() + reputation
+            );
+          } else {
+            set(
+              ref(database, "student/" + auth.currentUser?.uid + "/reputation"),
+              reputation
+            );
+          }
+        });
+        set(
+          ref(
+            database,
+            "student/" + auth.currentUser?.uid + "/results/" + Date.now()
+          ),
+
+          {
+            //@ts-ignore
+            quiz: quiz.id,
+            results: results,
+            elapsed: quiz.timer ? elapsed : null,
+          }
+        );
+        set(
+          ref(
+            database,
+            "student/" + auth.currentUser?.uid + "/history/" + Date.now()
+          ),
+
+          {
+            //@ts-ignore
+            quiz: quiz.id,
+            date: new Date().toLocaleDateString(),
+            elapsed: quiz.timer ? elapsed : null,
+          }
+        );
+        set(
+          ref(database, "student/" + auth.currentUser?.uid + "/info"),
+          //@ts-ignore
+          {
+            email: auth.currentUser?.email,
+            name: auth.currentUser?.displayName,
+          }
+        );
       });
-      const reputation = Object.values(results).filter((value) => {
-        return value === true;
-      }).length;
-      get(
-        child(ref(database), `student/${auth.currentUser?.uid}/reputation`)
-      ).then((snapshot) => {
-        if (snapshot.exists()) {
-          set(
-            ref(database, "student/" + auth.currentUser?.uid + "/reputation"),
-            snapshot.val() + reputation
-          );
-        } else {
-          set(
-            ref(database, "student/" + auth.currentUser?.uid + "/reputation"),
-            reputation
-          );
-        }
-      });
-      set(
-        ref(
-          database,
-          "student/" + auth.currentUser?.uid + "/results/" + Date.now()
-        ),
-        //@ts-ignore
-        { quiz: quiz.id, results: results }
-      );
-      set(
-        ref(
-          database,
-          "student/" + auth.currentUser?.uid + "/history/" + Date.now()
-        ),
-        //@ts-ignore
-        { quiz: quiz.id, date: new Date().toLocaleDateString() }
-      );
-      set(
-        ref(database, "student/" + auth.currentUser?.uid + "/info"),
-        //@ts-ignore
-        {
-          email: auth.currentUser?.email,
-          name: auth.currentUser?.displayName,
-        }
-      );
     });
     setActive((active) => active + 1);
   };
@@ -320,20 +334,20 @@ const StudentQuizPassingFinish = ({
   quiz,
   finish,
   timer,
+  setTimer,
+  setGlobalElapsed,
 }: {
   quiz: quizDataType;
   finish: Function;
   timer?: number | null;
+  setTimer: Function;
+  setGlobalElapsed: Function;
 }) => {
   function millisecondsToHMS(milliseconds: number) {
     let seconds = Math.floor(milliseconds / 1000);
-    let hours = Math.floor(seconds / 3600);
     let minutes = Math.floor((seconds % 3600) / 60);
     seconds = seconds % 60;
     return (
-      (hours < 10 ? "0" : "") +
-      hours +
-      ":" +
       (minutes < 10 ? "0" : "") +
       minutes +
       ":" +
@@ -345,7 +359,14 @@ const StudentQuizPassingFinish = ({
   const [elapsed, setElapsed] = useState<any>(0);
 
   useEffect(() => {
-    timer && setElapsed(millisecondsToHMS(Date.now() - timer));
+    //@ts-ignore
+    setTimer((startTimer) => {
+      if (startTimer) {
+        setElapsed(millisecondsToHMS(Date.now() - startTimer));
+        setGlobalElapsed(millisecondsToHMS(Date.now() - startTimer));
+        return null;
+      }
+    });
   }, []);
 
   const { t } = useTranslation("quiz");
@@ -388,6 +409,14 @@ const StudentQuizPassingFinish = ({
           </Typography>
           <Typography>{quiz.questions.length}</Typography>
         </Box>
+        {quiz.timer && (
+          <Box>
+            <Typography className="quiz-passing__sub-title" variant="subtitle2">
+              {t("studentTimer")}
+            </Typography>
+            <Typography>{elapsed + " / 30:00"}</Typography>
+          </Box>
+        )}
       </Box>
       <Box className="quiz-passing__welcome-divider-container">
         <Divider className="quiz-passing__welcome-divider"></Divider>
@@ -464,7 +493,6 @@ const StudentQuizPassingFinal = ({
           <Typography>
             {quiz.authorName ? quiz.authorName : "Unknown"}
           </Typography>
-          2
         </Box>
         <Box>
           <Typography className="quiz-passing__sub-title" variant="subtitle2">
