@@ -10,6 +10,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useTranslation } from "react-i18next";
 import { child, get, ref, set } from "firebase/database";
 import { auth, database } from "../../services/Firebase/firebase";
+import EmailServiceWorker from "../../services/email/emailServiceWorker";
+
+
 const StudentQuizPassingModal = ({
   quiz,
   open,
@@ -75,7 +78,15 @@ const StudentQuizPassingModal = ({
     ]);
   };
 
-  const completeQuiz = () => {
+  const emailServiceWorker = new EmailServiceWorker({
+    email: 'recipient@example.com',
+    nickname: 'John Doe',
+    quizName: 'Your Quiz',
+    grade: 'A'
+  });
+
+  
+  const completeQuiz = async () => {
     setAnswers((answers) => {
       let results: { [id: string]: boolean } = {};
       Object.keys(answers).map((key) => {
@@ -132,6 +143,8 @@ const StudentQuizPassingModal = ({
       );
     });
     setActive((active) => active + 1);
+    //send email with result
+    emailServiceWorker.sendEmailAsync()
   };
 
   useEffect(() => {

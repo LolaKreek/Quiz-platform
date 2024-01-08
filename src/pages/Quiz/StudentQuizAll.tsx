@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import AppTable, { action } from "../../components/AppTable";
 import AppTopMenu from "../../components/AppTopMenu";
 import { studentMenuLinks } from "./constants";
@@ -9,6 +9,11 @@ import { useTableData } from "../Instruction/constants";
 import { database } from "../../services/Firebase/firebase";
 import { quizDataType } from "../../services/quiz/tyles";
 import StudentQuizPassingModal from "./StudentQuizPassingModal";
+//import sendEmail from '../../services/email/emailServiceWorker';
+import { AppButton } from "../../components/AppButton";
+import toast from "react-hot-toast";
+import { useTranslation } from "react-i18next";
+import Notification from "../../components/Notification";
 
 const StudentQuizAll = () => {
   const { studQuizAllHeaders } = useTableData();
@@ -43,6 +48,37 @@ const StudentQuizAll = () => {
       });
   };
 
+    // const handleQuizCompletion = async () => {
+    //   const emailData = {
+    //     email: 'o.android10@gmail.com',
+    //     nickname: 'John Doe',
+    //     quizName: 'React Quiz',
+    //     grade: 'A',
+    //   };
+  
+    //   //const emailSent: boolean = await sendEmail(emailData);
+
+      
+    //   const { t } = useTranslation("quiz");
+  
+    //   if (emailSent) {
+    //     toast.custom(
+    //       (element) => (
+    //         <Notification
+    //           header={t("emailSent")}
+    //           message={t("emailSent")}
+    //           element={element}
+    //           type={"info"}
+    //         />
+    //       ),
+    //       { position: "bottom-center" }
+    //     );
+    //     // Perform actions after successful email sending
+    //   } else {
+    //     // Handle failed email sending
+    //   }
+    // };
+
   useEffect(() => {
     getQuizes();
   }, []);
@@ -65,6 +101,7 @@ const StudentQuizAll = () => {
       <Box className="top-menu__wrapper">
         <AppTopMenu menuLinks={studentMenuLinks} current="all" type="quiz" />
       </Box>
+      {/* <AppButton onClick={handleQuizCompletion} children={""} className={""}></AppButton> */}
       <AppTable
         data={data ? data : []}
         headers={studQuizAllHeaders}
