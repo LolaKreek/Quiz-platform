@@ -5,13 +5,12 @@
 
   &__single {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 8px;
   }
 
   &__multiple {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr 5fr;
+    grid-template-columns: 1fr 5fr;
     gap: 8px;
   }
 
