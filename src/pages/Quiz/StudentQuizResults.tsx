@@ -78,6 +78,7 @@ const StudentQuizResults = () => {
                 el.title.toLowerCase().includes(filter.toLowerCase()) ||
                 el.subject.toLowerCase().includes(filter.toLowerCase()) ||
                 el.authorName.toLowerCase().includes(filter.toLowerCase()) ||
+                el.elapsed.toLowerCase().includes(filter.toLowerCase()) ||
                 el.faculty.toLowerCase().includes(filter.toLowerCase()) ||
                 el.questions
                   .toString()
@@ -137,6 +138,7 @@ const StudentQuizResults = () => {
                         {t("menuAllItems.quiz.elapsed")}
                       </Typography>
                       <Typography className="quiz-results__info-value">
+                        {/* @ts-ignore */}
                         {el.elapsed}
                       </Typography>
                     </Box>
