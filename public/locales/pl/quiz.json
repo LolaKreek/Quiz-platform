@@ -37,6 +37,8 @@
   "studentAnswers": "Odpowiedzi",
   "studentCongratulations": "Gratulacje!",
   "studentScored": "Twoje punkty",
-  "quit": "Wyjdz",
-  "done": "Gotowe"
+  "studentQuizAnswers": "Odpowiedzi quizu",
+  "quit": "Zamknij",
+  "done": "Gotowe",
+  "back": "Cofnij"
 }

@@ -10,11 +10,10 @@
   }
   &__item {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    padding: 8px 0px;
     background-color: #f0f0ff;
     width: 100%;
-    padding: 8px;
-    margin: 0px 16px;
     border: 1px solid $c-main;
     border-radius: 8px;
   }

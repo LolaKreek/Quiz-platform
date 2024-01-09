@@ -113,6 +113,29 @@
     color: black;
   }
 
+  &__answers-item {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  &__answers-container {
+    display: flex;
+    flex-direction: column;
+    top: -60px;
+    gap: 8px;
+  }
+
+  &__answers-button {
+    width: fit-content;
+  }
+
+  &__welcome-under-info {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
   &__single-question {
     &-title {
       padding-bottom: 10px;

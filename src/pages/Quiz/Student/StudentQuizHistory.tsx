@@ -1,13 +1,13 @@
 import { Box } from "@mui/material";
-import AppTable from "../../components/AppTable";
-import AppTopMenu from "../../components/AppTopMenu";
-import { studentMenuLinks } from "./constants";
+import AppTable from "../../../components/AppTable";
+import AppTopMenu from "../../../components/AppTopMenu";
+import { studentMenuLinks } from "../constants";
 import { useEffect, useState } from "react";
 import { child, get, ref } from "firebase/database";
-import { useTableData } from "../Instruction/constants";
-import { auth, database } from "../../services/Firebase/firebase";
+import { useTableData } from "../../Instruction/constants";
+import { auth, database } from "../../../services/Firebase/firebase";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store";
+import { RootState } from "../../../store";
 
 const StudentQuizHistory = () => {
   const user = useSelector((state: RootState) => state.auth.user);
