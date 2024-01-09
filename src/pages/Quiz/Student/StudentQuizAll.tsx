@@ -1,14 +1,14 @@
 import { Box } from "@mui/material";
-import AppTable, { action } from "../../components/AppTable";
-import AppTopMenu from "../../components/AppTopMenu";
-import { studentMenuLinks } from "./constants";
+import AppTable, { action } from "../../../components/AppTable";
+import AppTopMenu from "../../../components/AppTopMenu";
+import { studentMenuLinks } from "../constants";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { useEffect, useState } from "react";
 import { child, get, ref } from "firebase/database";
-import { useTableData } from "../Instruction/constants";
-import { database } from "../../services/Firebase/firebase";
-import { quizDataType } from "../../services/quiz/tyles";
-import StudentQuizPassingModal from "./StudentQuizPassingModal";
+import { useTableData } from "../../Instruction/constants";
+import { database } from "../../../services/Firebase/firebase";
+import { quizDataType } from "../../../services/quiz/tyles";
+import StudentQuizPassingModal from "./PassingModal/StudentQuizPassingModal";
 
 const StudentQuizAll = () => {
   const { studQuizAllHeaders } = useTableData();

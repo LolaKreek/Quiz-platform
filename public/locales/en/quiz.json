@@ -37,6 +37,8 @@
   "studentAnswers": "Answers",
   "studentCongratulations": "Congratulations!",
   "studentScored": "You scored",
+  "studentQuizAnswers": "Quiz answers",
   "quit": "Quit",
-  "done": "Done"
+  "done": "Done",
+  "back": "Back"
 }
