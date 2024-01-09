@@ -41,5 +41,6 @@
   "quit": "Quit",
   "done": "Done",
   "back": "Back",
-  "selectDefaultValue": "Select a faculty to select a subject"
+  "selectDefaultValue": "Select a faculty to select a subject",
+  "welcome": "Welcome"
 }

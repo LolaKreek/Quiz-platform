@@ -41,5 +41,6 @@
   "quit": "Wyjdz",
   "done": "Gotowe",
   "back": "Cofnij",
-  "selectDefaultValue": "Wybierz wydział, aby wybrać przedmiot"
+  "selectDefaultValue": "Wybierz wydział, aby wybrać przedmiot",
+  "welcome": "Powitanie"
 }
