@@ -1,13 +1,13 @@
 import { Box, Typography } from "@mui/material";
-import AppTopMenu from "../../components/AppTopMenu";
-import { studentMenuLinks } from "./constants";
+import AppTopMenu from "../../../components/AppTopMenu";
+import { studentMenuLinks } from "../constants";
 import { useEffect, useState } from "react";
 import { child, get, ref } from "firebase/database";
-import { database } from "../../services/Firebase/firebase";
+import { database } from "../../../services/Firebase/firebase";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store";
-import { quizDataType } from "../../services/quiz/tyles";
-import AppSearch from "../../components/AppSearch";
+import { RootState } from "../../../store";
+import { quizDataType } from "../../../services/quiz/tyles";
+import AppSearch from "../../../components/AppSearch";
 import { useTranslation } from "react-i18next";
 
 const StudentQuizResults = () => {
@@ -27,6 +27,7 @@ const StudentQuizResults = () => {
           get(child(dbRef, `quiz/${el.quiz}`)).then((snapshot) => {
             let quizSnapshot = snapshot.val();
             quizSnapshot.questions = quizSnapshot.questions.length;
+            quizSnapshot.elapsed = quizSnapshot.timer ? el.elapsed : "-";
             quizSnapshot.authorName = quizSnapshot.authorName
               ? quizSnapshot.authorName
               : "Unknown";
@@ -77,6 +78,7 @@ const StudentQuizResults = () => {
                 el.title.toLowerCase().includes(filter.toLowerCase()) ||
                 el.subject.toLowerCase().includes(filter.toLowerCase()) ||
                 el.authorName.toLowerCase().includes(filter.toLowerCase()) ||
+                el.elapsed.toLowerCase().includes(filter.toLowerCase()) ||
                 el.faculty.toLowerCase().includes(filter.toLowerCase()) ||
                 el.questions
                   .toString()
@@ -85,6 +87,7 @@ const StudentQuizResults = () => {
                 el.mark.toLowerCase().includes(filter.toLowerCase())
               );
             })
+            .reverse()
             .map((el: quizDataType) => (
               <Box className="quiz-results__item">
                 <Box className="quiz-results__info">
@@ -129,6 +132,17 @@ const StudentQuizResults = () => {
                       {el.subject}
                     </Typography>
                   </Box>
+                  {el.timer && (
+                    <Box className="quiz-results__info-section">
+                      <Typography className="quiz-results__info-value-sub">
+                        {t("menuAllItems.quiz.elapsed")}
+                      </Typography>
+                      <Typography className="quiz-results__info-value">
+                        {/* @ts-ignore */}
+                        {el.elapsed}
+                      </Typography>
+                    </Box>
+                  )}
                 </Box>
                 <Box className="quiz-results__mark">
                   <Typography variant="h4" className="quiz-results__info-value">

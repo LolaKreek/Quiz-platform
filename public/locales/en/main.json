@@ -36,7 +36,8 @@
       "subject": "Subject",
       "date": "Date",
       "questions": "Questions",
-      "authorName": "Author"
+      "authorName": "Author",
+      "elapsed": "Elapsed time"
     }
   },
   "deleteFileActionHeader": "Delete file Action",

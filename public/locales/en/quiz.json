@@ -11,7 +11,7 @@
   "questionsPart": "Add question to quiz",
   "questionsPartEditing": "Edit question from quiz",
   "addQuiestionBtn": "Add question",
-  "quiestionTitle": "Question title",
+  "quiestionTitle": "Question",
   "quiestionType": "Question type",
   "quiestionAnswer": "Question answer",
   "addQuizBtn": "Add",
@@ -28,6 +28,7 @@
   "addQuestionActionMessage": "The question was added successfully",
   "addQuestionActionMessageEdited": "The question was edited successfully",
   "deleteQuestionActionMessage": "The question was deleted successfully",
+    "emailSent": "Email sent",
   "studentTitle": "Title",
   "studentAuthor": "Author",
   "studentFaculty": "Faculty",
@@ -37,6 +38,10 @@
   "studentAnswers": "Answers",
   "studentCongratulations": "Congratulations!",
   "studentScored": "You scored",
-  "quit": "Quit",
-  "done": "Done"
+  "studentQuizAnswers": "Quiz answers",
+  "quit": "Close",
+  "done": "Done",
+  "back": "Back",
+  "selectDefaultValue": "Select a faculty to select a subject",
+  "welcome": "Welcome"
 }

@@ -16,8 +16,8 @@ import {
   STUDENT_RESULTS_QUIZ_PAGE,
   STUDENT_ALL_INSTRUCTION_PAGE,
 } from "./pathnames";
-import StudentQuizHistory from "../pages/Quiz/StudentQuizHistory";
-import StudentQuizResults from "../pages/Quiz/StudentQuizResults";
+import StudentQuizHistory from "../pages/Quiz/Student/StudentQuizHistory";
+import StudentQuizResults from "../pages/Quiz/Student/StudentQuizResults";
 import StudentAllInstruction from "../pages/Instruction/StudentAllInstructions";
 
 const Dashboard = loadable(
@@ -27,8 +27,8 @@ const Profile = loadable(() => import("../pages/Profile/index"));
 const Login = loadable(() => import("../pages/Auth/Login"));
 const SignIn = loadable(() => import("../pages/Auth/SignIn"));
 
-const ProQuiz = loadable(() => import("../pages/Quiz/ProQuiz"));
-const ProAllQuiz = loadable(() => import("../pages/Quiz/ProQuizAll"));
+const ProQuiz = loadable(() => import("../pages/Quiz/Professor/ProQuiz"));
+const ProAllQuiz = loadable(() => import("../pages/Quiz/Professor/ProQuizAll"));
 const ProQuizAdd = loadable(
   () => import("../components/Modules/Professor/Quiz/AddQuizModal/index")
 );
@@ -43,8 +43,8 @@ const ProAllInstruction = loadable(
   () => import("../pages/Instruction/ProAllInstructions")
 );
 
-const StudentQuizAll = loadable(() => import("../pages/Quiz/StudentQuizAll"));
-const StudentQuiz = loadable(() => import("../pages/Quiz/StudentQuiz"));
+const StudentQuizAll = loadable(() => import("../pages/Quiz/Student/StudentQuizAll"));
+const StudentQuiz = loadable(() => import("../pages/Quiz/Student/StudentQuiz"));
 
 export const publicRoutes = [{ path: MAIN_PAGE, Component: Dashboard }];
 
