@@ -3,6 +3,8 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
 import { AuthState, UserType } from "./types";
 import { deleteUserLocalData, setUserLocalData } from "../userLocalStorage";
+import { signOut } from "firebase/auth";
+import { auth } from "../../services/Firebase/firebase";
 
 // Define the initial state using that type
 const initialState: AuthState = {
@@ -37,6 +39,7 @@ export const authSlice = createSlice({
     },
     authLogout: (state) => {
       deleteUserLocalData();
+      signOut(auth);
       state.user = {
         id: "",
         name: "",

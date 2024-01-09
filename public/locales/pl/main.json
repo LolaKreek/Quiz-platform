@@ -1,43 +1,47 @@
 {
-    "profileSettingsTitle": "Konfiguracje strony",
-    "themeTitle": "Tryb strony",
-    "emptyPageTitle": "Nie masz jeszcze żadnych danych", 
-    "menuItems": {
-        "instructions": {
-            "title": "Tytuł",
-            "faculty": "Wydział",
-            "subject": "Przedmiot",
-            "date": "Data",
-            "empty": ""
-        },
-        "quiz": {
-            "title": "Tytuł",
-            "faculty": "Wydział",
-            "subject": "Przedmiot",
-            "date": "Data",
-            "questions": "Pytania"
-        }
+  "profileSettingsTitle": "Konfiguracje strony",
+  "themeTitle": "Tryb strony",
+  "emptyPageTitle": "Nie masz jeszcze żadnych danych",
+  "menuItems": {
+    "instructions": {
+      "title": "Tytuł",
+      "faculty": "Wydział",
+      "subject": "Przedmiot",
+      "date": "Data",
+      "empty": ""
     },
-    "menuAllItems": {
-        "instructions": {
-            "title": "Tytuł",
-            "faculty": "FaWydziałulty",
-            "subject": "Przedmiot",
-            "date": "Data",
-            "authorName": "Author",
-            "empty": ""
-        },
-        "quiz": {
-            "title": "Tytuł",
-            "faculty": "Wydział",
-            "subject": "Przedmiot",
-            "date": "Data",
-            "questions": "Pytania"
-        }
-
+    "quiz": {
+      "title": "Tytuł",
+      "faculty": "Wydział",
+      "subject": "Przedmiot",
+      "date": "Data",
+      "questions": "Pytania",
+      "authorName": "Autor",
+      "elapsed": "Czas",
+      "completed": "Zakonczone"
+    }
+  },
+  "menuAllItems": {
+    "instructions": {
+      "title": "Tytuł",
+      "faculty": "FaWydziałulty",
+      "subject": "Przedmiot",
+      "date": "Data",
+      "authorName": "Author",
+      "empty": ""
     },
-    "deleteFileActionHeader": "Akcja usuń plik",
-    "deleteFileActionMessage": "Plik został pomyślnie usunięty",
-    "deleteQuizActionHeader": "Akcja usuń quiz",
-    "deleteQuizActionMessage": "Quiz został pomyślnie usunięty"
+    "quiz": {
+      "title": "Tytuł",
+      "faculty": "Wydział",
+      "subject": "Przedmiot",
+      "date": "Data",
+      "questions": "Pytania",
+      "authorName": "Author",
+      "elapsed": "Czas trwania"
+    }
+  },
+  "deleteFileActionHeader": "Akcja usuń plik",
+  "deleteFileActionMessage": "Plik został pomyślnie usunięty",
+  "deleteQuizActionHeader": "Akcja usuń quiz",
+  "deleteQuizActionMessage": "Quiz został pomyślnie usunięty"
 }

@@ -1,14 +1,14 @@
 import { Box } from "@mui/material"
-import AppTopMenu from "../../components/AppTopMenu"
-import { menuLinks } from "./constants";
+import AppTopMenu from "../../../components/AppTopMenu"
+import { menuLinks } from "../constants";
 import { child, get, ref } from "firebase/database";
-import { auth, database } from "../../services/Firebase/firebase";
-import AppTable from "../../components/AppTable";
+import { auth, database } from "../../../services/Firebase/firebase";
+import AppTable from "../../../components/AppTable";
 import { useEffect, useState } from "react";
-import { useTableData } from "../Instruction/constants";
+import { useTableData } from "../../Instruction/constants";
 
 const ProQuizAll = () => {
-    const { quizAllHeaders } = useTableData()
+    const { proQuizAllHeaders } = useTableData()
 
     const [data, setData] = useState(null)
 
@@ -43,7 +43,7 @@ const ProQuizAll = () => {
         <Box className="top-menu__wrapper">
             <AppTopMenu menuLinks={menuLinks} current="all" type="quiz" />
         </Box>
-            <AppTable data={data ? data : []} headers={quizAllHeaders} actions={[]} type="all"></AppTable>
+            <AppTable data={data ? data : []} headers={proQuizAllHeaders} actions={[]} type="all"></AppTable>
         </>
     )
 }

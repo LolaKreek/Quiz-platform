@@ -15,10 +15,12 @@
 @import "./components/appProfileSettings";
 @import "./components/appTopMenu";
 @import "./components/appTable";
+@import "./components/topUsers";
 
 //Import modals styles
 @import "./components/modals/addQuizModal";
 @import "./components/modals/addQuizQuestions";
+@import "./components/modals/quizPassingModal";
 
 //Import layouts
 @import "./layouts/mainLayout";
@@ -27,6 +29,7 @@
 @import "./pages/auth";
 @import "./pages/quiz";
 @import "./pages/profile";
+@import "./pages/dashboard";
 
 //Import layouts styles
 @import "./features/auth";

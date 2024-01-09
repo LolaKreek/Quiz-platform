@@ -1,42 +1,47 @@
 {
-    "profileSettingsTitle": "Page configurations",
-    "themeTitle": "Theme mode",
-    "emptyPageTitle": "You don't have any data yet",
-    "menuItems": {
-        "instructions": {
-            "title": "Title",
-            "faculty": "Faculty",
-            "subject": "Subject",
-            "date": "Date",
-            "empty": ""
-        },
-        "quiz": {
-            "title": "Title",
-            "faculty": "Faculty",
-            "subject": "Subject",
-            "date": "Date",
-            "questions": "Questions"
-        }
+  "profileSettingsTitle": "Page configurations",
+  "themeTitle": "Theme mode",
+  "emptyPageTitle": "You don't have any data yet",
+  "menuItems": {
+    "instructions": {
+      "title": "Title",
+      "faculty": "Faculty",
+      "subject": "Subject",
+      "date": "Date",
+      "empty": ""
     },
-    "menuAllItems": {
-        "instructions": {
-            "title": "Title",
-            "faculty": "Faculty",
-            "subject": "Subject",
-            "date": "Date",
-            "authorName": "Author",
-            "empty": ""
-        },
-        "quiz": {
-            "title": "Title",
-            "faculty": "Faculty",
-            "subject": "Subject",
-            "date": "Date",
-            "questions": "Questions"
-        }
+    "quiz": {
+      "title": "Title",
+      "faculty": "Faculty",
+      "subject": "Subject",
+      "date": "Date",
+      "authorName": "Author",
+      "questions": "Questions",
+      "elapsed": "Elapsed",
+      "completed": "Completed"
+    }
+  },
+  "menuAllItems": {
+    "instructions": {
+      "title": "Title",
+      "faculty": "Faculty",
+      "subject": "Subject",
+      "date": "Date",
+      "authorName": "Author",
+      "empty": ""
     },
-    "deleteFileActionHeader": "Delete file Action",
-    "deleteFileActionMessage": "The file was successfully deleted",
-    "deleteQuizActionHeader": "Delete quiz Action",
-    "deleteQuizActionMessage": "The quiz was successfully deleted"
+    "quiz": {
+      "title": "Title",
+      "faculty": "Faculty",
+      "subject": "Subject",
+      "date": "Date",
+      "questions": "Questions",
+      "authorName": "Author",
+      "elapsed": "Elapsed time"
+    }
+  },
+  "deleteFileActionHeader": "Delete file Action",
+  "deleteFileActionMessage": "The file was successfully deleted",
+  "deleteQuizActionHeader": "Delete quiz Action",
+  "deleteQuizActionMessage": "The quiz was successfully deleted"
 }

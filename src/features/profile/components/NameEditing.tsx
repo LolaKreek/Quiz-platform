@@ -30,6 +30,7 @@ const NameModal = ({ open = true, onClose }: any) => {
     if (auth.currentUser) {
       updateProfile(auth.currentUser, { displayName: name });
       dispatch(updateUser({ user: { ...authState, name: name } }));
+      onClose()
       toast.custom(
         (element) => (
           <Notification
