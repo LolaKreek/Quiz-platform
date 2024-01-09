@@ -42,14 +42,7 @@ const StudentQuizPassingFinal = ({
       } else if (question.type === "Drag & Drop") {
         answers.push({
           title: question.title,
-          answer:
-            question.answers.first.text +
-            ", " +
-            question.answers.second.text +
-            ", " +
-            question.answers.third.text +
-            ", " +
-            question.answers.fourth.text,
+          answer: `${question.answers.first.text}, ${question.answers.second.text}, ${question.answers.third.text}, ${question.answers.fourth.text}`,
         });
       }
     });
