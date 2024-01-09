@@ -217,6 +217,7 @@ const Form = ({ setSubmitted }: any) => {
               // @ts-ignore
               error={!!errors.subjects}
               options={subjects}
+              placeholder={t('selectDefaultValue')}
               onChange={(e) => setFieldValue("subjects", e.target.value)}
             />
           </Box>

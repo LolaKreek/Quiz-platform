@@ -11,7 +11,7 @@
   "questionsPart": "Dodaj pytanie do quizu",
   "addQuiestionBtn": "Dodaj pytanie",
   "quiestionType": "Typ pytania",
-  "quiestionTitle": "Tytuł pytania",
+  "quiestionTitle": "Pytanie",
   "quiestionAnswer": "Odpowiedź na pytanie",
   "addQuizBtn": "Dodaj",
   "editQuizBtn": "Edytuj",
@@ -40,5 +40,6 @@
   "studentQuizAnswers": "Odpowiedzi quizu",
   "quit": "Wyjdz",
   "done": "Gotowe",
-  "back": "Cofnij"
+  "back": "Cofnij",
+  "selectDefaultValue": "Wybierz wydział, aby wybrać przedmiot"
 }
