@@ -182,6 +182,10 @@
         line-height: normal;
         padding: 0 0 $p-2per 0;
     }
+
+    &__quiz-answers{
+        margin-top: 20px!important;
+    }
 }
 
 .question-box{
