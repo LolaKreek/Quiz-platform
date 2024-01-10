@@ -14,13 +14,14 @@ const DragNDropAnswer = ({
   set,
   values,
   errors,
-  editing
+  editing,
 }: {
   set: Function;
   values: { [key: string]: { text: string } };
   errors: { [key: string]: { text: string } };
-  editing: boolean
+  editing: boolean;
 }) => {
+  const order = ["first", "second", "third", "fourth"];
   const onDrop = ({ removedIndex, addedIndex }: { [key: string]: number }) => {
     let arr = arrayMoveImmutable(
       Object.values(values),
@@ -29,9 +30,12 @@ const DragNDropAnswer = ({
     );
     const newValues: { [key: string]: { text: string } } = {};
     arr.forEach((item, index) => {
-      newValues[Object.keys(values)[index]] = item;
+      newValues[order[index]] = item;
+      console.log(order[index], item);
     });
-    set("answers", newValues);
+
+    set(newValues);
+    console.log(newValues);
   };
 
   return (
