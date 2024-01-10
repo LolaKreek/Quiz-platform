@@ -34,7 +34,7 @@ const IssueDialog: React.FC<IssueDialogProps> = ({ quiz, onClose }) => {
     console.log(authState.name)
     console.log(quiz?.title)
     console.log(issue)
-    emailjs.send('service_do5idp8', 'template_rzpu83o', { message, to: quiz?.authorEmail}, '64jtLe6c9bVtuatAP')
+    emailjs.send('service_14mshir', 'template_0to6mds', { message, to: quiz?.authorEmail}, 'XM98eZJKtZW0ajxcy')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
