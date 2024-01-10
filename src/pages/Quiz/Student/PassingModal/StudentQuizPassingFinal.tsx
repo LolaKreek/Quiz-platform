@@ -42,9 +42,7 @@ const StudentQuizPassingFinal = ({
       } else if (question.type === "Drag & Drop") {
         answers.push({
           title: question.title,
-          answer: Object.values(question.answers)
-            .map((answer) => answer.text)
-            .join(", "),
+          answer: `${question.answers.first.text}, ${question.answers.second.text}, ${question.answers.third.text}, ${question.answers.fourth.text}`,
         });
       }
     });
