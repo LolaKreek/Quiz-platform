@@ -13,6 +13,7 @@ export type question = {
     id: number,
     title: string,
     type: string,
+    picture: boolean | null,
     answers: {
         [key: string]: {
             text: string,

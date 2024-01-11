@@ -14,16 +14,13 @@ export const writeQuizData = async ({
   editingId,
 }: quizDataType) => {
   const id = editingId ? editingId : Date.now();
-
   questions.map((question) => {
-    Object.entries(question).forEach(([key, value]) => {
-      if (key === "picture") {
-        // @ts-ignore
-        uploadBytes(storageRef(storage, `pictures/${question["id"]}`), value);
-        // @ts-ignore
-        delete question[key];
-      }
-    });
+    if (question.picture) {
+      // @ts-ignore
+      uploadBytes(storageRef(storage, `pictures/${question["id"]}`), question.picture);
+      // @ts-ignore
+      question.picture = true;
+    }
   });
 
   return set(ref(database, "quiz/" + id), {
