@@ -1,4 +1,4 @@
-import { Box, Modal, Paper, Typography } from "@mui/material";
+import { Box, IconButton, Modal, Paper, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import CloseIcon from "@mui/icons-material/Close";
 import { AppInput } from "../../../../AppInput";
@@ -13,6 +13,20 @@ import Notification from "../../../../Notification";
 import SingleAnswer from "../../QuestionElements/SingleAnswer";
 import MultipleAnswer from "../../QuestionElements/MultipleAnswer";
 import DragNDropAnswer from "../../QuestionElements/DragNDropAnswer";
+import AttachFileIcon from "@mui/icons-material/AttachFile";
+import { styled } from "@mui/material/styles";
+
+const VisuallyHiddenInput = styled("input")({
+  clip: "rect(0 0 0 0)",
+  clipPath: "inset(50%)",
+  height: 1,
+  overflow: "hidden",
+  position: "absolute",
+  bottom: 0,
+  left: 0,
+  whiteSpace: "nowrap",
+  width: 1,
+});
 
 const AddQuestionModal = ({
   open,
@@ -24,7 +38,13 @@ const AddQuestionModal = ({
   editingValues,
 }: any) => {
   const { t } = useTranslation("quiz");
-  const initialState = { title: "", type: "", id: Date.now(), answers: null };
+  const initialState = {
+    title: "",
+    type: "",
+    id: Date.now(),
+    answers: null,
+    picture: null,
+  };
 
   const questionElements: { [key: string]: (props: any) => JSX.Element } = {
     Single: (props) => <SingleAnswer {...props} />,
@@ -131,25 +151,45 @@ const AddQuestionModal = ({
                   onClick={handleClose}
                 />
               </Box>
-
               <Box className="add-questions-modal__content-wrapper">
                 <Box>
                   <Typography className="add-questions-modal__quiz-title label">
                     <i className="symbol">*&nbsp;</i> {t("quiestionTitle")}
                   </Typography>
-                  <AppInput
-                    id="title"
-                    // @ts-ignore
-                    value={values.title}
-                    // @ts-ignore
-                    error={!!errors.title}
-                    onChange={(e) => {
-                      setFieldValue("title", e.target.value);
-                      handleChange(e);
-                    }}
-                    variant="outlined"
-                    className="add-questions-modal__title-input"
-                  />
+                  <Box className="add-questions-modal__title-edit">
+                    <AppInput
+                      id="title"
+                      // @ts-ignore
+                      value={values.title}
+                      // @ts-ignore
+                      error={!!errors.title}
+                      onChange={(e) => {
+                        setFieldValue("title", e.target.value);
+                        handleChange(e);
+                      }}
+                      variant="outlined"
+                      className="add-questions-modal__title-input"
+                    />
+                    <IconButton
+                      component="label"
+                      className="add-questions-modal__attach"
+                    >
+                      <AttachFileIcon />
+                      <VisuallyHiddenInput
+                        type="file"
+                        accept=".png, .jpg, .jpeg"
+                        onChange={(e) => {
+                          // @ts-ignore
+                          setFieldValue("picture", e.target.files[0]);
+                        }}
+                      />
+                    </IconButton>
+                  </Box>
+                  {values.picture && <Box>
+                      <Typography>{values.picture.name}</Typography>
+                    </Box>
+                  }
+                  
                 </Box>
 
                 <Box className="add-questions-modal__type-wrapper">
@@ -167,8 +207,11 @@ const AddQuestionModal = ({
                     error={!!errors.type}
                     options={types}
                     onChange={(e) => {
-                      // @ts-ignore
-                      setFieldValue("answers",questionTypeInitialValues[e.target.value]);
+                      setFieldValue(
+                        "answers",
+                        // @ts-ignore
+                        questionTypeInitialValues[e.target.value]
+                      );
                       setFieldValue("type", e.target.value);
                       setErrors({ ...errors, answers: undefined });
                     }}
@@ -178,7 +221,10 @@ const AddQuestionModal = ({
                 <Box>
                   {questionElements[values.type] &&
                     questionElements[values.type]({
-                      set: (arg)=>{setFieldValue("answers", arg)},
+                      // @ts-ignore
+                      set: (arg) => {
+                        setFieldValue("answers", arg);
+                      },
                       values: values.answers,
                       errors: errors.answers,
                       editing: editing,
