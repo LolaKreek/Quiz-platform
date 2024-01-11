@@ -5,6 +5,11 @@
     align-items: center;
   }
 
+  &__picture {
+    max-height: 400px;
+    object-fit: contain;
+  }
+
   &__paper {
     border-radius: 8px;
     padding: 20px;

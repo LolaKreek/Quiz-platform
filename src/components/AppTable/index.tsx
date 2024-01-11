@@ -87,7 +87,7 @@ const AppTable = ({ data, headers, actions, type }: appTablePropsType) => {
                 })
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((item: any) => (
-                  <TableRow key={item.id}>
+                  <TableRow key={item.id} sx={{ height: "64px" }}>
                     {headers.map((header: { title: string; value: string }) => (
                       <TableCell align="center">{item[header.value]}</TableCell>
                     ))}
