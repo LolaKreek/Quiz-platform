@@ -36,6 +36,7 @@ export const writeQuizData = async ({
     authorName: auth.currentUser?.displayName
       ? auth.currentUser?.displayName
       : "Unknown",
+    authorEmail: auth.currentUser?.email,
   });
 };
 

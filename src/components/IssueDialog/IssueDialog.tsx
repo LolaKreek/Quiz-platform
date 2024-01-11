@@ -24,6 +24,9 @@ interface IssueDialogProps {
 }
 
 const IssueDialog: React.FC<IssueDialogProps> = ({ quiz, onClose }) => {
+  if (!quiz) {
+    return null;
+  }
   const { t } = useTranslation("quiz");
   const [issue, setIssue] = useState("");
   const authState = useSelector((state: RootState) => state.auth.user);
@@ -31,10 +34,10 @@ const IssueDialog: React.FC<IssueDialogProps> = ({ quiz, onClose }) => {
   const message : string = `User ${authState.name || t("unknown")} has reported that your quiz called ${quiz?.title} has an issue. \n\n ${issue}`
 
   const sendEmail = () => {
-    console.log(authState.name)
-    console.log(quiz?.title)
-    console.log(issue)
-    emailjs.send('service_14mshir', 'template_0to6mds', { message, to: quiz?.authorEmail}, 'XM98eZJKtZW0ajxcy')
+    console.log(message)
+    console.log(quiz?.authorEmail)
+    
+    emailjs.send('service_14mshir', 'template_289ev8q', { message, recipient_email: quiz?.authorEmail}, 'XM98eZJKtZW0ajxcy')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
@@ -42,10 +45,6 @@ const IssueDialog: React.FC<IssueDialogProps> = ({ quiz, onClose }) => {
       });
    };
    
-  if (!quiz) {
-    return null;
-  }
-
   return (
     <Modal className="quiz-passing__modal" open={true} onClose={onClose}>
     <Paper className="quiz-passing__paper">
