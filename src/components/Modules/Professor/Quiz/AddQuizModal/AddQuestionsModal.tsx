@@ -186,7 +186,7 @@ const AddQuestionModal = ({
                     </IconButton>
                   </Box>
                   {values.picture && <Box>
-                      <Typography>{values.picture.name}</Typography>
+                      <Typography>{editing ? editingValues.picture : values.picture.name}</Typography>
                     </Box>
                   }
                   
@@ -235,6 +235,7 @@ const AddQuestionModal = ({
                   <AppButton
                     onClick={() => {
                       validateForm().then((res) => {
+                        console.log(res)
                         values.type === "Open" && delete res["answers"];
 
                         if (!Object.keys(res).length) {
@@ -258,6 +259,7 @@ const AddQuestionModal = ({
                     {/* @ts-ignore */}
                     {errors.title ||
                       errors.type ||
+                      errors.picture ||
                       (errors.answers ? "Please enter answers" : null)}
                   </ErrorOverLay>
                 )}

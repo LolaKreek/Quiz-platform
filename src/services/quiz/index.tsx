@@ -19,7 +19,7 @@ export const writeQuizData = async ({
       // @ts-ignore
       uploadBytes(storageRef(storage, `pictures/${question["id"]}`), question.picture);
       // @ts-ignore
-      question.picture = true;
+      question.picture = question.picture.name;
     }
   });
 

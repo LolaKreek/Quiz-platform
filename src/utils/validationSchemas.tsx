@@ -36,6 +36,12 @@ export const addQuizQuestionSchema = Yup.object().shape({
     .required("Please enter question title"),
   type: Yup.string()
     .required("Please select a type"),
+  picture: Yup.mixed()
+  .test('size', "File size should be 5mb or less", value => {
+    if (!value) return true
+    //@ts-ignore
+    return FILE_SIZE_LIMIT >= value.size
+  }),
   answers: Yup.object().shape({
     first: Yup.object().shape({
       text: Yup.string().required(),
@@ -49,7 +55,8 @@ export const addQuizQuestionSchema = Yup.object().shape({
     fourth: Yup.object().shape({
       text: Yup.string().required(),
     }),
-  })
+  }),
+  
 })
 
 export const uploafFilenSchema = Yup.object().shape({
