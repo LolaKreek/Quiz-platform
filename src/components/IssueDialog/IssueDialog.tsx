@@ -1,20 +1,17 @@
 import React from "react";
 import {
-  Box,
   Typography,
   Modal,
   Paper,
   TextareaAutosize,
-  Button,
-  IconButton,
+  Box
 } from "@mui/material";
 import { AppButton } from "../../components/AppButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { useTranslation } from "react-i18next";
 import { quizDataType } from "../../services/quiz/tyles";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import emailjs from 'emailjs-com';
-import { auth, database } from "../../services/Firebase/firebase";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 
@@ -47,30 +44,20 @@ const IssueDialog: React.FC<IssueDialogProps> = ({ quiz, onClose }) => {
    
   return (
     <Modal className="quiz-passing__modal" open={true} onClose={onClose}>
-    <Paper className="quiz-passing__paper">
-      
-       <Typography className="quiz-passing__title" variant="h4">
-        Report an issue
-      </Typography>
-      <Typography className="quiz-passing__title" variant="h4">
-        {quiz.title}
-      </Typography>
-      <TextareaAutosize
-        className="quiz-passing__open-question-answer"
-        onChange={(e) => {
-          setIssue(e.target.value);
-        }}
-        value={issue}
-      />
-      
-      <AppButton
-        className="quiz-passing__welcome-button" onClick={sendEmail}>
-        Submit
-      </AppButton>
-      <CloseIcon className="quiz-passing__close-icon" onClick={onClose} />
-    </Paper>
+      <Paper className="quiz-passing__paper">
+        <Typography className="quiz-passing__title-issue" variant="h4">{t('reportTitle')}</Typography>
+        
+        <Typography className="quiz-passing__title-issue issue-title" variant="h4">{quiz.title}</Typography>
+        <TextareaAutosize
+          className="quiz-passing__open-question-answer"
+          onChange={(e) => setIssue(e.target.value)}
+          value={issue}
+        />
+        
+        <AppButton className="quiz-passing__welcome-button" onClick={sendEmail}>{t('submit')}</AppButton>
+        <CloseIcon className="quiz-passing__close-icon issue-close" onClick={onClose} />
+      </Paper>
     </Modal>
-    
   );
 };
 
