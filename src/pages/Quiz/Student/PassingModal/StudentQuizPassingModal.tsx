@@ -20,6 +20,8 @@ import { auth, database } from "../../../../services/Firebase/firebase";
 import StudentQuizPassingWelcome from "./StudentQuizPassingWelcome";
 import StudentQuizPassingFinish from "./StudentQuizPassingFinish";
 import StudentQuizPassingFinal from "./StudentQuizPassingFinal";
+import emailjs from 'emailjs-com';
+
 const StudentQuizPassingModal = ({
   quiz,
   open,
@@ -33,6 +35,7 @@ const StudentQuizPassingModal = ({
   const [elapsed, setElapsed] = useState<any>(0);
   const [currentDate, setCurrentDate] = useState(0);
   const interval = useRef(null);
+  const { t } = useTranslation("quiz");
 
   useEffect(() => {
     quizBuild();
@@ -106,6 +109,23 @@ const StudentQuizPassingModal = ({
     ]);
   };
 
+  const sendEmail = (
+    studentName: string | null | undefined,
+    grade: number
+  ) => {
+
+    const message : string = `Student ${studentName || t("unknown")} has completed your quiz called ${quiz?.title}. \n Grade: ${grade}`
+    console.log(message)
+    console.log(quiz?.authorEmail)
+    
+    emailjs.send('service_14mshir', 'template_289ev8q', { message, recipient_email: quiz?.authorEmail, subject: "Quiz completion"}, 'XM98eZJKtZW0ajxcy')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+   };
+
   const completeQuiz = () => {
     setAnswers((answers) => {
       setElapsed((elapsed: any) => {
@@ -139,6 +159,9 @@ const StudentQuizPassingModal = ({
         const reputation = Object.values(results).filter((value) => {
           return value === true;
         }).length;
+ 
+        sendEmail(auth.currentUser?.displayName, reputation)
+
         get(
           child(ref(database), `student/${auth.currentUser?.uid}/reputation`)
         ).then((snapshot) => {

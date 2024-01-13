@@ -37,7 +37,7 @@ const IssueDialog: React.FC<IssueDialogProps> = ({ quiz, onClose }) => {
     console.log(message)
     console.log(quiz?.authorEmail)
     
-    emailjs.send('service_14mshir', 'template_289ev8q', { message, recipient_email: quiz?.authorEmail}, 'XM98eZJKtZW0ajxcy')
+    emailjs.send('service_14mshir', 'template_289ev8q', { message, recipient_email: quiz?.authorEmail, subject: "Quiz issue"}, 'XM98eZJKtZW0ajxcy')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
