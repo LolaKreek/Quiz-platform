@@ -37,7 +37,7 @@ const StudentQuizAll = () => {
             el.questions = el.questions.length;
           });
           //   @ts-ignore
-          setData(dataSnapshot);
+          setData(dataSnapshot.reverse());
           setQuizes(snapshot.val());
         } else {
           console.log("No data available");
