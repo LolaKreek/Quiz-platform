@@ -185,11 +185,13 @@ const AddQuestionModal = ({
                       />
                     </IconButton>
                   </Box>
-                  {values.picture && <Box>
-                      <Typography>{editing ? editingValues.picture : values.picture.name}</Typography>
+                  {values.picture && (
+                    <Box>
+                      <Typography>
+                        {editing ? editingValues.picture : values.picture.name}
+                      </Typography>
                     </Box>
-                  }
-                  
+                  )}
                 </Box>
 
                 <Box className="add-questions-modal__type-wrapper">
@@ -235,7 +237,6 @@ const AddQuestionModal = ({
                   <AppButton
                     onClick={() => {
                       validateForm().then((res) => {
-                        console.log(res)
                         values.type === "Open" && delete res["answers"];
 
                         if (!Object.keys(res).length) {
@@ -260,7 +261,10 @@ const AddQuestionModal = ({
                     {errors.title ||
                       errors.type ||
                       errors.picture ||
-                      (errors.answers ? "Please enter answers" : null)}
+                      (errors.answers
+                        ? // @ts-ignore
+                          Object.values(Object.values(errors.answers)[0])[0]
+                        : null)}
                   </ErrorOverLay>
                 )}
               </Box>

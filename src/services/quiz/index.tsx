@@ -17,10 +17,20 @@ export const writeQuizData = async ({
   questions.map((question) => {
     if (question.picture) {
       // @ts-ignore
-      uploadBytes(storageRef(storage, `pictures/${question["id"]}`), question.picture);
+      uploadBytes(storageRef(storage, `pictures/${question["id"]}`),question.picture);
       // @ts-ignore
       question.picture = question.picture.name;
     }
+
+    Object.entries(question.answers).map(([key, value]) => {
+      // @ts-ignore
+      if (value.picture && typeof value.picture !== "string") {
+        // @ts-ignore
+        uploadBytes(storageRef(storage, `pictures/${question["id"]}_${key}`),value.picture);
+        // @ts-ignore
+        question.answers[key].picture = value.picture.name;
+      }
+    });
   });
 
   return set(ref(database, "quiz/" + id), {
