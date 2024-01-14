@@ -42,5 +42,7 @@
   "done": "Gotowe",
   "back": "Cofnij",
   "selectDefaultValue": "Wybierz wydział, aby wybrać przedmiot",
-  "welcome": "Powitanie"
+  "welcome": "Powitanie",
+  "reportTitle": "Zgłoś problem",
+  "submit": "Zatwierdź"
 }

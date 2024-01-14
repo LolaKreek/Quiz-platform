@@ -52,6 +52,7 @@ const DragNDropQuestion = ({
       <Typography variant="h5" className="quiz-passing__single-question-title">
         {question.title}
       </Typography>
+      {question.picture && <img className="quiz-passing__picture" src={`https://firebasestorage.googleapis.com/v0/b/pracadyplomowa-8a45f.appspot.com/o/pictures%2F${question.id}?alt=media`}></img>}
       <Typography className="add-questions-modal__quiz-title label">
         <i className="symbol">*&nbsp;</i> Arrange the elements in the correct
         order

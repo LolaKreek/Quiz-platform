@@ -17,8 +17,10 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useTranslation } from "react-i18next";
 import { child, get, ref, set } from "firebase/database";
 import { auth, database } from "../../services/Firebase/firebase";
-import EmailServiceWorker from "../../services/email/emailServiceWorker";
 import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
+import emailjs from 'emailjs-com';
+import { RootState } from "../../store";
+import { useSelector } from "react-redux";
 
 
 const StudentQuizPassingModal = ({
@@ -107,13 +109,20 @@ const StudentQuizPassingModal = ({
     ]);
   };
 
-  const emailServiceWorker = new EmailServiceWorker({
-    email: 'recipient@example.com',
-    nickname: 'John Doe',
-    quizName: 'Your Quiz',
-    grade: 'A'
-  });
+  const sendEmail = (
+    grade: number
+  ) => {
+    const { t } = useTranslation("quiz");
+    const authState = useSelector((state: RootState) => state.auth.user);
+    const message : string = `User ${authState.name || t("unknown")} has completed your quiz called ${quiz?.title}. \n Grade: ${grade}`
 
+    emailjs.send('service_14mshir', 'template_289ev8q', { message, recipient_email: quiz?.authorEmail}, 'XM98eZJKtZW0ajxcy')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
   
   const completeQuiz = async () => {
     setAnswers((answers) => {
@@ -145,9 +154,11 @@ const StudentQuizPassingModal = ({
               : (results[key] = false);
           }
         });
+        // this is student's grade of this particular quiz
         const reputation = Object.values(results).filter((value) => {
           return value === true;
         }).length;
+        sendEmail(reputation)
         get(
           child(ref(database), `student/${auth.currentUser?.uid}/reputation`)
         ).then((snapshot) => {
@@ -168,7 +179,6 @@ const StudentQuizPassingModal = ({
             database,
             "student/" + auth.currentUser?.uid + "/results/" + Date.now()
           ),
-
           {
             //@ts-ignore
             quiz: quiz.id,
@@ -200,8 +210,6 @@ const StudentQuizPassingModal = ({
       });
     });
     setActive((active) => active + 1);
-    //send email with result
-    emailServiceWorker.sendEmailAsync()
   };
 
   return (

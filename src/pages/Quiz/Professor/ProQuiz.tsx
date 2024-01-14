@@ -52,7 +52,7 @@ const ProQuizPage = () => {
                     el.questions = el.questions.length
                 })
             //   @ts-ignore
-              setData(dataSnapshot)
+              setData(dataSnapshot.reverse())
             } else {
               console.log("No data available");
             }

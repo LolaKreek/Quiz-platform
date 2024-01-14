@@ -28,7 +28,7 @@
   "addQuestionActionMessage": "The question was added successfully",
   "addQuestionActionMessageEdited": "The question was edited successfully",
   "deleteQuestionActionMessage": "The question was deleted successfully",
-    "emailSent": "Email sent",
+  "emailSent": "Email sent",
   "studentTitle": "Title",
   "studentAuthor": "Author",
   "studentFaculty": "Faculty",
@@ -43,5 +43,7 @@
   "done": "Done",
   "back": "Back",
   "selectDefaultValue": "Select a faculty to select a subject",
-  "welcome": "Welcome"
+  "welcome": "Welcome",
+  "reportTitle": "Report an issue",
+  "submit": "Submit"
 }
