@@ -6,14 +6,19 @@
   }
 
   &__picture {
-    max-height: 400px;
+    max-height: 30vh;
     object-fit: contain;
     max-width: 100%;
+    margin: auto;
+    display: block;
+    padding: 8px 0px;
   }
 
   &__answer > img {
     max-width: 100%;
-    max-height: min-content;
+    max-height: 20vh;
+    margin: auto;
+    display: block;
   }
 
   &__answer-drag > img {
