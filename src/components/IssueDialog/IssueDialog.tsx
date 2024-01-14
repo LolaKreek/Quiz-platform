@@ -30,16 +30,14 @@ const IssueDialog: React.FC<IssueDialogProps> = ({ quiz, onClose }) => {
   
   const message : string = `User ${authState.name || t("unknown")} has reported that your quiz called ${quiz?.title} has an issue. \n\n ${issue}`
 
-  const sendEmail = () => {
-    console.log(message)
-    console.log(quiz?.authorEmail)
-    
-    emailjs.send('service_14mshir', 'template_289ev8q', { message, recipient_email: quiz?.authorEmail, subject: "Quiz issue"}, 'XM98eZJKtZW0ajxcy')
+  const sendEmail = () => {    
+    emailjs.send('service_14mshir', 'template_289ev8q', { message, recipient_email: quiz?.authorEmail}, 'XM98eZJKtZW0ajxcy')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
           console.log(error.text);
       });
+    onClose
    };
    
   return (
