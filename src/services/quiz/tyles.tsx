@@ -5,6 +5,7 @@ export type quizDataType = {
     timer: boolean, 
     showAnswers: boolean,
     authorName: string,
+    authorEmail: string,
     author: string,
     editingId?: string, 
     questions: question[]

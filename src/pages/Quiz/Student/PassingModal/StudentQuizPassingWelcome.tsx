@@ -16,9 +16,7 @@ const StudentQuizPassingWelcome = ({
   const { t } = useTranslation("quiz");
   return (
     <Box>
-      <Typography className="quiz-passing__title" variant="h4">
-        Welcome
-      </Typography>
+      <Typography className="quiz-passing__title" variant="h4">{t('welcome')}</Typography>
       <Box className="quiz-passing__welcome-info">
         <Box>
           <Typography className="quiz-passing__sub-title" variant="subtitle2">

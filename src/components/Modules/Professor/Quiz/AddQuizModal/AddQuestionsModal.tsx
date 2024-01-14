@@ -221,6 +221,10 @@ const AddQuestionModal = ({
                 </Box>
 
                 <Box>
+                  <Typography className="add-questions-modal__quiz-answers label">
+                    <i className="symbol">*&nbsp;</i>  
+                    {t('studentAnswers')}
+                  </Typography>
                   {questionElements[values.type] &&
                     questionElements[values.type]({
                       // @ts-ignore
