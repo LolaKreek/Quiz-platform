@@ -74,11 +74,7 @@ const StudentQuizPassingWelcome = ({
             sx={{ width: "30px", height: "30px", color: "#6062FF" }}
           />
           <Typography>
-            This test is time limited! You have 30 minutes to answer all
-            questions! If the time runs out before you answer the questions, the
-            platform will consider the unanswered questions to be{" "}
-            <strong>incorrect</strong>. The countdown will begin after you press
-            the START button and proceed to solving the first question.
+            {t("studentTimerEnabled")}
           </Typography>
         </Box>
       )}
@@ -88,8 +84,7 @@ const StudentQuizPassingWelcome = ({
             sx={{ width: "30px", height: "30px", color: "#6062FF" }}
           />
           <Typography>
-            After completing this test, you will be able to see the correct
-            answers to this test!
+            {t("studentAnswersEnabled")}
           </Typography>
         </Box>
       )}
