@@ -8,6 +8,17 @@
   &__picture {
     max-height: 400px;
     object-fit: contain;
+    max-width: 100%;
+  }
+
+  &__answer > img {
+    max-width: 100%;
+    max-height: min-content;
+  }
+
+  &__answer-drag > img {
+    max-height: 100px;
+    max-width: 50%;
   }
 
   &__paper {

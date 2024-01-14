@@ -69,9 +69,11 @@ const DragNDropQuestion = ({
               // @ts-ignore
               <Draggable key={id}>
                 <ListItem style={{ padding: "8px 0px" }}>
-                  <Typography className="quiz-passing__dnd-question-answer">
-                    {randomized[id][1].text}
-                  </Typography>
+                  <Box className="quiz-passing__single-question-answer quiz-passing__answer quiz-passing__answer-drag">
+                    {randomized[id][1].picture ? <img src={`https://firebasestorage.googleapis.com/v0/b/pracadyplomowa-8a45f.appspot.com/o/pictures%2F${question.id}_${randomized[id][0]}?alt=media`}/> : <Typography>
+                      {randomized[id][1].text}
+                    </Typography>}
+                  </Box>
                   <ListItemSecondaryAction className="">
                     <ListItemIcon className="drag-handle _add-quiz-question__secondary">
                       <DragHandleIcon

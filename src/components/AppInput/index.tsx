@@ -12,6 +12,7 @@ type Props = {
   placeholder?: string;
   InputProps?: any;
   id?: string;
+  disabled?: boolean;
   type?: string;
 };
 
@@ -21,6 +22,7 @@ export const AppInput = forwardRef(
       className,
       placeholder,
       value,
+      disabled,
       type = "text",
       id,
       inputProps,
@@ -34,6 +36,7 @@ export const AppInput = forwardRef(
   ) => {
     return (
       <TextField
+        disabled={disabled}
         id={id}
         inputRef={ref}
         variant={variant}
