@@ -26,6 +26,7 @@ export const writeQuizData = async ({
     Object.entries(question.answers).map(([key, value]) => {
       // @ts-ignore
       if (value.picture) {
+        // @ts-ignore
         if (typeof value.picture !== "string") {
           // @ts-ignore
           uploadBytes(storageRef(storage, `pictures/${question["id"]}_${key}`),value.picture);
