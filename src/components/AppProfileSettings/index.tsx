@@ -27,7 +27,7 @@ const ProfileSettings = ({open, setOpen, anchorRef}: profileSettingsType) => {
         dispatch(changeTheme({theme: 'light'}))
     }
     
-    const [activeLanguage, setActiveLanguage] = useState<'en' | 'pl'>('en');
+    const [activeLanguage, setActiveLanguage] = useState<'en' | 'pl'>('pl');
 
     const handleLanguageChange = (language: 'en' | 'pl') => {
         setActiveLanguage(language);
