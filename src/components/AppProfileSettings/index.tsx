@@ -7,6 +7,7 @@ import MoonIcon from "../../assets/icons/moon.png";
 import { PROFILE_SETTINGS } from "../../utils/actions";
 import { useDispatch } from "react-redux";
 import { changeTheme } from "../../store/Slices/theme";
+import i18n from 'i18next'
 
 type profileSettingsType = {
     open: boolean,
@@ -25,12 +26,16 @@ const ProfileSettings = ({open, setOpen, anchorRef}: profileSettingsType) => {
     const handleLightMode = () => {
         dispatch(changeTheme({theme: 'light'}))
     }
-
+    
     const [activeLanguage, setActiveLanguage] = useState<'en' | 'pl'>('en');
 
     const handleLanguageChange = (language: 'en' | 'pl') => {
         setActiveLanguage(language);
-        
+        if(language == 'en'){
+            i18n.changeLanguage(language)
+        } else if (language == 'pl') {
+            i18n.changeLanguage(language)
+        }
     };
 
     return(
