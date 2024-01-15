@@ -185,11 +185,13 @@ const AddQuestionModal = ({
                       />
                     </IconButton>
                   </Box>
-                  {values.picture && <Box>
-                      <Typography>{values.picture.name}</Typography>
+                  {values.picture && (
+                    <Box>
+                      <Typography>
+                        {editing ? typeof values.picture === "string" ? values.picture : values.picture.name : values.picture.name}
+                      </Typography>
                     </Box>
-                  }
-                  
+                  )}
                 </Box>
 
                 <Box className="add-questions-modal__type-wrapper">
@@ -262,7 +264,11 @@ const AddQuestionModal = ({
                     {/* @ts-ignore */}
                     {errors.title ||
                       errors.type ||
-                      (errors.answers ? "Please enter answers" : null)}
+                      errors.picture ||
+                      (errors.answers
+                        ? // @ts-ignore
+                          Object.values(Object.values(errors.answers)[0])[0]
+                        : null)}
                   </ErrorOverLay>
                 )}
               </Box>

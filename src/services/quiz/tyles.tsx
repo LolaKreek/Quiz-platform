@@ -14,11 +14,12 @@ export type question = {
     id: number,
     title: string,
     type: string,
-    picture: boolean | null,
+    picture: string | null,
     answers: {
         [key: string]: {
             text: string,
-            isCorrect?: boolean
+            isCorrect?: boolean,
+            picture: string | null
         }
     },  
 }

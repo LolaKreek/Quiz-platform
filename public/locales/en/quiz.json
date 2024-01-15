@@ -39,6 +39,8 @@
   "studentCongratulations": "Congratulations!",
   "studentScored": "You scored",
   "studentQuizAnswers": "Quiz answers",
+  "studentAnswersEnabled": "After completing this test, you will be able to see the correct answers to this test!",
+  "studentTimerEnabled": "This test is time limited! You have 30 minutes to answer all questions! If the time runs out before you answer the questions, the platform will consider the unanswered questions to be incorrect. The countdown will begin after you press the START button and proceed to solving the first question.",
   "quit": "Close",
   "done": "Done",
   "back": "Back",
