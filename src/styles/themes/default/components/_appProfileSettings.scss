@@ -24,6 +24,10 @@
         font-weight: $fw-400!important;
     }
 
+    &__active-language {
+        font-weight: $fw-400!important;
+    }
+
     &__close-icon{
         color: $c-main;
         cursor: pointer;
@@ -34,6 +38,7 @@
         @include flexDirection(row);
         @include justifyContent(space-between);
         align-items: center;
+        padding: 5px;
     }
 
     &__modes-wrapper{
@@ -41,7 +46,7 @@
         @include flexDirection(row);
         @include justifyContent(space-between);
         align-items: center;
-        min-width: 100px;
+        min-width: 110px;
     }
 
     &__theme-icon{
