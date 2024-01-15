@@ -1,7 +1,7 @@
 {
     "menuLinks": {
         "dashboard": "Panel",
-        "quiz": "Kartkówka",
+        "quiz": "Quiz",
         "instruction": "Instrukcja",
         "profile": "Profil"
     },

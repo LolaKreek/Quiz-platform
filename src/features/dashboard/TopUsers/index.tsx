@@ -3,8 +3,10 @@ import { get, query, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import { database } from "../../../services/Firebase/firebase";
 import GradeIcon from "@mui/icons-material/Grade";
+import { useTranslation } from "react-i18next";
 
 const TopUsers = () => {
+  const { t } = useTranslation("main");
   const [data, setData] = useState<any>(null);
   useEffect(() => {
     get(query(ref(database, "student"))).then((snapshot) => {
@@ -19,7 +21,7 @@ const TopUsers = () => {
   }, []);
   return (
     <Box className="top-users__root">
-      <Typography variant="h5">Top Users</Typography>
+      <Typography variant="h5"> {t('topUsers')}</Typography>
       {data &&
         data.map((user: any, index: number) => (
           <Box className="top-users__item">

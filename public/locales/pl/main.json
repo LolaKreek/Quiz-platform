@@ -27,10 +27,11 @@
   "menuAllItems": {
     "instructions": {
       "title": "Tytuł",
-      "faculty": "FaWydziałulty",
+      "faculty": "Wydział",
       "subject": "Przedmiot",
       "date": "Data",
-      "authorName": "Author",
+      "download": "Pobrać",
+      "authorName": "Autor",
       "empty": ""
     },
     "quiz": {
@@ -39,12 +40,20 @@
       "subject": "Przedmiot",
       "date": "Data",
       "questions": "Pytania",
-      "authorName": "Author",
+      "authorName": "Autor",
       "elapsed": "Czas trwania"
     }
   },
   "deleteFileActionHeader": "Akcja usuń plik",
   "deleteFileActionMessage": "Plik został pomyślnie usunięty",
   "deleteQuizActionHeader": "Akcja usuń quiz",
-  "deleteQuizActionMessage": "Quiz został pomyślnie usunięty"
+  "deleteQuizActionMessage": "Quiz został pomyślnie usunięty",
+  "topUsers" : "Top Uzytkowników", 
+  "studInstructionMenuLinks": {
+    "all": "Wszystkie"
+  },
+  "proInstructionMenuLinks": {
+    "all": "Moje dokumenty",
+    "theRemaining": "Pozostałe"
+  }
 }
