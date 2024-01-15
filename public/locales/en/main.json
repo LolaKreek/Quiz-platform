@@ -1,6 +1,9 @@
 {
   "profileSettingsTitle": "Page configurations",
   "themeTitle": "Theme mode",
+  "languageTitle": "Language",
+  "en": "English",
+  "pl": "Polski",
   "emptyPageTitle": "You don't have any data yet",
   "menuItems": {
     "instructions": {
