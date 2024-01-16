@@ -1,6 +1,9 @@
 {
   "profileSettingsTitle": "Konfiguracje strony",
   "themeTitle": "Tryb strony",
+  "languageTitle": "Język",
+  "en": "English",
+  "pl": "Polski",
   "emptyPageTitle": "Nie masz jeszcze żadnych danych",
   "menuItems": {
     "instructions": {
