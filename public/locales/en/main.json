@@ -40,6 +40,16 @@
       "elapsed": "Elapsed time"
     }
   },
+  "dashboardStatistics": {
+    "stats": "Statistics",
+    "professor": {
+      "quizesCreated": "Quizes created",
+      "instructionsCreated": "Instructions created"
+    },
+    "student": {
+      "quizesCompleted": "Quizes completed"
+    }
+  },
   "deleteFileActionHeader": "Delete file Action",
   "deleteFileActionMessage": "The file was successfully deleted",
   "deleteQuizActionHeader": "Delete quiz Action",
