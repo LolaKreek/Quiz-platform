@@ -18,13 +18,13 @@
       "questions": "Pytania",
       "authorName": "Autor",
       "elapsed": "Czas",
-      "completed": "Zakonczone"
+      "completed": "Zakończone"
     }
   },
   "menuAllItems": {
     "instructions": {
       "title": "Tytuł",
-      "faculty": "FaWydziałulty",
+      "faculty": "Wydział",
       "subject": "Przedmiot",
       "date": "Data",
       "authorName": "Author",
@@ -38,6 +38,18 @@
       "questions": "Pytania",
       "authorName": "Author",
       "elapsed": "Czas trwania"
+    }
+  },
+  "dashboardStatistics": {
+    "stats": "Statystyki",
+    "activity": "Aktywność",
+    "professor": {
+      "quizesCreated": "Quizy utworzone",
+      "instructionsCreated": "Instrukcje utworzone"
+    },
+    "student": {
+      "quizesCompleted": "Quizy ukończone",
+      "ranking": "Ranking"
     }
   },
   "deleteFileActionHeader": "Akcja usuń plik",

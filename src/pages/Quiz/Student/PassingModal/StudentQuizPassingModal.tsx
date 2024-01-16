@@ -21,6 +21,7 @@ import StudentQuizPassingWelcome from "./StudentQuizPassingWelcome";
 import StudentQuizPassingFinish from "./StudentQuizPassingFinish";
 import StudentQuizPassingFinal from "./StudentQuizPassingFinal";
 import emailjs from 'emailjs-com';
+import moment from "moment";
 
 const StudentQuizPassingModal = ({
   quiz,
@@ -199,7 +200,7 @@ const StudentQuizPassingModal = ({
           {
             //@ts-ignore
             quiz: quiz.id,
-            date: new Date().toLocaleDateString(),
+            date: moment().format('L'),
             elapsed: quiz.timer ? elapsed : null,
           }
         );

@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import AppTable, { action } from "../../../components/AppTable";
 import AppTopMenu from "../../../components/AppTopMenu";
-import { studentMenuLinks } from "../constants";
+import { useQuizMenuLinks } from "../constants";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { useEffect, useState } from "react";
 import { child, get, ref } from "firebase/database";
@@ -11,8 +11,14 @@ import { quizDataType } from "../../../services/quiz/tyles";
 import StudentQuizPassingModal from "./PassingModal/StudentQuizPassingModal";
 import IssueDialog from "../../../components/IssueDialog/IssueDialog";
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
+import { useTranslation } from "react-i18next";
+
 
 const StudentQuizAll = () => {
+  const { studentMenuLinks } = useQuizMenuLinks();
+  const { t } = useTranslation("quiz");
+  
+
   const { studQuizAllHeaders } = useTableData();
 
   const [data, setData] = useState(null);
@@ -62,7 +68,7 @@ const StudentQuizAll = () => {
         setIssueDialogOpen(false);
       },
       icon: <PlayArrowIcon />,
-      title: "Start",
+      title: t('start'),
     },
     {
       //@ts-ignore
@@ -73,7 +79,7 @@ const StudentQuizAll = () => {
         setIssueDialogOpen(true);
       },
       icon: <ReportGmailerrorredIcon />,
-      title: "Report an issue",
+      title: t('reportAnIssue'),
     },
   ];
 

@@ -3,6 +3,7 @@ import { auth, database, storage } from "../Firebase/firebase";
 import { quizDataType } from "./tyles";
 import { uploadBytes } from "firebase/storage";
 import { ref as storageRef } from "firebase/storage";
+import moment from "moment";
 
 export const writeQuizData = async ({
   title,
@@ -15,17 +16,34 @@ export const writeQuizData = async ({
 }: quizDataType) => {
   const id = editingId ? editingId : Date.now();
   questions.map((question) => {
-    if (question.picture) {
+    if (question.picture && typeof question.picture !== "string") {
       // @ts-ignore
-      uploadBytes(storageRef(storage, `pictures/${question["id"]}`), question.picture);
+      uploadBytes(storageRef(storage, `pictures/${question["id"]}`),question.picture);
       // @ts-ignore
-      question.picture = true;
+      question.picture = question.picture.name;
+    } else {
     }
-  });
 
+    Object.entries(question.answers).map(([key, value]) => {
+      // @ts-ignore
+      if (value.picture) {
+        // @ts-ignore
+        if (typeof value.picture !== "string") {
+          // @ts-ignore
+          uploadBytes(storageRef(storage, `pictures/${question["id"]}_${key}`),value.picture);
+          // @ts-ignore
+          question.answers[key].picture = value.picture.name;
+        } else {
+          // @ts-ignore
+          question.answers[key].picture = value.picture;
+        }
+      }
+    });
+  });
+  
   return set(ref(database, "quiz/" + id), {
     id: id,
-    date: new Date().toLocaleDateString(),
+    date: moment().format('L'),
     title: title,
     faculty: faculty,
     subject: subject,

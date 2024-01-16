@@ -12,6 +12,7 @@ import { Container, Draggable } from "@edorivai/react-smooth-dnd";
 import { arrayMoveImmutable } from "array-move";
 import { question } from "../../../services/quiz/tyles";
 import { AppButton } from "../../../components/AppButton";
+import { AppLoader } from "../../../components/AppLoader";
 
 const DragNDropQuestion = ({
   question,
@@ -22,14 +23,28 @@ const DragNDropQuestion = ({
   submit: any;
   index: number;
 }) => {
+
+  const [loadingImages, setLoadingImages] = useState<{[key: string]: boolean}>({
+    first: false,
+    second: false,
+    third: false,
+    fourth: false,
+    title: false,
+  })
+
   useEffect(() => {
+    setLoadingImages((prev) => ({ ...prev, title: !!question.picture }))
     setRandomized(
       Object.entries(question.answers)
         .map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
-        .map(({ value }) => value)
+        .map(({ value }) => {
+          setLoadingImages((prev) => ({ ...prev, [value[0]]: !!value[1].picture }))
+          return value
+        })
     );
   }, [question]);
+
 
   const [randomized, setRandomized] = useState<any>(null);
 
@@ -52,7 +67,8 @@ const DragNDropQuestion = ({
       <Typography variant="h5" className="quiz-passing__single-question-title">
         {question.title}
       </Typography>
-      {question.picture && <img className="quiz-passing__picture" src={`https://firebasestorage.googleapis.com/v0/b/pracadyplomowa-8a45f.appspot.com/o/pictures%2F${question.id}?alt=media`}></img>}
+      <AppLoader show={loadingImages.title}/>
+      {question.picture && <img className="quiz-passing__picture" onLoad={() => setLoadingImages((prev) => ({ ...prev, title: false }))} src={`https://firebasestorage.googleapis.com/v0/b/pracadyplomowa-8a45f.appspot.com/o/pictures%2F${question.id}?alt=media`}></img>}
       <Typography className="add-questions-modal__quiz-title label">
         <i className="symbol">*&nbsp;</i> Arrange the elements in the correct
         order
@@ -69,9 +85,14 @@ const DragNDropQuestion = ({
               // @ts-ignore
               <Draggable key={id}>
                 <ListItem style={{ padding: "8px 0px" }}>
-                  <Typography className="quiz-passing__dnd-question-answer">
+                  <Box className="quiz-passing__single-question-answer quiz-passing__answer quiz-passing__answer-drag">
+                  {randomized[id][1].picture ? <>
+                    <AppLoader show={loadingImages[randomized[id][0]]}/>
+                    <img onLoad={() => setLoadingImages((prev) => ({ ...prev, [randomized[id][0]]: false }))} src={`https://firebasestorage.googleapis.com/v0/b/pracadyplomowa-8a45f.appspot.com/o/pictures%2F${question.id}_${randomized[id][0]}?alt=media`}/>
+                  </> : <Typography>
                     {randomized[id][1].text}
-                  </Typography>
+                  </Typography>}
+                  </Box>
                   <ListItemSecondaryAction className="">
                     <ListItemIcon className="drag-handle _add-quiz-question__secondary">
                       <DragHandleIcon

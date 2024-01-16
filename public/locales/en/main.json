@@ -1,6 +1,9 @@
 {
   "profileSettingsTitle": "Page configurations",
   "themeTitle": "Theme mode",
+  "languageTitle": "Language",
+  "en": "English",
+  "pl": "Polski",
   "emptyPageTitle": "You don't have any data yet",
   "menuItems": {
     "instructions": {
@@ -27,6 +30,7 @@
       "faculty": "Faculty",
       "subject": "Subject",
       "date": "Date",
+      "download": "Download",
       "authorName": "Author",
       "empty": ""
     },
@@ -40,8 +44,28 @@
       "elapsed": "Elapsed time"
     }
   },
+  "dashboardStatistics": {
+    "stats": "Statistics",
+    "activity": "Activity",
+    "professor": {
+      "quizesCreated": "Quizes created",
+      "instructionsCreated": "Instructions created"
+    },
+    "student": {
+      "quizesCompleted": "Quizes completed",
+      "ranking": "Ranking"
+    }
+  },
   "deleteFileActionHeader": "Delete file Action",
   "deleteFileActionMessage": "The file was successfully deleted",
   "deleteQuizActionHeader": "Delete quiz Action",
-  "deleteQuizActionMessage": "The quiz was successfully deleted"
+  "deleteQuizActionMessage": "The quiz was successfully deleted",
+  "topUsers" : "Top Users",
+  "studInstructionMenuLinks": {
+    "all": "All"
+  },
+  "proInstructionMenuLinks": {
+    "all": "My documents",
+    "theRemaining": "The remaining"
+  }
 }

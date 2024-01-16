@@ -1,9 +1,9 @@
 {
-  "title": "Quiz",
-  "addNewQuizBtn": "Dodaj Quiz",
-  "addModalTitle": "Dodaj nowy quiz",
-  "editModalTitle": "Edytuj quiz",
-  "addQuizTitle": "Nazwa Quizu",
+  "title": "Test",
+  "addNewQuizBtn": "Dodaj Test",
+  "addModalTitle": "Dodaj nowy test",
+  "editModalTitle": "Edytuj test",
+  "addQuizTitle": "Nazwa Testu",
   "addQuizFaculty": "Wybierz wydział",
   "addQuizFacultyPlaceholder": "Wydziały",
   "addQuizCourse": "Wybierz przedmiot",
@@ -38,11 +38,24 @@
   "studentCongratulations": "Gratulacje!",
   "studentScored": "Twoje punkty",
   "studentQuizAnswers": "Odpowiedzi quizu",
+  "studentTimerEnabled": "Ten test jest ograniczony czasowo! Masz 30 minut na udzielenie odpowiedzi na wszystkie pytania! Jeśli czas upłynie zanim odpowiesz na pytania, platforma platforma uzna pytania, na które nie udzielono odpowiedzi, za nieprawidłowe. Odliczanie rozpocznie się po naciśnięciu przycisku przycisku START i przejściu do rozwiązywania pierwszego pytania.",
+  "studentAnswersEnabled": "Po ukończeniu tego testu będziesz mógł zobaczyć prawidłowe odpowiedzi!",
   "quit": "Zamknij",
   "done": "Gotowe",
   "back": "Cofnij",
   "selectDefaultValue": "Wybierz wydział, aby wybrać przedmiot",
   "welcome": "Powitanie",
   "reportTitle": "Zgłoś problem",
-  "submit": "Zatwierdź"
+  "submit": "Zatwierdź",
+  "start":  "Start",
+  "reportAnIssue": "Zgłosić problem",
+  "studentMenuLinks": {
+    "all": "Wszystkie",
+    "history": "Historia",
+    "results": "Wyniki"
+  },
+  "menuLinks": {
+    "all": "Moje quizy",
+    "theRemaining": "Pozostałe"
+  }
 }

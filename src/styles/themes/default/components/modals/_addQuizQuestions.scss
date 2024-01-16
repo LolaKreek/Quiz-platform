@@ -5,12 +5,20 @@
 
   &__single {
     display: grid;
+    grid-template-columns: 10fr 1fr 10fr 1fr;
+    gap: 8px;
+  }
+
+  &__dnd-container {
+    display: flex;
+    width: 100%;
+    margin-right: 58px;
     gap: 8px;
   }
 
   &__multiple {
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 5fr 1fr 1fr 5fr 1fr;
     gap: 8px;
   }
 
