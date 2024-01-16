@@ -56,8 +56,8 @@
   },
   "deleteFileActionHeader": "Akcja usuń plik",
   "deleteFileActionMessage": "Plik został pomyślnie usunięty",
-  "deleteQuizActionHeader": "Akcja usuń quiz",
-  "deleteQuizActionMessage": "Quiz został pomyślnie usunięty",
+  "deleteQuizActionHeader": "Akcja usuń test",
+  "deleteQuizActionMessage": "Test został pomyślnie usunięty",
   "topUsers" : "Top Uzytkowników", 
   "studInstructionMenuLinks": {
     "all": "Wszystkie"

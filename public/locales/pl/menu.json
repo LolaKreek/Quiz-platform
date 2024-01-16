@@ -1,8 +1,8 @@
 {
     "menuLinks": {
         "dashboard": "Panel",
-        "quiz": "Quiz",
-        "instruction": "Instrukcja",
+        "quiz": "Test",
+        "instruction": "Materiały",
         "profile": "Profil"
     },
     "quiz": "<span>Q</span>uiz",
