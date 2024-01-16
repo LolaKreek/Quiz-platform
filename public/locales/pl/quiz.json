@@ -46,5 +46,16 @@
   "selectDefaultValue": "Wybierz wydział, aby wybrać przedmiot",
   "welcome": "Powitanie",
   "reportTitle": "Zgłoś problem",
-  "submit": "Zatwierdź"
+  "submit": "Zatwierdź",
+  "start":  "Start",
+  "reportAnIssue": "Zgłosić problem",
+  "studentMenuLinks": {
+    "all": "Wszystkie",
+    "history": "Historia",
+    "results": "Wyniki"
+  },
+  "menuLinks": {
+    "all": "Moje quizy",
+    "theRemaining": "Pozostałe"
+  }
 }

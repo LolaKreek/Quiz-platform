@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import AppTopMenu from "../../components/AppTopMenu";
-import { studInstructionMenuLinks, useTableData } from "./constants";
+import { useTableData } from "./constants";
 import { Box } from "@mui/material";
 import AppTable, { action } from "../../components/AppTable";
 import EmptyTable from "../../components/EmptyTable";
@@ -9,10 +9,12 @@ import { useSelector } from "react-redux";
 import DownloadIcon from "@mui/icons-material/Download";
 import { getDownloadURL, ref } from "firebase/storage";
 import { storage } from "../../services/Firebase/firebase";
+import { useTranslation } from "react-i18next";
 
 const StudentAllInstruction = () => {
+  const { t } = useTranslation("main");
   const [data, setData] = useState([]);
-  const { instructionAllHeaders } = useTableData();
+  const { instructionAllHeaders, studInstructionMenuLinks } = useTableData();
 
   //@ts-ignore
   const user = useSelector((state) => state.auth.user.id);
@@ -36,7 +38,7 @@ const StudentAllInstruction = () => {
 
   const actions: action[] = [
     {
-      title: "Download",
+      title: t('menuAllItems.instructions.download'),
       action: handleDownload,
       icon: <DownloadIcon />,
     },

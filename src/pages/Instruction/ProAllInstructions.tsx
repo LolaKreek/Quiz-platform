@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import AppTopMenu from "../../components/AppTopMenu";
-import { menuLinks, useTableData } from "./constants";
+import { useTableData } from "./constants";
 import { Box } from "@mui/material";
 import AppTable, { action } from "../../components/AppTable";
 import EmptyTable from "../../components/EmptyTable";
@@ -11,6 +11,7 @@ import { getDownloadURL, ref } from "firebase/storage";
 import { storage } from "../../services/Firebase/firebase";
 
 const ProAllInstruction = () => {
+    const { menuLinks } = useTableData();
     const [data, setData] = useState([]);
     const { instructionAllHeaders } = useTableData();
 
