@@ -44,6 +44,16 @@
       "elapsed": "Czas trwania"
     }
   },
+  "dashboardStatistics": {
+    "stats": "Statystyki",
+    "professor": {
+      "quizesCreated": "Quizy utworzone",
+      "instructionsCreated": "Instrukcje utworzone"
+    },
+    "student": {
+      "quizesCompleted": "Quizy ukonczone"
+    }
+  },
   "deleteFileActionHeader": "Akcja usuń plik",
   "deleteFileActionMessage": "Plik został pomyślnie usunięty",
   "deleteQuizActionHeader": "Akcja usuń quiz",

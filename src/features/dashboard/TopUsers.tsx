@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { get, query, ref } from "firebase/database";
 import { useEffect, useState } from "react";
-import { database } from "../../../services/Firebase/firebase";
+import { database } from "../../services/Firebase/firebase";
 import GradeIcon from "@mui/icons-material/Grade";
 import { useTranslation } from "react-i18next";
 
