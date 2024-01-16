@@ -1,0 +1,12 @@
+.activity {
+    &__root {
+      display: flex;
+      flex-direction: column;
+      background-color: rgba(136, 137, 255, 0.3);
+      height: 100%;
+      padding: 8px;
+      border-radius: 16px;
+      align-items: center;
+    }
+  }
+  

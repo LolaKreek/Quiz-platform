@@ -46,12 +46,14 @@
   },
   "dashboardStatistics": {
     "stats": "Statistics",
+    "activity": "Activity",
     "professor": {
       "quizesCreated": "Quizes created",
       "instructionsCreated": "Instructions created"
     },
     "student": {
-      "quizesCompleted": "Quizes completed"
+      "quizesCompleted": "Quizes completed",
+      "ranking": "Ranking"
     }
   },
   "deleteFileActionHeader": "Delete file Action",

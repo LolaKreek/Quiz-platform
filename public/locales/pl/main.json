@@ -46,12 +46,14 @@
   },
   "dashboardStatistics": {
     "stats": "Statystyki",
+    "activity": "Aktywnosc",
     "professor": {
       "quizesCreated": "Quizy utworzone",
       "instructionsCreated": "Instrukcje utworzone"
     },
     "student": {
-      "quizesCompleted": "Quizy ukonczone"
+      "quizesCompleted": "Quizy ukonczone",
+      "ranking": "Ranking"
     }
   },
   "deleteFileActionHeader": "Akcja usuń plik",
