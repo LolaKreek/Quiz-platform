@@ -3,6 +3,7 @@ import { auth, database, storage } from "../Firebase/firebase";
 import { quizDataType } from "./tyles";
 import { uploadBytes } from "firebase/storage";
 import { ref as storageRef } from "firebase/storage";
+import moment from "moment";
 
 export const writeQuizData = async ({
   title,
@@ -39,10 +40,10 @@ export const writeQuizData = async ({
       }
     });
   });
-
+  
   return set(ref(database, "quiz/" + id), {
     id: id,
-    date: new Date().toLocaleDateString(),
+    date: moment().format('L'),
     title: title,
     faculty: faculty,
     subject: subject,

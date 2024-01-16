@@ -21,7 +21,7 @@ import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
 import emailjs from 'emailjs-com';
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
-
+import moment from "moment";
 
 const StudentQuizPassingModal = ({
   quiz,
@@ -158,7 +158,9 @@ const StudentQuizPassingModal = ({
         const reputation = Object.values(results).filter((value) => {
           return value === true;
         }).length;
+
         sendEmail(reputation)
+
         get(
           child(ref(database), `student/${auth.currentUser?.uid}/reputation`)
         ).then((snapshot) => {
@@ -195,7 +197,7 @@ const StudentQuizPassingModal = ({
           {
             //@ts-ignore
             quiz: quiz.id,
-            date: new Date().toLocaleDateString(),
+            date: moment().format('L'),
             elapsed: quiz.timer ? elapsed : null,
           }
         );
