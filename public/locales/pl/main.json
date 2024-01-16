@@ -1,9 +1,6 @@
 {
   "profileSettingsTitle": "Konfiguracje strony",
   "themeTitle": "Tryb strony",
-  "languageTitle": "Język",
-  "en": "English",
-  "pl": "Polski",
   "emptyPageTitle": "Nie masz jeszcze żadnych danych",
   "menuItems": {
     "instructions": {
@@ -21,7 +18,7 @@
       "questions": "Pytania",
       "authorName": "Autor",
       "elapsed": "Czas",
-      "completed": "Zakonczone"
+      "completed": "Zakończone"
     }
   },
   "menuAllItems": {
@@ -30,8 +27,7 @@
       "faculty": "Wydział",
       "subject": "Przedmiot",
       "date": "Data",
-      "download": "Pobrać",
-      "authorName": "Autor",
+      "authorName": "Author",
       "empty": ""
     },
     "quiz": {
@@ -40,32 +36,24 @@
       "subject": "Przedmiot",
       "date": "Data",
       "questions": "Pytania",
-      "authorName": "Autor",
+      "authorName": "Author",
       "elapsed": "Czas trwania"
     }
   },
   "dashboardStatistics": {
     "stats": "Statystyki",
-    "activity": "Aktywnosc",
+    "activity": "Aktywność",
     "professor": {
       "quizesCreated": "Quizy utworzone",
       "instructionsCreated": "Instrukcje utworzone"
     },
     "student": {
-      "quizesCompleted": "Quizy ukonczone",
+      "quizesCompleted": "Quizy ukończone",
       "ranking": "Ranking"
     }
   },
   "deleteFileActionHeader": "Akcja usuń plik",
   "deleteFileActionMessage": "Plik został pomyślnie usunięty",
-  "deleteQuizActionHeader": "Akcja usuń test",
-  "deleteQuizActionMessage": "Test został pomyślnie usunięty",
-  "topUsers" : "Top Uzytkowników", 
-  "studInstructionMenuLinks": {
-    "all": "Wszystkie"
-  },
-  "proInstructionMenuLinks": {
-    "all": "Moje dokumenty",
-    "theRemaining": "Pozostałe"
-  }
+  "deleteQuizActionHeader": "Akcja usuń quiz",
+  "deleteQuizActionMessage": "Quiz został pomyślnie usunięty"
 }
