@@ -12,7 +12,8 @@ import TopUsers from "../../features/dashboard/TopUsers";
 import ProStatistics from "../../features/dashboard/Professor/Statistics";
 import { QuizIcon } from "../../assets/icons";
 import StudStatistics from "../../features/dashboard/Student/Statistics";
-import Activity from "../../features/dashboard/Student/Activity";
+import StudActivity from "../../features/dashboard/Student/Activity";
+import ProActivity from "../../features/dashboard/Professor/Activity";
 
 const DashboardPage = () => {
   const dispatch = useDispatch();
@@ -25,8 +26,8 @@ const DashboardPage = () => {
       "professor": <ProStatistics />
     },
     activity: {
-      "student": <Activity />,
-      "professor": <></>,
+      "student": <StudActivity />,
+      "professor": <ProActivity/>,
     }
   }
 
