@@ -31,6 +31,7 @@
       "faculty": "Wydział",
       "subject": "Przedmiot",
       "date": "Data",
+      "download": "Pobrać",
       "authorName": "Author",
       "empty": ""
     },
@@ -55,6 +56,9 @@
       "quizesCompleted": "Quizy ukończone",
       "ranking": "Ranking"
     }
+  },
+  "studInstructionMenuLinks": {
+    "all": "Wszystkie"
   },
   "proInstructionMenuLinks": {
     "all": "Moje dokumenty",
