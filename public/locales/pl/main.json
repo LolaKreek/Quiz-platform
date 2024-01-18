@@ -56,6 +56,10 @@
       "ranking": "Ranking"
     }
   },
+  "proInstructionMenuLinks": {
+    "all": "Moje dokumenty",
+    "theRemaining": "Pozostałe"
+  },
   "deleteFileActionHeader": "Akcja usuń plik",
   "deleteFileActionMessage": "Plik został pomyślnie usunięty",
   "deleteQuizActionHeader": "Akcja usuń quiz",
