@@ -43,7 +43,7 @@ export const writeQuizData = async ({
   
   return set(ref(database, "quiz/" + id), {
     id: id,
-    date: moment().format('L'),
+    date: moment().format('DD/MM/YYYY'),
     title: title,
     faculty: faculty,
     subject: subject,
