@@ -3,9 +3,14 @@
     padding: 8px 0px;
   }
 
+  &__inputs-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   &__single {
     display: grid;
-    grid-template-columns: 10fr 1fr 10fr 1fr;
     gap: 8px;
   }
 
@@ -18,7 +23,7 @@
 
   &__multiple {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr 1fr 5fr 1fr;
+    // grid-template-columns: 1fr 5fr 1fr 1fr 5fr 1fr;
     gap: 8px;
   }
 
@@ -28,7 +33,7 @@
   }
 
   &__input {
-    width: 100%;
+    flex-basis: 90%;
     fieldset {
       border-color: $c-main;
     }
@@ -44,4 +49,8 @@
     width: 100%;
     padding: 8px 0px;
   }
+}
+
+.multiple-input{
+  flex-basis: 80%;
 }
