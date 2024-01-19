@@ -1,3 +1,5 @@
+import { quizDataType } from "../../services/quiz/tyles";
+
 // Define a type for the slice state
 export type UserType = {
   id: string;
@@ -29,3 +31,16 @@ export type NotificationState = {
 export type ThemeState = {
   theme: string;
 };
+
+export type FavoritesState = {
+  users: FavoriteUserType[],
+  subjects: string[],
+  quizes: string[],
+};
+
+export type FavoriteUserType = {
+  name: string,
+  email: string,
+  id: string,
+  picture: string
+}

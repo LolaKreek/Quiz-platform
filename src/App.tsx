@@ -18,6 +18,7 @@ import { auth, database } from "./services/Firebase/firebase";
 import { onValue, ref } from "firebase/database";
 import { authLogout, updateUser } from "./store/Slices/auth";
 import Protected from "./routes/Protected";
+import { setFavorites } from "./store/Slices/favorites";
 
 function App() {
   // const userId = useAppSelector(state => state.auth.user.id)
@@ -41,6 +42,7 @@ function App() {
             role: data.role ? data.role : "none",
           };
           dispatch(updateUser({ user: userData }));
+          dispatch(setFavorites({ value: data.favorites }));
         });
       } else {
         dispatch(authLogout());

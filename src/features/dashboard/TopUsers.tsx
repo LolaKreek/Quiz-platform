@@ -5,22 +5,28 @@ import { database } from "../../services/Firebase/firebase";
 import GradeIcon from "@mui/icons-material/Grade";
 
 const TopUsers = () => {
+
   const [data, setData] = useState<any>(null);
+  const [userData, setUserData] = useState<any>(null)
+
   useEffect(() => {
     get(query(ref(database, "student"))).then((snapshot) => {
       setData(
-        Object.values(snapshot.val())
+        Object.entries(snapshot.val())
           .sort((a: any, b: any) => {
-            return b.reputation - a.reputation;
+            return b[1].reputation - a[1].reputation;
           })
           .slice(0, 10)
       );
+    });
+    get(query(ref(database, "users"))).then((snapshot) => {
+      setUserData(snapshot.val());
     });
   }, []);
   return (
     <Box className="top-users__root">
       <Typography variant="h5">Top Users</Typography>
-      {data &&
+      {data && userData &&
         data.map((user: any, index: number) => (
           <Box className="top-users__item">
             <Box className="top-users__place">
@@ -38,11 +44,11 @@ const TopUsers = () => {
               </Typography>
             </Box>
             <Box className="top-users__info">
-              <Typography>{user.info.name}</Typography>
-              <Typography>{user.info.email}</Typography>
+              <Typography>{userData[user[0]].name}</Typography>
+              <Typography>{userData[user[0]].email}</Typography>
             </Box>
             <Box className="top-users__reputation">
-              <Typography variant="h5">{user.reputation}</Typography>
+              <Typography variant="h5">{user[1].reputation}</Typography>
             </Box>
           </Box>
         ))}

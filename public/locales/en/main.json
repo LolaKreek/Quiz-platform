@@ -55,5 +55,8 @@
   "deleteFileActionHeader": "Delete file Action",
   "deleteFileActionMessage": "The file was successfully deleted",
   "deleteQuizActionHeader": "Delete quiz Action",
-  "deleteQuizActionMessage": "The quiz was successfully deleted"
+  "deleteQuizActionMessage": "The quiz was successfully deleted",
+  "favoriteQuiz": "Quiz has been added to your favorite quiz list",
+  "favoriteQuizHeader": "Favorite action",
+  "removefavoriteQuiz": "Quiz has been removed from your favorite quiz list"
 }
