@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import AppTable from "../../../components/AppTable";
 import AppTopMenu from "../../../components/AppTopMenu";
+import { useQuizMenuLinks } from "../constants";
 import { useEffect, useState } from "react";
 import { child, get, ref } from "firebase/database";
 import { useTableData } from "../../Instruction/constants";
@@ -14,7 +15,6 @@ import { removeFavorite } from "../../../store/Slices/favorites";
 import toast from "react-hot-toast";
 import Notification from "../../../components/Notification";
 import { useTranslation } from "react-i18next";
-import { useQuizMenuLinks } from "../constants";
 
 const StudentQuizFavorites = () => {
   const user = useSelector((state: RootState) => state.auth.user);
