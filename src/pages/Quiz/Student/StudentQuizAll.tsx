@@ -13,10 +13,10 @@ import IssueDialog from "../../../components/IssueDialog/IssueDialog";
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useDispatch } from "react-redux";
-import { addFavorite } from "../../../store/Slices/favorites";
 import toast from "react-hot-toast";
 import Notification from "../../../components/Notification";
 import { useTranslation } from "react-i18next";
+import { addFavorite } from "../../../store/Slices/favorites";
 
 const StudentQuizAll = () => {
   const { studentMenuLinks } = useQuizMenuLinks();

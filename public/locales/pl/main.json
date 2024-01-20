@@ -67,5 +67,6 @@
   "deleteFileActionHeader": "Akcja usuń plik",
   "deleteFileActionMessage": "Plik został pomyślnie usunięty",
   "deleteQuizActionHeader": "Akcja usuń quiz",
-  "deleteQuizActionMessage": "Quiz został pomyślnie usunięty"
+  "deleteQuizActionMessage": "Quiz został pomyślnie usunięty",
+  "reportAnIssue": "Zgłosić problem"
 }
