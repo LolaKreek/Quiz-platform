@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import AppTable, { action } from "../../../components/AppTable";
 import AppTopMenu from "../../../components/AppTopMenu";
-import { useQuizMenuLinks } from "../constants";
+import { studentMenuLinks } from "../constants";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { useEffect, useState } from "react";
 import { child, get, ref } from "firebase/database";
@@ -19,7 +19,6 @@ import { useTranslation } from "react-i18next";
 import { addFavorite } from "../../../store/Slices/favorites";
 
 const StudentQuizAll = () => {
-  const { studentMenuLinks } = useQuizMenuLinks();
   const { t } = useTranslation("main");
   
 

@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import AppTable from "../../../components/AppTable";
 import AppTopMenu from "../../../components/AppTopMenu";
-import { useQuizMenuLinks } from "../constants";
+import { studentMenuLinks } from "../constants";
 import { useEffect, useState } from "react";
 import { child, get, ref } from "firebase/database";
 import { useTableData } from "../../Instruction/constants";
@@ -21,7 +21,7 @@ const StudentQuizFavorites = () => {
   const { studQuizFavoritesHeaders } = useTableData();
   const [data, setData] = useState(null);
   const dispatch = useDispatch(); 
-  const {studentMenuLinks} = useQuizMenuLinks()
+  // const {studentMenuLinks} = useQuizMenuLinks()
  
   const { t } = useTranslation("main")
 
