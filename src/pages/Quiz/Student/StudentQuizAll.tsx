@@ -11,8 +11,12 @@ import { quizDataType } from "../../../services/quiz/tyles";
 import StudentQuizPassingModal from "./PassingModal/StudentQuizPassingModal";
 import IssueDialog from "../../../components/IssueDialog/IssueDialog";
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useDispatch } from "react-redux";
+import { addFavorite } from "../../../store/Slices/favorites";
+import toast from "react-hot-toast";
+import Notification from "../../../components/Notification";
 import { useTranslation } from "react-i18next";
-
 
 const StudentQuizAll = () => {
   const { studentMenuLinks } = useQuizMenuLinks();
@@ -26,11 +30,14 @@ const StudentQuizAll = () => {
     null
   );
 
+  const dispatch = useDispatch();
+
   const [quizPassing, setQuizPassing] = useState(false);
   const [selectedQuiz, setSelectedQuiz] = useState<quizDataType | null>(null);
 
   const [isIssueDialogOpen, setIssueDialogOpen] = useState(false);
   
+  const { t } = useTranslation("main");
 
   const getQuizes = () => {
     const dbRef = ref(database);
@@ -63,13 +70,23 @@ const StudentQuizAll = () => {
       //@ts-ignore
       action: (id) => {
         //@ts-ignore
-        setSelectedQuiz(quizes?.[id]);
-        setQuizPassing(true);
-        setIssueDialogOpen(false);
+        dispatch(addFavorite({value: id, type: "quizes"}))
+        toast.custom(
+          (element) => (
+            <Notification
+              header={t("favoriteQuizHeader")}
+              message={t("favoriteQuiz")}
+              element={element}
+              type={"info"}
+            />
+          ),
+          { position: "bottom-center" }
+        );
       },
-      icon: <PlayArrowIcon />,
-      title: t('start'),
+      icon: <FavoriteIcon />,
+      title: "Favorite",
     },
+    
     {
       //@ts-ignore
       action: (id) => {
@@ -80,6 +97,28 @@ const StudentQuizAll = () => {
       },
       icon: <ReportGmailerrorredIcon />,
       title: t('reportAnIssue'),
+    },
+    {
+      //@ts-ignore
+      action: (id) => {
+        //@ts-ignore
+        setSelectedQuiz(quizes?.[id]);
+        setQuizPassing(true);
+        setIssueDialogOpen(false);
+      },
+      icon: <PlayArrowIcon />,
+      title: "Start",
+    },
+    {
+      //@ts-ignore
+      action: (id) => {
+        //@ts-ignore
+        setSelectedQuiz(quizes?.[id]);
+        setQuizPassing(true);
+        setIssueDialogOpen(false);
+      },
+      icon: <PlayArrowIcon />,
+      title: "Start",
     },
   ];
 
