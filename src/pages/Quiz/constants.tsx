@@ -14,8 +14,8 @@ export const menuLinks = [
 ];
 
 export const studentMenuLinks = [
-  { value: "all", title: "All", path: STUDENT_ALL_QUIZ_PAGE },
-  { value: "history", title: "History", path: STUDENT_HISTORY_QUIZ_PAGE },
-  { value: "results", title: "Results", path: STUDENT_RESULTS_QUIZ_PAGE },
-  { value: "favorites", title: "Favorites", path: STUDENT_FAVORITES_QUIZ_PAGE },
+  { value: "all", title: "Wszystkie", path: STUDENT_ALL_QUIZ_PAGE },
+  { value: "history", title: "Historia", path: STUDENT_HISTORY_QUIZ_PAGE },
+  { value: "results", title: "Wyniki", path: STUDENT_RESULTS_QUIZ_PAGE },
+  { value: "favorites", title: "Ulubione", path: STUDENT_FAVORITES_QUIZ_PAGE },
 ];
