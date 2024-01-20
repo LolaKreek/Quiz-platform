@@ -29,3 +29,16 @@ export type NotificationState = {
 export type ThemeState = {
   theme: string;
 };
+
+export type FavoritesState = {
+  users: FavoriteUserType[],
+  subjects: string[],
+  quizes: string[],
+};
+
+export type FavoriteUserType = {
+  name: string,
+  email: string,
+  id: string,
+  picture: string
+}
