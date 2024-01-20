@@ -20,7 +20,7 @@ import { useTranslation } from "react-i18next";
 
 const StudentQuizAll = () => {
   const { studentMenuLinks } = useQuizMenuLinks();
-  const { t } = useTranslation("quiz");
+  const { t } = useTranslation("main");
   
 
   const { studQuizAllHeaders } = useTableData();
@@ -36,8 +36,6 @@ const StudentQuizAll = () => {
   const [selectedQuiz, setSelectedQuiz] = useState<quizDataType | null>(null);
 
   const [isIssueDialogOpen, setIssueDialogOpen] = useState(false);
-  
-  const { t } = useTranslation("main");
 
   const getQuizes = () => {
     const dbRef = ref(database);
@@ -86,7 +84,17 @@ const StudentQuizAll = () => {
       icon: <FavoriteIcon />,
       title: "Favorite",
     },
-    
+    {
+      //@ts-ignore
+      action: (id) => {
+        //@ts-ignore
+        setSelectedQuiz(quizes?.[id]);
+        setQuizPassing(true);
+        setIssueDialogOpen(false);
+      },
+      icon: <PlayArrowIcon />,
+      title: t('start'),
+    },
     {
       //@ts-ignore
       action: (id) => {
@@ -97,28 +105,6 @@ const StudentQuizAll = () => {
       },
       icon: <ReportGmailerrorredIcon />,
       title: t('reportAnIssue'),
-    },
-    {
-      //@ts-ignore
-      action: (id) => {
-        //@ts-ignore
-        setSelectedQuiz(quizes?.[id]);
-        setQuizPassing(true);
-        setIssueDialogOpen(false);
-      },
-      icon: <PlayArrowIcon />,
-      title: "Start",
-    },
-    {
-      //@ts-ignore
-      action: (id) => {
-        //@ts-ignore
-        setSelectedQuiz(quizes?.[id]);
-        setQuizPassing(true);
-        setIssueDialogOpen(false);
-      },
-      icon: <PlayArrowIcon />,
-      title: "Start",
     },
   ];
 

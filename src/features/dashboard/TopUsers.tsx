@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 
 const TopUsers = () => {
   const { t } = useTranslation("main");
+
   const [data, setData] = useState<any>(null);
   const [userData, setUserData] = useState<any>(null)
 
