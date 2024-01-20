@@ -6,6 +6,15 @@ import {
 } from "../../routes/pathnames";
 import { useTranslation } from "react-i18next";
 
+export const menuLinks = [
+  { value: "custom", title: "My documents", path: PROFESSOR_INSTRUCTION_PAGE },
+  { value: "all", title: "The remaining", path: PROFESSOR_ALL_INSTRUCTION_PAGE },
+];
+
+export const studInstructionMenuLinks = [
+  { value: "all", title: "All", path: STUDENT_ALL_INSTRUCTION_PAGE },
+];
+
 const instructionHeadersPlaceholder = [
   { value: "title", title: "Title" },
   { value: "faculty", title: "All" },
@@ -60,6 +69,14 @@ const studQuizHistoryHeadersPlaceholder = [
   { value: "completed", title: "Completed" },
 ];
 
+const studQuizFavoritesHeadersPlaceholder = [
+  { value: "title", title: "Title" },
+  { value: "faculty", title: "All" },
+  { value: "subject", title: "All" },
+  { value: "questions", title: "Questions" },
+  { value: "authorName", title: "Author" },
+];
+
 const studQuizResultsHeadersPlaceholder = [
   { value: "title", title: "Title" },
   { value: "faculty", title: "All" },
@@ -72,15 +89,6 @@ const studQuizResultsHeadersPlaceholder = [
 
 export const useTableData = () => {
   const { t } = useTranslation("main");
-
-  const menuLinks = [
-    { value: "custom", title: t('proInstructionMenuLinks.all'), path: PROFESSOR_INSTRUCTION_PAGE },
-    { value: "all", title: t('proInstructionMenuLinks.theRemaining'), path: PROFESSOR_ALL_INSTRUCTION_PAGE },
-  ];
-  
-  const studInstructionMenuLinks = [
-    { value: "all", title: t('studInstructionMenuLinks.all'), path: STUDENT_ALL_INSTRUCTION_PAGE },
-  ];
 
   const instructionHeaders = useMemo(() => {
     return instructionHeadersPlaceholder.map((i) => ({
@@ -124,6 +132,13 @@ export const useTableData = () => {
     }));
   }, [t]);
 
+  const studQuizFavoritesHeaders = useMemo(() => {
+    return studQuizFavoritesHeadersPlaceholder.map((i) => ({
+      ...i,
+      title: t(`menuItems.quiz.${i.value}`),
+    }));
+  }, [t]);
+
   const studQuizResultsHeaders = useMemo(() => {
     return studQuizResultsHeadersPlaceholder.map((i) => ({
       ...i,
@@ -132,8 +147,6 @@ export const useTableData = () => {
   }, [t]);
 
   return {
-    menuLinks,
-    studInstructionMenuLinks,
     instructionHeaders,
     instructionAllHeaders,
     proQuizHeaders,
@@ -141,5 +154,6 @@ export const useTableData = () => {
     studQuizAllHeaders,
     studQuizHistoryHeaders,
     studQuizResultsHeaders,
+    studQuizFavoritesHeaders
   };
 };
