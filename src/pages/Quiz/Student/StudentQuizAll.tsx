@@ -11,12 +11,16 @@ import { quizDataType } from "../../../services/quiz/tyles";
 import StudentQuizPassingModal from "./PassingModal/StudentQuizPassingModal";
 import IssueDialog from "../../../components/IssueDialog/IssueDialog";
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useDispatch } from "react-redux";
+import { addFavorite } from "../../../store/Slices/favorites";
+import toast from "react-hot-toast";
+import Notification from "../../../components/Notification";
 import { useTranslation } from "react-i18next";
-
 
 const StudentQuizAll = () => {
   const { studentMenuLinks } = useQuizMenuLinks();
-  const { t } = useTranslation("quiz");
+  const { t } = useTranslation("main");
   
 
   const { studQuizAllHeaders } = useTableData();
@@ -26,11 +30,12 @@ const StudentQuizAll = () => {
     null
   );
 
+  const dispatch = useDispatch();
+
   const [quizPassing, setQuizPassing] = useState(false);
   const [selectedQuiz, setSelectedQuiz] = useState<quizDataType | null>(null);
 
   const [isIssueDialogOpen, setIssueDialogOpen] = useState(false);
-  
 
   const getQuizes = () => {
     const dbRef = ref(database);
@@ -59,6 +64,26 @@ const StudentQuizAll = () => {
   }, []);
 
   const actions: action[] = [
+    {
+      //@ts-ignore
+      action: (id) => {
+        //@ts-ignore
+        dispatch(addFavorite({value: id, type: "quizes"}))
+        toast.custom(
+          (element) => (
+            <Notification
+              header={t("favoriteQuizHeader")}
+              message={t("favoriteQuiz")}
+              element={element}
+              type={"info"}
+            />
+          ),
+          { position: "bottom-center" }
+        );
+      },
+      icon: <FavoriteIcon />,
+      title: "Favorite",
+    },
     {
       //@ts-ignore
       action: (id) => {

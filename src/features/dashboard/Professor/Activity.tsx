@@ -34,7 +34,6 @@ const ProActivity = () => {
                 Object.values(snapshot.val()).map((el: any) => {
                     if (el.author === user.id) {
                         stats[el.date] = stats[el.date] ? stats[el.date] + 1 : 1
-                        console.log(el.date)
                     }
                 })
                 Object.entries(stats).map(([key, value]) => {

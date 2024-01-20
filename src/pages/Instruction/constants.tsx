@@ -60,6 +60,14 @@ const studQuizHistoryHeadersPlaceholder = [
   { value: "completed", title: "Completed" },
 ];
 
+const studQuizFavoritesHeadersPlaceholder = [
+  { value: "title", title: "Title" },
+  { value: "faculty", title: "All" },
+  { value: "subject", title: "All" },
+  { value: "questions", title: "Questions" },
+  { value: "authorName", title: "Author" },
+];
+
 const studQuizResultsHeadersPlaceholder = [
   { value: "title", title: "Title" },
   { value: "faculty", title: "All" },
@@ -124,6 +132,13 @@ export const useTableData = () => {
     }));
   }, [t]);
 
+  const studQuizFavoritesHeaders = useMemo(() => {
+    return studQuizFavoritesHeadersPlaceholder.map((i) => ({
+      ...i,
+      title: t(`menuItems.quiz.${i.value}`),
+    }));
+  }, [t]);
+
   const studQuizResultsHeaders = useMemo(() => {
     return studQuizResultsHeadersPlaceholder.map((i) => ({
       ...i,
@@ -141,5 +156,6 @@ export const useTableData = () => {
     studQuizAllHeaders,
     studQuizHistoryHeaders,
     studQuizResultsHeaders,
+    studQuizFavoritesHeaders
   };
 };

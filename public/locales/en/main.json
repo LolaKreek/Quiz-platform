@@ -67,5 +67,8 @@
   "proInstructionMenuLinks": {
     "all": "My documents",
     "theRemaining": "The remaining"
-  }
+  },
+  "favoriteQuiz": "Quiz has been added to your favorite quiz list",
+  "favoriteQuizHeader": "Favorite action",
+  "removefavoriteQuiz": "Quiz has been removed from your favorite quiz list"
 }

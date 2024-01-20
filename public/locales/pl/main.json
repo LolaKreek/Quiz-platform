@@ -67,5 +67,8 @@
   "deleteFileActionHeader": "Akcja usuń plik",
   "deleteFileActionMessage": "Plik został pomyślnie usunięty",
   "deleteQuizActionHeader": "Akcja usuń quiz",
-  "deleteQuizActionMessage": "Quiz został pomyślnie usunięty"
+  "deleteQuizActionMessage": "Quiz został pomyślnie usunięty",
+  "favoriteQuiz": "Quiz jest dodany do listy ulubionych quizów",
+  "favoriteQuizHeader": "Akcja ulubionego quizu",
+  "removefavoriteQuiz": "Quiz jest usunięty z listy ulubionych quizów"
 }
