@@ -15,10 +15,12 @@ import {
   STUDENT_HISTORY_QUIZ_PAGE,
   STUDENT_RESULTS_QUIZ_PAGE,
   STUDENT_ALL_INSTRUCTION_PAGE,
+  STUDENT_FAVORITES_QUIZ_PAGE,
 } from "./pathnames";
 import StudentQuizHistory from "../pages/Quiz/Student/StudentQuizHistory";
 import StudentQuizResults from "../pages/Quiz/Student/StudentQuizResults";
 import StudentAllInstruction from "../pages/Instruction/StudentAllInstructions";
+import StudentQuizFavorites from "../pages/Quiz/Student/StudentQuizFavorites";
 
 const Dashboard = loadable(
   () => import("../features/auth/components/LoginForm")
@@ -79,6 +81,11 @@ export const appRoutes = [
   {
     path: STUDENT_RESULTS_QUIZ_PAGE,
     Component: StudentQuizResults,
+    role: "student",
+  },
+  {
+    path: STUDENT_FAVORITES_QUIZ_PAGE,
+    Component: StudentQuizFavorites,
     role: "student",
   },
 
