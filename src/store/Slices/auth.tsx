@@ -14,7 +14,7 @@ const initialState: AuthState = {
     email: "",
     emailVerified: false,
     isAnonymous: false,
-    phoneNumber: "",
+    phone: "",
     photoURL: "",
     role: "",
   },
@@ -46,7 +46,7 @@ export const authSlice = createSlice({
         email: "",
         emailVerified: false,
         isAnonymous: false,
-        phoneNumber: "",
+        phone: "",
         photoURL: "",
         role: "",
       };
@@ -61,6 +61,10 @@ export const authSlice = createSlice({
     },
     updateUser: (state, action: PayloadAction<{ user: UserType }>) => {
       state.user = action.payload.user;
+      get(ref(database, `users/${auth.currentUser?.uid}`)).then((snapshot) => {
+        console.log(action.payload.user)
+        set(ref(database, `users/${auth.currentUser?.uid}`), {...snapshot.val(), ...action.payload.user});
+      })
     },
   },
 });

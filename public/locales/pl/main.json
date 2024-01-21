@@ -23,6 +23,14 @@
       "authorName": "Autor",
       "elapsed": "Czas",
       "completed": "Zakończone"
+    },
+    "users" : {
+      "name": "Imie",
+      "email": "Email",
+      "phone": "Telefon",
+      "passed": "Ukonczone quizy",
+      "ranking": "Ranking",
+      "empty": ""
     }
   },
   "menuAllItems": {
@@ -43,6 +51,14 @@
       "questions": "Pytania",
       "authorName": "Author",
       "elapsed": "Czas trwania"
+    },
+    "users" : {
+      "name": "Imie",
+      "email": "Email",
+      "phone": "Telefon",
+      "passed": "Ukonczone quizy",
+      "ranking": "Ranking",
+      "empty": ""
     }
   },
   "dashboardStatistics": {

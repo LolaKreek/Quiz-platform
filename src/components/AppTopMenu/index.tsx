@@ -13,7 +13,7 @@ type menuItem = {
 type menuPropsType = {
     menuLinks: Array<menuItem>,
     current: string,
-    type: "instruction" | "quiz",
+    type: "instruction" | "quiz" | "users",
     handleAction?: any,
 }
 

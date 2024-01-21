@@ -48,6 +48,10 @@ const SignInForm = () => {
         set(userRef, {
           phone: "",
           role: "student",
+          name: userCredential.user.displayName,
+          email: userCredential.user.email,
+          emailVerified: userCredential.user.emailVerified,
+          id: userCredential.user.uid,
         });
       })
       .catch((error) => {

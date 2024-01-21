@@ -41,12 +41,11 @@ const PhoneModal = ({ open = true, onClose }: any) => {
       onSubmit={async (values) => {
         if (auth.currentUser) {
           const userRef = ref(database, `users/${auth.currentUser.uid}`);
-          set(userRef, {
-            phone: values.phone,
-          });
+          console.log(values.phone)
           dispatch(
-            updateUser({ user: { ...userState, phoneNumber: values.phone } })
+            updateUser({ user: { ...userState, phone: values.phone } })
           );
+          
           toast.custom(
             (element) => (
               <Notification
