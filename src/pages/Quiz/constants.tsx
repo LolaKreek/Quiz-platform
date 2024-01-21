@@ -18,13 +18,13 @@ export const menuLinks = [
 ];
 
 export const studentsUsersmenuLinks = [
-  { value: "all", title: "All", path: STUDENT_USERS_PAGE },
-  { value: "favorites", title: "Favorites", path: STUDENT_USERS_FAVORITES_PAGE },
+  { value: "all", title: "Wszystkie", path: STUDENT_USERS_PAGE },
+  { value: "favorites", title: "Ulubione", path: STUDENT_USERS_FAVORITES_PAGE },
 ];
 
 export const proUsersmenuLinks = [
-  { value: "all", title: "All", path: PROFESSOR_USERS_PAGE },
-  { value: "favorites", title: "Favorites", path: PROFESSOR_USERS_FAVORITES_PAGE },
+  { value: "all", title: "Wszystkie", path: PROFESSOR_USERS_PAGE },
+  { value: "favorites", title: "Ulubione", path: PROFESSOR_USERS_FAVORITES_PAGE },
 ];
 
 export const studentMenuLinks = [
