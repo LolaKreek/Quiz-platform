@@ -1,6 +1,6 @@
 import { Box } from "@mui/material"
 import AppTopMenu from "../../../components/AppTopMenu"
-import { useQuizMenuLinks } from "../constants";
+import { menuLinks } from "../constants";
 import { child, get, ref } from "firebase/database";
 import { auth, database } from "../../../services/Firebase/firebase";
 import AppTable, {action} from "../../../components/AppTable";
@@ -11,7 +11,6 @@ import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import IssueDialog from "../../../components/IssueDialog/IssueDialog";
 
 const ProQuizAll = () => {
-  const { menuLinks } = useQuizMenuLinks();
     const { proQuizAllHeaders } = useTableData()
 
     const [data, setData] = useState(null)
