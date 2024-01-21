@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import AppTopMenu from "../../components/AppTopMenu";
-import { useTableData } from "./constants";
+import { menuLinks, useTableData } from "./constants";
 import UploadFile from "../../components/UploadFile";
 import AppTable, { action } from "../../components/AppTable";
 import EmptyTable from "../../components/EmptyTable";
@@ -14,7 +14,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 
 const ProInstructionPage = () => {
-    const { menuLinks } = useTableData();
+    // const { menuLinks } = useTableData();
     //@ts-ignore
     const user = useSelector(state => state.auth.user.id)
     const { t } = useTranslation('main')
