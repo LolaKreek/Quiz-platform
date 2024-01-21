@@ -81,7 +81,7 @@ const StudentQuizAll = () => {
         );
       },
       icon: <FavoriteIcon />,
-      title: "Favorite",
+      title: "Ulubione",
     },
     {
       //@ts-ignore

@@ -99,7 +99,7 @@ const StudentQuizFavorites = () => {
                   );
                 },
                 icon: <HeartBrokenIcon />,
-                title: "Remove",
+                title: "Usuń",
               },
         ]}
         type="all"
