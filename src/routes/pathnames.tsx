@@ -13,6 +13,8 @@ export const PROFESSOR_EDIT_QUIZ_PAGE = "/pro/quiz/edit/:id";
 export const PROFESSOR_INSTRUCTION_PAGE = "/pro/instruction";
 export const PROFESSOR_UPLOAD_INSTRUCTION_PAGE = "/pro/instruction/upload";
 export const PROFESSOR_ALL_INSTRUCTION_PAGE = "/pro/instruction/all";
+export const PROFESSOR_USERS_PAGE = "/students";
+export const PROFESSOR_USERS_FAVORITES_PAGE = "/students/favorites";
 
 export const STUDENT_ALL_INSTRUCTION_PAGE = "/instruction";
 
@@ -21,3 +23,6 @@ export const STUDENT_ALL_QUIZ_PAGE = "/quiz/all";
 export const STUDENT_HISTORY_QUIZ_PAGE = "/quiz/history";
 export const STUDENT_RESULTS_QUIZ_PAGE = "/quiz/results";
 export const STUDENT_FAVORITES_QUIZ_PAGE = "/quiz/favorites";
+
+export const STUDENT_USERS_PAGE = "/professors";
+export const STUDENT_USERS_FAVORITES_PAGE = "/professors/favorites";

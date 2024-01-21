@@ -3,6 +3,8 @@
         "dashboard": "Panel",
         "quiz": "Kartkówka",
         "instruction": "Instrukcja",
+        "professors": "Profesorzy",
+        "students": "Użytkownicy",
         "profile": "Profil"
     },
     "quiz": "<span>Q</span>uiz",

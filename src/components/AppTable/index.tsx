@@ -22,7 +22,8 @@ type appTablePropsType = {
 export type action = {
   title: string;
   action: Function;
-  icon: JSX.Element;
+  icon?: JSX.Element;
+  dynamicIcon?: Function;
 };
 
 const AppTable = ({ data, headers, actions, type }: appTablePropsType) => {
@@ -100,7 +101,7 @@ const AppTable = ({ data, headers, actions, type }: appTablePropsType) => {
                             action.action(item.id);
                           }}
                         >
-                          {action.icon}
+                          {action.icon || action.dynamicIcon(item)}
                         </TableCell>
                       ))}
                   </TableRow>

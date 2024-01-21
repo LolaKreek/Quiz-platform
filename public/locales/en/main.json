@@ -19,6 +19,14 @@
       "questions": "Questions",
       "elapsed": "Elapsed",
       "completed": "Completed"
+    },
+    "users" : {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "passed": "Passed quizes",
+      "ranking": "Ranking",
+      "empty": ""
     }
   },
   "menuAllItems": {
@@ -38,6 +46,15 @@
       "questions": "Questions",
       "authorName": "Author",
       "elapsed": "Elapsed time"
+    },
+    "users" : {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "passed": "Passed quizes",
+      "ranking": "Ranking",
+      "created": "Created quizes",
+      "empty": ""
     }
   },
   "dashboardStatistics": {

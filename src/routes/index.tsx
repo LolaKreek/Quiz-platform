@@ -16,11 +16,19 @@ import {
   STUDENT_RESULTS_QUIZ_PAGE,
   STUDENT_ALL_INSTRUCTION_PAGE,
   STUDENT_FAVORITES_QUIZ_PAGE,
+  STUDENT_USERS_PAGE,
+  PROFESSOR_USERS_PAGE,
+  STUDENT_USERS_FAVORITES_PAGE,
+  PROFESSOR_USERS_FAVORITES_PAGE,
 } from "./pathnames";
 import StudentQuizHistory from "../pages/Quiz/Student/StudentQuizHistory";
 import StudentQuizResults from "../pages/Quiz/Student/StudentQuizResults";
 import StudentAllInstruction from "../pages/Instruction/StudentAllInstructions";
 import StudentQuizFavorites from "../pages/Quiz/Student/StudentQuizFavorites";
+import StudentUsers from "../pages/Users/StudentUsers";
+import ProUsers from "../pages/Users/ProUsers";
+import StudentFavoriteUsers from "../pages/Users/StudentFavoriteUsers";
+import ProFavoriteUsers from "../pages/Users/ProFavoriteUsers";
 
 const Dashboard = loadable(
   () => import("../features/auth/components/LoginForm")
@@ -70,6 +78,16 @@ export const appRoutes = [
     Component: ProAllInstruction,
     role: "professor",
   },
+  {
+    path: PROFESSOR_USERS_PAGE,
+    Component: ProUsers,
+    role: "professor",
+  },
+  {
+    path: PROFESSOR_USERS_FAVORITES_PAGE,
+    Component: ProFavoriteUsers,
+    role: "professor",
+  },
 
   { path: STUDENT_QUIZ_PAGE, Component: StudentQuiz, role: "student" },
   { path: STUDENT_ALL_QUIZ_PAGE, Component: StudentQuizAll, role: "student" },
@@ -92,6 +110,16 @@ export const appRoutes = [
   {
     path: STUDENT_ALL_INSTRUCTION_PAGE,
     Component: StudentAllInstruction,
+    role: "student",
+  },
+  {
+    path: STUDENT_USERS_PAGE,
+    Component: StudentUsers,
+    role: "student",
+  },
+  {
+    path: STUDENT_USERS_FAVORITES_PAGE,
+    Component: StudentFavoriteUsers,
     role: "student",
   },
 ];

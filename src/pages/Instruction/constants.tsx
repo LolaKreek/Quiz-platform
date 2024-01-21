@@ -32,6 +32,23 @@ const instructionAllHeadersPlaceholder = [
   { value: "empty", title: "" },
 ];
 
+const proUsersPlaceholders = [
+  { value: "name", title: "Name" },
+  { value: "email", title: "Email" },
+  { value: "phone", title: "Phone" },
+  { value: "passed", title: "Passed quizes" },
+  { value: "ranking", title: "Ranking" },
+  { value: "empty", title: "" },
+];
+
+const studUsersPlaceholders = [
+  { value: "name", title: "Name" },
+  { value: "email", title: "Email" },
+  { value: "phone", title: "Phone" },
+  { value: "created", title: "Created quizes" },
+  { value: "empty", title: "" },
+];
+
 const proQuizHeadersPlaceholder = [
   { value: "title", title: "Title" },
   { value: "faculty", title: "Faculty" },
@@ -104,6 +121,20 @@ export const useTableData = () => {
     }));
   }, [t]);
 
+  const studUsersHeaders = useMemo(() => {
+    return studUsersPlaceholders.map((i) => ({
+      ...i,
+      title: t(`menuAllItems.users.${i.value}`),
+    }));
+  }, [t]);
+
+  const proUsersHeaders = useMemo(() => {
+    return proUsersPlaceholders.map((i) => ({
+      ...i,
+      title: t(`menuAllItems.users.${i.value}`),
+    }));
+  }, [t]);
+
   const proQuizAllHeaders = useMemo(() => {
     return proQuizAllHeadersPlaceholder.map((i) => ({
       ...i,
@@ -151,6 +182,8 @@ export const useTableData = () => {
     instructionAllHeaders,
     proQuizHeaders,
     proQuizAllHeaders,
+    studUsersHeaders,
+    proUsersHeaders,
     studQuizAllHeaders,
     studQuizHistoryHeaders,
     studQuizResultsHeaders,
