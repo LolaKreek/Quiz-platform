@@ -38,8 +38,9 @@ const ProInstructionPage = () => {
     }
 
     const handleDelete = async(item:any) => {
+        console.log('item: ', item)
         try{
-            await deleteMaterialsData(item.id)
+            await deleteMaterialsData(item)
             toast.custom((element) => (
                 <Notification header={t('deleteFileActionHeader')} message={t('deleteFileActionMessage')} element={element} type='success' />
             ), {position: "bottom-center"});
