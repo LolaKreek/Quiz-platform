@@ -36,7 +36,8 @@ const StudentQuizResults = () => {
                 (Object.values(el.results).filter((result) => result).length /
                   quizSnapshot.questions) *
                   100
-              ) + "%";
+              );
+            quizSnapshot.perfect = quizSnapshot.mark === 100;
             // @ts-ignore
             setData((dataSnapshot = [...dataSnapshot, quizSnapshot]));
           });
@@ -89,10 +90,12 @@ const StudentQuizResults = () => {
             })
             .reverse()
             .map((el: quizDataType) => (
-              <Box className="quiz-results__item">
+              // @ts-ignore
+              <Box className={el.perfect ? "quiz-results__perfect-item" : "quiz-results__item"}>
                 <Box className="quiz-results__info">
                   <Box className="quiz-results__info-section">
-                    <Typography className="quiz-results__info-value-sub">
+                    {/* @ts-ignore */}
+                    <Typography className={ el.perfect ? "quiz-results__info-perfect-value-sub" : "quiz-results__info-value-sub"}>
                       {t("menuAllItems.quiz.title")}
                     </Typography>
                     <Typography className="quiz-results__info-value">
@@ -100,7 +103,8 @@ const StudentQuizResults = () => {
                     </Typography>
                   </Box>
                   <Box className="quiz-results__info-section">
-                    <Typography className="quiz-results__info-value-sub">
+                    {/* @ts-ignore */}
+                    <Typography className={ el.perfect ? "quiz-results__info-perfect-value-sub" : "quiz-results__info-value-sub"}>
                       {t("menuAllItems.quiz.faculty")}
                     </Typography>
                     <Typography className="quiz-results__info-value">
@@ -108,7 +112,8 @@ const StudentQuizResults = () => {
                     </Typography>
                   </Box>
                   <Box className="quiz-results__info-section">
-                    <Typography className="quiz-results__info-value-sub">
+                    {/* @ts-ignore */}
+                    <Typography className={ el.perfect ? "quiz-results__info-perfect-value-sub" : "quiz-results__info-value-sub"}>
                       {t("menuAllItems.quiz.authorName")}
                     </Typography>
                     <Typography className="quiz-results__info-value">
@@ -116,7 +121,8 @@ const StudentQuizResults = () => {
                     </Typography>
                   </Box>
                   <Box className="quiz-results__info-section">
-                    <Typography className="quiz-results__info-value-sub">
+                    {/* @ts-ignore */}
+                    <Typography className={ el.perfect ? "quiz-results__info-perfect-value-sub" : "quiz-results__info-value-sub"}>
                       {t("menuAllItems.quiz.questions")}
                     </Typography>
                     <Typography className="quiz-results__info-value">
@@ -125,7 +131,8 @@ const StudentQuizResults = () => {
                     </Typography>
                   </Box>
                   <Box className="quiz-results__info-section">
-                    <Typography className="quiz-results__info-value-sub">
+                    {/* @ts-ignore */}
+                    <Typography className={ el.perfect ? "quiz-results__info-perfect-value-sub" : "quiz-results__info-value-sub"}>
                       {t("menuAllItems.quiz.subject")}
                     </Typography>
                     <Typography className="quiz-results__info-value">
@@ -134,7 +141,8 @@ const StudentQuizResults = () => {
                   </Box>
                   {el.timer && (
                     <Box className="quiz-results__info-section">
-                      <Typography className="quiz-results__info-value-sub">
+                    {/* @ts-ignore */}
+                    <Typography className={ el.perfect ? "quiz-results__info-perfect-value-sub" : "quiz-results__info-value-sub"}>
                         {t("menuAllItems.quiz.elapsed")}
                       </Typography>
                       <Typography className="quiz-results__info-value">
@@ -147,7 +155,7 @@ const StudentQuizResults = () => {
                 <Box className="quiz-results__mark">
                   <Typography variant="h4" className="quiz-results__info-value">
                     {/* @ts-ignore */}
-                    {el.mark}
+                    {el.mark + "%"}
                   </Typography>
                 </Box>
               </Box>

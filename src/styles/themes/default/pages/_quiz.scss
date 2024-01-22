@@ -23,6 +23,15 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
   }
+  &__perfect-item {
+    background-color: rgba(136, 255, 136, 0.3);
+    width: 90%;
+    padding: 16px;
+    border: 1px solid rgb(136, 255, 136);
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
 
   &__info {
     align-items: center;
@@ -47,6 +56,12 @@
   &__info-value {
     color: black;
   }
+  
+  &__info-perfect-value-sub {
+    color: rgb(43, 94, 43);
+    font-size: 20px !important;
+  }
+
   &__info-value-sub {
     font-size: 20px !important;
   }
