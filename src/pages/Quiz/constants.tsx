@@ -13,8 +13,8 @@ import {
 } from "../../routes/pathnames";
 
 export const menuLinks = [
-  { value: "custom", title: "My quizzes", path: PROFESSOR_QUIZ_PAGE },
-  { value: "all", title: "The remaining", path: PROFESSOR_ALL_QUIZ_PAGE },
+  { value: "custom", title: "Moje testy", path: PROFESSOR_QUIZ_PAGE },
+  { value: "all", title: "Pozostałe", path: PROFESSOR_ALL_QUIZ_PAGE },
 ];
 
 export const studentsUsersmenuLinks = [
