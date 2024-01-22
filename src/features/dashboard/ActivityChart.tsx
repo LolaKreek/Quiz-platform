@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material"
 import { CartesianGrid, DefaultTooltipContent, Line, LineChart, ResponsiveContainer, Tooltip, XAxis } from "recharts"
 
-const ActivityChart = ({data}: any) => {
+const ActivityChart = ({data, datakey}: any) => {
   return data ? 
     <ResponsiveContainer className={"dashboard__chart"}>
         <LineChart data={data} margin={{ top: 16, right: 16, left: 16, bottom: 16 }}>
@@ -9,7 +9,7 @@ const ActivityChart = ({data}: any) => {
             <DefaultTooltipContent />
             <Tooltip/>
             <CartesianGrid stroke="#bbbbff" />
-            <Line type="monotone" dataKey="Completed" stroke="#6062FF" yAxisId={0} />
+            <Line type="monotone" dataKey={datakey} stroke="#6062FF" yAxisId={0} />
         </LineChart>
     </ResponsiveContainer> : <Typography>No data available</Typography>
 }

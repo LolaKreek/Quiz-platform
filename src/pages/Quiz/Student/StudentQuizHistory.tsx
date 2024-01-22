@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import AppTable from "../../../components/AppTable";
 import AppTopMenu from "../../../components/AppTopMenu";
-import { useQuizMenuLinks } from "../constants";
+import { studentMenuLinks } from "../constants";
 import { useEffect, useState } from "react";
 import { child, get, ref } from "firebase/database";
 import { useTableData } from "../../Instruction/constants";
@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 
 const StudentQuizHistory = () => {
-  const { studentMenuLinks } = useQuizMenuLinks();
+  // const { studentMenuLinks } = useQuizMenuLinks();
   const user = useSelector((state: RootState) => state.auth.user);
   const { studQuizHistoryHeaders } = useTableData();
   const [data, setData] = useState(null);

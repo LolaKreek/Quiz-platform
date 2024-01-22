@@ -197,7 +197,7 @@ const StudentQuizPassingModal = ({
           {
             //@ts-ignore
             quiz: quiz.id,
-            date: moment().format('L'),
+            date: moment().format('DD/MM/YYYY'),
             elapsed: quiz.timer ? elapsed : null,
           }
         );

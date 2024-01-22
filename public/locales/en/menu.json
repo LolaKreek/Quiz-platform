@@ -3,7 +3,9 @@
         "dashboard": "Dashboard",
         "quiz": "Quiz",
         "instruction": "Instruction",
-        "profile": "Profile"
+        "profile": "Profile",
+        "professors": "Professors",
+        "students": "Students"
     },
     "quiz": "<span>Q</span>uiz",
     "menuSettings": {

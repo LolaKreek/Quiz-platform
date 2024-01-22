@@ -21,8 +21,16 @@ const ProfilePage = () => {
   const [modal, setModal] = useState<null | ReactNode>(null);
   const authState = useSelector((state: RootState) => state.auth.user);
   const [reputation, setReputation] = useState(0);
+  const [phone, setPhone] = useState(null)
 
   useEffect(() => {
+    get(ref(database, `users/${authState.id}`)).then((snapshot) => {
+      if (snapshot.exists()) {
+        setPhone(snapshot.val().phone)
+      } else {
+        console.log("No data available");
+      }
+    })
     get(child(ref(database), `student/${authState.id}/reputation`)).then(
       (snapshot) => {
         if (snapshot.exists()) {
@@ -134,7 +142,7 @@ const ProfilePage = () => {
             <Box className="profile__left-part-labels">
               <Typography className="profile__label">{t("phone")}</Typography>
               <Typography className="profile__data">
-                {authState.phoneNumber || t("unknown")}
+                {phone || t("unknown")}
               </Typography>
             </Box>
 

@@ -5,7 +5,7 @@ export type UserType = {
   email: string | null;
   emailVerified: boolean;
   isAnonymous: boolean;
-  phoneNumber: string | null;
+  phone: string | null;
   photoURL: string | null;
   role: string;
 };
@@ -29,3 +29,16 @@ export type NotificationState = {
 export type ThemeState = {
   theme: string;
 };
+
+export type FavoritesState = {
+  users: FavoriteUserType[],
+  subjects: string[],
+  quizes: string[],
+};
+
+export type FavoriteUserType = {
+  name: string,
+  email: string,
+  id: string,
+  picture: string
+}

@@ -48,6 +48,7 @@
   "reportTitle": "Zgłoś problem",
   "submit": "Zatwierdź",
   "start":  "Start",
+  "results": "Wyniki",
   "reportAnIssue": "Zgłosić problem",
   "studentMenuLinks": {
     "all": "Wszystkie",
@@ -55,7 +56,7 @@
     "results": "Wyniki"
   },
   "menuLinks": {
-    "all": "Moje quizy",
+    "all": "Moje testy",
     "theRemaining": "Pozostałe"
   }
 }

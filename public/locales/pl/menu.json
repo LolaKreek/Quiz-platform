@@ -1,8 +1,10 @@
 {
     "menuLinks": {
         "dashboard": "Panel",
-        "quiz": "Test",
+        "quiz": "Kartkówka",
         "instruction": "Materiały",
+        "professors": "Profesorzy",
+        "students": "Użytkownicy",
         "profile": "Profil"
     },
     "quiz": "<span>Q</span>uiz",

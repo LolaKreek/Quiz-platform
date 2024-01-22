@@ -1,3 +1,4 @@
+
 import { useTranslation } from "react-i18next";
 import { 
     INSTRUCTION_PAGE, 
@@ -6,10 +7,12 @@ import {
     PROFILE_PAGE, 
     PROFESSOR_QUIZ_PAGE, 
     STUDENT_ALL_QUIZ_PAGE,
-    PROFESSOR_INSTRUCTION_PAGE
+    PROFESSOR_INSTRUCTION_PAGE,
+    PROFESSOR_USERS_PAGE,
+    STUDENT_USERS_PAGE,
 } from "../../routes/pathnames";
 import { useMemo } from "react";
-import { InstructionIcon, LoginIcon, LogoutIcon, ProfileIcon, QuizIcon } from "../../assets/icons";
+import { InstructionIcon, LoginIcon, LogoutIcon, ProfileIcon, QuizIcon, PeopleIcon } from "../../assets/icons";
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
@@ -33,6 +36,12 @@ const professorLinks =[
         Icon: InstructionIcon,
         exact: true
     },
+    {
+        path: PROFESSOR_USERS_PAGE,
+        translationKey: 'students',
+        Icon: PeopleIcon,
+        exact: true
+    },
 ]
 
 const studentLinks =[
@@ -52,6 +61,13 @@ const studentLinks =[
         path: INSTRUCTION_PAGE,
         translationKey: 'instruction',
         Icon: InstructionIcon,
+        exact: true
+    },
+    
+    {
+        path: STUDENT_USERS_PAGE,
+        translationKey: 'professors',
+        Icon: PeopleIcon,
         exact: true
     },
 ]

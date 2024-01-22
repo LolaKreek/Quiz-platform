@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react"
-import ActivityChart from "../ActivityChart"
-import { Database, get, ref } from "firebase/database"
+import { get, ref } from "firebase/database";
+import moment from "moment";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { database } from "../../../services/Firebase/firebase";
-import moment from "moment";
 import { Box, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
+import ActivityChart from "../ActivityChart";
 
-const StudActivity = () => {
-
+const ProActivity = () => {
     const user = useSelector((state: any) => state.auth.user);
     const [data, setData] = useState<any>(null)
 
@@ -28,17 +27,20 @@ const StudActivity = () => {
       }
 
     useEffect(() => {
-        get(ref(database, "student/" + user.id + "/history")).then((snapshot) => {
+        get(ref(database, "quiz")).then((snapshot) => {
             if (snapshot.exists()) {
                 let stats: any = {}
                 let nonformateddata: any = []
                 Object.values(snapshot.val()).map((el: any) => {
-                    stats[el.date] = stats[el.date] ? stats[el.date] + 1 : 1
+                    if (el.author === user.id) {
+                        stats[el.date] = stats[el.date] ? stats[el.date] + 1 : 1
+                        console.log(el.date)
+                    }
                 })
                 Object.entries(stats).map(([key, value]) => {
                     nonformateddata = [...nonformateddata, {
                         name: key,
-                        Completed: value
+                        "Created quizes": value
                     }]
                 })
                 //@ts-ignore
@@ -48,7 +50,7 @@ const StudActivity = () => {
                     dataBuild.push(
                         {
                             name: el.format("DD/MM/YYYY"),
-                            Completed: stats[el.format("DD/MM/YYYY")] ? stats[el.format("DD/MM/YYYY")] : 0,
+                            "Created quizes": stats[el.format("DD/MM/YYYY")] ? stats[el.format("DD/MM/YYYY")] : 0,
                             amt: 2400
                         }
                     )
@@ -66,9 +68,9 @@ const StudActivity = () => {
   return (
     <Box className="activity__root">
         <Typography variant="h5">{t("dashboardStatistics.activity")}</Typography>
-        <ActivityChart data={data} datakey={"Completed"}/>
+        <ActivityChart data={data} datakey={"Created quizes"}/>
     </Box>
   )
 }
 
-export default StudActivity
+export default ProActivity

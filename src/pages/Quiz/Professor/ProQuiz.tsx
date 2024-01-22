@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import AppTopMenu from "../../../components/AppTopMenu";
-import { useQuizMenuLinks } from "../constants";
+import { menuLinks } from "../constants";
 import AppTable, { action } from "../../../components/AppTable";
 import { useEffect, useState } from "react";
 import { ref, child, get, remove } from "firebase/database";
@@ -14,7 +14,6 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const ProQuizPage = () => {
-    const { menuLinks } = useQuizMenuLinks();
     const { t } = useTranslation("main")
     const navigate = useNavigate()
 
