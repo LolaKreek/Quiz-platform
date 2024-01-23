@@ -1,5 +1,3 @@
-import { quizDataType } from "../../services/quiz/tyles";
-
 // Define a type for the slice state
 export type UserType = {
   id: string;

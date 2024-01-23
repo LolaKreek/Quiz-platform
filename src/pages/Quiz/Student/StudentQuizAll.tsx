@@ -13,12 +13,15 @@ import IssueDialog from "../../../components/IssueDialog/IssueDialog";
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useDispatch } from "react-redux";
-import { addFavorite } from "../../../store/Slices/favorites";
 import toast from "react-hot-toast";
 import Notification from "../../../components/Notification";
 import { useTranslation } from "react-i18next";
+import { addFavorite } from "../../../store/Slices/favorites";
 
 const StudentQuizAll = () => {
+  const { t } = useTranslation("main");
+  
+
   const { studQuizAllHeaders } = useTableData();
 
   const [data, setData] = useState(null);
@@ -32,8 +35,6 @@ const StudentQuizAll = () => {
   const [selectedQuiz, setSelectedQuiz] = useState<quizDataType | null>(null);
 
   const [isIssueDialogOpen, setIssueDialogOpen] = useState(false);
-  
-  const { t } = useTranslation("main");
 
   const getQuizes = () => {
     const dbRef = ref(database);
@@ -80,19 +81,7 @@ const StudentQuizAll = () => {
         );
       },
       icon: <FavoriteIcon />,
-      title: "Favorite",
-    },
-    
-    {
-      //@ts-ignore
-      action: (id) => {
-        //@ts-ignore
-        const selectedQuiz = quizes?.[id];
-        setSelectedQuiz(selectedQuiz ?? null);
-        setIssueDialogOpen(true);
-      },
-      icon: <ReportGmailerrorredIcon />,
-      title: "Report an issue",
+      title: "Ulubione",
     },
     {
       //@ts-ignore
@@ -103,7 +92,18 @@ const StudentQuizAll = () => {
         setIssueDialogOpen(false);
       },
       icon: <PlayArrowIcon />,
-      title: "Start",
+      title: t('start'),
+    },
+    {
+      //@ts-ignore
+      action: (id) => {
+        //@ts-ignore
+        const selectedQuiz = quizes?.[id];
+        setSelectedQuiz(selectedQuiz ?? null);
+        setIssueDialogOpen(true);
+      },
+      icon: <ReportGmailerrorredIcon />,
+      title: t('reportAnIssue'),
     },
   ];
 

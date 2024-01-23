@@ -50,7 +50,7 @@ const ProfilePage = () => {
 
   return (
     <Box>
-      <Typography className="profile__titletext">{t("Profile")}</Typography>
+      <Typography className="profile__titletext">{t("profile")}</Typography>
       <Box className="profile__pfpwrapper">
         <Avatar
           sizes="100px"

@@ -18,5 +18,6 @@
     "registerSignIn": "Zarejestrować się",
     "register": "Utwórz konto za pomocą email",
     "loginInfo": "Posiadasz już konto?",
-    "registerLoginIn": "Zalogować się"
+    "registerLoginIn": "Zalogować się",
+    "signUpBtn": "Zarejestrować się"
 }

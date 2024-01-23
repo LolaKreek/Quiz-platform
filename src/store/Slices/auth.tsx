@@ -5,7 +5,7 @@ import { AuthState, UserType } from "./types";
 import { deleteUserLocalData, setUserLocalData } from "../userLocalStorage";
 import { signOut } from "firebase/auth";
 import { auth, database } from "../../services/Firebase/firebase";
-import { get, ref, set } from "firebase/database";
+import { get, ref, set } from "@firebase/database";
 
 // Define the initial state using that type
 const initialState: AuthState = {

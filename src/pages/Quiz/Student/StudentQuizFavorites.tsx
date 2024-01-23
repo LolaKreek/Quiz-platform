@@ -21,6 +21,7 @@ const StudentQuizFavorites = () => {
   const { studQuizFavoritesHeaders } = useTableData();
   const [data, setData] = useState(null);
   const dispatch = useDispatch(); 
+  // const {studentMenuLinks} = useQuizMenuLinks()
  
   const { t } = useTranslation("main")
 
@@ -98,7 +99,7 @@ const StudentQuizFavorites = () => {
                   );
                 },
                 icon: <HeartBrokenIcon />,
-                title: "Remove",
+                title: "Usuń",
               },
         ]}
         type="all"

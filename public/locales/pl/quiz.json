@@ -1,9 +1,9 @@
 {
-  "title": "Quiz",
-  "addNewQuizBtn": "Dodaj Quiz",
-  "addModalTitle": "Dodaj nowy quiz",
-  "editModalTitle": "Edytuj quiz",
-  "addQuizTitle": "Nazwa Quizu",
+  "title": "Test",
+  "addNewQuizBtn": "Dodaj Test",
+  "addModalTitle": "Dodaj nowy test",
+  "editModalTitle": "Edytuj test",
+  "addQuizTitle": "Nazwa Testu",
   "addQuizFaculty": "Wybierz wydział",
   "addQuizFacultyPlaceholder": "Wydziały",
   "addQuizCourse": "Wybierz przedmiot",
@@ -46,5 +46,17 @@
   "selectDefaultValue": "Wybierz wydział, aby wybrać przedmiot",
   "welcome": "Powitanie",
   "reportTitle": "Zgłoś problem",
-  "submit": "Zatwierdź"
+  "submit": "Zatwierdź",
+  "start":  "Start",
+  "results": "Wyniki",
+  "reportAnIssue": "Zgłosić problem",
+  "studentMenuLinks": {
+    "all": "Wszystkie",
+    "history": "Historia",
+    "results": "Wyniki"
+  },
+  "menuLinks": {
+    "all": "Moje testy",
+    "theRemaining": "Pozostałe"
+  }
 }

@@ -47,5 +47,17 @@
   "selectDefaultValue": "Select a faculty to select a subject",
   "welcome": "Welcome",
   "reportTitle": "Report an issue",
-  "submit": "Submit"
+  "submit": "Submit",
+  "start":  "Start",
+  "reportAnIssue": "Report an issue",
+  "studentMenuLinks": {
+    "all": "All",
+    "history": "History",
+    "results": "Results"
+  },
+  "menuLinks": {
+    "all": "My quizzes",
+    "theRemaining": "The remaining"
+  }
+  
 }

@@ -1,6 +1,9 @@
 {
   "profileSettingsTitle": "Page configurations",
   "themeTitle": "Theme mode",
+  "languageTitle": "Language",
+  "en": "English",
+  "pl": "Polski",
   "emptyPageTitle": "You don't have any data yet",
   "menuItems": {
     "instructions": {
@@ -35,6 +38,7 @@
       "faculty": "Faculty",
       "subject": "Subject",
       "date": "Date",
+      "download": "Download",
       "authorName": "Author",
       "empty": ""
     },
@@ -73,7 +77,17 @@
   "deleteFileActionMessage": "The file was successfully deleted",
   "deleteQuizActionHeader": "Delete quiz Action",
   "deleteQuizActionMessage": "The quiz was successfully deleted",
+  "topUsers" : "Top Users",
+  "studInstructionMenuLinks": {
+    "all": "All"
+  },
+  "proInstructionMenuLinks": {
+    "all": "My documents",
+    "theRemaining": "The remaining"
+  },
   "favoriteQuiz": "Quiz has been added to your favorite quiz list",
   "favoriteQuizHeader": "Favorite action",
-  "removefavoriteQuiz": "Quiz has been removed from your favorite quiz list"
+  "removefavoriteQuiz": "Quiz has been removed from your favorite quiz list",
+  "reportAnIssue": "Report an issue",
+  "start":  "Start"
 }

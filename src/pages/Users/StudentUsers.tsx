@@ -48,7 +48,7 @@ const StudentUsers = () => {
 
     const actions: action[] = [
         {
-            title: "Favorite",
+            title: "Ulubione",
             action: (item: any) => {
                 favorites.users.includes(item) ? dispatch(removeFavorite({value: item, type: "users"})) : dispatch(addFavorite({value: item, type: "users"}));
             },

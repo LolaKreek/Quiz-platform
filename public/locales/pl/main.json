@@ -1,6 +1,10 @@
 {
   "profileSettingsTitle": "Konfiguracje strony",
   "themeTitle": "Tryb strony",
+  "languageTitle": "Język",
+  "en": "English",
+  "pl": "Polski",
+  "topUsers": "Najlepsi Użytkownicy",
   "emptyPageTitle": "Nie masz jeszcze żadnych danych",
   "menuItems": {
     "instructions": {
@@ -18,7 +22,7 @@
       "questions": "Pytania",
       "authorName": "Autor",
       "elapsed": "Czas",
-      "completed": "Zakonczone"
+      "completed": "Zakończone"
     },
     "users" : {
       "name": "Imie",
@@ -32,9 +36,10 @@
   "menuAllItems": {
     "instructions": {
       "title": "Tytuł",
-      "faculty": "FaWydziałulty",
+      "faculty": "Wydział",
       "subject": "Przedmiot",
       "date": "Data",
+      "download": "Pobrać",
       "authorName": "Author",
       "empty": ""
     },
@@ -53,26 +58,36 @@
       "phone": "Telefon",
       "passed": "Ukonczone quizy",
       "ranking": "Ranking",
+      "created": "Stworzone testy",
       "empty": ""
     }
   },
   "dashboardStatistics": {
     "stats": "Statystyki",
-    "activity": "Aktywnosc",
+    "activity": "Aktywność",
     "professor": {
       "quizesCreated": "Quizy utworzone",
       "instructionsCreated": "Instrukcje utworzone"
     },
     "student": {
-      "quizesCompleted": "Quizy ukonczone",
+      "quizesCompleted": "Quizy ukończone",
       "ranking": "Ranking"
     }
+  },
+  "studInstructionMenuLinks": {
+    "all": "Wszystkie"
+  },
+  "proInstructionMenuLinks": {
+    "all": "Moje dokumenty",
+    "theRemaining": "Pozostałe"
   },
   "deleteFileActionHeader": "Akcja usuń plik",
   "deleteFileActionMessage": "Plik został pomyślnie usunięty",
   "deleteQuizActionHeader": "Akcja usuń quiz",
   "deleteQuizActionMessage": "Quiz został pomyślnie usunięty",
-  "favoriteQuiz": "Quiz jest dodany do listy ulubionych quizów",
-  "favoriteQuizHeader": "Akcja ulubionego quizu",
-  "removefavoriteQuiz": "Quiz jest usunięty z listy ulubionych quizów"
+  "reportAnIssue": "Zgłosić problem",
+  "favoriteQuiz": "Test został dodany do twoich ulubionych",
+  "favoriteQuizHeader": "Akcja Ulubione",
+  "removefavoriteQuiz": "Test został usunięty z twoich ulubionych",
+  "start":  "Start"
 }

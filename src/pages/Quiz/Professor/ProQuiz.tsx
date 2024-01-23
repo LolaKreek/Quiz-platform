@@ -14,7 +14,6 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const ProQuizPage = () => {
-
     const { t } = useTranslation("main")
     const navigate = useNavigate()
 

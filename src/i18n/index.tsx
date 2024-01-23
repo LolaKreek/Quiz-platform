@@ -3,14 +3,14 @@ import Backend from 'i18next-http-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
 
-import { EN } from './langs'
+import { PL } from './langs'
 
 i18n
   .use(Backend)
   .use(initReactI18next)
   .use(LanguageDetector)
   .init({
-    fallbackLng: EN,
+    fallbackLng: PL,
     debug: false,
     ns: ['login', 'main', 'notifications'],
     defaultNS: 'login',

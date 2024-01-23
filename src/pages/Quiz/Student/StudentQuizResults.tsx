@@ -11,6 +11,7 @@ import AppSearch from "../../../components/AppSearch";
 import { useTranslation } from "react-i18next";
 
 const StudentQuizResults = () => {
+  // const { studentMenuLinks } = useQuizMenuLinks();
   const user = useSelector((state: RootState) => state.auth.user);
   const [data, setData] = useState(null);
   const [search, setSearch] = useState("");
