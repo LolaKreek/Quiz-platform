@@ -200,6 +200,7 @@ const StudentQuizPassingModal = ({
           {
             //@ts-ignore
             quiz: quiz.id,
+            author: quiz.author,
             date: moment().format('DD/MM/YYYY'),
             elapsed: quiz.timer ? elapsed : null,
           }
