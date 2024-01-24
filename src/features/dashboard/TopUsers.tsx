@@ -28,7 +28,7 @@ const TopUsers = () => {
   return (
     <Box className="top-users__root">
       <Typography variant="h5"> {t('topUsers')}</Typography>
-      {data &&
+      {data && userData &&
         data.map((user: any, index: number) => (
           <Box className="top-users__item">
             <Box className="top-users__place">
