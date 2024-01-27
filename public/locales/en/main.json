@@ -21,7 +21,11 @@
       "authorName": "Author",
       "questions": "Questions",
       "elapsed": "Elapsed",
-      "completed": "Completed"
+      "completed": "Completed",
+      "quiz": "Quiz",
+      "question": "Question",
+      "result": "Result",
+      "correct": "Correct"
     },
     "users" : {
       "name": "Name",
@@ -89,5 +93,6 @@
   "favoriteQuizHeader": "Favorite action",
   "removefavoriteQuiz": "Quiz has been removed from your favorite quiz list",
   "reportAnIssue": "Report an issue",
-  "start":  "Start"
+  "start":  "Start",
+  "materials": "Materials"
 }

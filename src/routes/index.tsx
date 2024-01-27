@@ -21,6 +21,7 @@ import {
   STUDENT_USERS_FAVORITES_PAGE,
   PROFESSOR_USERS_FAVORITES_PAGE,
   STUDENT_PROFESSOR_QUIZES_PAGE,
+  STUDENT_WRONG_QUIZ_PAGE,
 } from "./pathnames";
 import StudentQuizHistory from "../pages/Quiz/Student/StudentQuizHistory";
 import StudentQuizResults from "../pages/Quiz/Student/StudentQuizResults";
@@ -31,6 +32,7 @@ import ProUsers from "../pages/Users/ProUsers";
 import StudentFavoriteUsers from "../pages/Users/StudentFavoriteUsers";
 import ProFavoriteUsers from "../pages/Users/ProFavoriteUsers";
 import StudentProfessorQuiz from "../pages/Quiz/Student/StudentProfessorQuiz";
+import StudentQuizWrongAnswers from "../pages/Quiz/Student/StudentQuizWrongAnswers";
 
 const Dashboard = loadable(
   () => import("../features/auth/components/LoginForm")
@@ -100,6 +102,7 @@ export const appRoutes = [
     role: "student",
   },
   { path: STUDENT_ALL_QUIZ_PAGE, Component: StudentQuizAll, role: "student" },
+  { path: STUDENT_WRONG_QUIZ_PAGE, Component: StudentQuizWrongAnswers, role: "student" },
   {
     path: STUDENT_HISTORY_QUIZ_PAGE,
     Component: StudentQuizHistory,

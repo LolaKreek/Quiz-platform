@@ -15,7 +15,6 @@ export const MainEntry = () => {
   if (user) {
     dispatch(tokenLogin(user))
     get(ref(database, `users/${user.user.id}/favorites`)).then((snapshot) => {
-      console.log(snapshot.val())
       if (snapshot.exists()) {
         dispatch(setFavorites({ value: snapshot.val() }))
       }

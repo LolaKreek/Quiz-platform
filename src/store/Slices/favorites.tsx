@@ -23,7 +23,6 @@ export const favoritesSlice = createSlice({
     removeFavorite: ( state, action: PayloadAction<{ value: string | FavoriteUserType, type: "users" | "subjects" | "quizes" }> ) => {
         // @ts-ignore 
         state[action.payload.type] = state[action.payload.type].filter((el) => {
-          console.log(el !== action.payload.value)
           return el !== action.payload.value
         })
         set(ref(database, `users/${auth.currentUser?.uid}/favorites/${action.payload.type}`), state[action.payload.type]);

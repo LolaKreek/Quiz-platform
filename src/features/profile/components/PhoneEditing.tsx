@@ -41,7 +41,6 @@ const PhoneModal = ({ open = true, onClose }: any) => {
       onSubmit={async (values) => {
         if (auth.currentUser) {
           const userRef = ref(database, `users/${auth.currentUser.uid}`);
-          console.log(values.phone)
           dispatch(
             updateUser({ user: { ...userState, phone: values.phone } })
           );

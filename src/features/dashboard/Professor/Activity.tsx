@@ -35,7 +35,6 @@ const ProActivity = () => {
                     Object.values(student.history).map((el: any) => {
                         if (el.author === user.id) {
                             stats[el.date] = stats[el.date] ? stats[el.date] + 1 : 1
-                            console.log(el.date)
                         }  
                     })
                 })

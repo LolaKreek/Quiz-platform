@@ -21,6 +21,7 @@ export const STUDENT_ALL_INSTRUCTION_PAGE = "/instruction";
 export const STUDENT_QUIZ_PAGE = "/quiz";
 export const STUDENT_PROFESSOR_QUIZES_PAGE = "/professors/quizes/:id";
 export const STUDENT_ALL_QUIZ_PAGE = "/quiz/all";
+export const STUDENT_WRONG_QUIZ_PAGE = "/quiz/misstakes";
 export const STUDENT_HISTORY_QUIZ_PAGE = "/quiz/history";
 export const STUDENT_RESULTS_QUIZ_PAGE = "/quiz/results";
 export const STUDENT_FAVORITES_QUIZ_PAGE = "/quiz/favorites";
