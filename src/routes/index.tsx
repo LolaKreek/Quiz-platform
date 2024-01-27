@@ -22,6 +22,7 @@ import {
   PROFESSOR_USERS_FAVORITES_PAGE,
   STUDENT_PROFESSOR_QUIZES_PAGE,
   STUDENT_WRONG_QUIZ_PAGE,
+  STUDENT_ALL_SEARCH_INSTRUCTION_PAGE,
 } from "./pathnames";
 import StudentQuizHistory from "../pages/Quiz/Student/StudentQuizHistory";
 import StudentQuizResults from "../pages/Quiz/Student/StudentQuizResults";
@@ -121,6 +122,11 @@ export const appRoutes = [
 
   {
     path: STUDENT_ALL_INSTRUCTION_PAGE,
+    Component: StudentAllInstruction,
+    role: "student",
+  },
+  {
+    path: STUDENT_ALL_SEARCH_INSTRUCTION_PAGE,
     Component: StudentAllInstruction,
     role: "student",
   },

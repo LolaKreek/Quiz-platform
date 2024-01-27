@@ -51,9 +51,9 @@ const ProQuizAll = () => {
     const actions: action[] = [
       {
         //@ts-ignore
-        action: (id) => {
+        action: (item) => {
           //@ts-ignore
-          setSelectedQuiz(quizes?.[id]);
+          setSelectedQuiz(quizes?.[item.id]);
           setIssueDialogOpen(true);
         },
         icon: <ReportGmailerrorredIcon />,

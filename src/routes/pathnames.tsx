@@ -17,6 +17,7 @@ export const PROFESSOR_USERS_PAGE = "/students";
 export const PROFESSOR_USERS_FAVORITES_PAGE = "/students/favorites";
 
 export const STUDENT_ALL_INSTRUCTION_PAGE = "/instruction";
+export const STUDENT_ALL_SEARCH_INSTRUCTION_PAGE = "/instruction/:search";
 
 export const STUDENT_QUIZ_PAGE = "/quiz";
 export const STUDENT_PROFESSOR_QUIZES_PAGE = "/professors/quizes/:id";

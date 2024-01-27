@@ -9,10 +9,13 @@ import { useSelector } from "react-redux";
 import DownloadIcon from "@mui/icons-material/Download";
 import { getDownloadURL, ref } from "firebase/storage";
 import { storage } from "../../services/Firebase/firebase";
+import { useParams } from "react-router-dom";
 
 const StudentAllInstruction = () => {
   const [data, setData] = useState([]);
   const { instructionAllHeaders } = useTableData();
+
+  const params = useParams();
 
   //@ts-ignore
   const user = useSelector((state) => state.auth.user.id);
@@ -37,7 +40,7 @@ const StudentAllInstruction = () => {
   const actions: action[] = [
     {
       title: "Download",
-      action: handleDownload,
+      action: (item: any) => {handleDownload(item.id)},
       icon: <DownloadIcon />,
     },
   ];
@@ -53,6 +56,7 @@ const StudentAllInstruction = () => {
       {data ? (
         <Box>
           <AppTable
+            overrideSearch={params.search}
             data={data}
             headers={instructionAllHeaders}
             actions={actions}

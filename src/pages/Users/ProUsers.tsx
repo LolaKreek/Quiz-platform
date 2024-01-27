@@ -56,7 +56,7 @@ const ProUsers = () => {
         {
             title: "Ulubione",
             action: (item: any) => {
-                favorites.users.includes(item) ? dispatch(removeFavorite({value: item, type: "users"})) : dispatch(addFavorite({value: item, type: "users"}));
+                favorites.users.includes(item.id) ? dispatch(removeFavorite({value: item.id, type: "users"})) : dispatch(addFavorite({value: item.id, type: "users"}));
             },
             dynamicIcon: (item: any) => {
                 return favorites.users.includes(item.id) ? <HeartBrokenIcon/> : <FavoriteIcon/> 
