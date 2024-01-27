@@ -116,8 +116,6 @@ const StudentQuizPassingModal = ({
   ) => {
 
     const message : string = `Student ${studentName || t("unknown")} has completed your quiz called ${quiz?.title}. \n Grade: ${grade}`
-    console.log(message)
-    console.log(quiz?.authorEmail)
     
     emailjs.send('service_14mshir', 'template_289ev8q', { message, recipient_email: quiz?.authorEmail, subject: "Quiz completion"}, 'XM98eZJKtZW0ajxcy')
       .then((result) => {
@@ -200,6 +198,7 @@ const StudentQuizPassingModal = ({
           {
             //@ts-ignore
             quiz: quiz.id,
+            author: quiz.author,
             date: moment().format('DD/MM/YYYY'),
             elapsed: quiz.timer ? elapsed : null,
           }

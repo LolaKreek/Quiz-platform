@@ -50,7 +50,6 @@ const ProUsers = () => {
 
     useEffect(() => {
       getUsers()
-      console.log(1)
     }, [favorites])
 
     const actions: action[] = [

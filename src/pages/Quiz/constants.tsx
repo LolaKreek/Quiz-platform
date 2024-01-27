@@ -10,6 +10,7 @@ import {
   STUDENT_RESULTS_QUIZ_PAGE,
   STUDENT_USERS_FAVORITES_PAGE,
   STUDENT_USERS_PAGE,
+  STUDENT_WRONG_QUIZ_PAGE,
 } from "../../routes/pathnames";
 
 export const menuLinks = [
@@ -32,4 +33,5 @@ export const studentMenuLinks = [
   { value: "history", title: "Historia", path: STUDENT_HISTORY_QUIZ_PAGE },
   { value: "results", title: "Wyniki", path: STUDENT_RESULTS_QUIZ_PAGE },
   { value: "favorites", title: "Ulubione", path: STUDENT_FAVORITES_QUIZ_PAGE },
+  { value: "misstakes", title: "Niepoprawne odpowiedzi", path: STUDENT_WRONG_QUIZ_PAGE },
 ];

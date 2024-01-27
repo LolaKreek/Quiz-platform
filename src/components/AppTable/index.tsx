@@ -101,6 +101,7 @@ const AppTable = ({ data, headers, actions, type }: appTablePropsType) => {
                             action.action(item.id);
                           }}
                         >
+                          {/* @ts-ignore */}
                           {action.icon || action.dynamicIcon(item)}
                         </TableCell>
                       ))}

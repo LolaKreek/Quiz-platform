@@ -27,15 +27,16 @@ const ProActivity = () => {
       }
 
     useEffect(() => {
-        get(ref(database, "quiz")).then((snapshot) => {
+        get(ref(database, "student")).then((snapshot) => {
             if (snapshot.exists()) {
                 let stats: any = {}
                 let nonformateddata: any = []
-                Object.values(snapshot.val()).map((el: any) => {
-                    if (el.author === user.id) {
-                        stats[el.date] = stats[el.date] ? stats[el.date] + 1 : 1
-                        console.log(el.date)
-                    }
+                Object.values(snapshot.val()).map((student: any) => {
+                    Object.values(student.history).map((el: any) => {
+                        if (el.author === user.id) {
+                            stats[el.date] = stats[el.date] ? stats[el.date] + 1 : 1
+                        }  
+                    })
                 })
                 Object.entries(stats).map(([key, value]) => {
                     nonformateddata = [...nonformateddata, {
@@ -44,13 +45,13 @@ const ProActivity = () => {
                     }]
                 })
                 //@ts-ignore
-                const formateddata = nonformateddata.sort((a: any,b: any) => moment(a.name).format('DD/MM/YYYY') - moment(a.name).format('DD/MM/YYYY'))
+                const formateddata = nonformateddata.sort((a: any, b: any) => moment(a.name).format('DD/MM/YYYY') - moment(a.name).format('DD/MM/YYYY'))
                 let dataBuild: any = []
                 getRange(formateddata[formateddata.length - 1].name).map((el: any) => {
                     dataBuild.push(
                         {
                             name: el.format("DD/MM/YYYY"),
-                            "Created quizes": stats[el.format("DD/MM/YYYY")] ? stats[el.format("DD/MM/YYYY")] : 0,
+                            "Passed quizes": stats[el.format("DD/MM/YYYY")] ? stats[el.format("DD/MM/YYYY")] : 0,
                             amt: 2400
                         }
                     )
@@ -68,7 +69,7 @@ const ProActivity = () => {
   return (
     <Box className="activity__root">
         <Typography variant="h5">{t("dashboardStatistics.activity")}</Typography>
-        <ActivityChart data={data} datakey={"Created quizes"}/>
+        <ActivityChart data={data} datakey={"Passed quizes"}/>
     </Box>
   )
 }
