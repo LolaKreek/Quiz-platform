@@ -4,7 +4,8 @@ import type { RootState } from "../../store";
 import { AuthState, UserType } from "./types";
 import { deleteUserLocalData, setUserLocalData } from "../userLocalStorage";
 import { signOut } from "firebase/auth";
-import { auth } from "../../services/Firebase/firebase";
+import { auth, database } from "../../services/Firebase/firebase";
+import { get, ref, set } from "@firebase/database";
 
 // Define the initial state using that type
 const initialState: AuthState = {
@@ -62,7 +63,6 @@ export const authSlice = createSlice({
     updateUser: (state, action: PayloadAction<{ user: UserType }>) => {
       state.user = action.payload.user;
       get(ref(database, `users/${auth.currentUser?.uid}`)).then((snapshot) => {
-        console.log(action.payload.user)
         set(ref(database, `users/${auth.currentUser?.uid}`), {...snapshot.val(), ...action.payload.user});
       })
     },

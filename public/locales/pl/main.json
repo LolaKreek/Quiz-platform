@@ -22,7 +22,11 @@
       "questions": "Pytania",
       "authorName": "Autor",
       "elapsed": "Czas",
-      "completed": "Zakończone"
+      "completed": "Zakończone",
+      "quiz": "Quiz",
+      "question": "Pytanie",
+      "result": "Wynik",
+      "correct": "Poprawne"
     },
     "users" : {
       "name": "Imie",
@@ -89,5 +93,6 @@
   "favoriteQuiz": "Test został dodany do twoich ulubionych",
   "favoriteQuizHeader": "Akcja Ulubione",
   "removefavoriteQuiz": "Test został usunięty z twoich ulubionych",
-  "start":  "Start"
+  "start":  "Start",
+  "materials": "Materiały"
 }

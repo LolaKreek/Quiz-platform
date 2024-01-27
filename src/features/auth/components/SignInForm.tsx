@@ -16,6 +16,7 @@ import { addNotification } from "../../../store/Slices/notification";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { ref, set } from "firebase/database";
+import { AppSelect } from "../../../components/AppSelect";
 
 const SignInForm = () => {
   const navigate = useNavigate();
@@ -29,9 +30,11 @@ const SignInForm = () => {
   const handleSignUp = ({
     email,
     password,
+    role
   }: {
     email: string;
     password: string;
+    role: string;
   }) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -47,7 +50,7 @@ const SignInForm = () => {
         const userRef = ref(database, `users/${userCredential.user.uid}`);
         set(userRef, {
           phone: "",
-          role: "student",
+          role: role.toLowerCase(),
           name: userCredential.user.displayName,
           email: userCredential.user.email,
           emailVerified: userCredential.user.emailVerified,
@@ -65,13 +68,13 @@ const SignInForm = () => {
 
   return (
     <Formik
-      initialValues={{ email: "", password: "" }}
+      initialValues={{ email: "", password: "", role: "Student" }}
       validationSchema={registerSchema}
       onSubmit={handleSignUp}
       validateOnChange={submitted}
       validateOnBlur={false}
     >
-      {({ errors, values, handleChange, handleSubmit }) => (
+      {({ errors, values, setValues, handleChange, handleSubmit }) => (
         <Box className="login__main-wrapper">
           <Box className="login__container">
             <Box>
@@ -122,7 +125,20 @@ const SignInForm = () => {
                 ),
               }}
             />
-
+            <Typography className="input-label small-text">
+              {t("role")}
+            </Typography>
+            <AppSelect 
+              id="role" 
+              value={values.role} 
+              options={["Student", "Professor"]} 
+              onChange={(e) => setValues(
+                { ...values, role: Array.isArray(e.target.value) 
+                    ? e.target.value[0] 
+                    : e.target.value 
+                })} 
+              className="input" 
+              variant="outlined"/>
             <AppButton
               onClick={() => {
                 if (!submitted) setSubmitted(true);

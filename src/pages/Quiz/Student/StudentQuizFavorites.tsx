@@ -32,7 +32,6 @@ const StudentQuizFavorites = () => {
     const dbRef = ref(database);
     get(child(dbRef, `users/${user.id}/favorites/quizes`)).then((snapshot) => {
       if (snapshot.exists()) {
-        console.log(snapshot.val())
         let dataSnapshot: any = [];
         snapshot.val()
           .reverse()

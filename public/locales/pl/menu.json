@@ -1,27 +1,27 @@
 {
-    "menuLinks": {
-        "dashboard": "Panel",
-        "quiz": "Kartkówka",
-        "instruction": "Materiały",
-        "professors": "Profesorzy",
-        "students": "Użytkownicy",
-        "profile": "Profil"
-    },
-    "quiz": "<span>Q</span>uiz",
-    "menuSettings": {
-        "login": "Zaloguj się",
-        "logout": "Wyloguj się"
-    },
-    "profile": "Profil",
-    "notificationLogoutHeader": "Akcja wylogowania",
-    "notificationLogoutMessage": "Pomyślnie wylogowałeś się z platformy",
-    "uploadFileBtn": "Przesyłanie pliku",
-    "uploadFileTitle": "Przesyłanie pliku",
-    "uploadFileTitleLabel": "Nazwa pliku",
-    "uploadFileFacultyLabel": "Wydział",
-    "uploadFileSubjectLabel": "Przedmiot",
-    "uploadFileSubmit": "Preślij",
-    "notificationUploadFileHeader": "Akcja przesyłania pliku",
-    "notificationUploadFileMessage": "Plik został dodany pomyślnie",
-    "addNewQuizBtn": "Dodaj Test"
+  "menuLinks": {
+    "dashboard": "Panel",
+    "quiz": "Test",
+    "instruction": "Instrukcja",
+    "professors": "Profesorzy",
+    "students": "Studenty",
+    "profile": "Profil"
+  },
+  "quiz": "<span>Q</span>uiz",
+  "menuSettings": {
+    "login": "Zaloguj się",
+    "logout": "Wyloguj się"
+  },
+  "profile": "Profil",
+  "notificationLogoutHeader": "Akcja wylogowania",
+  "notificationLogoutMessage": "Pomyślnie wylogowałeś się z platformy",
+  "uploadFileBtn": "Przesyłanie pliku",
+  "uploadFileTitle": "Przesyłanie pliku",
+  "uploadFileTitleLabel": "Nazwa pliku",
+  "uploadFileFacultyLabel": "Wydział",
+  "uploadFileSubjectLabel": "Przedmiot",
+  "uploadFileSubmit": "Preślij",
+  "notificationUploadFileHeader": "Akcja przesyłania pliku",
+  "notificationUploadFileMessage": "Plik został dodany pomyślnie",
+  "addNewQuizBtn": "Dodaj Test"
 }

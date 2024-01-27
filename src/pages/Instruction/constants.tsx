@@ -7,19 +7,19 @@ import {
 import { useTranslation } from "react-i18next";
 
 export const menuLinks = [
-  { value: "custom", title: "My documents", path: PROFESSOR_INSTRUCTION_PAGE },
-  { value: "all", title: "The remaining", path: PROFESSOR_ALL_INSTRUCTION_PAGE },
+  { value: "custom", title: "Moje dokumenty", path: PROFESSOR_INSTRUCTION_PAGE },
+  { value: "all", title: "Pozostałe", path: PROFESSOR_ALL_INSTRUCTION_PAGE },
 ];
 
 export const studInstructionMenuLinks = [
-  { value: "all", title: "All", path: STUDENT_ALL_INSTRUCTION_PAGE },
+  { value: "all", title: "Wszystkie", path: STUDENT_ALL_INSTRUCTION_PAGE },
 ];
 
 const instructionHeadersPlaceholder = [
   { value: "title", title: "Title" },
-  { value: "faculty", title: "All" },
-  { value: "subject", title: "All" },
-  { value: "date", title: "All" },
+  { value: "faculty", title: "Wszystkie" },
+  { value: "subject", title: "Wszystkie" },
+  { value: "date", title: "Wszystkie" },
   { value: "empty", title: "" },
 ];
 
@@ -84,6 +84,13 @@ const studQuizHistoryHeadersPlaceholder = [
   { value: "date", title: "Date" },
   { value: "elapsed", title: "Elapsed" },
   { value: "completed", title: "Completed" },
+];
+
+const studQuizWrongAnswersHeadersPlaceholder = [
+  { value: "question", title: "Questions" },
+  { value: "quiz", title: "Quiz" },
+  { value: "result", title: "Result" },
+  { value: "correct", title: "Correct answers" },
 ];
 
 const studQuizFavoritesHeadersPlaceholder = [
@@ -163,6 +170,13 @@ export const useTableData = () => {
     }));
   }, [t]);
 
+  const studQuizWrongAnswersHeaders = useMemo(() => {
+    return studQuizWrongAnswersHeadersPlaceholder.map((i) => ({
+      ...i,
+      title: t(`menuItems.quiz.${i.value}`),
+    }));
+  }, [t]);
+
   const studQuizFavoritesHeaders = useMemo(() => {
     return studQuizFavoritesHeadersPlaceholder.map((i) => ({
       ...i,
@@ -187,6 +201,7 @@ export const useTableData = () => {
     studQuizAllHeaders,
     studQuizHistoryHeaders,
     studQuizResultsHeaders,
-    studQuizFavoritesHeaders
+    studQuizFavoritesHeaders,
+    studQuizWrongAnswersHeaders
   };
 };

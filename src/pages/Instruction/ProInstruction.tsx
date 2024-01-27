@@ -52,7 +52,7 @@ const ProInstructionPage = () => {
 
     const actions: action[] = [
         {
-            title: "Delete",
+            title: "Usuń",
             action: handleDelete,
             icon: <DeleteIcon/>
         },
