@@ -36,7 +36,7 @@ const StudentAllInstruction = () => {
 
   const actions: action[] = [
     {
-      title: "Download",
+      title: "Pobierz",
       action: handleDownload,
       icon: <DownloadIcon />,
     },

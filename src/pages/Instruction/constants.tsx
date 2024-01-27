@@ -7,19 +7,19 @@ import {
 import { useTranslation } from "react-i18next";
 
 export const menuLinks = [
-  { value: "custom", title: "My documents", path: PROFESSOR_INSTRUCTION_PAGE },
-  { value: "all", title: "The remaining", path: PROFESSOR_ALL_INSTRUCTION_PAGE },
+  { value: "custom", title: "Moje dokumenty", path: PROFESSOR_INSTRUCTION_PAGE },
+  { value: "all", title: "Pozostałe", path: PROFESSOR_ALL_INSTRUCTION_PAGE },
 ];
 
 export const studInstructionMenuLinks = [
-  { value: "all", title: "All", path: STUDENT_ALL_INSTRUCTION_PAGE },
+  { value: "all", title: "Wszystkie", path: STUDENT_ALL_INSTRUCTION_PAGE },
 ];
 
 const instructionHeadersPlaceholder = [
   { value: "title", title: "Title" },
-  { value: "faculty", title: "All" },
-  { value: "subject", title: "All" },
-  { value: "date", title: "All" },
+  { value: "faculty", title: "Wszystkie" },
+  { value: "subject", title: "Wszystkie" },
+  { value: "date", title: "Wszystkie" },
   { value: "empty", title: "" },
 ];
 

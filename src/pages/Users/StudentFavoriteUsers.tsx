@@ -71,14 +71,14 @@ const StudentFavoriteUsers = () => {
 
   const actions: action[] = [
     {
-      title: "Quizes",
+      title: "Testy",
       action: (item: any) => {
         navigate(`/professors/quizes/${item}`);
       },
       icon: <QuizIcon />,
     },
     {
-      title: "Favorite",
+      title: "Ulubione",
       action: (item: any) => {
         favorites.users.includes(item)
           ? dispatch(removeFavorite({ value: item, type: "users" }))
