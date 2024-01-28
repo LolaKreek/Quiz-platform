@@ -31,9 +31,9 @@ const ProQuizPage = () => {
     }
 
     const actions: action[] = [
-        {action: (item: any)=>{handleEdit(item.id)}, icon: <EditIcon />, title: "Edit"},
+        {action: (item: any)=>{handleEdit(item.id)}, icon: <EditIcon />, title: "Edytuj"},
         {action: (item: any)=>{navigate(`${item.id}`)}, icon: <InfoIcon />, title: "Info"},
-        {action: (item: any)=>{handleDelete(item.id)}, icon: <DeleteIcon />, title: "Delete"},
+        {action: (item: any)=>{handleDelete(item.id)}, icon: <DeleteIcon />, title: "Usuń"},
     ]
 
     const { proQuizHeaders } = useTableData()

@@ -39,7 +39,7 @@ const StudentAllInstruction = () => {
 
   const actions: action[] = [
     {
-      title: "Download",
+      title: "Pobierz",
       action: (item: any) => {handleDownload(item.id)},
       icon: <DownloadIcon />,
     },
