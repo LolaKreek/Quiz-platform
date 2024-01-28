@@ -23,6 +23,7 @@ import {
   STUDENT_PROFESSOR_QUIZES_PAGE,
   STUDENT_WRONG_QUIZ_PAGE,
   STUDENT_ALL_SEARCH_INSTRUCTION_PAGE,
+  PROFESSOR_INFO_QUIZ_PAGE,
 } from "./pathnames";
 import StudentQuizHistory from "../pages/Quiz/Student/StudentQuizHistory";
 import StudentQuizResults from "../pages/Quiz/Student/StudentQuizResults";
@@ -34,6 +35,7 @@ import StudentFavoriteUsers from "../pages/Users/StudentFavoriteUsers";
 import ProFavoriteUsers from "../pages/Users/ProFavoriteUsers";
 import StudentProfessorQuiz from "../pages/Quiz/Student/StudentProfessorQuiz";
 import StudentQuizWrongAnswers from "../pages/Quiz/Student/StudentQuizWrongAnswers";
+import ProQuizInfo from "../pages/Quiz/Professor/ProQuizInfo";
 
 const Dashboard = loadable(
   () => import("../features/auth/components/LoginForm")
@@ -72,6 +74,7 @@ export const appRoutes = [
 
   { path: PROFESSOR_QUIZ_PAGE, Component: ProQuiz, role: "professor" },
   { path: PROFESSOR_ALL_QUIZ_PAGE, Component: ProAllQuiz, role: "professor" },
+  { path: PROFESSOR_INFO_QUIZ_PAGE, Component: ProQuizInfo, role: "professor" },
   { path: PROFESSOR_ADD_QUIZ_PAGE, Component: ProQuizAdd, role: "professor" },
   { path: PROFESSOR_EDIT_QUIZ_PAGE, Component: ProQuizEdit, role: "professor" },
 

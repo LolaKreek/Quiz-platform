@@ -8,6 +8,7 @@ export const REGISTER_PAGE = "/register";
 export const PROFESSOR_QUIZ_PAGE = "/pro/quiz";
 export const PROFESSOR_ADD_QUIZ_PAGE = "/pro/quiz/add";
 export const PROFESSOR_ALL_QUIZ_PAGE = "/pro/quiz/all";
+export const PROFESSOR_INFO_QUIZ_PAGE = "/pro/quiz/:id";
 export const PROFESSOR_EDIT_QUIZ_PAGE = "/pro/quiz/edit/:id";
 
 export const PROFESSOR_INSTRUCTION_PAGE = "/pro/instruction";

@@ -94,5 +94,9 @@
   "removefavoriteQuiz": "Quiz has been removed from your favorite quiz list",
   "reportAnIssue": "Report an issue",
   "start":  "Start",
-  "materials": "Materials"
+  "materials": "Materials",
+  "email": "Email",
+  "student": "Student",
+  "ranking": "Ranking",
+  "correct": "Correct"
 }
