@@ -65,9 +65,9 @@ const StudentQuizAll = () => {
   const actions: action[] = [
     {
       //@ts-ignore
-      action: (id) => {
+      action: (item) => {
         //@ts-ignore
-        dispatch(addFavorite({value: id, type: "quizes"}))
+        dispatch(addFavorite({value: item.id, type: "quizes"}))
         toast.custom(
           (element) => (
             <Notification
@@ -85,9 +85,9 @@ const StudentQuizAll = () => {
     },
     {
       //@ts-ignore
-      action: (id) => {
+      action: (item) => {
         //@ts-ignore
-        setSelectedQuiz(quizes?.[id]);
+        setSelectedQuiz(quizes?.[item.id]);
         setQuizPassing(true);
         setIssueDialogOpen(false);
       },
@@ -96,9 +96,9 @@ const StudentQuizAll = () => {
     },
     {
       //@ts-ignore
-      action: (id) => {
+      action: (item) => {
         //@ts-ignore
-        const selectedQuiz = quizes?.[id];
+        const selectedQuiz = quizes?.[item.id];
         setSelectedQuiz(selectedQuiz ?? null);
         setIssueDialogOpen(true);
       },

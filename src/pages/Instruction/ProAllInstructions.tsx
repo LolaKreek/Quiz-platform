@@ -38,8 +38,8 @@ const ProAllInstruction = () => {
 
     const actions: action[] = [
         {
-            title: "Pobierz",
-            action: handleDownload,
+            title: "Download",
+            action: (item: any) => {handleDownload(item.id)},
             icon: <DownloadIcon/>
         }
     ]

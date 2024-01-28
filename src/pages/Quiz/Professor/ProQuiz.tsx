@@ -11,6 +11,7 @@ import { useTableData } from "../../Instruction/constants";
 import { useTranslation } from "react-i18next";
 import Notification from "../../../components/Notification";
 import toast from "react-hot-toast";
+import InfoIcon from '@mui/icons-material/Info';
 import { useNavigate } from "react-router-dom";
 
 const ProQuizPage = () => {
@@ -30,8 +31,9 @@ const ProQuizPage = () => {
     }
 
     const actions: action[] = [
-        {action: handleEdit, icon: <EditIcon />, title: "Edytuj"},
-        {action: handleDelete, icon: <DeleteIcon />, title: "Usuń"},
+        {action: (item: any)=>{handleEdit(item.id)}, icon: <EditIcon />, title: "Edit"},
+        {action: (item: any)=>{navigate(`${item.id}`)}, icon: <InfoIcon />, title: "Info"},
+        {action: (item: any)=>{handleDelete(item.id)}, icon: <DeleteIcon />, title: "Delete"},
     ]
 
     const { proQuizHeaders } = useTableData()

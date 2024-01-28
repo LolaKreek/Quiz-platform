@@ -71,9 +71,9 @@ const StudentQuizFavorites = () => {
         actions={[
             {
                 //@ts-ignore
-                action: (id) => {
+                action: (item) => {
                   //@ts-ignore
-                  setSelectedQuiz(quizes?.[id]);
+                  setSelectedQuiz(quizes?.[item.id]);
                   setQuizPassing(true);
                 },
                 icon: <PlayArrowIcon />,
@@ -81,9 +81,9 @@ const StudentQuizFavorites = () => {
               },
             {
                 //@ts-ignore
-                action: (id) => {
+                action: (item) => {
                   //@ts-ignore
-                  dispatch(removeFavorite({value: id, type: "quizes"}))
+                  dispatch(removeFavorite({value: item.id, type: "quizes"}))
                   getFavorites()
                   toast.custom(
                     (element) => (
