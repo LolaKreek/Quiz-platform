@@ -18,14 +18,14 @@ For Professors
 - Track student progress and engagement.
 
 # Getting Started
-# Student Signup
+
+Student Signup
 
 To register as a student, please utilize the following information:
 login: bonstik5@mail.ru
 password: Qwertyuiop1!
 
-
-# Professor Access
+Professor Access
 
 To access professor features, please use the following information:
 login: bonstik_5@mail.ru
@@ -38,7 +38,7 @@ password: Qwertyuiop1!
     Vite - https://vitejs.dev
     Google firebase - https://firebase.google.com
 
-# Getting Started
+# Project link
 Project link: 
 https://quiz-place.netlify.app/
 
