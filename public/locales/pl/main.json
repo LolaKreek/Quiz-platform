@@ -98,5 +98,7 @@
   "email": "Email",
   "student": "Student",
   "ranking": "Ranking",
-  "correct": "Poprawne"
+  "correct": "Poprawne",
+  "loginLink": "Aby zobaczyć więcej statystyk proszę się zalogować",
+  "loginLinkHere": "tutaj"
 }

@@ -15,10 +15,12 @@ import StudActivity from "../../features/dashboard/Student/Activity";
 import ProActivity from "../../features/dashboard/Professor/Activity";
 import { useNavigate } from "react-router-dom";
 import { QuizIcon } from "../../assets/icons";
+import { useTranslation } from "react-i18next";
 
 const DashboardPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { t } = useTranslation('main')
 
   const user = useSelector((state: RootState) => state.auth.user);
 
@@ -79,8 +81,8 @@ const DashboardPage = () => {
           
           <Box className="login__dashboard-link">
             <Typography className="login__dashboard-header">
-              To see more statistics, please, log in 
-              <a className="login__dashboard-a" onClick={() => navigate('/login')}>here</a>
+              {t('loginLink')}
+              <a className="login__dashboard-a" onClick={() => navigate('/login')}>{t('loginLinkHere')}</a>
             </Typography>
           </Box>
 
