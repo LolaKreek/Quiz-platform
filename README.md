@@ -19,7 +19,7 @@ For Professors
 
 # Getting Started
 
-To get acquainted with the functionality of the platform, register here: [https://quiz-place.netlify.app/register](https://quiz-place.netlify.app/register) by choosing the desired role!
+To get acquainted with the functionality of the platform, register by choosing the desired role!
 
 # Project is using:
     React - https://pl.reactjs.org/
