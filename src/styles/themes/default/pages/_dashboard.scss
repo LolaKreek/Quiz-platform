@@ -14,3 +14,35 @@
     gap: 16px;
   }
 }
+
+.login__dashboard-link{
+  border: 1px solid #646cff;
+  border-radius: 8px;
+  color: #646cff;
+  margin-top: 3%;
+  padding: 1% 0;
+}
+
+.login__dashboard-header{
+  text-align: center;
+}
+
+.login__dashboard-a{
+  cursor: pointer;
+  margin-left: 1%;
+}
+
+.login__dashboard-main-icon{
+  margin-top: 3%;
+  min-height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.dashboard__icon{
+  color: rgba(136, 137, 255, 0.3);
+  width: 200px!important;
+  height: 200px!important;
+}
