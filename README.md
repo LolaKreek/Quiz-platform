@@ -19,15 +19,7 @@ For Professors
 
 # Getting Started
 
-Student Signup
-To register as a student, please utilize the following information:
-    login: bonstik5@mail.ru
-    password: Qwertyuiop1!
-
-Professor Access
-To access professor features, please use the following information:
-    login: bonstik_5@mail.ru
-    password: Qwertyuiop1!
+To get acquainted with the functionality of the platform, register here: https://quiz-place.netlify.app/register by choosing the desired role!
 
 # Project is using:
     React - https://pl.reactjs.org/
