@@ -20,13 +20,11 @@ For Professors
 # Getting Started
 
 Student Signup
-
 To register as a student, please utilize the following information:
 login: bonstik5@mail.ru
 password: Qwertyuiop1!
 
 Professor Access
-
 To access professor features, please use the following information:
 login: bonstik_5@mail.ru
 password: Qwertyuiop1!
