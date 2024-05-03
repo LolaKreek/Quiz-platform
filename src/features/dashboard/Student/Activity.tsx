@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import ActivityChart from "../ActivityChart"
-import { Database, get, ref } from "firebase/database"
+import { get, ref } from "firebase/database"
 import { useSelector } from "react-redux";
 import { database } from "../../../services/Firebase/firebase";
 import moment from "moment";

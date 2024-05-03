@@ -10,7 +10,6 @@ import Notification from "../../components/Notification";
 import { Box } from "@mui/material";
 import TopUsers from "../../features/dashboard/TopUsers";
 import ProStatistics from "../../features/dashboard/Professor/Statistics";
-import { QuizIcon } from "../../assets/icons";
 import StudStatistics from "../../features/dashboard/Student/Statistics";
 import StudActivity from "../../features/dashboard/Student/Activity";
 import ProActivity from "../../features/dashboard/Professor/Activity";

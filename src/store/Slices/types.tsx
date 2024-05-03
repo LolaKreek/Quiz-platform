@@ -5,6 +5,7 @@ export type UserType = {
   email: string | null;
   emailVerified: boolean;
   isAnonymous: boolean;
+  // @ts-ignore
   phone: string | null;
   photoURL: string | null;
   role: string;

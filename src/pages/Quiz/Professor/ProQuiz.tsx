@@ -49,7 +49,7 @@ const ProQuizPage = () => {
                 dataSnapshot = dataSnapshot.filter((el: any) => {
                     return el.author === auth.currentUser?.uid
                 })
-                dataSnapshot.map((el: any, index)=> {
+                dataSnapshot.map((el: any)=> {
                     el.questions = el.questions.length
                 })
             //   @ts-ignore

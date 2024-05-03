@@ -5,7 +5,7 @@ import { studentMenuLinks } from "../constants";
 import { useEffect, useState } from "react";
 import { child, get, ref } from "firebase/database";
 import { useTableData } from "../../Instruction/constants";
-import { auth, database } from "../../../services/Firebase/firebase";
+import { database } from "../../../services/Firebase/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import StudentQuizPassingModal from "./PassingModal/StudentQuizPassingModal";

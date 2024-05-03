@@ -1,4 +1,4 @@
-import { Box, Checkbox, CircularProgress, Divider, Radio, Typography } from "@mui/material";
+import { Box, Radio, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { question } from "../../../services/quiz/tyles";
 import { AppButton } from "../../../components/AppButton";

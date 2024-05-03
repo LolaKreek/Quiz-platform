@@ -1,6 +1,6 @@
 import { Box, ClickAwayListener, Grow, Paper, Popper, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import React, { useState } from 'react';
+import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import SunIcon from "../../assets/icons/sun.png";
 import MoonIcon from "../../assets/icons/moon.png";

@@ -1,24 +1,11 @@
-import { Box, Checkbox, Icon, IconButton, styled } from "@mui/material";
+import { Box, Checkbox } from "@mui/material";
 import { AppInput } from "../../../AppInput";
-import AttachFileIcon from "@mui/icons-material/AttachFile";
 import AttachButton from "../../../Attach";
 
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
 const MultipleAnswer = ({
   set,
   values,
   errors,
-  editing,
 }: {
   set: Function;
   values: {

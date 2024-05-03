@@ -3,14 +3,10 @@ import AppTopMenu from "../../components/AppTopMenu";
 import { Box } from "@mui/material";
 import AppTable, { action } from "../../components/AppTable";
 import EmptyTable from "../../components/EmptyTable";
-import { getMaterialsAllData } from "../../services/uploadFile";
 import { useDispatch, useSelector } from "react-redux";
-import DownloadIcon from "@mui/icons-material/Download";
 import { useTableData } from "../Instruction/constants";
 import QuizIcon from "@mui/icons-material/Quiz";
 import {
-  menuLinks,
-  proUsersmenuLinks,
   studentsUsersmenuLinks,
 } from "../Quiz/constants";
 import { get, ref } from "firebase/database";

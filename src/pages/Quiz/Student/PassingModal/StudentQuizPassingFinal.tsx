@@ -20,7 +20,7 @@ const StudentQuizPassingFinal = ({
   const [answersObj, setAnswers] = useState([]);
   function answers() {
     let answers: any = [];
-    quiz.questions.map((question, index) => {
+    quiz.questions.map((question) => {
       if (question.type === "Single") {
         answers.push({
           title: question.title,

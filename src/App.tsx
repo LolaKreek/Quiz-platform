@@ -22,9 +22,7 @@ import Protected from "./routes/Protected";
 function App() {
   // const userId = useAppSelector(state => state.auth.user.id)
   const dispatch = useDispatch();
-  const userState = useSelector((state: RootState) => {
-    state.auth.user;
-  });
+
   useEffect(() => {
     const listen = auth.onAuthStateChanged(async (currentUser) => {
       if (currentUser) {
@@ -40,6 +38,7 @@ function App() {
             photoURL: currentUser.photoURL,
             role: data.role ? data.role : "none",
           };
+          // @ts-ignore
           dispatch(updateUser({ user: userData }));
         });
       } else {

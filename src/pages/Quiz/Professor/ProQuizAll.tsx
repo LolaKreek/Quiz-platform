@@ -3,17 +3,17 @@ import AppTopMenu from "../../../components/AppTopMenu"
 import { menuLinks } from "../constants";
 import { child, get, ref } from "firebase/database";
 import { auth, database } from "../../../services/Firebase/firebase";
-import AppTable, {action} from "../../../components/AppTable";
+import AppTable from "../../../components/AppTable";
 import { useEffect, useState } from "react";
 import { useTableData } from "../../Instruction/constants";
 import { quizDataType } from "../../../services/quiz/tyles";
-import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import IssueDialog from "../../../components/IssueDialog/IssueDialog";
 
 const ProQuizAll = () => {
     const { proQuizAllHeaders } = useTableData()
 
     const [data, setData] = useState(null)
+    // @ts-ignore
     const [quizes, setQuizes] = useState<{ [id: string]: quizDataType } | null>(
       null
     );
@@ -27,7 +27,7 @@ const ProQuizAll = () => {
                 dataSnapshot = dataSnapshot.filter((el: any) => {
                     return el.author !== auth.currentUser?.uid
                 })
-                dataSnapshot.map((el: any, index)=> {
+                dataSnapshot.map((el: any)=> {
                     el.questions = el.questions.length
                 })
             //   @ts-ignore
@@ -45,21 +45,9 @@ const ProQuizAll = () => {
         getQuizes()
     }, [])
 
+    // @ts-ignore
     const [selectedQuiz, setSelectedQuiz] = useState<quizDataType | null>(null);
     const [isIssueDialogOpen, setIssueDialogOpen] = useState(false);
-
-    const actions: action[] = [
-      {
-        //@ts-ignore
-        action: (item) => {
-          //@ts-ignore
-          setSelectedQuiz(quizes?.[item.id]);
-          setIssueDialogOpen(true);
-        },
-        icon: <ReportGmailerrorredIcon />,
-        title: "Report an issue",
-      },
-    ];
     
     return (
         <>

@@ -1,14 +1,9 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store";
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 import { child, get, ref } from "firebase/database";
 import { database } from "../../../services/Firebase/firebase";
 import { useTranslation } from "react-i18next";
-import { menuLinks } from "../constants";
-import AppTopMenu from "../../../components/AppTopMenu";
 import { Box, Typography } from "@mui/material";
 import AppSearch from "../../../components/AppSearch";
-import { quizDataType } from "../../../services/quiz/tyles";
 import { useParams } from "react-router-dom";
 
 const ProQuizInfo = () => {

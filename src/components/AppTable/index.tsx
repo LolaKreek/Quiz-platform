@@ -27,7 +27,7 @@ export type action = {
   dynamicIcon?: Function;
 };
 
-const AppTable = ({ data, headers, actions, type, overrideSearch }: appTablePropsType) => {
+const AppTable = ({ data, headers, actions, overrideSearch }: appTablePropsType) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(9);
   const [search, setSearch] = useState(overrideSearch ? overrideSearch : "");
@@ -37,7 +37,7 @@ const AppTable = ({ data, headers, actions, type, overrideSearch }: appTableProp
     setFilter(search);
   };
 
-  const handleChangePage = (event: unknown, newPage: number) => {
+  const handleChangePage = (newPage: number) => {
     setPage(newPage);
   };
 
@@ -121,6 +121,7 @@ const AppTable = ({ data, headers, actions, type, overrideSearch }: appTableProp
         count={data.length}
         rowsPerPage={rowsPerPage}
         page={page}
+        // @ts-ignore
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />

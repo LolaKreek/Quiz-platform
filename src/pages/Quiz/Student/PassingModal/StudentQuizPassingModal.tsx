@@ -1,13 +1,10 @@
 import {
   Box,
-  Divider,
   LinearProgress,
   Modal,
   Paper,
-  Typography,
 } from "@mui/material";
 import { quizDataType } from "../../../../services/quiz/tyles";
-import { AppButton } from "../../../../components/AppButton";
 import { useEffect, useRef, useState } from "react";
 import SingleQuestion from "../../AnswerElements/SingleQuestion";
 import MultipleQuestion from "../../AnswerElements/MultipleQuestion";
@@ -33,7 +30,7 @@ const StudentQuizPassingModal = ({
   onClose: any;
 }) => {
   const [timer, setTimer] = useState(null);
-  const [elapsed, setElapsed] = useState<any>(0);
+  const [setElapsed] = useState<any>(0);
   const [currentDate, setCurrentDate] = useState(0);
   const interval = useRef(null);
   const { t } = useTranslation("quiz");
