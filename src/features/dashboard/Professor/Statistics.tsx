@@ -1,9 +1,9 @@
-import { Box, Divider, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 import { get, ref } from "firebase/database"
 import { useEffect, useState } from "react"
 import { database, firestore } from "../../../services/Firebase/firebase"
 import { useSelector } from "react-redux"
-import { collection, doc, getDoc, getDocs } from "firebase/firestore"
+import { collection, getDocs } from "firebase/firestore"
 import { QuizIcon } from "../../../assets/icons"
 import { useTranslation } from "react-i18next"
 

@@ -1,12 +1,10 @@
 import {
   Box,
-  Button,
   Modal,
   Paper,
-  TextField,
   Typography,
 } from "@mui/material";
-import { auth, database } from "../../../services/Firebase/firebase";
+import { auth } from "../../../services/Firebase/firebase";
 import "../../../styles/themes/default/components/modals/_profileModal.scss";
 import toast from "react-hot-toast";
 import Notification from "../../../components/Notification";
@@ -14,7 +12,6 @@ import { Formik } from "formik";
 import CloseIcon from "@mui/icons-material/Close";
 import { ErrorOverLay } from "../../../components/ErrorOverLay";
 import * as Yup from "yup";
-import { ref, set } from "firebase/database";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import { updateUser } from "../../../store/Slices/auth";
@@ -40,7 +37,6 @@ const PhoneModal = ({ open = true, onClose }: any) => {
       validationSchema={validationSchema}
       onSubmit={async (values) => {
         if (auth.currentUser) {
-          const userRef = ref(database, `users/${auth.currentUser.uid}`);
           dispatch(
             updateUser({ user: { ...userState, phone: values.phone } })
           );

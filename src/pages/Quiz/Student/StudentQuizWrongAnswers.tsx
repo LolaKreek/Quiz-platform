@@ -9,11 +9,11 @@ import { useTableData } from "../../Instruction/constants";
 import { database } from "../../../services/Firebase/firebase";
 import { quizDataType } from "../../../services/quiz/tyles";
 import StudentQuizPassingModal from "./PassingModal/StudentQuizPassingModal";
-import IssueDialog from "../../../components/IssueDialog/IssueDialog";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { RootState } from "../../../store";
 import { InstructionIcon } from "../../../assets/icons";
+import { useNavigate } from "react-router-dom";
 
 const StudentQuizWrongAnswers = () => {
   const { t } = useTranslation("main");
@@ -25,6 +25,8 @@ const StudentQuizWrongAnswers = () => {
   const [quizes, setQuizes] = useState(null);
 
   const user = useSelector((state: RootState) => state.auth.user);
+
+  const navigate = useNavigate();
 
   const [quizPassing, setQuizPassing] = useState(false);
   const [selectedQuiz, setSelectedQuiz] = useState<quizDataType | null>(null);
@@ -79,9 +81,9 @@ const StudentQuizWrongAnswers = () => {
   const actions: action[] = [
     {
       //@ts-ignore
-      action: (id) => {
+      action: (item) => {
         //@ts-ignore
-        setSelectedQuiz(quizes?.[id]);
+        setSelectedQuiz(quizes?.[item.id]);
         setQuizPassing(true);
       },
       icon: <PlayArrowIcon />,
@@ -89,9 +91,9 @@ const StudentQuizWrongAnswers = () => {
     },
     {
       //@ts-ignore
-      action: (id) => {
+      action: (item) => {
         //@ts-ignore
-        console.log("Search materials")
+        navigate(`/instruction/${quizes[item.id].subject}`);
       },
       icon: <InstructionIcon />,
       title: t('materials'),

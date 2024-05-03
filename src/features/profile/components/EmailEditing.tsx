@@ -1,9 +1,7 @@
 import {
   Box,
-  Button,
   Modal,
   Paper,
-  TextField,
   Typography,
 } from "@mui/material";
 import "../../../styles/themes/default/components/modals/_profileModal.scss";

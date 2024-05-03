@@ -1,4 +1,4 @@
-import { get, onValue, ref } from "firebase/database"
+import { onValue, ref } from "firebase/database"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { database } from "../../../../../services/Firebase/firebase"

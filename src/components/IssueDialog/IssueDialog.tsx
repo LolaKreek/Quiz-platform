@@ -3,8 +3,7 @@ import {
   Typography,
   Modal,
   Paper,
-  TextareaAutosize,
-  Box
+  TextareaAutosize
 } from "@mui/material";
 import { AppButton } from "../../components/AppButton";
 import CloseIcon from "@mui/icons-material/Close";

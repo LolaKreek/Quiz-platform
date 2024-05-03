@@ -37,6 +37,7 @@ const LoginForm: React.FC = () => {
   }) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        // @ts-ignore
         const user: userType = userCredential.user;
         onValue(ref(database, `users/${user.uid}/`), (snapshot) => {
           const data = snapshot.val();
@@ -50,6 +51,7 @@ const LoginForm: React.FC = () => {
             photoURL: user.photoURL,
             role: data.role,
           };
+          // @ts-ignore
           dispatch(authLogin({ user: userData, token: user.accessToken }));
           dispatch(
             addNotification({

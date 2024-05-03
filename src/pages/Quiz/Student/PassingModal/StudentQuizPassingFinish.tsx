@@ -3,12 +3,10 @@ import { useTranslation } from "react-i18next";
 import { quizDataType } from "../../../../services/quiz/tyles";
 import { useEffect, useState } from "react";
 import { AppButton } from "../../../../components/AppButton";
-import AnswersPage from "./AnswersPage";
 
 const StudentQuizPassingFinish = ({
   quiz,
   finish,
-  timer,
   setTimer,
   setGlobalElapsed,
 }: {

@@ -29,6 +29,7 @@ export const authSlice = createSlice({
   reducers: {
     authLogin: (
       state,
+      // @ts-ignore
       action: PayloadAction<{ user: UserType; token: string }>
     ) => {
       setUserLocalData({
@@ -60,6 +61,7 @@ export const authSlice = createSlice({
       state.user = action.payload.user;
       state.token = action.payload.token;
     },
+    // @ts-ignore
     updateUser: (state, action: PayloadAction<{ user: UserType }>) => {
       state.user = action.payload.user;
       get(ref(database, `users/${auth.currentUser?.uid}`)).then((snapshot) => {

@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../../store";
 import { FavoriteUserType, FavoritesState } from "./types";
 import { ref, set } from "firebase/database";
 import { auth, database } from "../../services/Firebase/firebase";

@@ -3,11 +3,9 @@ import AppTopMenu from "../../components/AppTopMenu";
 import { Box } from "@mui/material";
 import AppTable, { action } from "../../components/AppTable";
 import EmptyTable from "../../components/EmptyTable";
-import { getMaterialsAllData } from "../../services/uploadFile";
 import { useDispatch, useSelector } from "react-redux";
-import DownloadIcon from '@mui/icons-material/Download';
 import { useTableData } from "../Instruction/constants";
-import { menuLinks, proUsersmenuLinks, studentsUsersmenuLinks } from "../Quiz/constants";
+import { proUsersmenuLinks } from "../Quiz/constants";
 import { get, ref } from "firebase/database";
 import { database } from "../../services/Firebase/firebase";
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -54,7 +52,7 @@ const ProFavoriteUsers = () => {
       {
           title: "Ulubione",
           action: (item: any) => {
-              favorites.users.includes(item) ? dispatch(removeFavorite({value: item, type: "users"})) : dispatch(addFavorite({value: item, type: "users"}));
+              favorites.users.includes(item.id) ? dispatch(removeFavorite({value: item.id, type: "users"})) : dispatch(addFavorite({value: item.id, type: "users"}));
           },
           dynamicIcon: (item: any) => {
               return favorites.users.includes(item.id) ? <HeartBrokenIcon/> : <FavoriteIcon/> 

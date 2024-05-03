@@ -1,5 +1,5 @@
 // services/EmailServiceWorker.tsx
-import React, { useState } from 'react';
+import React from 'react';
 
 interface EmailServiceWorkerProps {
   email: string;

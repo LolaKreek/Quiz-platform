@@ -9,7 +9,7 @@ import {
   TablePagination,
   TableRow,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AppSearch from "../AppSearch";
 
 type appTablePropsType = {
@@ -17,6 +17,7 @@ type appTablePropsType = {
   headers: any;
   actions?: action[];
   type: "custom" | "all";
+  overrideSearch?: string
 };
 
 export type action = {
@@ -26,17 +27,17 @@ export type action = {
   dynamicIcon?: Function;
 };
 
-const AppTable = ({ data, headers, actions, type }: appTablePropsType) => {
+const AppTable = ({ data, headers, actions, overrideSearch }: appTablePropsType) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(9);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(overrideSearch ? overrideSearch : "");
   const [filter, setFilter] = useState("");
 
   const searchSubmit = () => {
     setFilter(search);
   };
 
-  const handleChangePage = (event: unknown, newPage: number) => {
+  const handleChangePage = (newPage: number) => {
     setPage(newPage);
   };
 
@@ -46,7 +47,9 @@ const AppTable = ({ data, headers, actions, type }: appTablePropsType) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-
+  useEffect(() => {
+    overrideSearch && setFilter(search);
+  })
   return (
     <>
       <Box className="app-table">
@@ -98,7 +101,7 @@ const AppTable = ({ data, headers, actions, type }: appTablePropsType) => {
                           align="center"
                           className="app-table__icon"
                           onClick={() => {
-                            action.action(item.id);
+                            action.action(item);
                           }}
                         >
                           {/* @ts-ignore */}
@@ -118,6 +121,7 @@ const AppTable = ({ data, headers, actions, type }: appTablePropsType) => {
         count={data.length}
         rowsPerPage={rowsPerPage}
         page={page}
+        // @ts-ignore
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />

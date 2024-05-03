@@ -94,5 +94,9 @@
   "favoriteQuizHeader": "Akcja Ulubione",
   "removefavoriteQuiz": "Test został usunięty z twoich ulubionych",
   "start":  "Start",
-  "materials": "Materiały"
+  "materials": "Materiały",
+  "email": "Email",
+  "student": "Student",
+  "ranking": "Ranking",
+  "correct": "Poprawne"
 }

@@ -1,7 +1,4 @@
-import { Box } from "@mui/material";
 import AppTable, { action } from "../../../components/AppTable";
-import AppTopMenu from "../../../components/AppTopMenu";
-import { studentMenuLinks } from "../constants";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { useEffect, useState } from "react";
 import { child, get, ref } from "firebase/database";
@@ -67,9 +64,9 @@ const StudentProfessorQuiz = () => {
   const actions: action[] = [
     {
       //@ts-ignore
-      action: (id) => {
+      action: (item) => {
         //@ts-ignore
-        dispatch(addFavorite({ value: id, type: "quizes" }));
+        dispatch(addFavorite({ value: item.id, type: "quizes" }));
         toast.custom(
           (element) => (
             <Notification
@@ -88,9 +85,9 @@ const StudentProfessorQuiz = () => {
 
     {
       //@ts-ignore
-      action: (id) => {
+      action: (item) => {
         //@ts-ignore
-        const selectedQuiz = quizes?.[id];
+        const selectedQuiz = quizes?.[item.id];
         setSelectedQuiz(selectedQuiz ?? null);
         setIssueDialogOpen(true);
       },
@@ -99,9 +96,9 @@ const StudentProfessorQuiz = () => {
     },
     {
       //@ts-ignore
-      action: (id) => {
+      action: (item) => {
         //@ts-ignore
-        setSelectedQuiz(quizes?.[id]);
+        setSelectedQuiz(quizes?.[item.id]);
         setQuizPassing(true);
         setIssueDialogOpen(false);
       },

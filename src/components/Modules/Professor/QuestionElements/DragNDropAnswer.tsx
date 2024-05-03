@@ -1,37 +1,20 @@
 import {
   Box,
-  IconButton,
   List,
   ListItem,
   ListItemIcon,
   ListItemSecondaryAction,
-  styled,
 } from "@mui/material";
-import { useEffect } from "react";
 import DragHandleIcon from "@mui/icons-material/DragHandle";
 import { Container, Draggable } from "@edorivai/react-smooth-dnd";
 import { arrayMoveImmutable } from "array-move";
 import { AppInput } from "../../../AppInput";
-import AttachFileIcon from "@mui/icons-material/AttachFile";
 import AttachButton from "../../../Attach";
-
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
 
 const DragNDropAnswer = ({
   set,
   values,
   errors,
-  editing,
 }: {
   set: Function;
   values: { [key: string]: { text: string; picture?: { [key: string]: any } } };
