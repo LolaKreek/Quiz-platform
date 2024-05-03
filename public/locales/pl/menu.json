@@ -1,8 +1,8 @@
 {
   "menuLinks": {
     "dashboard": "Panel",
-    "quiz": "Test",
-    "instruction": "Instrukcja",
+    "quiz": "Testy",
+    "instruction": "Materiały",
     "professors": "Profesorzy",
     "students": "Studenty",
     "profile": "Profil"

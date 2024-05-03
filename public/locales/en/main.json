@@ -42,7 +42,7 @@
       "faculty": "Faculty",
       "subject": "Subject",
       "date": "Date",
-      "download": "Download",
+      "download": "Pobierz",
       "authorName": "Author",
       "empty": ""
     },
@@ -86,8 +86,8 @@
     "all": "All"
   },
   "proInstructionMenuLinks": {
-    "all": "My documents",
-    "theRemaining": "The remaining"
+    "all": "Moje dokumenty",
+    "theRemaining": "Pozostałe"
   },
   "favoriteQuiz": "Quiz has been added to your favorite quiz list",
   "favoriteQuizHeader": "Favorite action",
