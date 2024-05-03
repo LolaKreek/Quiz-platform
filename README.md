@@ -1,27 +1,73 @@
-# React + TypeScript + Vite
+# Learning Management System (LMS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was initiated as part of a thesis defense at the Faculty of Computer Science, aimed at achieving an engineering degree.
 
-Currently, two official plugins are available:
+# Purpose
+The application serves the dual purpose of streamlining the learning process for students and enhancing collaboration between professors and students. By engaging with tests and study materials, students accumulate points that elevate their ranking within the student community. This gamified approach fosters student motivation and cultivates healthy competition among peers.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Features
+For Students
+- Access to tests and study materials to facilitate learning.
+- Earn points through test performance and study progress.
+- Enhance competitiveness and motivation through ranking system.
 
-## Expanding the ESLint configuration
+For Professors
+- Create tests for subjects taught.
+- Upload relevant study materials.
+- Monitor test popularity and quality.
+- Track student progress and engagement.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Getting Started
+# Student Signup
 
-- Configure the top-level `parserOptions` property like this:
+To register as a student, please utilize the following information:
+login: bonstik5@mail.ru
+password: Qwertyuiop1!
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Professor Access
+
+To access professor features, please use the following information:
+login: bonstik_5@mail.ru
+password: Qwertyuiop1!
+
+# Project is using:
+    React - https://pl.reactjs.org/
+    Type Script - https://www.typescriptlang.org/
+    Scss - https://sass-lang.com
+    Vite - https://vitejs.dev
+    Google firebase - https://firebase.google.com
+
+# Getting Started
+Project link: 
+https://quiz-place.netlify.app/
+
+## Installation process
+- Install any IDE of your choice
+- Clone repository 
+- Install node modules by npm install
+- Start project npm run dev
+- Now the project is running press 'o' to open browser with app
+- Press 'q' to close app
+
+## Build and Test
+Clone the repository and use npm install command to download and install all required node modules
+After instalation is completed type 
+- npm run build for build
+- npm run dev to start project
+
+## File structure
+1. assets => 
+   All images, styles, icons or fonts and others that are not related to the code go here
+2. components => 
+   Directories for sets of components, e.g. under the `Menu` directory, will have the implementation of the interface and functionality for the page menu
+3. data => 
+   This folder contains a .pdf file with a resume, which can be downloaded from the website
+4. features =>
+   This folder contains form validation schemes for the FormikDocs library
+4. pages => 
+   I store all pages here. Each page is a combination of all elements/components into a whole that is to be displayed to the user
+5. styles => 
+   This folder contains all the necessary .scss styles for the entire project, as well as imported fonts, global styles, variables needed for styles and a normalize.scss file
+6. translation => 
+   This is where .json files are stored for different languages (pl, en)
